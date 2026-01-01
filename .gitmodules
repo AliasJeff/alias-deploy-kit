@@ -1,0 +1,6 @@
+[submodule "third_party/sparsegpt"]
+	path = third_party/sparsegpt
+	url = https://github.com/IST-DASLab/sparsegpt.git
+[submodule "third_party/MNN"]
+	path = third_party/MNN
+	url = git@github.com:AliasJeff/MNN.git
