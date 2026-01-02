@@ -1,5 +1,7 @@
 # alias-deploy-kit
 
+[TOC]
+
 ## Environment
 
 gcc, cmake
@@ -50,7 +52,7 @@ echo "请讲解一下 kvcache </no_think>" > prompt.txt
 
 ### 4. Result
 
-<img src="/Users/alias/projects/alias-deploy-kit/README.assets/basic-desktop-result.png" alt="basic-desktop-result" style="zoom:33%;" />
+<img src="./README.assets/basic-desktop-result.png" alt="basic-desktop-result" style="zoom:33%;" />
 
 ## Basic process (Android)
 
