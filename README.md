@@ -179,16 +179,16 @@ options:
                                 - A string, the *model id* of a pretrained model like `THUDM/chatglm-6b`. [TODO]
                                 - A path to a *directory* clone from repo like `../chatglm-6b`.
   --type TYPE           type(`str`, *optional*):
-                                The pretrain llm model type.
+                                The pretrained llm model type.
   --tokenizer_path TOKENIZER_PATH
-                        tokenizer path, defaut is `None` mean using `--path` value.
+                        tokenizer path, default is `None` mean using `--path` value.
   --eagle_path EAGLE_PATH
-                        eagle model path, defaut is `None`
+                        eagle model path, default is `None`
   --lora_path LORA_PATH
-                        lora path, defaut is `None` mean not apply lora.
+                        lora path, default is `None` mean not apply lora.
   --gptq_path GPTQ_PATH
-                        gptq path, defaut is `None` mean not apply gptq.
-  --dst_path DST_PATH   export onnx/mnn model to path, defaut is `./model`.
+                        gptq path, default is `None` mean not apply gptq.
+  --dst_path DST_PATH   export onnx/mnn model to path, default is `./model`.
   --verbose             Whether or not to print verbose.
   --test TEST           test model inference with query `TEST`.
   --export EXPORT       export model to an onnx/mnn model.
@@ -196,9 +196,9 @@ options:
   --quant_bit QUANT_BIT
                         mnn quant bit, 4 or 8, default is 4.
   --quant_block QUANT_BLOCK
-                        mnn quant block, 0 mean channle-wise, default is 64.
+                        mnn quant block, 0 mean channel-wise, default is 64.
   --visual_quant_bit VISUAL_QUANT_BIT
-                        mnn viusal quant bit, 4 or 8, default is setting in utils/vision.py by different vit model.
+                        mnn visual quant bit, 4 or 8, default is setting in utils/vision.py by different vit model.
   --visual_quant_block VISUAL_QUANT_BLOCK
                         mnn quant block, default is setting in utils/vision.py by different vit model.
   --lm_quant_bit LM_QUANT_BIT
@@ -216,7 +216,7 @@ options:
   --seperate_embed      For lm and embed shared model, whether or not to sepearte embed to avoid quant, default is False, if True, embed weight will be seperate to embeddingbf16.bin.
   --lora_split          Whether or not export lora split, default is False.
   --calib_data CALIB_DATA
-                        calibration data path, defaut is `None` mean not use calib data.
+                        calibration data path, default is `None` mean not use calib data.
   --act_bit ACT_BIT     smooth quant act bit, 8 or 16, default is 16.
   --embed_bit {16,8,4}  embedding export bit precision, choices are 16 (bf16), 8 (int8), 4 (int4), default is 16.
   --act_sym             smooth quant act us sym or not, default asym.
@@ -359,3 +359,13 @@ Android Devices (Snapdragon 8 Gen 2/3, Dimensity 9300, etc.)
 ```
 
 Note: In OpenCL mode, thread_num is recommended to be high (e.g., 64) to hide GPU latency.
+
+**Test Result:**
+
+<img src="./README.assets/image-20260106233244227.png" alt="image-20260106233244227" style="zoom:33%;" />
+
+<img src="./README.assets/image-20260106233141324.png" alt="image-20260106233141324" style="zoom:33%;" />
+
+<img src="./README.assets/image-20260106233159379.png" alt="image-20260106233159379" style="zoom:33%;" />
+
+<img src="./README.assets/image-20260106233215805.png" alt="image-20260106233215805" style="zoom:33%;" />
