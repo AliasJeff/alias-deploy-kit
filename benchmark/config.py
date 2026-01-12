@@ -20,7 +20,7 @@ class Config:
     TORCH_DTYPE = torch.float16
     LOAD_IN_4BIT = True
 
-    BATCH_SIZE = 80
+    BATCH_SIZE = 220
     MAX_NEW_TOKENS = 64
     TEMPERATURE = 0.7
     TOP_P = 0.9
