@@ -95,6 +95,11 @@ class BenchmarkRunner:
             self.tokenizer = AutoTokenizer.from_pretrained(
                 self.cfg.MODEL_PATH, trust_remote_code=True)
 
+            self.tokenizer.padding_side = 'left'
+            if self.tokenizer.pad_token is None:
+                self.tokenizer.pad_token = self.tokenizer.eos_token
+                self.logger.info("🔧 Tokenizer 缺少 pad_token，已自动设置为 eos_token")
+
             # 注意: 使用 load_in_4bit 时，建议 device_map="auto" 或者由 accelerate 自动处理
             self.model = AutoModelForCausalLM.from_pretrained(
                 self.cfg.MODEL_PATH,
@@ -148,29 +153,39 @@ class BenchmarkRunner:
         total_output_tokens = 0
         latencies = []
 
-        for idx, item in enumerate(data):
-            prompt = item['prompt']
+        batch_size = self.cfg.BATCH_SIZE
+
+        for i in range(0, len(data), batch_size):
+            # 获取当前批次的数据 (切片)
+            batch_items = data[i:i + batch_size]
+            batch_prompts = [item['prompt'] for item in batch_items]
 
             try:
-                # 1. 编码
-                formatted_prompt = self.tokenizer.apply_chat_template(
-                    [{
-                        "role": "user",
-                        "content": prompt
-                    }],
-                    tokenize=False,
-                    add_generation_prompt=True,
-                )
+                # 1. 批量编码
+                # 注意：apply_chat_template 默认处理单条，我们需要手动对列表中的每条应用 template
+                formatted_prompts = []
+                for p in batch_prompts:
+                    formatted = self.tokenizer.apply_chat_template(
+                        [{
+                            "role": "user",
+                            "content": p
+                        }],
+                        tokenize=False,
+                        add_generation_prompt=True)
+                    formatted_prompts.append(formatted)
 
-                # 注意：确保输入也在正确的设备上
+                # 使用 padding=True 确保 tensor 维度对齐
                 inputs = self.tokenizer(
-                    [formatted_prompt],
+                    formatted_prompts,
                     return_tensors="pt",
-                ).to(self.model.device)  # 使用 model.device 更安全
+                    padding=True,
+                    truncation=True,  # 建议加上防止显存爆
+                    max_length=2048  # 根据需要调整
+                ).to(self.model.device)
 
                 input_token_len = inputs.input_ids.shape[1]
 
-                # 2. 推理
+                # 2. 批量推理
                 if self.cfg.DEVICE == "cuda":
                     torch.cuda.reset_peak_memory_stats()
 
@@ -182,44 +197,71 @@ class BenchmarkRunner:
                         temperature=self.cfg.TEMPERATURE,
                         top_p=self.cfg.TOP_P,
                         do_sample=True,
-                        pad_token_id=self.tokenizer.eos_token_id,
+                        pad_token_id=self.tokenizer.
+                        pad_token_id,  # 显式指定 pad token
                     )
                 t1 = time.perf_counter()
-                latency = t1 - t0
-                latencies.append(latency)
 
-                # 3. 解码
-                output_text = self.tokenizer.decode(
-                    outputs[0][input_token_len:], skip_special_tokens=True)
-                output_token_len = len(outputs[0]) - input_token_len
+                batch_latency = t1 - t0
+                # 记录该批次的每个样本的平均延迟（用于统计）
+                # 注意：实际生产中更关注吞吐量，这里为了兼容 report 格式，我们记录平均值
+                avg_item_latency = batch_latency / len(batch_items)
 
-                total_output_tokens += output_token_len
+                for _ in batch_items:
+                    latencies.append(avg_item_latency)
 
-                # 速度计算
-                tps = output_token_len / latency
+                # 3. 批量解码
+                # 只解码新生成的 tokens (outputs 包含 input + new_tokens)
+                generated_tokens = outputs[:, input_token_len:]
+                decoded_outputs = self.tokenizer.batch_decode(
+                    generated_tokens, skip_special_tokens=True)
 
-                result_entry = {
-                    "id": item['id'],
-                    "prompt": prompt,
-                    "output": output_text,
-                    "metrics": {
-                        "input_tokens": input_token_len,
-                        "output_tokens": output_token_len,
-                        "latency": round(latency, 4),
-                        "tps": round(tps, 2),
-                        "memory_stats": self.get_memory_usage()  # 实时记录内存
+                # 4. 结果回填
+                for idx, (item, out_text, out_tokens) in enumerate(
+                        zip(batch_items, decoded_outputs, generated_tokens)):
+                    # 计算当前样本的 token 数量 (去除 padding)
+                    # 因为 batch 生成时会有 padding，需要计算实际有效 token
+                    valid_out_tokens = len([
+                        t for t in out_tokens
+                        if t != self.tokenizer.pad_token_id
+                    ])
+                    total_output_tokens += valid_out_tokens
+
+                    # 估算 TPS (基于该样本有效 token 和 批次总时间)
+                    # 注意：Batch 场景下 TPS 算法有多种，这里使用 (单个样本Token / 批次时间) 会偏小，
+                    # 也可以用 (批次总Token / 批次时间)。这里为了兼容单条记录，仅记录单个 TPS。
+                    item_tps = valid_out_tokens / batch_latency
+
+                    result_entry = {
+                        "id": item['id'],
+                        "prompt": item['prompt'],
+                        "output": out_text,
+                        "metrics": {
+                            "input_tokens": input_token_len,  # 批次内取最大长度
+                            "output_tokens": valid_out_tokens,
+                            "latency": round(avg_item_latency, 4),  # 记录平均延迟
+                            "batch_latency": round(batch_latency,
+                                                   4),  # [新增] 记录该批次实际物理耗时
+                            "tps": round(item_tps, 2),
+                            "memory_stats": self.get_memory_usage()
+                        }
                     }
-                }
-                self.results.append(result_entry)
+                    self.results.append(result_entry)
 
                 self.logger.info(
-                    f"[{idx+1}/{len(data)}] 用时: {latency:.2f}s | TPS: {tps:.2f} | Prompt: {prompt[:10]}..."
-                )
+                    f"[Batch {i//batch_size + 1}] size={len(batch_items)} | "
+                    f"Batch耗时: {batch_latency:.2f}s | "
+                    f"Prompt预览: {batch_prompts[0][:10]}...")
 
             except Exception as e:
-                self.logger.error(f"❌ 处理 ID {item['id']} 时出错: {e}")
+                self.logger.error(f"❌ 处理 Batch {i} 出错: {e}")
+                import traceback
+                traceback.print_exc()
 
+        # 计算总耗时（覆盖所有 Batch）
         total_duration = time.time() - total_start_time
+
+        self.logger.info(f"🏁 所有测试完成，总耗时: {total_duration:.2f}s")
         self.save_report(total_duration, total_output_tokens, latencies)
 
     def save_report(self, total_duration, total_output_tokens, latencies):

@@ -1,6 +1,6 @@
 ```bash
 cd libs/
-./llm_demo ../models/qwen3-ui-1.7b-mnn-w4-b256/config.json prompt.txt max_new_tokens
+./llm_demo ../models/qwen3-ui-1.7b-mnn-w4-b256/config.json prompt.txt
 ./llm_bench -m ../models/qwen3-ui-1.7b-mnn-w4-b256/config.json -a cpu -t 4 -p 32 -n 32 -rep 3 -kv false
 ```
 
