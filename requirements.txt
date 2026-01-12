@@ -3,4 +3,7 @@ transformers
 accelerate
 sentencepiece
 datasets
+bitsandbytes
 llmexport
+MNN
+psutil
