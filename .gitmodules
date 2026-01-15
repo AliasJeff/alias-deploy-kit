@@ -3,4 +3,4 @@
 	url = https://github.com/IST-DASLab/sparsegpt.git
 [submodule "third_party/MNN"]
 	path = third_party/MNN
-	url = https://github.com/AliasJeff/MNN.git
+	url = git@github.com:AliasJeff/MNN.git
