@@ -100,17 +100,37 @@ class BenchmarkRunner:
                 self.tokenizer.pad_token = self.tokenizer.eos_token
                 self.logger.info("🔧 Tokenizer 缺少 pad_token，已自动设置为 eos_token")
 
-            # 注意: 使用 load_in_4bit 时，建议 device_map="auto" 或者由 accelerate 自动处理
-            self.model = AutoModelForCausalLM.from_pretrained(
-                self.cfg.MODEL_PATH,
-                device_map="auto"
-                if self.cfg.LOAD_IN_4BIT else self.cfg.DEVICE,
-                quantization_config=bnb_config,
-                torch_dtype=self.cfg.TORCH_DTYPE,
-                trust_remote_code=True)
+            is_awq = "awq" in self.cfg.MODEL_PATH.lower(
+            ) or "marlin" in self.cfg.MODEL_PATH.lower()
+
+            if is_awq:
+                self.logger.info(
+                    "🔧 检测到 AWQ/Marlin 模型，使用 AutoAWQForCausalLM 加载...")
+                from awq import AutoAWQForCausalLM
+
+                self.model = AutoAWQForCausalLM.from_pretrained(
+                    self.cfg.MODEL_PATH,
+                    low_cpu_mem_usage=True,
+                    device_map="cuda",  # 强制使用 GPU
+                    torch_dtype=self.cfg.TORCH_DTYPE,
+                    trust_remote_code=True)
+                self.device = self.model.model.device
+            else:
+                if self.cfg.LOAD_IN_4BIT:
+                    self.model = AutoModelForCausalLM.from_pretrained(
+                        self.cfg.MODEL_PATH,
+                        device_map="auto",
+                        quantization_config=bnb_config,
+                        torch_dtype=self.cfg.TORCH_DTYPE,
+                        trust_remote_code=True)
+                else:
+                    self.model = AutoModelForCausalLM.from_pretrained(
+                        self.cfg.MODEL_PATH,
+                        device_map=self.cfg.DEVICE,
+                        torch_dtype=self.cfg.TORCH_DTYPE,
+                        trust_remote_code=True)
         except Exception as e:
             self.logger.error(f"❌ 模型加载失败: {e}")
-            self.logger.error(f"请检查路径或 bitsandbytes 是否安装正确")
             exit(1)
 
         load_time = time.time() - start_time
@@ -141,7 +161,7 @@ class BenchmarkRunner:
             try:
                 # 构造简单的输入
                 dummy_input = self.tokenizer("Hello", return_tensors="pt").to(
-                    self.model.device)
+                    self.device)
                 for _ in range(self.cfg.WARMUP_ROUNDS):
                     self.model.generate(**dummy_input, max_new_tokens=10)
             except Exception as e:
@@ -167,21 +187,21 @@ class BenchmarkRunner:
                 for p in batch_prompts:
                     formatted = self.tokenizer.apply_chat_template(
                         [{
-                            "role": "user",
-                            "content": p
+                            "role":
+                            "user",
+                            "content":
+                            f"{p} 只输出适配手机端的html代码，输出最小可行的html，限制200token，不要输出任何其他内容。 </no_think>"
                         }],
                         tokenize=False,
                         add_generation_prompt=True)
                     formatted_prompts.append(formatted)
 
                 # 使用 padding=True 确保 tensor 维度对齐
-                inputs = self.tokenizer(
-                    formatted_prompts,
-                    return_tensors="pt",
-                    padding=True,
-                    truncation=True,  # 建议加上防止显存爆
-                    max_length=2048  # 根据需要调整
-                ).to(self.model.device)
+                inputs = self.tokenizer(formatted_prompts,
+                                        return_tensors="pt",
+                                        padding=True,
+                                        truncation=True,
+                                        max_length=2048).to(self.device)
 
                 input_token_len = inputs.input_ids.shape[1]
 
