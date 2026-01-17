@@ -154,14 +154,14 @@ class BenchmarkRunner:
     def run(self):
         self.load_model()
         data = self.load_data()
+        device = self.device if getattr(
+            self, "device", None) is not None else self.model.device
 
-        # 预热
         if self.cfg.WARMUP_ROUNDS > 0:
             self.logger.info(f"🔥 开始预热 ({self.cfg.WARMUP_ROUNDS} 轮)...")
             try:
-                # 构造简单的输入
-                dummy_input = self.tokenizer("Hello", return_tensors="pt").to(
-                    self.device)
+                dummy_input = self.tokenizer("Hello",
+                                             return_tensors="pt").to(device)
                 for _ in range(self.cfg.WARMUP_ROUNDS):
                     self.model.generate(**dummy_input, max_new_tokens=10)
             except Exception as e:
@@ -181,27 +181,25 @@ class BenchmarkRunner:
             batch_prompts = [item['prompt'] for item in batch_items]
 
             try:
-                # 1. 批量编码
-                # 注意：apply_chat_template 默认处理单条，我们需要手动对列表中的每条应用 template
                 formatted_prompts = []
                 for p in batch_prompts:
+                    messages = []
+                    if self.cfg.SYSTEM_INSTRUCTIONS:
+                        messages.append({
+                            "role": "system",
+                            "content": self.cfg.SYSTEM_INSTRUCTIONS
+                        })
+                    messages.append({"role": "user", "content": p})
+
                     formatted = self.tokenizer.apply_chat_template(
-                        [{
-                            "role":
-                            "user",
-                            "content":
-                            f"{p} 只输出适配手机端的html代码，输出最小可行的html，限制200token，不要输出任何其他内容。 </no_think>"
-                        }],
-                        tokenize=False,
-                        add_generation_prompt=True)
+                        messages, tokenize=False, add_generation_prompt=True)
                     formatted_prompts.append(formatted)
 
-                # 使用 padding=True 确保 tensor 维度对齐
                 inputs = self.tokenizer(formatted_prompts,
                                         return_tensors="pt",
                                         padding=True,
                                         truncation=True,
-                                        max_length=2048).to(self.device)
+                                        max_length=2048).to(device)
 
                 input_token_len = inputs.input_ids.shape[1]
 
@@ -217,51 +215,42 @@ class BenchmarkRunner:
                         temperature=self.cfg.TEMPERATURE,
                         top_p=self.cfg.TOP_P,
                         do_sample=True,
-                        pad_token_id=self.tokenizer.
-                        pad_token_id,  # 显式指定 pad token
+                        pad_token_id=self.tokenizer.pad_token_id,
                     )
                 t1 = time.perf_counter()
 
                 batch_latency = t1 - t0
-                # 记录该批次的每个样本的平均延迟（用于统计）
-                # 注意：实际生产中更关注吞吐量，这里为了兼容 report 格式，我们记录平均值
                 avg_item_latency = batch_latency / len(batch_items)
 
                 for _ in batch_items:
                     latencies.append(avg_item_latency)
 
-                # 3. 批量解码
-                # 只解码新生成的 tokens (outputs 包含 input + new_tokens)
                 generated_tokens = outputs[:, input_token_len:]
                 decoded_outputs = self.tokenizer.batch_decode(
                     generated_tokens, skip_special_tokens=True)
 
-                # 4. 结果回填
                 for idx, (item, out_text, out_tokens) in enumerate(
                         zip(batch_items, decoded_outputs, generated_tokens)):
-                    # 计算当前样本的 token 数量 (去除 padding)
-                    # 因为 batch 生成时会有 padding，需要计算实际有效 token
                     valid_out_tokens = len([
                         t for t in out_tokens
                         if t != self.tokenizer.pad_token_id
                     ])
                     total_output_tokens += valid_out_tokens
 
-                    # 估算 TPS (基于该样本有效 token 和 批次总时间)
-                    # 注意：Batch 场景下 TPS 算法有多种，这里使用 (单个样本Token / 批次时间) 会偏小，
-                    # 也可以用 (批次总Token / 批次时间)。这里为了兼容单条记录，仅记录单个 TPS。
                     item_tps = valid_out_tokens / batch_latency
 
                     result_entry = {
                         "id": item['id'],
-                        "prompt": item['prompt'],
+                        "prompt": {
+                            "user": item['prompt'],
+                            "system": self.cfg.SYSTEM_INSTRUCTIONS,
+                        },
                         "output": out_text,
                         "metrics": {
-                            "input_tokens": input_token_len,  # 批次内取最大长度
+                            "input_tokens": input_token_len,
                             "output_tokens": valid_out_tokens,
-                            "latency": round(avg_item_latency, 4),  # 记录平均延迟
-                            "batch_latency": round(batch_latency,
-                                                   4),  # [新增] 记录该批次实际物理耗时
+                            "latency": round(avg_item_latency, 4),
+                            "batch_latency": round(batch_latency, 4),
                             "tps": round(item_tps, 2),
                             "memory_stats": self.get_memory_usage()
                         }
@@ -278,7 +267,6 @@ class BenchmarkRunner:
                 import traceback
                 traceback.print_exc()
 
-        # 计算总耗时（覆盖所有 Batch）
         total_duration = time.time() - total_start_time
 
         self.logger.info(f"🏁 所有测试完成，总耗时: {total_duration:.2f}s")
@@ -298,9 +286,11 @@ class BenchmarkRunner:
                 "timestamp": datetime.now().isoformat(),
                 "model": self.model_info,
                 "config": {
-                    k: v
-                    for k, v in vars(self.cfg).items()
-                    if not k.startswith("__")
+                    "torch_dtype": str(self.cfg.TORCH_DTYPE),
+                    "load_in_4bit": self.cfg.LOAD_IN_4BIT,
+                    "max_new_tokens": self.cfg.MAX_NEW_TOKENS,
+                    "temperature": self.cfg.TEMPERATURE,
+                    "top_p": self.cfg.TOP_P,
                 }
             },
             "summary": {
