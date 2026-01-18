@@ -157,34 +157,89 @@ class BenchmarkRunner:
         device = self.device if getattr(
             self, "device", None) is not None else self.model.device
 
-        if self.cfg.WARMUP_ROUNDS > 0:
-            self.logger.info(f"🔥 开始预热 ({self.cfg.WARMUP_ROUNDS} 轮)...")
+        if device.type == "cuda":
+            total_vram = torch.cuda.get_device_properties(device).total_memory
             try:
-                dummy_input = self.tokenizer("Hello",
-                                             return_tensors="pt").to(device)
-                for _ in range(self.cfg.WARMUP_ROUNDS):
-                    self.model.generate(**dummy_input, max_new_tokens=10)
+                torch.cuda.set_per_process_memory_fraction(0.95, device)
             except Exception as e:
-                self.logger.warning(f"⚠️ 预热过程中出现小问题 (可忽略): {e}")
+                self.logger.warning(f"⚠️ 无法设置显存硬限制: {e}")
 
-        self.logger.info(f"⚡ 开始推理，共 {len(data)} 条测试数据...")
+        batch_size = self.cfg.BATCH_SIZE
+
+        if self.cfg.WARMUP_ROUNDS > 0:
+            self.logger.info(
+                f"🔥 开始预热 ({self.cfg.WARMUP_ROUNDS} 轮) 并测算极限 Batch Size...")
+            try:
+                dummy_text = "设计一个企业级SaaS后台管理系统仪表盘"
+                dummy_input = self.tokenizer(dummy_text,
+                                             return_tensors="pt",
+                                             truncation=True,
+                                             max_length=2048).to(device)
+
+                static_memory = 0
+                if device.type == "cuda":
+                    torch.cuda.empty_cache()
+                    torch.cuda.reset_peak_memory_stats()
+                    static_memory = torch.cuda.memory_allocated()
+
+                for _ in range(self.cfg.WARMUP_ROUNDS):
+                    self.model.generate(**dummy_input,
+                                        max_new_tokens=self.cfg.MAX_NEW_TOKENS)
+
+                if self.cfg.AUTO_BATCH_SIZE and device.type == "cuda":
+                    peak_memory = torch.cuda.max_memory_allocated()
+                    total_vram = torch.cuda.get_device_properties(
+                        device).total_memory
+
+                    self.logger.info(
+                        f"🔍 显存使用情况: 总显存={total_vram/1024**3:.2f}GB | 峰值显存={peak_memory/1024**3:.2f}GB | 静态显存={static_memory/1024**3:.2f}GB"
+                    )
+                    mem_per_sample = peak_memory - static_memory
+
+                    available_mem = (total_vram * 0.9) - static_memory
+
+                    if mem_per_sample > 0:
+                        calculated_bs = int(available_mem / mem_per_sample)
+                        optimal_batch_size = max(1, calculated_bs)
+
+                        self.logger.info(
+                            f"💾 显存测算: 单条极限占用={mem_per_sample/1024**3:.2f}GB | "
+                            f"可用显存={available_mem/1024**3:.2f}GB")
+                        self.logger.info(
+                            f"🚀 自动调整 BATCH_SIZE: {batch_size} -> {optimal_batch_size}"
+                        )
+                        batch_size = optimal_batch_size
+                    else:
+                        self.logger.warning("⚠️ 显存占用过小无法准确测算，保持默认值")
+
+            except Exception as e:
+                self.logger.warning(f"⚠️ 预热或显存计算出错 (已忽略): {e}")
+                import traceback
+                traceback.print_exc()
+
+        if len(data) > batch_size:
+            self.logger.info(f"✂️ 截取前 {batch_size} 条数据进行单轮极限测试...")
+            data = data[:batch_size]
+
+        actual_run_size = len(data)
+
+        self.logger.info(f"⚡ 开始极限压力测试，本轮并发数量: {actual_run_size}...")
 
         total_start_time = time.time()
         total_output_tokens = 0
         latencies = []
 
-        batch_size = self.cfg.BATCH_SIZE
-
+        # 这里的 range 步长是 batch_size，且 len(data) <= batch_size，所以循环只会跑一次
         for i in range(0, len(data), batch_size):
-            # 获取当前批次的数据 (切片)
             batch_items = data[i:i + batch_size]
+            current_batch_count = len(batch_items)
             batch_prompts = [item['prompt'] for item in batch_items]
 
             try:
                 formatted_prompts = []
                 for p in batch_prompts:
                     messages = []
-                    if self.cfg.SYSTEM_INSTRUCTIONS:
+                    if hasattr(self.cfg, "SYSTEM_INSTRUCTIONS"):
                         messages.append({
                             "role": "system",
                             "content": self.cfg.SYSTEM_INSTRUCTIONS
@@ -203,7 +258,6 @@ class BenchmarkRunner:
 
                 input_token_len = inputs.input_ids.shape[1]
 
-                # 2. 批量推理
                 if self.cfg.DEVICE == "cuda":
                     torch.cuda.reset_peak_memory_stats()
 
@@ -242,8 +296,11 @@ class BenchmarkRunner:
                     result_entry = {
                         "id": item['id'],
                         "prompt": {
-                            "user": item['prompt'],
-                            "system": self.cfg.SYSTEM_INSTRUCTIONS,
+                            "user":
+                            item['prompt'],
+                            "system":
+                            self.cfg.SYSTEM_INSTRUCTIONS if hasattr(
+                                self.cfg, "SYSTEM_INSTRUCTIONS") else None,
                         },
                         "output": out_text,
                         "metrics": {
@@ -252,15 +309,16 @@ class BenchmarkRunner:
                             "latency": round(avg_item_latency, 4),
                             "batch_latency": round(batch_latency, 4),
                             "tps": round(item_tps, 2),
-                            "memory_stats": self.get_memory_usage()
+                            "memory_stats": self.get_memory_usage(),
+                            "batch_size": current_batch_count
                         }
                     }
                     self.results.append(result_entry)
 
                 self.logger.info(
-                    f"[Batch {i//batch_size + 1}] size={len(batch_items)} | "
+                    f"[Batch Limit Test] size={len(batch_items)} | "
                     f"Batch耗时: {batch_latency:.2f}s | "
-                    f"Prompt预览: {batch_prompts[0][:10]}...")
+                    f"显存占用: {self.get_memory_usage()}")
 
             except Exception as e:
                 self.logger.error(f"❌ 处理 Batch {i} 出错: {e}")
@@ -269,10 +327,13 @@ class BenchmarkRunner:
 
         total_duration = time.time() - total_start_time
 
-        self.logger.info(f"🏁 所有测试完成，总耗时: {total_duration:.2f}s")
-        self.save_report(total_duration, total_output_tokens, latencies)
+        self.logger.info(f"🏁 极限测试完成，总耗时: {total_duration:.2f}s")
 
-    def save_report(self, total_duration, total_output_tokens, latencies):
+        self.save_report(total_duration, total_output_tokens, latencies,
+                         actual_run_size)
+
+    def save_report(self, total_duration, total_output_tokens, latencies,
+                    run_batch_size):
         if not latencies:
             self.logger.error("❌ 没有成功的推理记录，无法生成报告")
             return
@@ -285,6 +346,7 @@ class BenchmarkRunner:
             "meta": {
                 "timestamp": datetime.now().isoformat(),
                 "model": self.model_info,
+                "total_requests": run_batch_size,
                 "config": {
                     "torch_dtype": str(self.cfg.TORCH_DTYPE),
                     "load_in_4bit": self.cfg.LOAD_IN_4BIT,
@@ -311,12 +373,11 @@ class BenchmarkRunner:
 
         self.logger.info("=" * 30)
         self.logger.info("📊 测试报告摘要")
-        self.logger.info("=" * 30)
-        self.logger.info(
-            f"模型量化: {self.model_info.get('quantization', 'None')}")
+        self.logger.info(f"最大并发 (Batch Size): {run_batch_size}")
         self.logger.info(f"平均延迟: {avg_latency:.4f} s/req")
         self.logger.info(f"推理吞吐: {global_tps:.2f} tokens/s")
         self.logger.info(f"详细结果: {output_file}")
+        self.logger.info("=" * 30)
         self.logger.info(
             f"日志文件: {os.path.join(self.cfg.LOG_DIR, datetime.now().strftime('%Y-%m-%d') + '.log')}"
         )

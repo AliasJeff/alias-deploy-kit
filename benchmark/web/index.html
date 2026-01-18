@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LLM 推理评测可视化看板 v2.1</title>
+    <title>LLM 推理评测可视化看板 v1.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -27,8 +27,7 @@
         },
       };
     </script>
-    <style>
-      /* 滚动条美化 */
+    <style type="text/tailwindcss">
       ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -43,14 +42,11 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #94a3b8;
       }
-
-      /* 预览区背景网格纹理 */
       .preview-pattern {
         background-color: #ffffff;
         background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
         background-size: 20px 20px;
       }
-
       .fade-in {
         animation: fadeIn 0.4s ease-out forwards;
       }
@@ -64,8 +60,6 @@
           transform: translateY(0);
         }
       }
-
-      /* UI 统计徽章样式 */
       .stat-badge {
         @apply flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium border transition-colors cursor-help select-none;
       }
@@ -140,7 +134,7 @@
 
         <div
           id="file-list"
-          class="flex flex-nowrap overflow-x-auto gap-2 py-3 hidden scrollbar-hide border-t border-slate-100"
+          class="flex flex-wrap gap-2 py-3 hidden border-t border-slate-100"
         ></div>
       </div>
     </header>
@@ -294,57 +288,101 @@
         </div>
 
         <div>
-          <div class="flex items-center gap-3 mb-5 px-1">
-            <h2 class="text-xl font-bold text-slate-800">详细评测卡片</h2>
-            <span
-              class="bg-slate-200 text-slate-600 text-xs font-bold px-2 py-0.5 rounded-full"
-              id="details-count"
-              >0</span
+          <div
+            class="flex flex-col sm:flex-row justify-between items-center mb-5 gap-4 px-1"
+          >
+            <div class="flex items-center gap-3">
+              <h2 class="text-xl font-bold text-slate-800">详细评测卡片</h2>
+              <span
+                class="bg-slate-200 text-slate-600 text-xs font-bold px-2 py-0.5 rounded-full"
+                id="details-count"
+                >0</span
+              >
+            </div>
+
+            <div
+              id="pagination-controls"
+              class="flex items-center gap-2 hidden"
             >
+              <button
+                id="btn-prev"
+                class="px-3 py-1 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                上一页
+              </button>
+              <span
+                class="text-sm text-slate-600 font-mono"
+                id="page-info"
+              ></span>
+              <button
+                id="btn-next"
+                class="px-3 py-1 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                下一页
+              </button>
+            </div>
           </div>
 
           <div id="details-container" class="space-y-8"></div>
+
+          <div class="flex justify-center mt-8">
+            <div
+              id="pagination-bottom"
+              class="flex flex-wrap justify-center gap-2 hidden"
+            ></div>
+          </div>
         </div>
       </div>
     </main>
 
     <script>
-      // --- 全局变量与 DOM 引用 ---
+      // --- 全局变量 ---
       let loadedFiles = {};
+      let currentDetailsData = [];
+      let currentPage = 1;
+      const pageSize = 10; // 每页显示数量
+
       const dirInput = document.getElementById("dir-input");
       const fileList = document.getElementById("file-list");
       const emptyState = document.getElementById("empty-state");
       const dashboard = document.getElementById("dashboard");
+      const detailsContainer = document.getElementById("details-container");
+      const pageInfo = document.getElementById("page-info");
+      const btnPrev = document.getElementById("btn-prev");
+      const btnNext = document.getElementById("btn-next");
+      const paginationControls = document.getElementById("pagination-controls");
+      const paginationBottom = document.getElementById("pagination-bottom");
+
+      // 绑定顶部翻页事件
+      btnPrev.onclick = () => goToPage(currentPage - 1);
+      btnNext.onclick = () => goToPage(currentPage + 1);
 
       // --- 1. 文件读取逻辑 ---
       dirInput.addEventListener("change", async (e) => {
         const files = Array.from(e.target.files).filter((f) =>
-          f.name.toLowerCase().endsWith(".json")
+          f.name.toLowerCase().endsWith(".json"),
         );
         if (files.length === 0) {
           alert("未找到 JSON 文件，请确认文件夹内容。");
           return;
         }
 
-        // 重置状态
         loadedFiles = {};
         fileList.innerHTML = "";
         fileList.classList.remove("hidden");
-        document.getElementById(
-          "file-status"
-        ).innerText = `已加载 ${files.length} 个文件`;
+        document.getElementById("file-status").innerText =
+          `已加载 ${files.length} 个文件`;
         document.getElementById("file-status").classList.remove("hidden");
 
-        // 读取所有文件
         for (const file of files) {
           try {
             const text = await readFile(file);
             const json = JSON.parse(text);
             loadedFiles[file.name] = json;
 
-            // 创建导航按钮
             const btn = document.createElement("button");
-            btn.className = `whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 flex-shrink-0 bg-white text-slate-600 border-slate-200 hover:border-indigo-400 hover:text-indigo-600`;
+            // 样式修改：允许换行时美观排列
+            btn.className = `whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 bg-white text-slate-600 border-slate-200 hover:border-indigo-400 hover:text-indigo-600`;
             btn.textContent = file.name;
             btn.onclick = () => switchFile(file.name, btn);
             fileList.appendChild(btn);
@@ -352,7 +390,6 @@
             console.error(`解析错误 ${file.name}:`, err);
           }
         }
-        // 自动点击第一个文件
         if (fileList.firstChild) fileList.firstChild.click();
       });
 
@@ -367,12 +404,10 @@
 
       // --- 2. 页面切换逻辑 ---
       function switchFile(filename, activeBtn) {
-        // 重置所有按钮样式
         Array.from(fileList.children).forEach((btn) => {
-          btn.className = `whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 flex-shrink-0 bg-white text-slate-600 border-slate-200 hover:border-indigo-400 hover:text-indigo-600 opacity-70`;
+          btn.className = `whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 bg-white text-slate-600 border-slate-200 hover:border-indigo-400 hover:text-indigo-600 opacity-70`;
         });
-        // 激活当前按钮
-        activeBtn.className = `whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 flex-shrink-0 bg-slate-800 text-white border-slate-800 shadow-md transform scale-105`;
+        activeBtn.className = `whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 bg-slate-800 text-white border-slate-800 shadow-md transform scale-105`;
 
         const data = loadedFiles[filename];
         if (data) {
@@ -384,9 +419,14 @@
 
       // --- 3. 渲染核心逻辑 ---
       function renderDashboard(data) {
+        currentDetailsData = data.details || [];
+
         renderMeta(data.meta);
-        const successRate = renderDetails(data.details);
+        // 计算全局统计 (只计算数字，不渲染卡片)
+        const successRate = calculateGlobalStats(currentDetailsData);
         renderSummary(data.summary, successRate);
+        // 初始化分页并渲染第一页
+        initPagination();
       }
 
       function renderMeta(meta) {
@@ -431,69 +471,151 @@
           rate >= 90
             ? "text-emerald-600"
             : rate >= 50
-            ? "text-amber-500"
-            : "text-red-500"
+              ? "text-amber-500"
+              : "text-red-500"
         }`;
       }
 
-      function renderDetails(details) {
-        const container = document.getElementById("details-container");
-        container.innerHTML = "";
-        document.getElementById("details-count").textContent = details
-          ? details.length
-          : 0;
-
-        if (!details || details.length === 0) return 0;
+      // 纯计算函数
+      function calculateGlobalStats(details) {
+        if (!details || details.length === 0) {
+          document.getElementById("details-count").textContent = "0";
+          return 0;
+        }
+        document.getElementById("details-count").textContent = details.length;
 
         let successCount = 0;
-
         details.forEach((item) => {
-          // A. 前端 Token 计算 (使用 JS 正则估算)
-          // 算法：匹配 [连续的英文单词] 或 [单个非空白非单词字符(如中文、标点)]
-          const userTokens = calcTokens(item.prompt.user);
-          const sysTokens = calcTokens(item.prompt.system);
-          const outputTokens = calcTokens(item.output);
-
-          // B. 提取 HTML 并严格验证 (检查是否闭合)
-          const { html, isValid, truncated } = extractAndValidateHtml(
-            item.output
-          );
+          const { isValid } = extractAndValidateHtml(item.output);
           if (isValid) successCount++;
+        });
+        return ((successCount / details.length) * 100).toFixed(1);
+      }
 
-          // C. 统计 UI 元素 (仅当有 HTML 内容时)
-          const uiStats = html ? analyzeUiElements(html) : null;
-          const uiStatsHtml = uiStats
-            ? `
-                    <div class="flex flex-wrap gap-2 py-2 border-b border-slate-100 bg-slate-50/50 px-5 select-none">
-                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider self-center mr-1">UI Elements:</span>
-                        <span class="stat-badge bg-blue-50 text-blue-700 border-blue-200" title="Buttons & Submits">🖱️ Btn: ${uiStats.buttons}</span>
-                        <span class="stat-badge bg-indigo-50 text-indigo-700 border-indigo-200" title="Inputs / Textareas / Selects">⌨️ Inp: ${uiStats.inputs}</span>
-                        <span class="stat-badge bg-cyan-50 text-cyan-700 border-cyan-200" title="Hyperlinks">🔗 Link: ${uiStats.links}</span>
-                        <span class="stat-badge bg-purple-50 text-purple-700 border-purple-200" title="Images">🖼️ Img: ${uiStats.images}</span>
-                        <span class="stat-badge bg-slate-50 text-slate-600 border-slate-200" title="Div Containers">📦 Div: ${uiStats.divs}</span>
-                    </div>
-                `
-            : "";
+      // --- 分页相关函数 ---
+      function initPagination() {
+        currentPage = 1;
+        const totalPages = Math.ceil(currentDetailsData.length / pageSize);
 
-          // D. 状态徽章 (根据 isValid 显示 ✅ 或 ❌)
-          const statusBadge = isValid
-            ? `<span class="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ✅ Render Success</span>`
-            : `<span class="flex items-center gap-1.5 bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-bold border border-red-200"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> ❌ ${
-                truncated ? "Truncated" : "Failed"
-              }</span>`;
+        if (totalPages > 1) {
+          paginationControls.classList.remove("hidden");
+          paginationBottom.classList.remove("hidden");
+        } else {
+          paginationControls.classList.add("hidden");
+          paginationBottom.classList.add("hidden");
+        }
 
-          // E. 构建卡片 DOM
-          const card = document.createElement("div");
-          card.className =
-            "bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow duration-300";
+        renderCurrentPage();
+      }
 
-          card.innerHTML = `
+      function goToPage(page) {
+        const totalPages = Math.ceil(currentDetailsData.length / pageSize);
+        if (page < 1 || page > totalPages) return;
+
+        currentPage = page;
+        renderCurrentPage();
+        document
+          .getElementById("dashboard")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function renderCurrentPage() {
+        detailsContainer.innerHTML = "";
+
+        const startIndex = (currentPage - 1) * pageSize;
+        const endIndex = Math.min(
+          startIndex + pageSize,
+          currentDetailsData.length,
+        );
+        const pageItems = currentDetailsData.slice(startIndex, endIndex);
+        const totalPages = Math.ceil(currentDetailsData.length / pageSize);
+
+        // 更新顶部控件
+        pageInfo.textContent = `${currentPage} / ${totalPages}`;
+        btnPrev.disabled = currentPage === 1;
+        btnNext.disabled = currentPage === totalPages;
+
+        // 更新底部数字控件
+        updateBottomPagination(totalPages);
+
+        if (pageItems.length === 0) return;
+
+        // 渲染当前页卡片
+        pageItems.forEach((item) => {
+          createCard(item);
+        });
+      }
+
+      function updateBottomPagination(totalPages) {
+        paginationBottom.innerHTML = "";
+        if (totalPages <= 1) return;
+
+        const createBtn = (p) => {
+          const btn = document.createElement("button");
+          btn.textContent = p;
+          btn.className = `w-8 h-8 rounded text-xs font-medium border transition-colors ${p === currentPage ? "bg-indigo-600 text-white border-indigo-600" : "bg-white text-slate-600 border-slate-200 hover:border-indigo-400 hover:text-indigo-600"}`;
+          btn.onclick = () => goToPage(p);
+          paginationBottom.appendChild(btn);
+        };
+
+        const createDots = () => {
+          const span = document.createElement("span");
+          span.textContent = "...";
+          span.className = "text-slate-400 self-end px-1";
+          paginationBottom.appendChild(span);
+        };
+
+        createBtn(1);
+        if (currentPage > 3) createDots();
+
+        const start = Math.max(2, currentPage - 1);
+        const end = Math.min(totalPages - 1, currentPage + 1);
+
+        for (let i = start; i <= end; i++) {
+          createBtn(i);
+        }
+
+        if (currentPage < totalPages - 2) createDots();
+        if (totalPages > 1) createBtn(totalPages);
+      }
+
+      function createCard(item) {
+        const userTokens = calcTokens(item.prompt.user);
+        const sysTokens = calcTokens(item.prompt.system);
+        const outputTokens = calcTokens(item.output);
+        const { html, isValid, truncated } = extractAndValidateHtml(
+          item.output,
+        );
+        const uiStats = html ? analyzeUiElements(html) : null;
+
+        const uiStatsHtml = uiStats
+          ? `
+                  <div class="flex flex-wrap gap-2 py-2 border-b border-slate-100 bg-slate-50/50 px-5 select-none">
+                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider self-center mr-1">UI Elements:</span>
+                      <span class="stat-badge bg-blue-50 text-blue-700 border-blue-200" title="Buttons & Submits">🖱️ Btn: ${uiStats.buttons}</span>
+                      <span class="stat-badge bg-indigo-50 text-indigo-700 border-indigo-200" title="Inputs / Textareas / Selects">⌨️ Inp: ${uiStats.inputs}</span>
+                      <span class="stat-badge bg-cyan-50 text-cyan-700 border-cyan-200" title="Hyperlinks">🔗 Link: ${uiStats.links}</span>
+                      <span class="stat-badge bg-purple-50 text-purple-700 border-purple-200" title="Images">🖼️ Img: ${uiStats.images}</span>
+                      <span class="stat-badge bg-slate-50 text-slate-600 border-slate-200" title="Div Containers">📦 Div: ${uiStats.divs}</span>
+                  </div>
+              `
+          : "";
+
+        const statusBadge = isValid
+          ? `<span class="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ✅ Render Success</span>`
+          : `<span class="flex items-center gap-1.5 bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-bold border border-red-200"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> ❌ ${
+              truncated ? "Truncated" : "Failed"
+            }</span>`;
+
+        const card = document.createElement("div");
+        card.className =
+          "bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow duration-300 fade-in";
+
+        card.innerHTML = `
                     <div class="grid grid-cols-1 xl:grid-cols-2 divide-y xl:divide-y-0 xl:divide-x divide-slate-100">
                         <div class="flex flex-col h-full min-h-[500px]">
                             <div class="px-5 py-3 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
-                                <span class="bg-white border border-slate-200 text-slate-500 font-mono text-xs px-2 py-1 rounded">ID: ${
-                                  item.id
-                                }</span>
+                                <span class="bg-white border border-slate-200 text-slate-500 font-mono text-xs px-2 py-1 rounded">ID: ${item.id}</span>
                                 <div class="flex gap-3 text-xs text-slate-500 font-mono">
                                     <span title="User Input Tokens (JS Est.)">User: <b class="text-slate-700">${userTokens}</b></span>
                                     <span title="System Input Tokens (JS Est.)">Sys: <b class="text-slate-700">${sysTokens}</b></span>
@@ -543,12 +665,12 @@ ${escapeHtml(item.output)}
                                     ${
                                       html
                                         ? `<iframe class="w-full h-full border-0" sandbox="allow-scripts" srcdoc="${escapeAttribute(
-                                            html
+                                            html,
                                           )}"></iframe>`
                                         : `<div class="absolute inset-0 flex flex-col items-center justify-center text-slate-400 p-8 text-center">
                                             <svg class="w-10 h-10 mb-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                             <span class="text-sm font-medium">无有效内容</span>
-                                           </div>`
+                                            </div>`
                                     }
                                     
                                     ${
@@ -557,7 +679,7 @@ ${escapeHtml(item.output)}
                                         <div class="absolute top-0 inset-x-0 bg-amber-500/10 text-amber-600 text-[10px] font-bold text-center py-1 border-b border-amber-200 backdrop-blur-sm">
                                             ⚠️ Warning: Code Truncated / Incomplete
                                         </div>
-                                    `
+                                        `
                                         : ""
                                     }
                                 </div>
@@ -565,32 +687,19 @@ ${escapeHtml(item.output)}
                         </div>
                     </div>
                 `;
-          container.appendChild(card);
-        });
-
-        return details.length > 0
-          ? ((successCount / details.length) * 100).toFixed(1)
-          : 0;
+        detailsContainer.appendChild(card);
       }
 
       // --- 工具函数 ---
 
-      // 1. JS Token 计数器
       function calcTokens(text) {
         if (!text) return 0;
-        // 正则逻辑：匹配 [连续的字母数字(单词)] 或 [单个非空白非字母数字(标点/中文)]
-        // 例如 "Hello world." -> "Hello", "world", "." (3)
-        // "你好" -> "你", "好" (2)
-        // 这比简单的 length 计算更接近真实 Token 消耗
         const matches = text.match(/[\w]+|[^\s\w]/g);
         return matches ? matches.length : 0;
       }
 
-      // 2. 严格的 HTML 提取与验证
       function extractAndValidateHtml(rawText) {
         if (!rawText) return { html: null, isValid: false, truncated: false };
-
-        // 移除可能存在的 <think> 标签 (DeepSeek/Qwen 等推理模型)
         const cleanText = rawText
           .replace(/<think>[\s\S]*?<\/think>/gi, "")
           .trim();
@@ -599,31 +708,26 @@ ${escapeHtml(item.output)}
         let isValid = false;
         let truncated = false;
 
-        // 策略 A: 优先匹配 Markdown 代码块 ```html ... ```
-        // 必须以 ``` 结尾才算完整
         const mdRegex = /```html\s*([\s\S]*?)```/i;
         const mdMatch = cleanText.match(mdRegex);
 
         if (mdMatch && mdMatch[1]) {
           code = mdMatch[1];
-          isValid = true; // Markdown 完整闭合
+          isValid = true;
         } else {
-          // 如果没有完整闭合的 markdown，检查是否是截断的 markdown
           const truncatedMdRegex = /```html\s*([\s\S]*)/i;
           const trMatch = cleanText.match(truncatedMdRegex);
 
           if (trMatch) {
             code = trMatch[1];
             truncated = true;
-            isValid = false; // 截断视为无效
+            isValid = false;
           } else {
-            // 策略 B: 直接寻找 HTML 标签 (防止模型未输出 Markdown 标记)
             const htmlTagRegex = /(<!DOCTYPE html>|<html)[\s\S]*/i;
             const tagMatch = cleanText.match(htmlTagRegex);
 
             if (tagMatch) {
               code = tagMatch[0];
-              // 检查是否包含闭合标签
               if (/<\/html>\s*$/i.test(code) || /<\/body>\s*$/i.test(code)) {
                 isValid = true;
               } else {
@@ -636,23 +740,18 @@ ${escapeHtml(item.output)}
         return { html: code, isValid, truncated };
       }
 
-      // 3. UI 元素统计 (使用 Virtual DOM)
       function analyzeUiElements(htmlCode) {
         if (!htmlCode)
           return { buttons: 0, inputs: 0, images: 0, links: 0, divs: 0 };
-
         try {
           const parser = new DOMParser();
           const doc = parser.parseFromString(htmlCode, "text/html");
-
           return {
-            // 按钮：button 标签 + input[type=button/submit]
             buttons: doc.querySelectorAll(
-              'button, input[type="button"], input[type="submit"]'
+              'button, input[type="button"], input[type="submit"]',
             ).length,
-            // 输入框：input (排除 hidden/button) + textarea + select
             inputs: doc.querySelectorAll(
-              'input:not([type="hidden"]):not([type="button"]):not([type="submit"]), textarea, select'
+              'input:not([type="hidden"]):not([type="button"]):not([type="submit"]), textarea, select',
             ).length,
             images: doc.querySelectorAll("img").length,
             links: doc.querySelectorAll("a").length,
@@ -663,7 +762,6 @@ ${escapeHtml(item.output)}
         }
       }
 
-      // HTML 转义防止 XSS 和显示错误
       function escapeHtml(unsafe) {
         if (typeof unsafe !== "string") return "";
         return unsafe

@@ -1,0 +1,6333 @@
+{
+  "meta": {
+    "timestamp": "2026-01-18T10:51:53.600162",
+    "model": {
+      "model_name": "qwen3-1.7b-ours-awq-gemm-4bit",
+      "model_size_gb": 1.2765689548105001,
+      "quantization": "None",
+      "param_count": 311288832
+    },
+    "total_requests": 300,
+    "config": {
+      "torch_dtype": "torch.float16",
+      "load_in_4bit": false,
+      "max_new_tokens": 64,
+      "temperature": 0.7,
+      "top_p": 0.9
+    }
+  },
+  "summary": {
+    "total_requests": 300,
+    "total_duration": 16.31,
+    "avg_latency": 0.0519,
+    "rps": 18.39,
+    "global_tps": 1085.27,
+    "final_memory": {
+      "ram_usage_mb": 2367.48828125,
+      "gpu_vram_mb": 1300.95166015625,
+      "gpu_vram_max_mb": 6396.91650390625
+    }
+  },
+  "details": [
+    {
+      "id": 1,
+      "prompt": {
+        "user": "设计一个科技公司官网首页",
+        "system": null
+      },
+      "output": "d0_layout0_d0_0d0d0d0d0ft0d0d1cl0d1toold0x100b20c30d0d0",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 43,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.76,
+        "memory_stats": {
+          "ram_usage_mb": 2367.421875,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 2,
+      "prompt": {
+        "user": "设计一个电商平台首页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1i100x1i110x210x1i130x100x100x(B224x2644x32444h1672x2674x",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 3,
+      "prompt": {
+        "user": "设计一个企业级SaaS后台管理系统仪表盘",
+        "system": null
+      },
+      "output": "d00xx(hr00x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 10,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 0.64,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 4,
+      "prompt": {
+        "user": "设计一个新闻资讯类网站首页",
+        "system": null
+      },
+      "output": "d00xx\nContextHolder\n'0000\n'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 5,
+      "prompt": {
+        "user": "设计一个在线教育平台的学生端界面",
+        "system": null
+      },
+      "output": "drome\nft2\n 00:00-24:00\n 00:00-00:15\n 00:15-00:30\n 00:30-01:45\n 01:45",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 6,
+      "prompt": {
+        "user": "设计一个社交媒体应用的个人资料页面",
+        "system": null
+      },
+      "output": "d00xx(hr00x18911991199119911991199119911991199119911991199119911991",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 7,
+      "prompt": {
+        "user": "设计一个音乐流媒体服务的播放界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1hti18661118811111111111111111111111111111111111111111111",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 8,
+      "prompt": {
+        "user": "设计一个智能家居控制系统的手机应用界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1(ha1082md1381cd1582cd3782cd5782)ft09x1(b20xxmp3x)m0x71master)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 56,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.6,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 9,
+      "prompt": {
+        "user": "设计一个外卖配送应用的订单追踪界面",
+        "system": null
+      },
+      "output": "d00xx(hr0 exh0(x19cd1sl1l_1s2l_2s1d2x43m0(x0x454continuelb0xk3e5ar1p1v5)ft0.4)ft0.4)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 10,
+      "prompt": {
+        "user": "设计一个旅游预订平台的酒店搜索结果页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1ccmpa105x1cl01x1t02xmi02x(d00x1b40x1ar44x2454x1cd07x1)ft09x1b2c",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 11,
+      "prompt": {
+        "user": "设计一个个人理财记账App的首页",
+        "system": null
+      },
+      "output": "d014:FT01:FD02:FB11:HC91:AR02:AR22:AR44:AR66:AR87:AR11AR12AR13AR14AR15AR16AR17AR1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 12,
+      "prompt": {
+        "user": "设计一个健身运动App的数据统计页面",
+        "system": null
+      },
+      "output": "xn\nlayout\n1x10\nd1202222222000\n1278222222222222222222222222222222222222",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 13,
+      "prompt": {
+        "user": "设计一个视频会议软件的通话界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1h1187d1881(f1182237118811x2.8811.96)ft00x4x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 52,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.34,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 14,
+      "prompt": {
+        "user": "设计一个在线医疗问诊平台的医生详情页",
+        "system": null
+      },
+      "output": "d0dlayoutimport{dim}from'ft2'import{,,,,,}from'w' import{,}as*from'ch' import* as*lay from'117' import{,}as* h,,{,}as*fi,import{",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 15,
+      "prompt": {
+        "user": "设计一个招聘求职App的职位详情页",
+        "system": null
+      },
+      "output": "d0\nftt\ndtdetd\nillsd\nl1c12d37b3774x11b3841x15b1861x1961dd1761dd1761dd1761dd1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 16,
+      "prompt": {
+        "user": "设计一个房地产交易平台的房源展示页",
+        "system": null
+      },
+      "output": "darwin\n{\n  \"layout\": \"absolute\",\n  \"children\": [\n    \"d0ta1b390c19043484x1948cd1941cd1951cd1961cd1971b394",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 17,
+      "prompt": {
+        "user": "设计一个二手车交易市场的车辆对比页面",
+        "system": null
+      },
+      "output": "liu\n{leftchildrendchildrendchildrendchildrendchildrendchildrendchildrendchildrendchildrendchildrendchildrendchildrendchildrendchildspingbyftntftm}",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 41,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.63,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 18,
+      "prompt": {
+        "user": "设计一个电子书阅读器的阅读界面",
+        "system": null
+      },
+      "output": "d0cha0多0财0根0安0身61430143111811881861481781611181188186148178161110cd",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 19,
+      "prompt": {
+        "user": "设计一个播客（Podcast）应用的发现页面",
+        "system": null
+      },
+      "output": "ds\nlayout: absolute\nsize: 1010x01x101x0101x101\nchildren: \n   d(d112768(l112243981182315631266",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 20,
+      "prompt": {
+        "user": "设计一个云存储服务的文件管理列表页",
+        "system": null
+      },
+      "output": "d0ftCute效laf22337373777777777777777778748100d0f077777777777777777777",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 21,
+      "prompt": {
+        "user": "设计一个天气预报App的动态背景首页",
+        "system": null
+      },
+      "output": "d0ft0pt0\n现在我设计一个天气预报的动态背景首页，你先看下结构是不是对的，再一个一个检查下代码，看看有没有拼写错误或者格式问题，再检查下适配性，还有和手机边缘的碰撞问题。要像这样写检查完成",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.4375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 22,
+      "prompt": {
+        "user": "设计一个任务管理（To-Do List）工具的添加任务弹窗",
+        "system": null
+      },
+      "output": "设计思路：\n采用F10000000000011000010000000000010000000000010000000000010000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 23,
+      "prompt": {
+        "user": "设计一个CRM客户关系管理系统的客户列表页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1771i1881cd1981)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 26,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.67,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 24,
+      "prompt": {
+        "user": "设计一个ERP企业资源计划系统的库存管理界面",
+        "system": null
+      },
+      "output": "d040100000101000000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 25,
+      "prompt": {
+        "user": "设计一个数字货币钱包的资产概览页",
+        "system": null
+      },
+      "output": "d010011000000000000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 26,
+      "prompt": {
+        "user": "设计一个NFT交易市场的艺术品展示页",
+        "system": null
+      },
+      "output": "d00xx(hr0o356711881888881888881888881888881888881888881888881888881",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 27,
+      "prompt": {
+        "user": "设计一个在线协作白板的工具栏界面",
+        "system": null
+      },
+      "output": "d00400d00010d00010d10080d1010d0001d1010d0001d1010d0001d10090d101",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 28,
+      "prompt": {
+        "user": "设计一个代码托管平台的代码审查界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 10,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 0.64,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 29,
+      "prompt": {
+        "user": "设计一个网络安全监控系统的大屏可视化界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1(hr00x1(ha00x1)cd1281(lb00x1lsc1xx2x3x1)cd1381(lb00x1lsc1xx2x3x1)cd",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 30,
+      "prompt": {
+        "user": "设计一个智慧城市交通管理系统的监控中心界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1显示正常(q108两个(f109(b80x))ft01x1ft02x1ft03x1ft04x1ft05x1ft06x1ft07x1ft08x",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 31,
+      "prompt": {
+        "user": "设计一个餐饮点餐系统的iPad自助终端界面",
+        "system": null
+      },
+      "output": "d0101d0201d0301d0401d0501d0601d0701d0801d0901d101234567891011110",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 32,
+      "prompt": {
+        "user": "设计一个电影票务预订App的选座界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(h1188(b1188d0x2x3ar0054l)cd1188d0x2x3ar0054l)d08x2xxb118",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 33,
+      "prompt": {
+        "user": "设计一个在线拍卖平台的实时竞价界面",
+        "system": null
+      },
+      "output": "d01_layout = [ [d01headline, d10titlebar, d11bnum, d12ar1, d13ar2, (ES)(es1), (ES)es2, (ES)es3, (ES)es4),d17slider",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 34,
+      "prompt": {
+        "user": "设计一个婚恋交友App的匹配滑动界面",
+        "system": null
+      },
+      "output": "dhdwFFKVlHHggZED{2S{SsS{Sx_ByBpBMBbMFMFMEFEDCCECC}DddDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD}Zcd",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 35,
+      "prompt": {
+        "user": "设计一个母婴育儿社区的论坛帖子详情页",
+        "system": null
+      },
+      "output": "mail-compat\nd0d0c0f0\nlayout\ntooltips\nftter\nd0\nf0d3d0d1d0d2d0d1b2d1b3d1b2d2b2d2b2d2b2d",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 36,
+      "prompt": {
+        "user": "设计一个宠物服务平台的寄养预约界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1ccct(d1x2mlck(d00x1d0x2x3x4x5(d0054x55x4x4x66x2x2x4x64x2x4x67x",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 37,
+      "prompt": {
+        "user": "设计一个法律咨询平台的律师咨询聊天界面",
+        "system": null
+      },
+      "output": "d00xxd11dd81xd1d81d1d9字0xxb10xxb80xxcb18x2x\")将以下文本复制到编辑框中，然后点击运行之\nd00xxd11dd8x3x1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 38,
+      "prompt": {
+        "user": "设计一个在线翻译工具的双语对照界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1x111x111x111x111x111x111x111x111x111x111x111x111x111x11",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 39,
+      "prompt": {
+        "user": "设计一个计算器App的高级科学计算模式界面",
+        "system": null
+      },
+      "output": "d00xx(hr0x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 9,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 0.58,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 40,
+      "prompt": {
+        "user": "设计一个日历日程管理应用周视图界面",
+        "system": null
+      },
+      "output": "d00xxo00xckg10x l10xl40xmlx88x",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 26,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.67,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 41,
+      "prompt": {
+        "user": "设计一个食谱大全App的烹饪步骤详情页",
+        "system": null
+      },
+      "output": "{\n  \"layout\": \"absolute\",\n  \"children\": [\n    \"ftr\": \n      children: \n       article \n         at0b: \n           d1024d104822md0p0di1073387108710",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 42,
+      "prompt": {
+        "user": "设计一个时尚电商的虚拟试衣间界面",
+        "system": null
+      },
+      "output": "d\nn:fw\nF1:imaged245x4001800452457118728118831281129811281129811298112",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 43,
+      "prompt": {
+        "user": "设计一个美妆品牌的AR试妆功能界面",
+        "system": null
+      },
+      "output": "d\n<ui>\nfxml\n\t设置:Imeup\n\t\t→ar-test-01u2u2cc12(d1pro2f2)702222222222222222222222222",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 44,
+      "prompt": {
+        "user": "设计一个游戏直播平台的直播间界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1h1096(d1181x11841178111881189119x178x179x1(cd1ar1ar1ar1ar1ar1ar",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 45,
+      "prompt": {
+        "user": "设计一个电竞战队官网的成员介绍页",
+        "system": null
+      },
+      "output": "d00xx888900960099889919888819881988198819881988198819881988198819",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 46,
+      "prompt": {
+        "user": "设计一个物流快递员专用的扫码揽件界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(hc1181cd1382cd1582cd1782)ar1184ft1781trans271112812584)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 61,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.92,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 47,
+      "prompt": {
+        "user": "设计一个在线问卷调查工具的编辑页面",
+        "system": null
+      },
+      "output": "d00xx(hr00x19x1x110986711886118811188111881118811188111881118811188",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 48,
+      "prompt": {
+        "user": "设计一个知识付费平台的课程购买落地页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1909cl1918b2928cd1948ft1968fb8918ft9911)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 46,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.95,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 49,
+      "prompt": {
+        "user": "设计一个个人博客网站的文章归档页",
+        "system": null
+      },
+      "output": "d01\ndh10\nf100\ncl10\nd110\nd210\nd310\nd410\nd510\nf100\nf400\nft100\nft901d00",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 50,
+      "prompt": {
+        "user": "设计一个设计师作品集网站的项目展示页",
+        "system": null
+      },
+      "output": "abhakar\nd10001start01001990199019901990199019901990 Cleara1020222424442644646",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 51,
+      "prompt": {
+        "user": "设计一个移动应用的启动引导页（Onboarding）",
+        "system": null
+      },
+      "output": "d00xx(hr00x1hd1082sl1283ma1681b2184ont1781ti1881ft09x1)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 46,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.95,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 52,
+      "prompt": {
+        "user": "设计一个通用的用户登录与注册页面",
+        "system": null
+      },
+      "output": "te\nlayout: po\ntingal: 帆票商城\nfilden: 有\nf ve: D\nftt: F\nf: α\nf: 有\nf: 0\nftbl: u\nq1x3: 有\nc1284",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 53,
+      "prompt": {
+        "user": "设计一个电商平台的购物车结算流程页面",
+        "system": null
+      },
+      "output": "d00xx(hr0x hitch0xxb09xkgF118sl(d118cd811cd226cd526cd1584x188arx18arx28arx48arx68arx8",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 54,
+      "prompt": {
+        "user": "设计一个App的侧边导航栏（Sidebar）菜单",
+        "system": null
+      },
+      "output": " A. 紧固布局\nB. 菜单列表\nC. 内容区域\nD. 登录窗口\nE. 隐私模式\nF. 右上方固定\nH. 响应式（H5）\nI. 插件\nJ. �",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 55,
+      "prompt": {
+        "user": "设计一个网站的404错误提示页面",
+        "system": null
+      },
+      "output": "d003342000101010101010101010101010101010101010101010101010101010",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 56,
+      "prompt": {
+        "user": "设计一个系统的全局搜索结果下拉框",
+        "system": null
+      },
+      "output": "d00xx(hr00incl.trainftgxcl.d0)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 17,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.09,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 57,
+      "prompt": {
+        "user": "设计一个应用的个人账号设置页面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1ff09x1ib1881cd09xx)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 25,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.61,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 58,
+      "prompt": {
+        "user": "设计一个消息通知中心的列表界面",
+        "system": null
+      },
+      "output": "dding\nb192id0d188641881288918819884192881912888418882186186218621868",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 59,
+      "prompt": {
+        "user": "设计一个带有筛选功能的商品分类列表页",
+        "system": null
+      },
+      "output": "d0aterM0u0lti0&view0=0|0|1|0|1|1|1ft0=1gr0=1c0=1b31=1b41=1b51=1b61=1b71=1b",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 60,
+      "prompt": {
+        "user": "设计一个用户反馈与评价的输入表单",
+        "system": null
+      },
+      "output": " form{\n  header{ hd01{  F1{  whereof{  D1{  D2{  D3{  }  }  }  }  }ft01{  F1{  }  }  }  }footer{  D1{  D",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 61,
+      "prompt": {
+        "user": "设计一个AI聊天机器人（Chatbot）的对话窗口",
+        "system": null
+      },
+      "output": "d0180\nTNFaTftLdCFfC100uκd900x10000hcì0900x102x204x604x10500x10500x105",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 62,
+      "prompt": {
+        "user": "设计一个生成式AI工具的Prompt输入与结果展示页",
+        "system": null
+      },
+      "output": "d00xx_h3m02_06_01ftd1285d1721b1274b4274b427721b327721b3574l2187\"",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 61,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.92,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 63,
+      "prompt": {
+        "user": "设计一个VR虚拟现实设备的主菜单界面",
+        "system": null
+      },
+      "output": "d\nd\n'ktop\n  'aM1.25d3.75l1182226226442114441188888888888888888888888",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 64,
+      "prompt": {
+        "user": "设计一个车载中控系统的导航与娱乐分屏界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1cd02x2cd04x2cd06x2b207222224242224442224642224842225852484",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 65,
+      "prompt": {
+        "user": "设计一个智能手表的健康监测主界面",
+        "system": null
+      },
+      "output": "d00xx(hr0x class'ft0xcd0x(b0xpd0x)κ1myl0xκ1itx)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 34,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.18,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 66,
+      "prompt": {
+        "user": "设计一个无人机操控App的飞行参数仪表盘",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m118800000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 67,
+      "prompt": {
+        "user": "设计一个3D打印机的控制软件界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1187(i1171g1281cd1382cd1582cd1782)ft09x1(i1188)ft19x1sl1288)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 63,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.05,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 68,
+      "prompt": {
+        "user": "设计一个物联网（IoT）设备的连接配对界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1(h100x1(m81188811888m11888199999)ft09x1(l109x1B28644)ft09x2(b",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 69,
+      "prompt": {
+        "user": "设计一个自助银行柜员机（ATM）的操作界面",
+        "system": null
+      },
+      "output": "d001:新开100（100-200）框架（100-300）frame2（220-320）inputl1（1210-1310）button11（1221-1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 70,
+      "prompt": {
+        "user": "设计一个超市自助结账机（Kiosk）的触摸屏界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1010h1110cd1120cd1220cd1320cd1420cd1520cd1620cd1721188105188105",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 71,
+      "prompt": {
+        "user": "设计一个慈善众筹平台的项目捐款页",
+        "system": null
+      },
+      "output": "logowpsttrbXhtcom'Tft'ftb_d1d₁(d1d₁(e¹pBSeFm)₇³²²²²^₀⁸lū₇³²²²²²₇³²²²²²₇³²",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 72,
+      "prompt": {
+        "user": "设计一个图书馆管理系统的图书检索页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1187(i00x18101890 i01x1890 i05x1890)d08x1188)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 52,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.34,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 73,
+      "prompt": {
+        "user": "设计一个博物馆导览App的展品解说页",
+        "system": null
+      },
+      "output": "dwf\noukè\n01\nd0¹\n01\n02\n03\n04\n05\n06\n07\n08\n09\n010\n011\n012\n013\n014\n015",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 74,
+      "prompt": {
+        "user": "设计一个艺术画廊的线上虚拟展厅入口",
+        "system": null
+      },
+      "output": "d0d24\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 75,
+      "prompt": {
+        "user": "设计一个心理健康冥想App的播放背景页",
+        "system": null
+      },
+      "output": "d0x:qqdm.d0x清空.d0xb2u0001cd01c1822323438111812822262222228655555555555",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 76,
+      "prompt": {
+        "user": "设计一个睡眠监测App的睡眠质量分析报告页",
+        "system": null
+      },
+      "output": "clear\n# SupleX\n#SupleX\nSupleX\nSunda\n20%\n2000\n2000\n2000\n2000\n2000\n2000\n2000\n2000\n20",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 77,
+      "prompt": {
+        "user": "设计一个喝水提醒App的打卡界面",
+        "system": null
+      },
+      "output": "d00xx(hr0x)i(b00x)dr07xmf1187(cl1182)x1188(pb00x)ar1284cd1682x1188(cd1882x31x08x",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 78,
+      "prompt": {
+        "user": "设计一个女性生理期记录App的日历界面",
+        "system": null
+      },
+      "output": "d01mano00d0100d0100d0100d0100d0100d0108mingo03x01x1888x2882x3882x4882",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 79,
+      "prompt": {
+        "user": "设计一个育儿疫苗接种提醒的时间轴界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1801m2401m3601m4801m5101m6141m7181m8241m9281m(cd128(cd148",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 80,
+      "prompt": {
+        "user": "设计一个老年人专用的大字体通讯录界面",
+        "system": null
+      },
+      "output": "font-size:62.5px\ndiv[alignx=\"10\"]input.ranking-star\nd10m10m200tax222222222222222222222222222222",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 81,
+      "prompt": {
+        "user": "设计一个企业内部OA办公系统的审批流程页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1i102x3m22x1ma2554x2554x2554x2554d1b3x1b3x1b3x1b3x1b3x1b3",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 82,
+      "prompt": {
+        "user": "设计一个进销存管理系统的报表分析页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1ct108d1282d1582d1882(b2264))",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 35,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.25,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 83,
+      "prompt": {
+        "user": "设计一个客服工单系统的待处理工单列表",
+        "system": null
+      },
+      "output": "d00xx(hr00x1ft01x1m1188(ta00x3x4751)ft04x2222cd06x2722(d00xxd09x2922))",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 61,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.92,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 84,
+      "prompt": {
+        "user": "设计一个开发者API文档的导航与阅读界面",
+        "system": null
+      },
+      "output": "d012ft01d1110d1111d111d0128d1188d128d0811ftc1182cd1382cd1482cd1582cd16",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 85,
+      "prompt": {
+        "user": "设计一个服务器运维面板的资源监控页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1AX11869AS7026B7226C9226D118621188618886)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 48,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.08,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 86,
+      "prompt": {
+        "user": "设计一个数据可视化BI工具的拖拽编辑画板",
+        "system": null
+      },
+      "output": "d00xx(shift,  control)  imagedn  (imagelist,cx1844812861761824186412866412886182118(x)  d",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 87,
+      "prompt": {
+        "user": "设计一个视频剪辑软件的时间轴轨道界面",
+        "system": null
+      },
+      "output": "ddt\nnn8\n{\n\t'layout'：'absolute',\n\t'child':ListD124222110100000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 88,
+      "prompt": {
+        "user": "设计一个图片修图App的滤镜调节面板",
+        "system": null
+      },
+      "output": "d00xx(hr00x1oth1sldpting1tf18md29b2x3to00xtt0ra00x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 38,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.44,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 89,
+      "prompt": {
+        "user": "设计一个矢量绘图工具的图层管理面板",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(cl00x2b2361cd1582)ft02x2(pa00x1b5271b5571)ar04x2(b2142b51",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 90,
+      "prompt": {
+        "user": "设计一个音乐制作软件（DAW）的混音台界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1au02x1b32x28x38x29x2x385x285x1885x1885x1885x1885x1888x18",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 91,
+      "prompt": {
+        "user": "设计一个星座运势App的每日运程页",
+        "system": null
+      },
+      "output": "d\nftgh\n01:01:00\nf0%0ex0l00d00b00b00n04g04m04d04d04d04d04d04d04d00d0",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 92,
+      "prompt": {
+        "user": "设计一个彩票购买App的开奖结果页",
+        "system": null
+      },
+      "output": "d00xx(hr00x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 10,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 0.64,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 93,
+      "prompt": {
+        "user": "设计一个婚礼策划助手的待办事项清单",
+        "system": null
+      },
+      "output": "d00xx(hr0ax1896ToC1896ToC1986(b1986(b2182b5182d782x1881(x1184x5184d1184d1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 94,
+      "prompt": {
+        "user": "设计一个装修设计App的3D样板间漫游页",
+        "system": null
+      },
+      "output": "d00xx(hr00x.ctl(d12x222x262x372x472x572x6720xx)ft00x(d12x(dn12x3cx24x444424",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 95,
+      "prompt": {
+        "user": "设计一个花店小程序的鲜花定制页面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1h1188(cl1182x)d02x3(h1182x)d05x1(b1188x)d08x1(b1188x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 55,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.53,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 96,
+      "prompt": {
+        "user": "设计一个酒庄官网的红酒品鉴介绍页",
+        "system": null
+      },
+      "output": "d0d1in0ftitlesimple有氧域1有0酒庄官网1红酒品鉴介绍8019191起19919919919919919919919919919919",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 97,
+      "prompt": {
+        "user": "设计一个极限运动俱乐部的活动报名页",
+        "system": null
+      },
+      "output": "d0b0layoutyOlun0x1cd1884168819999999999999999999999999999999999999999999",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 98,
+      "prompt": {
+        "user": "设计一个环保回收App的垃圾分类指南页",
+        "system": null
+      },
+      "output": "我现在要设计一个环保回收App的垃圾分类指南页。这个页需要有一个清晰的视觉结构，让用户容易上手。我应该从整体布局开始规划，比如使用绝对布局还是相对布局？先不急着解决技术问题，先考虑视觉效果。指南页通常包含目录导航和内容区域",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 99,
+      "prompt": {
+        "user": "设计一个寻人/寻物启事平台的信息发布页",
+        "system": null
+      },
+      "output": "d0S0\n（layout！f0.50d1569182x118821111111111111111111111111111111111111",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 100,
+      "prompt": {
+        "user": "设计一个时间胶囊App的未来信件封存界面",
+        "system": null
+      },
+      "output": "ds\nlayout_all: frame, size_full, gapXY, children_slc\nd333f189: frame1, pos207222, size654100, children_tbl\nd343f189:tootle,pos664",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 101,
+      "prompt": {
+        "user": "设计一个多人聚餐AA制分账App的账单结算页",
+        "system": null
+      },
+      "output": "d00xx(hr00dney1ft00(f1181188111881118811188111884x1(11774x7)800(x))",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 58,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.73,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 102,
+      "prompt": {
+        "user": "设计一个税务申报系统的年度报税进度条",
+        "system": null
+      },
+      "output": "d00xx(hr00x1cd1182hb1382hb1561pb1682cn1881ft09x1)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 41,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.63,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 103,
+      "prompt": {
+        "user": "设计一个个人信用评分查询App的仪表盘",
+        "system": null
+      },
+      "output": "#![![苹果商店](https://s01.bmpass.com/images/appstore-badge.png)本人信用评分查询](https://s01.img323626281i1u001200160076118000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 104,
+      "prompt": {
+        "user": "设计一个保险理赔App的事故现场照片上传页",
+        "system": null
+      },
+      "output": "d010000000000000000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 105,
+      "prompt": {
+        "user": "设计一个货币汇率转换器的实时计算界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1ht01x2M10x2im22x3m00x2m0x2ck00x2x2ck02x2x2ck04x2x2x300x2x305",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 106,
+      "prompt": {
+        "user": "设计一个退休养老金规划计算器的结果展示页",
+        "system": null
+      },
+      "output": "d00xxax19进ок\n选择显示方式：列表显示全部（可识别）显示全部\n在KHTML中设计的代码\n﻿<!DOCTYPE html>\n<html lang=\"en\">\n<head>\nmeta charset=\"utf-8\" name=\"viewport\" content=\"width=device-width, initial-scale=",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 107,
+      "prompt": {
+        "user": "设计一个股票交易App的K线图全屏查看模式",
+        "system": null
+      },
+      "output": "dswftlclearfullpage(lark(d1.151871cd122223242222222222222222222222222222222222222",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 108,
+      "prompt": {
+        "user": "设计一个贷款申请App的额度预估页面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1010(dn00x22x1(ck00x34x1b)x42x1(b00xxhxipp01x7x))ft08x1mi08x1(mi00x2",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 109,
+      "prompt": {
+        "user": "设计一个电子发票管理系统的发票详情页",
+        "system": null
+      },
+      "output": "d01\n( d02\n(10-01D0323u03(3510354510253550252000000010000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 110,
+      "prompt": {
+        "user": "设计一个校园卡充值小程序的支付页面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1x220xoftmofimweb0.ckclasstrainradas)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 28,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.8,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 111,
+      "prompt": {
+        "user": "设计一个背单词App的记忆曲线复习界面",
+        "system": null
+      },
+      "output": "d00xx(hr04xx(b1722d4721d1741d1841d1941d105x)b2861cd1xx88x1)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 52,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.34,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 112,
+      "prompt": {
+        "user": "设计一个专注力（番茄钟）工具的计时倒数界面",
+        "system": null
+      },
+      "output": "d00xx/hr0000(im0说00)（117根11718711888188818881888188818881888188818881",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 113,
+      "prompt": {
+        "user": "设计一个思维导图工具的节点编辑菜单",
+        "system": null
+      },
+      "output": "`xft:rowargx1,cartooldivl1,devicelmkld3,ckcoder18,theadfl2, (th+ftr)xft1,tft:axftxft)èmeòb2car1,tftM2777888",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 114,
+      "prompt": {
+        "user": "设计一个在线考试系统的防作弊摄像头监控提示页",
+        "system": null
+      },
+      "output": "d00xx18startx99endhtml51start5client管理1999199919991912862226422644264626482644264626",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 115,
+      "prompt": {
+        "user": "设计一个电子证书/奖状的展示与分享页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(cl1181d1281cd1382cd1582cd1782x11881d1882)ft08x1)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 58,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.73,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 116,
+      "prompt": {
+        "user": "设计一个学术论文查重系统的报告结果页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1c01x2cd03x2b25x4(ft00x3m00x6)cl07x2(b2655)ck01x3d04x3se65x2svdd",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 117,
+      "prompt": {
+        "user": "设计一个驾考刷题App的错题本界面",
+        "system": null
+      },
+      "output": "d04start00d280994121012101210121012101210121012101210121012101210121",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 118,
+      "prompt": {
+        "user": "设计一个乐器调音器（如吉他）的指针校准界面",
+        "system": null
+      },
+      "output": "d01x025i245slb75to0ft0x10901x1188x191x1191x119757557557557557557557",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 119,
+      "prompt": {
+        "user": "设计一个编程少儿教育App的积木拖拽界面",
+        "system": null
+      },
+      "output": "d01\n0001\n0001\n0001\n0001\n0001\n0001\n0001",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 39,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.51,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 120,
+      "prompt": {
+        "user": "设计一个化学分子式3D结构查看器的旋转界面",
+        "system": null
+      },
+      "output": "d001=ft001=cd101=x11111x12111x13111x14111x15111x16111d1701cd171x1881",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 121,
+      "prompt": {
+        "user": "设计一个牙科诊所预约系统的牙齿部位选择页",
+        "system": null
+      },
+      "output": "dhd\n{0\n0\n00101001000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 122,
+      "prompt": {
+        "user": "设计一个药品说明书查询App的禁忌症提示页",
+        "system": null
+      },
+      "output": "layout: absolute(0,0,dimen:100w/100h)docl:f[d1c1cc108x2x384x482x67226512775788811881",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 123,
+      "prompt": {
+        "user": "设计一个急救指南App的心肺复苏（CPR）节奏引导页",
+        "system": null
+      },
+      "output": "是\n是\n是\n看\n是\n是\n是\n是\n是\n中\n请\n请\n全\n就\n个\n安\n安\n安\n安\n安\n安\n安\n安\n安\n安\n安\n安\n安\n安\n安\n安\n安\n",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 124,
+      "prompt": {
+        "user": "设计一个跑步App的GPS路线轨迹回放界面",
+        "system": null
+      },
+      "output": "d00xx(hr01x1t18m2821x312222x43222cd00xxb344x4841x4844x4848x48xm1999ar10",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 125,
+      "prompt": {
+        "user": "设计一个卡路里计算器的食物拍照识别结果页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1ima1182x1B2262cd1482cd1682cd1882x3se7841b2961cd2144)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 55,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.53,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 126,
+      "prompt": {
+        "user": "设计一个瑜伽练习App的体式视频跟练界面",
+        "system": null
+      },
+      "output": "d0x0\ndr0w0\nc01d01991119112118816222652711718819191091091091090270",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 127,
+      "prompt": {
+        "user": "设计一个间歇性断食追踪器的饮食窗口倒计时页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1f00x1m00x1(im1184d1581(cd5031cl5431cd1833cd4833)d1888(b204xax)ft09",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 128,
+      "prompt": {
+        "user": "设计一个智能体脂秤App的身体成分分析报告",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(cd1172 software1872)π1181(i1191b2291)ft1292)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 48,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.08,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 129,
+      "prompt": {
+        "user": "设计一个视力测试App的E字表交互界面",
+        "system": null
+      },
+      "output": "d01start00d1b3cl00d1cd11c188711887118871188711887118871188711887118871",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 130,
+      "prompt": {
+        "user": "设计一个献血志愿者App的电子献血证页面",
+        "system": null
+      },
+      "output": "d01001100d011011B10001100D11111100D11310100D11410100D11510100D11",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 131,
+      "prompt": {
+        "user": "设计一个盲盒抽奖App的开箱动画定格页",
+        "system": null
+      },
+      "output": "d\n{\n  \"layout\": \"absolute\",\n  \"children\": [\n    \"fader\": \"absolute\",\n      \"position\": \"absolute\"\n    \"d1\": \"d1\"\n    \"d2\": \"d2\"\n    \"d3\": \"absoluteh1= '100'l",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 132,
+      "prompt": {
+        "user": "设计一个奢侈品鉴定的真伪对比报告页",
+        "system": null
+      },
+      "output": "# 奕石鉴定证书\n你好，我需要你设计一份奢侈品真伪鉴定的对比报告页，大概需要哪些元素？请依次列出，我将根据你的描述为你定制页面。当前我需要你来解答问题，所以请开始。先请列出需要设计这份对比报告页的大",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 133,
+      "prompt": {
+        "user": "设计一个社区团购小程序的团长管理后台",
+        "system": null
+      },
+      "output": "d01 layout.d02 children(d01fr0112d13111222d1411823250172503725067251672608102d011",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 134,
+      "prompt": {
+        "user": "设计一个家政保洁服务的阿姨简历筛选页",
+        "system": null
+      },
+      "output": "d\nwould\n add\n and\n capx\nate\n=dn\noffercx\np\n=dn\n=dn\n=dn\n=dn\n=dn\n=dn\n=dn\n=dn\n=dn\n=dn\n=dn\n=dn\n=dn\n=dn\n",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 135,
+      "prompt": {
+        "user": "设计一个上门洗车服务的车辆位置标记页",
+        "system": null
+      },
+      "output": "[xng:docframework]\np0[ft,an,cd,ft,an,cd,ft,an,cd,ft,am,o,]:cdx2[cdx,cdx]:ft0[ta,]:al1[input]:im2[mar,]:im6[",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 136,
+      "prompt": {
+        "user": "设计一个会员积分商城的礼品兑换详情页",
+        "system": null
+      },
+      "output": "d00800xcode_0\nlt;div0pdutr180300d240431cl180110d190120d290140d334121541110",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 137,
+      "prompt": {
+        "user": "设计一个球鞋发售日历App的提醒设置页",
+        "system": null
+      },
+      "output": "d00xx(hr00hr0x(h00x1x1(xdx)) dt)t(d00x(m00xpx20x)cdp)ft(ft)čč(pol0x)m0x)č(b0x)m0x)č(b0x)m",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 138,
+      "prompt": {
+        "user": "设计一个汉服/Cosplay租赁平台的服装尺码对照页",
+        "system": null
+      },
+      "output": "d0\nrd200d40cd0commond0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 139,
+      "prompt": {
+        "user": "设计一个订阅制盲盒（如鲜花、咖啡）的配送计划管理页",
+        "system": null
+      },
+      "output": "d\nrt\n{{doctype}}  \nd\n md\n  d\n  d\n  d\nd\n  dr12d41421d108d14121d108d14221d108d1432",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 140,
+      "prompt": {
+        "user": "设计一个同城搬家服务的物品估价计算器",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m190x1Comp110211488118881198111981119811981198119811981198",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 141,
+      "prompt": {
+        "user": "设计一个短视频App的拍摄道具选择栏",
+        "system": null
+      },
+      "output": "app\n#和\n layout\n xx\n xx\n xx\n xx\n xx\n xx\n xx\n xx\n xx\n xx\n xx\n xx\n 车\n 车\n 车\n 车\n 车\n 车\n 车\n",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 142,
+      "prompt": {
+        "user": "设计一个KTV点歌App的手机遥控器界面",
+        "system": null
+      },
+      "output": "d0yd180001start010000000018000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 143,
+      "prompt": {
+        "user": "设计一个剧本杀/密室逃脱组局App的角色分配页",
+        "system": null
+      },
+      "output": "dC0rt0dforim128080\n[!在v100startd1080l10800109080908008801081888888888888",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 144,
+      "prompt": {
+        "user": "设计一个粉丝后援会App的明星行程表",
+        "system": null
+      },
+      "output": "d00xx(hr0iindexofim2024:1972022200002412222222220000262882222222222222203",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 145,
+      "prompt": {
+        "user": "设计一个电子相框Widget的照片轮播设置",
+        "system": null
+      },
+      "output": "d00xx(hr00x1ht01x1cd02x2ar04x1b05x1b15x1b280x4f3288)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 47,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.02,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 146,
+      "prompt": {
+        "user": "设计一个表情包制作工具的文字添加界面",
+        "system": null
+      },
+      "output": "全页面布局\n1.背景：纯色\n2.标题：Hello Seo设计\n3.4个输入框\n4.添加按钮\n5.表情市场\n6.70%位置拉条\n全身布局\n1.左右布局\n2.发条按钮\n3.小",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 147,
+      "prompt": {
+        "user": "设计一个网络收音机（FM）的调频旋钮界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1(cl00x1cd10xx)ft00x2ar12x2(b12x2b828x2))",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 42,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.7,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 148,
+      "prompt": {
+        "user": "设计一个演出票务App的电子票二维码核销页",
+        "system": null
+      },
+      "output": "d00xx(hr00x Heading11801980198019801980800d00x(247xP1x188x188800d00x(247x(h",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 149,
+      "prompt": {
+        "user": "设计一个电影评分App的影评长文编辑页",
+        "system": null
+      },
+      "output": "本次任务的目标是设计一个电影评分App的影评长文编辑页。用户需要在这个编辑区域中输入影评，然后点击“确定”按钮保存影评。同时，影评的字数需要被实时显示，比如“输入了123字，剩余56字”这样的",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 150,
+      "prompt": {
+        "user": "设计一个ASMR音效App的声音混合控制台",
+        "system": null
+      },
+      "output": "d00xx(hr00x1andb2188cl1882M1988)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 27,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.73,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 151,
+      "prompt": {
+        "user": "设计一个企业HR系统的员工入职流程指引页",
+        "system": null
+      },
+      "output": "d001：（欢迎词）当前用户：超人小学校2014级学生-：（转场）员工办公终端进入2014030101员工-：（标题）2014年新员工入职流程指引-：（介绍）欢迎",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 152,
+      "prompt": {
+        "user": "设计一个薪资单（Payslip）查看App的明细折叠页",
+        "system": null
+      },
+      "output": "wps6404484688888888888888888888888888888888d00d00d00d00d00d00d00d",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 153,
+      "prompt": {
+        "user": "设计一个供应链物流地图的车辆实时位置监控点",
+        "system": null
+      },
+      "output": "d00xx(hr00x1i1106ar01x3313cd1582cl1782cn1981x1000ar1104x1000ar4104x1000ar7",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 154,
+      "prompt": {
+        "user": "设计一个IT帮助台（Helpdesk）的故障提交表单",
+        "system": null
+      },
+      "output": "form{display:grid;gap:16px}h1x100clearb1x100d1x223x42M1x38004x1208x1203x471x127L1x2",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 155,
+      "prompt": {
+        "user": "设计一个邮件营销工具（EDM）的模板拖拽编辑器",
+        "system": null
+      },
+      "output": "d00xx\nlayout\nwh00x1m1f00x(hse00x1dv81x)d00x1b25x4to00x2n00x5n00x5f00x1cd00x2x",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 156,
+      "prompt": {
+        "user": "设计一个项目管理工具的甘特图（Gantt Chart）视图",
+        "system": null
+      },
+      "output": "d00xx(h00x1856566228681184118418411884108x1118x1118x1118x1118xω!",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 62,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.98,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 157,
+      "prompt": {
+        "user": "设计一个服务器状态监控页（Status Page）的故障时间轴",
+        "system": null
+      },
+      "output": "d00xx80o325cl12ke1cd181cd191x118xa198272739999999999999999999999999999",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 158,
+      "prompt": {
+        "user": "设计一个CMS内容管理系统的文章发布设置侧边栏",
+        "system": null
+      },
+      "output": "d00xx(hr00x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 10,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 0.64,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 159,
+      "prompt": {
+        "user": "设计一个域名注册平台的域名查询结果列表",
+        "system": null
+      },
+      "output": "d0d0d012childrend0d0d012d0d0d012d0d0d012d0d0d012d0d0d012d0d0d012d0d0d01",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 160,
+      "prompt": {
+        "user": "设计一个云数据库管理的SQL查询执行窗口",
+        "system": null
+      },
+      "output": "LargeIcon\n0070000001000000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 161,
+      "prompt": {
+        "user": "设计一个智能灯泡App的色盘调节界面",
+        "system": null
+      },
+      "output": "d0100\nd0200\nim0300\nd0400\nd0500c\nd0600dC\nd0700双11",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 47,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.02,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 162,
+      "prompt": {
+        "user": "设计一个扫地机器人的清扫区域划定地图",
+        "system": null
+      },
+      "output": "dTitz\nlayout: 100%\n\n\nkirch=my0\nchildren of kirch\nim0\nd0\nd1\nd2\nd3\nd4\nd5\nd6\nd70\nchildren of im0\nh0\nd0\nd1\nd",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 163,
+      "prompt": {
+        "user": "设计一个电动汽车充电桩App的充电进度与功率显示",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(cd00x2LGck01x2cd03x2(l00x2b84x1))ft09x1(b1188b1788))",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 58,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.73,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 164,
+      "prompt": {
+        "user": "设计一个汽车胎压监测系统的报警提示界面",
+        "system": null
+      },
+      "output": "d00xx(hr00xhtt8x19889999999999999999999999999999999999999999999999999",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 165,
+      "prompt": {
+        "user": "设计一个行车记录仪App的视频回放与剪辑页",
+        "system": null
+      },
+      "output": "d010 starts()0101111111110111111111111011111111111111111101111111111111",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 166,
+      "prompt": {
+        "user": "设计一个智能冰箱的食材保质期提醒列表",
+        "system": null
+      },
+      "output": "d00xx(hr00x1a1b1B2b30x444446666108808808808808808808808808808808808",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 167,
+      "prompt": {
+        "user": "设计一个智能门锁App的临时密码生成页",
+        "system": null
+      },
+      "output": "d\nlayout\n(Perfumery d'attestationFresqueDekorativesDinnerware a de KochéMaison a** de** de** de** de** de** de** de** de** de",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 168,
+      "prompt": {
+        "user": "设计一个家庭安防摄像头的多画面分屏监控页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(cd1232cd1432d1682(cd1231cd4231cd7231))ft08x1(b2861))",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 57,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.66,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 169,
+      "prompt": {
+        "user": "设计一个智能窗帘的开合百分比滑块控制",
+        "system": null
+      },
+      "output": "d00xx(hr0018(cd1114(cl1222(b2231pu1331dd2441cd1552cd1772))ft02axcd2981(l1188l1488",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 170,
+      "prompt": {
+        "user": "设计一个车载HUD（抬头显示）的导航箭头界面",
+        "system": null
+      },
+      "output": "d00xx(hb75forx1m15657575128661l27541d28841M29841L39841lxtx1mingm89275554",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.453125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 171,
+      "prompt": {
+        "user": "设计一个游戏角色的装备栏与背包界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1 displaysn1af8181d00x22clav25(x50x1(totals))ft02x20mi02x20)ft04x20(cd00x35(cd00x",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 172,
+      "prompt": {
+        "user": "设计一个游戏成就系统的奖杯陈列室",
+        "system": null
+      },
+      "output": "d03100根据：{01.显示方式：水平堆叠}02.项数：100000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 173,
+      "prompt": {
+        "user": "设计一个元宇宙Avatar虚拟形象的捏脸界面",
+        "system": null
+      },
+      "output": "d\nd0\n'kiv\nd1\nn0\ndv8d5\n'05h8523752275652655285275275527552857527575",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 174,
+      "prompt": {
+        "user": "设计一个AR实景导航App的路线箭头指引",
+        "system": null
+      },
+      "output": "d00xx(hr00x1d1188x2AR1188x3b384x4b484x5b584x6b684(d005x5554x5754x5)ar0",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 175,
+      "prompt": {
+        "user": "设计一个DAO组织（去中心化自治）的投票提案页",
+        "system": null
+      },
+      "output": "bpa\nlayout\n header\n  h1=投票提案\n h1=《DAO:去中心化自治》\n h1=《去中心化自治》\nn1=div\n =\"f1\"\n =\"f2\"\n =\"f3\"\n =\"f4\"\n",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 176,
+      "prompt": {
+        "user": "设计一个Web3域名的铸造（Mint）流程页",
+        "system": null
+      },
+      "output": "danager\n<diplom>\n  <let>\n  <fcm>\n    <fcdncy>\n      <fclcss>\n    </fclcss>",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 36,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.31,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 177,
+      "prompt": {
+        "user": "设计一个云游戏平台的排队等待界面",
+        "system": null
+      },
+      "output": "d00xc0x了\n—（d00x10f00xt h1x102x4m1185100）——（d01x3Lb44544444444444444",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 178,
+      "prompt": {
+        "user": "设计一个Switch游戏卡带管理App的收藏墙",
+        "system": null
+      },
+      "output": "d00xx(hr00x1cd11xsc11x(d11xq11x)d0xxs28x(d11x)cd0xft18x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 46,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.95,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 179,
+      "prompt": {
+        "user": "设计一个桌游计分器的多玩家得分面板",
+        "system": null
+      },
+      "output": "下面是设计一个桌游计分器的多玩家得分面板的代码：\n漂移\n{drift}\n'footer': 'footer= True{1100}position:100100'}",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 46,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.95,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 180,
+      "prompt": {
+        "user": "设计一个游戏Mod社区的模组下载详情页",
+        "system": null
+      },
+      "output": "d\nd\nd\ndd\nd\ndd\nd3\nd4\nd2d\nd3d\nd4d\nd2d\nd3d\nd4d\nd2d\nd3d\nd4d\nd2d\nd3d\nd4",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 181,
+      "prompt": {
+        "user": "设计一个指南针App的校准旋转动画",
+        "system": null
+      },
+      "output": "d00xx(hr00x1mov01x1im10me00x1m0xb7f0b6b4b2444444444444444444444444444444",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 182,
+      "prompt": {
+        "user": "设计一个分贝测试仪（噪音计）的波形显示页",
+        "system": null
+      },
+      "output": "d01CTUS7F800191900000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 183,
+      "prompt": {
+        "user": "设计一个金属探测器App的信号强度仪表盘",
+        "system": null
+      },
+      "output": "meta\nxx\n1. 基本信息\n  system\n 大小\n 框架\n 工具\n 支持\nX\n(电容)\n(有线)\n1. 导入材料\n2. 基本设置\n  %\n 磁化\n 传感器类型*\nX\n",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 184,
+      "prompt": {
+        "user": "设计一个网速测试（Speedtest）的仪表指针动画",
+        "system": null
+      },
+      "output": "d00xx(hr00x1)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 11,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 0.71,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 185,
+      "prompt": {
+        "user": "设计一个单位换算器（长度/重量/温度）的滚轮选择器",
+        "system": null
+      },
+      "output": "d00x100x100xxO00x100x10010010010010010010010010010010010010010010",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 186,
+      "prompt": {
+        "user": "设计一个二维码/条形码生成器的样式自定义页",
+        "system": null
+      },
+      "output": "d\n{\n    \"layout\": \"absolute\",\n    \"children\": [\n        {\n            \"type\": \"t贵\",\n            \"position\": \"absolute\",\n            \"size\": \"1100x500\",\n            \"size\": \"1100x500\",\n            \"size\":",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 187,
+      "prompt": {
+        "user": "设计一个倒数日（Anniversary）App的卡片列表",
+        "system": null
+      },
+      "output": "d00xx(hr00i1d02x2d05x2d07x2)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 26,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.67,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 188,
+      "prompt": {
+        "user": "设计一个水平仪App的气泡平衡界面",
+        "system": null
+      },
+      "output": "d00xx(hr02x1(b1128(m1188)cd1382)cd1682(cd1881c1981)ft09x1(b2148))",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 54,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.47,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 189,
+      "prompt": {
+        "user": "设计一个手机清理加速App的扫描动画页",
+        "system": null
+      },
+      "output": "d00xx(11189766888000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 190,
+      "prompt": {
+        "user": "设计一个文件压缩/解压工具的进度弹窗",
+        "system": null
+      },
+      "output": "d00xx(hr00x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 10,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 0.64,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 191,
+      "prompt": {
+        "user": "设计一个深色模式（Dark Mode）的全局切换开关效果",
+        "system": null
+      },
+      "output": "d00800d00800d00800d00800d00800d00800d00800d00800d00801c008023008",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 192,
+      "prompt": {
+        "user": "设计一个骨架屏（Skeleton Screen）加载占位状态",
+        "system": null
+      },
+      "output": "ddrive\n{position: absolute, left: 0, top: 0, width: 100%, height: 100%, child: fringiomomomodofoot}",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 46,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.95,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 193,
+      "prompt": {
+        "user": "设计一个操作成功的Toast提示气泡",
+        "system": null
+      },
+      "output": "copy\n# loading\n{slideshow}\n{div.xslid{0,1}xslid{1,2}xslim{0}xslim{1}xsls{1,1}xsls{2,1}d1xsl3xsl3}",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 194,
+      "prompt": {
+        "user": "设计一个面包屑导航（Breadcrumb）的层级显示",
+        "system": null
+      },
+      "output": "d00xx(hr00x1div.f00x22d02x11hn04x3)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 29,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.86,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 195,
+      "prompt": {
+        "user": "设计一个Web端的分页器（Pagination）样式",
+        "system": null
+      },
+      "output": "spanning布局\nlayout\n# 点\n<template\n  a\n(ul\n.d118\ninput\np188\nd1838\nbutton,hn188223834838388388388388",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 196,
+      "prompt": {
+        "user": "设计一个日期范围选择器（Date Range Picker）的日历面板",
+        "system": null
+      },
+      "output": "d00xx000cd00x17788888888888888888888888888888888888888888888888888",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 197,
+      "prompt": {
+        "user": "设计一个配色方案生成器的色卡导出页",
+        "system": null
+      },
+      "output": "d00xxHRD00x\nd00xxFGD00x",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 19,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.22,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 198,
+      "prompt": {
+        "user": "设计一个字体预览选择器的字重调节滑块",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m00xx(hr02x2)ft02x1b225224444444444)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 42,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.7,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 199,
+      "prompt": {
+        "user": "设计一个上传文件的拖拽区域（Drag & Drop）状态",
+        "system": null
+      },
+      "output": "onyetim\nt\nft\nv\nc\n1\n（trashtalk）\nft    d              �������",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 200,
+      "prompt": {
+        "user": "设计一个空状态（Empty State）插画与文案提示",
+        "system": null
+      },
+      "output": "d0011 start0011f10110111121111211112111121111211112111121111211112111",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 201,
+      "prompt": {
+        "user": "设计一个地铁线路图App的换乘方案详情页",
+        "system": null
+      },
+      "output": "在线输入\nd00xx86xx100d00x100d00x100d00x100d00x100d00x100d00x100d00x100d",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 202,
+      "prompt": {
+        "user": "设计一个公交车实时到站的雷达图界面",
+        "system": null
+      },
+      "output": "d00xx\n00000000000000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 203,
+      "prompt": {
+        "user": "设计一个共享单车App的扫码开锁加载动画",
+        "system": null
+      },
+      "output": "displayas:import{d,e,f,h,o,g}from\"zoome\" {dxml}ddivxkywhere=d'html'o'd'f'f'do'importme\"countu\"importme\"me\"importme\"te\"importme\"te\"import",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 204,
+      "prompt": {
+        "user": "设计一个机场航班大屏（FIDS）的手机端复刻版",
+        "system": null
+      },
+      "output": "（说明：本设计是一个1920×1100大小的手机端复刻版FIDS大屏，使用的是Figma的代码片段，可以直接复制到Figma里面进行编辑和测试，也可以直接运行查看效果）\n\n\n# 1920x1100",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 205,
+      "prompt": {
+        "user": "设计一个火车票候补抢票的成功率分析页",
+        "system": null
+      },
+      "output": "d01d02d03d04d05d06d07\n根据用户的需要，我来设计一个“火车票候补抢票成功率分析页”——用Python的D3.js库做可视化开发，先不考虑性能问题，先做界面布局和",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 206,
+      "prompt": {
+        "user": "设计一个租车App的验车伤痕标记界面",
+        "system": null
+      },
+      "output": "d00xx(hr01x1(d1188x1d1788x1(b2261cd2441cd5441cd9441)ft09x1))ft1188x2(b2261cd",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 207,
+      "prompt": {
+        "user": "设计一个高速公路ETC充值记录查询页",
+        "system": null
+      },
+      "output": "d01001ra001d1198rt0981CT1001ui1081u1087d1091d1097d1108d1118d1128d113",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 208,
+      "prompt": {
+        "user": "设计一个打车软件的司机到达路径动效",
+        "system": null
+      },
+      "output": "d0ft0g0\nJSON:\n(copy and paste this code into a text file and then add the file to your project)\nrandom\n{\n  \"layout\": \"absolute\",\n  \"children\": [\n    \"headd30n0d0\"\n      typeof strong is \"n\",\n      \"dr",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 209,
+      "prompt": {
+        "user": "设计一个游轮旅行App的舱位平面图选房页",
+        "system": null
+      },
+      "output": "d0d0yd0x(layout('d0'0b3b7clb2d43cd4c4cd4c4cd4c4c')ft(d1md88888888888888888888888",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 210,
+      "prompt": {
+        "user": "设计一个房车露营地预订的营位地图",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(ha2261cd2461cd2561cd2661(cd1188cd1288)ft09x1(b206x))ft09x1(b2",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 211,
+      "prompt": {
+        "user": "设计一个电子公章/签名授权的指纹确认弹窗",
+        "system": null
+      },
+      "output": "Xtaking\nstyle_theme:dark\nlayout:\"absolute\"\nchildren:.[layout]d_ime:0i\"1\"_xstnd\":\"0\"c\"1\"x\"1\"b\"1\"b\"1\"f\"1\"f\"1\"b\"1\"d\":",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 212,
+      "prompt": {
+        "user": "设计一个政务服务App的办事大厅排队取号页",
+        "system": null
+      },
+      "output": "ddrivertesup\n0 localste40os16arcll2180990999999999999999999999999999999999999999",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 213,
+      "prompt": {
+        "user": "设计一个城市空气质量（AQI）的污染指数地图",
+        "system": null
+      },
+      "output": "d00xx(hr00x1i1800g2400cd2800(h6320cd0840ar6720cn19x1(b704x)m1188sl09x1slx1x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 214,
+      "prompt": {
+        "user": "设计一个台风路径追踪App的实时动态图",
+        "system": null
+      },
+      "output": "d00xx(hr00x1 start1030F1cd1188(cl1183d1482d1682)d1882(d0055(b00x2ax444x)b50x2(l00",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 215,
+      "prompt": {
+        "user": "设计一个地震预警App的倒计时警报全屏页",
+        "system": null
+      },
+      "output": "dugs\nftngrf\nTc0\n0Gi0Ho1008888008800880088000880008800088000880008800088",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 216,
+      "prompt": {
+        "user": "设计一个垃圾分类查询的语音搜索结果页",
+        "system": null
+      },
+      "output": "`{randomNum:0,d0:\"<!DOCTYPE<htmlheadsvard0xskfsheclexsktsdsdslssdslddsrpt'd0drd0dib3205304cl320420340440441",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 217,
+      "prompt": {
+        "user": "设计一个社区公告栏电子屏的滚动通知界面",
+        "system": null
+      },
+      "output": "d01x0d01x100d01x200d01x300d01x401x500d01x610d01x701x800d01x901x1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 218,
+      "prompt": {
+        "user": "设计一个志愿者招募活动的报名表单",
+        "system": null
+      },
+      "output": "d01man'swork2d10man'sd11mang01d12mang02d13mang04d15mang05d16mang06d17mang08d18mang10d20",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 219,
+      "prompt": {
+        "user": "设计一个彩铃设置App的试听剪辑界面",
+        "system": null
+      },
+      "output": "d0120:11:0001:1101:1090:1180:1180:1180:1180:1180:1180:1180:1180:",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 220,
+      "prompt": {
+        "user": "设计一个手机流量剩余详情的波浪球动画",
+        "system": null
+      },
+      "output": "d0ftgn0d0d0ftgn0d1x70cl11ckup1d1p2u0d1d88m29977777777777777777777777777",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 221,
+      "prompt": {
+        "user": "设计一个咖啡店点单小程序的杯型选择（中/大/超大）",
+        "system": null
+      },
+      "output": "d010001\n010010\n010110\n110000\n110110\n111000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 43,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.76,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 222,
+      "prompt": {
+        "user": "设计一个奶茶DIY点单页（糖度/冰度/小料）",
+        "system": null
+      },
+      "output": "d0x{ coverd0xH场景F22}d0x(f118.5d128.5d178.5d2280d4216802x22674\")d0x(h11083",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 223,
+      "prompt": {
+        "user": "设计一个回转寿司餐厅的平板点餐界面",
+        "system": null
+      },
+      "output": "p(\"layout\": \"absolute\", \n  \"children\": \"d(d\": \"f\", \n    \"children\": \"h1x100\", \n    \"card\": \"d190240\", \n    \"floating\": \"check\")",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 55,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.53,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 224,
+      "prompt": {
+        "user": "设计一个烘焙食谱App的面包发酵计时器",
+        "system": null
+      },
+      "output": "d00xx(hr00m00s00x0xxCLass'count_00x1888998888888888888888888888888888888888",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 225,
+      "prompt": {
+        "user": "设计一个酒吧鸡尾酒配方库的基酒筛选页",
+        "system": null
+      },
+      "output": "d01x10\n속도0%\nd10x50r15dr61nr15n31li1519ci1551cd1574cn1591d1525d2525d5525",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 226,
+      "prompt": {
+        "user": "设计一个素食主义者餐厅地图的发现页",
+        "system": null
+      },
+      "output": "[蓝天下新广场B3-17区 坪内18区 高雄SONY18219立山口101101101010101091906（小学）611061106",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 227,
+      "prompt": {
+        "user": "设计一个精酿啤酒评分App的风味雷达图",
+        "system": null
+      },
+      "output": "d00xx(hr00i1.00xdb0x)d00x(hr00i1.00x)d00x(hr00i1.00x)d00x(hr00i1.00x)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 56,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.6,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 228,
+      "prompt": {
+        "user": "设计一个家庭采购清单的勾选与分类页",
+        "system": null
+      },
+      "output": "d0d1 tovd18rd198f1107cd11118md111181cd111181cd111181cd111181cd111181cd11118",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 229,
+      "prompt": {
+        "user": "设计一个冰箱剩菜管理App的食谱推荐页",
+        "system": null
+      },
+      "output": "d0o0ondo0d1dd2f0ar0(h10dd¾º¾³½¹¸¹½³½¹⁷½⁶5d1lto⁵⁶³⁵¹⁸8card2ar0o²⁵⁷d²�",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 230,
+      "prompt": {
+        "user": "设计一个外卖骑手App的今日收入统计表",
+        "system": null
+      },
+      "output": "d00xx=\ndToday00x1=10o00x1=check00x2=checkboxhb02x2=hb12x2=hb22x2=hb32x2=hb42x2=hb52x2=ht",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 231,
+      "prompt": {
+        "user": "设计一个宠物智能喂食器App的定时投喂计划页",
+        "system": null
+      },
+      "output": "drunop\n[![[小程序设计文档](https://via.placeholder.com/400x200)]]ffring{vfring{0ptsti1clCd12272727272727272727272",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 232,
+      "prompt": {
+        "user": "设计一个遛狗路径记录App的社交分享图",
+        "system": null
+      },
+      "output": "dofieldset\nn:sup\n[u:u]i:cd\nf:lo\nc:0%\nd:0%\nl:0%\na:0%\nal:0%\nb:0()\nft:cd\np:0()l\nd:0()d\nc:",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 233,
+      "prompt": {
+        "user": "设计一个猫咪翻译器App的录音分析界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1hh11719x11881x1891x1908x1918x1928x1938x1948x1958x1968x19",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 234,
+      "prompt": {
+        "user": "设计一个宠物医院病历本的电子档案页",
+        "system": null
+      },
+      "output": "d0101form\n  hisslaimgxSubsubsubsubsubb2ccitF7clftctgc1b2pgoogolpR1dhd2b2d2d2d2d21b2d2b2x22222",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 235,
+      "prompt": {
+        "user": "设计一个水族箱管理App的水质PH值记录表",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1888(h00xxcd1188)ft09x1(b18x2)ft09x1(b1882)ft09x1(b1882))ft09x1(h1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 236,
+      "prompt": {
+        "user": "设计一个植物识别App的百科介绍详情卡片",
+        "system": null
+      },
+      "output": "高1fr100%fc0dxl0egr0diop127727207128828828828828828828828828828828828828",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 237,
+      "prompt": {
+        "user": "设计一个多肉植物浇水提醒的日历视图",
+        "system": null
+      },
+      "output": "d00xx(hr00x1(ha1081cd1182m1128b2263b2562b2862(cd1182cd1282cd1482cd1682cd188",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 238,
+      "prompt": {
+        "user": "设计一个园艺景观设计的AR摆放预览页",
+        "system": null
+      },
+      "output": "d0p{bitong{di0m(ftm lkld3ek1i1888c1pu0x2e0x2e0x2e0x4949yd8422341F4848ym1cld1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 239,
+      "prompt": {
+        "user": "设计一个流浪动物领养平台的申请审核进度页",
+        "system": null
+      },
+      "output": "d01d02d03d04d05d06\ntitleLabelx1x1d2.5x1d4.5x2d226742252252252252252252252",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 240,
+      "prompt": {
+        "user": "设计一个昆虫观察日记App的照片上传界面",
+        "system": null
+      },
+      "output": "studentnewsd007xoaxlayout\n设计说明：\n\n1. 界面类型：HDIDe\n2. 界元素堆：d00b3f73273798888888888888888888",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 241,
+      "prompt": {
+        "user": "设计一个智能电视（Smart TV）的信号源切换菜单",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(cd1182(b2161dd2244cd1642)d1881)i1188(trans1188)))",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 52,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.34,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 242,
+      "prompt": {
+        "user": "设计一个投影仪的梯形校正操作界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1(h101x1(m102x3(b304x1))d502x1(d153x1(d193x1(d593x1(d893x1(d100xxS",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 243,
+      "prompt": {
+        "user": "设计一个蓝牙音箱App的立体声组队设置",
+        "system": null
+      },
+      "output": "d\nlayout\n:fror\n  FoolToolbar\n 它d3b3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3b2232333333333",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 244,
+      "prompt": {
+        "user": "设计一个NAS私有云相册的时间轴视图",
+        "system": null
+      },
+      "output": "d00xx incd3000119191919191919191119111911191119111911191119111911191",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 245,
+      "prompt": {
+        "user": "设计一个路由器管理App的防蹭网设备黑名单",
+        "system": null
+      },
+      "output": "d\nd\n{page}\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd\nd",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 246,
+      "prompt": {
+        "user": "设计一个智能插座的电量统计柱状图",
+        "system": null
+      },
+      "output": "现在请你使用Python语言和jieva库来实现一个智能插座的电量统计柱状图。在这张图中，有4个智能插座，每个插座都有自己的电量和耗能数据。请将这些数据通过jieva库整合成一张图，再用Python代码来渲染这张图。",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 247,
+      "prompt": {
+        "user": "设计一个空气净化器的滤芯寿命倒计时圈",
+        "system": null
+      },
+      "output": "# 资源回收机\n<template>\n  <v1paper>\n    <img1width=\"100\"height=\"100\"xpos\"+\"1\"pas \"right\"dir\"in\">\n  </unspooled>\n</v1paper>\n",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 59,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.79,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 248,
+      "prompt": {
+        "user": "设计一个家庭影院控制系统的场景模式切换页",
+        "system": null
+      },
+      "output": "d01=ftt02=cd03=ftc10=fb80=fbcc80=cc(p1061p7061)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 40,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.57,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 249,
+      "prompt": {
+        "user": "设计一个电子墨水屏日历（E-ink）的刷新界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1(ha10x2im1182(cd1173cd1473(hs1752(lb1282lb4282cd1573cd1873))ft09x1))",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 250,
+      "prompt": {
+        "user": "设计一个智能马桶App的用户偏好设置页",
+        "system": null
+      },
+      "output": "d01xlayout\n00xcd109(\n019rn187b288618109109109109109109109109109109109109",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 251,
+      "prompt": {
+        "user": "设计一个亲子相册App的宝宝成长时间轴",
+        "system": null
+      },
+      "output": "d0\nn:fonc0\np:header1p:joa1m2m2m4m2d1d3d4d2d2d1l2d2d2d2d2d1覆盖1b2c1c2c1c3c3",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 252,
+      "prompt": {
+        "user": "设计一个家庭树（家谱）制作App的节点编辑页",
+        "system": null
+      },
+      "output": "d0100nodesok2190d0100d0（801080202060100d0790d01086104x1280x1280d08118",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 253,
+      "prompt": {
+        "user": "设计一个情侣专属App的纪念日倒数Widget",
+        "system": null
+      },
+      "output": "d03start000d00cd1282870210d01cd981cd1891cd1991d0288227210d0388227210d048",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 254,
+      "prompt": {
+        "user": "设计一个离婚冷静期咨询App的法律条文检索页",
+        "system": null
+      },
+      "output": "d00xx\nlayout: absolute(auto)\ning00xx\n  'doc10065'\nb370100xx1101xx8001x1901x9001x90099999'",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 62,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.98,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 255,
+      "prompt": {
+        "user": "设计一个老年大学课程表的放大版查看页",
+        "system": null
+      },
+      "output": "d00llineans0d0act00727277711981cd0027775523p0827275523p0827275723p082727",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 256,
+      "prompt": {
+        "user": "设计一个儿童绘本阅读App的翻页交互动画",
+        "system": null
+      },
+      "output": "TPTTClient\ndtft古言之\nftftd\n(oa' (cd12(m1a1cd12(m1a1cd12(m1a1cd12(m1a1)))d(itaI)d)ftft(d1Fb2p)cd",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 257,
+      "prompt": {
+        "user": "设计一个家庭药箱管理App的过期药品警示",
+        "system": null
+      },
+      "output": "d00xx(hr00x1ToP0x12m1002m2002m3002x188x189x118hc00x21b30x23b40x24b50x",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 258,
+      "prompt": {
+        "user": "设计一个家教辅导App的作业批改反馈页",
+        "system": null
+      },
+      "output": "d004d004d004d004d004d004d004d004d004d004d004d004d004d004d004d004",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 259,
+      "prompt": {
+        "user": "设计一个邻里互助社区的物品借用发布页",
+        "system": null
+      },
+      "output": "d\n{\n  \"layout\": \"absolute\",\n  \"children\": [\n    \"d0b0y8 children\":[\n      \"d0d25l1b25b5401184xx0xxp0xxp0xxp0xxp0xxp0xx",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 260,
+      "prompt": {
+        "user": "设计一个家庭财务共享账本的支出比例饼图",
+        "system": null
+      },
+      "output": "d0ft0-in0ft0-f0aterm0d0x66f0b0f1by0c0cc0cc055555575644569400000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 261,
+      "prompt": {
+        "user": "设计一个会议室预订系统的平板端状态显示（红/绿）",
+        "system": null
+      },
+      "output": "d01\n010桃00000000000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 262,
+      "prompt": {
+        "user": "设计一个企业名片扫描识别后的校对界面",
+        "system": null
+      },
+      "output": "d00xx(hr00x1x10x221688168168cd10822222222222222222222222222222222222",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 263,
+      "prompt": {
+        "user": "设计一个OKR目标管理工具的对齐视图",
+        "system": null
+      },
+      "output": "d01x1\nalign244222188810800000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 264,
+      "prompt": {
+        "user": "设计一个企业网盘的权限设置弹窗（读/写/分享）",
+        "system": null
+      },
+      "output": "root\n'layout'\n' diableditinput\"\n'Ffe t'\n'footbll(ertype,op,b2有x1'",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 32,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.06,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 265,
+      "prompt": {
+        "user": "设计一个考勤打卡App的外勤定位地图页",
+        "system": null
+      },
+      "output": "d0 starts(0(s80(d10(ha11(wo12121517121(ha11(1(i(d2d2(d2d2(d2d2(d2d1012(d112151212",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 266,
+      "prompt": {
+        "user": "设计一个报销申请单的电子发票关联页",
+        "system": null
+      },
+      "output": "xmlversion=\"1.0\"namespace=\"http://www.w3.org/1999/xhtml\"fxhd \"0\"qshb \"1\"pt1\"1\"b1\"1\"1\"1\"1\"1\"1\"1\"1\"1\"1\"1\"1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 267,
+      "prompt": {
+        "user": "设计一个企业Wiki知识库的目录树导航",
+        "system": null
+      },
+      "output": "fusion11:1000100:start11:1000100:1000100:1000100:1000100:1000100:1000100:1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 268,
+      "prompt": {
+        "user": "设计一个销售漏斗（Sales Funnel）的可视化图表",
+        "system": null
+      },
+      "output": "d0\n{d00_ account=im2920layda16m90_ken80d40_614045to8525n8550n18511kh19817x19404",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 269,
+      "prompt": {
+        "user": "设计一个竞品分析工具的参数对比表格",
+        "system": null
+      },
+      "output": "menuof\n[{\n  \"layout\": \"absolute\",\n  \"children\": \"hoax\",\n  \"num1\": \"dd\",\n  \"num2\": \"dd\": \"onelb32c164164p11682226662822",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 270,
+      "prompt": {
+        "user": "设计一个活动签到系统的二维码扫描计数页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1i260722172111811881188118811881188118811881188118811881",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 271,
+      "prompt": {
+        "user": "设计一个古董鉴定App的年代查询时间轴",
+        "system": null
+      },
+      "output": "\tlayout\n\tabsolute\n\t\t.dl(xuanciai(frenesistext,frenesimuluftmcs(haoshuif(xuancanticktionshuitmotemaximulloback)))div(ecolas,taoshuif(cta,cftmcss",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 272,
+      "prompt": {
+        "user": "设计一个书法练习App的临摹字帖界面",
+        "system": null
+      },
+      "output": "d0b0字帖界面d0FFFFFF start0焦880长0转0Fe0000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 273,
+      "prompt": {
+        "user": "设计一个汉服配色参考App的传统色卡页",
+        "system": null
+      },
+      "output": "d01:layout\nd02:float\nd03:article\nd04:xeupxngabla222222222222222222222222222222222222",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 274,
+      "prompt": {
+        "user": "设计一个茶道文化App的茶叶冲泡计时器",
+        "system": null
+      },
+      "output": "teachp01001\n0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0'0",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 275,
+      "prompt": {
+        "user": "设计一个戏曲直播App的唱词字幕显示界面",
+        "system": null
+      },
+      "output": "d0d1（复杂程度：0.1.2.34.5ama1ftb2c1c71b82286421227227522552525555555555555",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 276,
+      "prompt": {
+        "user": "设计一个非遗手工艺品的制作教程步骤页",
+        "system": null
+      },
+      "output": "layout\narwin\ntai zhangfei'uru'ongtou'itongtou'itou'taofen'ta'it'\nfei'uru'ongdib'it'itar'it'foot'import",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 52,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.34,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 277,
+      "prompt": {
+        "user": "设计一个周易占卜App的卦象解读页",
+        "system": null
+      },
+      "output": "d0012start001d1001d1011d2001d3001d4001d5001d6001d7001d0901d0908sl0018",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 278,
+      "prompt": {
+        "user": "设计一个中医穴位查询App的人体模型交互页",
+        "system": null
+      },
+      "output": "d01start010000000000000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 279,
+      "prompt": {
+        "user": "设计一个古诗词鉴赏App的每日一诗卡片",
+        "system": null
+      },
+      "output": "d00xx(hr00x)ft00x(cl13x)d0x(b1x)ft0x(h1x)xx(nn00x)xx\n工作00xx(hr00x)ft1x(h0x)ftx(hr00x)ft0",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 280,
+      "prompt": {
+        "user": "设计一个民俗节日日历的节气插画背景",
+        "system": null
+      },
+      "output": "d001\nd002\ndd002\ninput#b2l1\nd1025\nd2025\nd3025\nd4025",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 46,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.95,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 281,
+      "prompt": {
+        "user": "设计一个录音笔转文字App的实时转换流界面",
+        "system": null
+      },
+      "output": "d00xx(hr0x)iimac1605(p0266(d0266)b4241)1886(b1861)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 41,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.63,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 282,
+      "prompt": {
+        "user": "设计一个提词器（Teleprompter）App的滚动速度调节",
+        "system": null
+      },
+      "output": "username = \"滚动速度调节\"\ncontext = ~0\nchild = \n'clear'\n'f7771'\n'f7771'\n'f7771'\n'f7771'\n'f7771'\n'f7771'",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 61,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 3.92,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 283,
+      "prompt": {
+        "user": "设计一个PDF编辑器的签名插入位置选择",
+        "system": null
+      },
+      "output": "d00xx\n@1sp1007d1081ckd1882cd1981",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 28,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 1.8,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 284,
+      "prompt": {
+        "user": "设计一个截图工具的马赛克/标注工具栏",
+        "system": null
+      },
+      "output": "d0\nhr0\n(almost invisible)0\n,0.5.EDITOR1050\n,1.5.10b25501x10503x450小25501x550505512X6",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 285,
+      "prompt": {
+        "user": "设计一个剪贴板管理工具的历史记录列表",
+        "system": null
+      },
+      "output": "\tclear\n@ability\n\t\tableof\n\t\t\tcheckbox\n\t\t\t.dnld\n\t\t\t.hd\n@and\n\t\th13d\n@class\n\t\t.d05\n\t\t.d55\n\t\t.d95\n\t\td182182",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.45703125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 286,
+      "prompt": {
+        "user": "设计一个图标（Icon）制作工具的网格对齐页",
+        "system": null
+      },
+      "output": "d0p0 layout2children0d2f0h0d232l2u0d227l2x0d227c1l2x221b2105d22543ar0d0x0d0x0d",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.46484375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 287,
+      "prompt": {
+        "user": "设计一个正则表达式测试工具的匹配高亮界面",
+        "system": null
+      },
+      "output": "在Visual Studio的编辑区域中，布置以下组件：\n\n1. **d1d20**：将**动态内容区**拖拽至**设计窗口**\n2**inlistx1**，**d1x2**，**d2x2**：在**d1d20",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.46484375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 288,
+      "prompt": {
+        "user": "设计一个JSON格式化工具的树状折叠视图",
+        "system": null
+      },
+      "output": "d0:fr1:t102xd1:cr2277225525127127x225525127127x265525127127x32344x37",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.47265625,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 289,
+      "prompt": {
+        "user": "设计一个域名Whois查询结果的详情页",
+        "system": null
+      },
+      "output": "d0101\n0101\n0101\n0101\n0101\n0101\n0101\n0101\n0101\n0101\n0101\n0101\n010",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.47265625,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 290,
+      "prompt": {
+        "user": "设计一个API接口调试工具（如Postman类）的Params输入页",
+        "system": null
+      },
+      "output": "d010M10001x00100000000000000000000000000000000000000000000000000",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48046875,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 291,
+      "prompt": {
+        "user": "设计一个停车费自动扣款的通知弹窗",
+        "system": null
+      },
+      "output": "d00xx(hr00x1tb1108d1128ft1148(cd1162cd1462cd1762)ft1568(b2151b7151)ft18e81(b2",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48046875,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 292,
+      "prompt": {
+        "user": "设计一个车位地锁控制App的升降按钮",
+        "system": null
+      },
+      "output": "d01ec03636974000(d106165161178818881188811888118881188811888118881",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48046875,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 293,
+      "prompt": {
+        "user": "设计一个房产中介App的VR看房视角切换",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(i1810d1821d1921dd2250cl1582)ft09x1l1x)b2266ar2552n5650)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48046875,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 294,
+      "prompt": {
+        "user": "设计一个物业报修小程序的维修进度时间轴",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1188(cd00xxd02x1)ft09x1)（b1051f12x1）",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 43,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.76,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48046875,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 295,
+      "prompt": {
+        "user": "设计一个智慧社区门禁的人脸录入引导框",
+        "system": null
+      },
+      "output": "login\n{# document declare\ndddt: \"f0pt0\"0d0: \"f002sl0xd103b2054411151611881\"199999999999999",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48046875,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 296,
+      "prompt": {
+        "user": "设计一个水电煤缴费App的历史账单折线图",
+        "system": null
+      },
+      "output": "d00xc00x1\ndef00x1000198900x911209x1card(v00x11d1l1d2x2d4x411880x1d155x1",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.484375,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 297,
+      "prompt": {
+        "user": "设计一个装修预算计算器的材料费用清单",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m188118811881188118811881188118811881188118811881188118",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48828125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 298,
+      "prompt": {
+        "user": "设计一个室内空气检测仪（甲醛/TVOC）的读数页",
+        "system": null
+      },
+      "output": "d00xx(hr00x1 and01x10 and02x20 and03x30 and04x40)00xx(kalach00x40)0x61M101xxAX10d00x320",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48828125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 299,
+      "prompt": {
+        "user": "设计一个搬家公司的车辆体积选择示意图",
+        "system": null
+      },
+      "output": "d00xx(hr00x1m1180cd1280cd1480cd1680cd1880ft1980)",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 41,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 2.63,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48828125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    },
+    {
+      "id": 300,
+      "prompt": {
+        "user": "设计一个家庭清洁服务评价的五星打分页",
+        "system": null
+      },
+      "output": "xamp\n'kt200xink700280082009280828282882882888888888888888888888888888",
+      "metrics": {
+        "input_tokens": 26,
+        "output_tokens": 64,
+        "latency": 0.0519,
+        "batch_latency": 15.5669,
+        "tps": 4.11,
+        "memory_stats": {
+          "ram_usage_mb": 2367.48828125,
+          "gpu_vram_mb": 1300.95166015625,
+          "gpu_vram_max_mb": 6396.91650390625
+        },
+        "batch_size": 300
+      }
+    }
+  ]
+}
