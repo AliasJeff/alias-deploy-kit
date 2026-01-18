@@ -1,0 +1,2112 @@
+{
+  "meta": {
+    "timestamp": "2026-01-18T12:51:05.887702",
+    "model": {
+      "model_name": "Qwen3-1.7B",
+      "model_size_gb": 3.799283979460597,
+      "quantization": "4bit",
+      "param_count": 1015931904
+    },
+    "total_requests": 99,
+    "config": {
+      "torch_dtype": "torch.float16",
+      "load_in_4bit": true,
+      "max_new_tokens": 256,
+      "temperature": 0.7,
+      "top_p": 0.9
+    }
+  },
+  "summary": {
+    "total_requests": 99,
+    "total_duration": 16.77,
+    "avg_latency": 0.1634,
+    "rps": 5.9,
+    "global_tps": 802.94,
+    "final_memory": {
+      "ram_usage_mb": 2879.3515625,
+      "gpu_vram_mb": 1295.92529296875,
+      "gpu_vram_max_mb": 5634.54833984375
+    }
+  },
+  "details": [
+    {
+      "id": 1,
+      "prompt": {
+        "user": "设计一个科技公司官网首页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <meta name=\"viewport\" content=\"width=device-max-width, initial-scale=1.0\">\n  <title>科技公司</title>\n  <style>\n    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }\n    header { background: #333; color: white; padding: 10px 20px; text-align: center; }\n    nav { background: #222; padding: 10px; text-align: center; }\n    nav a { margin: 0 10px; color: white; text-decoration: none; }\n    section { padding: 20px; }\n    footer { text-align: center; padding: 10px; }\n  </style>\n</head>\n<body>\n  <header>科技公司</header>\n  <nav><a href=\"#\">首页</a> <a href=\"#\">产品</a> <a href=\"#\">关于我们</a></nav>\n  <section>\n    <h1>引领未来</h1>\n    <p>我们致力于创新科技，打造未来世界的基石。</p>\n  </section",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 2,
+      "prompt": {
+        "user": "设计一个电商平台首页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>电商首页</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }\n        .header { text-align: center; padding: 20px 0; }\n        .header h1 { margin: 0; font-size: 24px; }\n        .nav { margin: 20px 0; }\n        .nav a { margin: 0 10px; color: #333; text-decoration: none; }\n        .nav a:hover { text-decoration: underline; }\n        .content { max-width: 800px; margin: 0 auto; }\n        .product { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #ccc; }\n        .product img { width: 150px; height: 120px; object-fit: cover; margin-right: 10px;",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 3,
+      "prompt": {
+        "user": "设计一个企业级SaaS后台管理系统仪表盘",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<style>\nbody { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }\n.dashboard { background: #ffffff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 20px; width: 100%; max-width: 800px; margin: 0 auto; }\n.card { border: 1px solid #ddd; border-radius: 4px; padding: 10px; margin: 10px 0; }\n.card h4 { margin: 0; }\n.card .metric { font-size: 1.2em; margin: 5px 0; }\n.card .label { font-weight: bold; }\n</style>\n</head>\n<body>\n\n<div class=\"dashboard\">\n  <div class=\"card\">\n    <h4>用户活跃度</h4>\n    <div class=\"metric\">85%</div>\n    <div class=\"",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 4,
+      "prompt": {
+        "user": "设计一个新闻资讯类网站首页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>新闻资讯</title>\n</head>\n<body>\n<h1>新闻资讯</h1>\n<p>这里是新闻资讯类网站的首页。</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 56,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.46,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 5,
+      "prompt": {
+        "user": "设计一个在线教育平台的学生端界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>学生端</title>\n</head>\n<body>\n<h1>在线教育平台</h1>\n<ul>\n<li>课程列表</li>\n<li>学习进度</li>\n<li>作业提交</li>\n<li>考试</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 77,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 4.76,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 6,
+      "prompt": {
+        "user": "设计一个社交媒体应用的个人资料页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>My Profile</title>\n</head>\n<body>\n<h1>My Profile</h1>\n<p>Joined: 2023</p>\n<p>Location: New York</p>\n<p>Followers: 12,500</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 80,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 4.94,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 7,
+      "prompt": {
+        "user": "设计一个音乐流媒体服务的播放界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Music Player</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; margin: 20px; }\nbutton { padding: 10px 20px; }\n</style>\n</head>\n<body>\n<h1>Music Player</h1>\n<button onclick=\"play()\">Play</button>\n<button onclick=\"pause()\">Pause</button>\n<button onclick=\"stop()\">Stop</button>\n<script>\nfunction play() { alert(\"Play\"); }\nfunction pause() { alert(\"Pause\"); }\nfunction stop() { alert(\"Stop\"); }\n</script>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 145,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.96,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 8,
+      "prompt": {
+        "user": "设计一个智能家居控制系统的手机应用界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Home Control</title>\n</head>\n<body>\n<h1>Home Control</h1>\n<button onclick=\"toggleLight()\">Turn Light On</button>\n<button onclick=\"toggleAC()\">Turn AC On</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 68,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 4.2,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 9,
+      "prompt": {
+        "user": "设计一个外卖配送应用的订单追踪界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>外卖追踪</title>\n</head>\n<body>\n<h1>您的订单</h1>\n<p>订单号: 12345</p>\n<p>状态: 已接单</p>\n<p>预计送达时间: 15:30</p>\n<p>配送员: 张三</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 95,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.87,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 10,
+      "prompt": {
+        "user": "设计一个旅游预订平台的酒店搜索结果页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Hotel Search</title>\n</head>\n<body>\n<h1>Find Your Perfect Hotel</h1>\n<p>Search for hotels near you</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 56,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.46,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 11,
+      "prompt": {
+        "user": "设计一个个人理财记账App的首页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>理财首页</title>\n    <meta name=\"viewport\" content=\"width=device-max-width, initial-scale=1.0\">\n    <style>\n        body { font-family: Arial, sans-serif; background: #f4f4f4; }\n        .container { max-width: 400px; margin: 0 auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 6px #ccc; }\n        h2 { color: #333; }\n        .item { padding: 10px 0; border-bottom: 1px solid #ddd; }\n        .item:last-child { border-bottom: none; }\n        .btn { padding: 10px 20px; background: #007BFF; color: white; border: none; cursor: pointer; border-radius: 4px; }\n        .btn:hover { background: #0056b3; }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <h2>理财首页</",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 12,
+      "prompt": {
+        "user": "设计一个健身运动App的数据统计页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>健身统计</title>\n</head>\n<body>\n  <h1>您的健身统计</h1>\n  <ul>\n    <li>锻炼次数: <span id=\"count\">0</span></li>\n    <li>总时长: <span id=\"time\">0</span>分钟</li>\n    <li>今日完成: <span id=\"today\">0</span>次</li>\n  </ul>\n  <script>\n    // 模拟数据\n    const count = 5;\n    const time = 30;\n    const today = 2;\n\n    document.getElementById('count').textContent = count;\n    document.getElementById('time').textContent = time;\n    document.getElementById('today').textContent = today;\n  </script>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 186,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 11.5,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 13,
+      "prompt": {
+        "user": "设计一个视频会议软件的通话界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>视频会议</title>\n</head>\n<body>\n<h1>视频会议</h1>\n<button>开始会议</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 51,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.15,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 14,
+      "prompt": {
+        "user": "设计一个在线医疗问诊平台的医生详情页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Dr. Lee - Online Doctor</title>\n</head>\n<body>\n<h1>Dr. Sarah Lee</h1>\n<p>Primary Specialization: Internal Medicine</p>\n<p>Available: Yes</p>\n<button>Book Appointment</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 76,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 4.7,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 15,
+      "prompt": {
+        "user": "设计一个招聘求职App的职位详情页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>招聘详情</title>\n</head>\n<body>\n<h1>软件工程师</h1>\n<p>薪资：8000</p>\n<p>地点：北京</p>\n<p>描述：负责开发和维护公司软件系统，使用Python和React。</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 82,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.07,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 16,
+      "prompt": {
+        "user": "设计一个房地产交易平台的房源展示页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>房产展示</title>\n</head>\n<body>\n  <h1>房源展示</h1>\n  <div style=\"margin: 20px; padding: 10px; border: 1px solid #ccc; width: 300px;\">\n    <p>户型：一房一厅</p>\n    <p>价格：80000</p>\n    <p>地址：朝阳区</p>\n  </div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 126,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 7.79,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 17,
+      "prompt": {
+        "user": "设计一个二手车交易市场的车辆对比页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>二手车对比</title>\n</head>\n<body>\n  <h1>二手车对比</h1>\n  <table border=\"1\">\n    <tr><th>车型</th><th>价格</th><th>里程</th></tr>\n    <tr><td>丰田 Corolla</td><td>89,000</td><td>50,000</td></tr>\n    <tr><td>本田 Civic</td><td>92,000</td><td>45,000</td></tr>\n    <tr><td>福特 Focus</td><td>95,000</td><td>55,000</td></tr>\n  </table>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 189,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 11.68,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 18,
+      "prompt": {
+        "user": "设计一个电子书阅读器的阅读界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>电子书阅读器</title>\n<style>\nbody { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; }\n.book { width: 100%; max-width: 400px; margin: 0 auto; padding: 20px; background: #fff; border: 1px solid #ccc; border-radius: 5px; }\n.book h2 { margin-top: 0; }\n.book p { line-height: 1.5; }\n</style>\n</head>\n<body>\n<div class=\"book\">\n<h2>《Python编程从入门到实践》</h2>\n<p>本书系统讲解了Python编程语言，适合初学者。内容涵盖语法基础、数据结构、函数、文件操作、网络编程等，通过实例教学，帮助读者快速上手。</p>\n</div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 212,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 13.1,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 19,
+      "prompt": {
+        "user": "设计一个播客（Podcast）应用的发现页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Podcast Discover</title>\n</head>\n<body>\n<h1>Discover Your Podcast</h1>\n<p>Find great podcasts to listen to anywhere.</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 58,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.58,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 20,
+      "prompt": {
+        "user": "设计一个云存储服务的文件管理列表页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>云存储文件列表</title>\n</head>\n<body>\n<ul>\n<li>文件1</li>\n<li>文件2</li>\n<li>文件3</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 63,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.89,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 21,
+      "prompt": {
+        "user": "设计一个天气预报App的动态背景首页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Weather App</title>\n<style>\nbody { margin: 0; padding: 0; background: #000; color: #fff; font-family: Arial; }\n.container { width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; }\n.weather { font-size: 2em; text-align: center; }\n</style>\n</head>\n<body>\n<div class=\"container\">\n  <div class=\"weather\">Sunny</div>\n</div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 137,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.47,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 22,
+      "prompt": {
+        "user": "设计一个任务管理（To-Do List）工具的添加任务弹窗",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>To-Do List</title>\n</head>\n<body>\n<div id=\"app\">\n  <input type=\"text\" id=\"taskInput\" placeholder=\"Enter a new task\">\n  <button onclick=\"addTask()\">Add</button>\n</div>\n\n<script>\nfunction addTask() {\n  const task = document.getElementById('taskInput').value;\n  if (task.trim() !== '') {\n    const app = document.getElementById('app');\n    const div = document.createElement('div');\n    div.textContent = task;\n    app.appendChild(div);\n    document.getElementById('taskInput').value = '';\n  }\n}\n</script>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 148,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 9.15,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 23,
+      "prompt": {
+        "user": "设计一个CRM客户关系管理系统的客户列表页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>CRM客户列表</title>\n</head>\n<body>\n<h1>客户列表</h1>\n<ul>\n<li>张三</li>\n<li>李四</li>\n<li>王五</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 71,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 4.39,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 24,
+      "prompt": {
+        "user": "设计一个ERP企业资源计划系统的库存管理界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>ERP库存</title>\n</head>\n<body>\n<h1>ERP库存管理</h1>\n<p>当前库存：250件</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 57,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.52,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 25,
+      "prompt": {
+        "user": "设计一个数字货币钱包的资产概览页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>数字货币钱包</title>\n</head>\n<body>\n<h1>您的数字货币资产概览</h1>\n<ul>\n<li>比特币: 1234.56</li>\n<li>以太坊: 789.01</li>\n<li>莱特币: 456.78</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 99,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 6.12,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 26,
+      "prompt": {
+        "user": "设计一个NFT交易市场的艺术品展示页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>NFT Art Gallery</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; }\nh1 { color: #444; }\n.artwork { margin: 20px; border: 2px solid #ccc; padding: 10px; border-radius: 8px; box-shadow: 2px 2px 5px #aaa; }\n.artwork img { max-width: 100%; height: auto; border-radius: 5px; }\n</style>\n</head>\n<body>\n<h1>Art Gallery</h1>\n<div class=\"artwork\">\n<img src=\"https://via.placeholder.com/300x200?text=Art+1\" alt=\"Art 1\" />\n<p>Art 1 by Artist X</p>\n</div>\n<div class=\"artwork\">\n<img src=\"https://via.placeholder.com/300x200?text=Art+2\" alt=\"Art 2\" />\n<p>Art 2 by Artist Y</p>\n</div>\n</body>\n</",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 27,
+      "prompt": {
+        "user": "设计一个在线协作白板的工具栏界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>协作白板</title>\n<style>\nbody { font-family: Arial, sans-serif; background: #f4f4f4; }\n.toolbar { background: #007BFF; color: white; padding: 10px; border-radius: 5px; text-align: center; }\n.toolbar button { margin: 0 5px; }\n</style>\n</head>\n<body>\n<div class=\"toolbar\">\n  <button>新建文档</button>\n  <button>保存</button>\n  <button>分享</button>\n  <button>全屏</button>\n</div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 151,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 9.33,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 28,
+      "prompt": {
+        "user": "设计一个代码托管平台的代码审查界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>Code Review</title>\n</head>\n<body>\n  <h1>Code Review</h1>\n  <form>\n    <label>Code:</label><br>\n    <textarea rows=\"10\" cols=\"40\"></textarea><br>\n    <button type=\"submit\">Submit</button>\n  </form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 94,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.81,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 29,
+      "prompt": {
+        "user": "设计一个网络安全监控系统的大屏可视化界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>网络安全监控</title>\n<style>\nbody { font-family: Arial, sans-serif; background: #001f3f; color: #fff; }\nh1 { text-align: center; margin-top: 20px; }\n.chart { margin: 20px auto; width: 80%; }\n.chart canvas { background: #333; display: block; margin: 0 auto; }\n</style>\n</head>\n<body>\n<h1>网络安全监控系统</h1>\n<div class=\"chart\">\n  <canvas id=\"chart\" width=\"600\" height=\"400\"></canvas>\n</div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 160,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 9.89,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 30,
+      "prompt": {
+        "user": "设计一个智慧城市交通管理系统的监控中心界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>智慧交通</title>\n</head>\n<body>\n<h1>智慧城市交通监控</h1>\n<p>实时路况、车辆流量、事故预警</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 58,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.58,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 31,
+      "prompt": {
+        "user": "设计一个餐饮点餐系统的iPad自助终端界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>餐饮点餐</title>\n</head>\n<body>\n<h1>点餐系统</h1>\n<ul>\n<li>米饭</li>\n<li>炒饭</li>\n<li>汤</li>\n<li>沙拉</li>\n<li>饮料</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 83,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.13,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 32,
+      "prompt": {
+        "user": "设计一个电影票务预订App的选座界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>电影票选座</title>\n</head>\n<body>\n<h1>选座</h1>\n<div>\n  <label>座位号:</label>\n  <input type=\"text\" id=\"seat\" required>\n</div>\n<button onclick=\"book()\">预订</button>\n<script>\nfunction book() {\n  let seat = document.getElementById('seat').value;\n  alert(`您选择了座位 ${seat}，请确认是否正确`);\n}\n</script>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 118,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 7.29,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 33,
+      "prompt": {
+        "user": "设计一个在线拍卖平台的实时竞价界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>竞价</title>\n</head>\n<body>\n<h1>实时竞价</h1>\n<div id=\"bid\"></div>\n<script>\nconst bid = document.getElementById('bid');\nconst price = 10;\nlet current = price;\n\nsetInterval(() => {\n    current = Math.min(current + 1, 100);\n    bid.innerHTML = `当前价格: $${current}`;\n}, 1000);\n</script>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 114,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 7.05,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 34,
+      "prompt": {
+        "user": "设计一个婚恋交友App的匹配滑动界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Match</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; padding: 20px; }\n.container { max-width: 400px; margin: auto; }\n.slider { width: 100px; height: 100px; border: 2px solid #007BFF; border-radius: 50%; cursor: pointer; }\n.slider:hover { background-color: #007BFF; }\n</style>\n</head>\n<body>\n<div class=\"container\">\n  <div class=\"slider\" onclick=\"slide(this)\"></div>\n</div>\n\n<script>\nfunction slide(el) {\n  const slider = el;\n  const wrapper = slider.parentElement;\n  const offset = 20;\n  const width = wrapper.offsetWidth;\n  const height = wrapper.offsetHeight;\n\n  const x = slider.offsetLeft;\n  const y = slider.offsetTop;\n\n  const dx = 0;\n  const dy = 0;\n\n  const interval = setInterval(() => {\n    dx += 1;\n    dy += 1;\n    slider.style.left = x + dx + \"px\";\n    slider.style",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 35,
+      "prompt": {
+        "user": "设计一个母婴育儿社区的论坛帖子详情页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>母婴育儿</title>\n</head>\n<body>\n<h1>宝宝成长记录</h1>\n<p>2023年6月，宝宝第一次会走，妈妈很激动。</p>\n<p>每天的育儿心得，宝宝的每一次进步都值得记录。</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 83,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.13,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 36,
+      "prompt": {
+        "user": "设计一个宠物服务平台的寄养预约界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>宠物寄养预约</title>\n</head>\n<body>\n<h1>宠物寄养预约</h1>\n<form>\n  <label>宠物名称:</label><br>\n  <input type=\"text\"><br>\n  <label>寄养时长:</label><br>\n  <input type=\"text\"><br>\n  <button type=\"submit\">预约</button>\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 106,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 6.55,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 37,
+      "prompt": {
+        "user": "设计一个法律咨询平台的律师咨询聊天界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>法律咨询</title>\n</head>\n<body>\n<h1>法律咨询</h1>\n<p>欢迎咨询法律问题，点击下方按钮提问：</p>\n<form>\n  <input type=\"text\" placeholder=\"请输入问题\" required>\n  <button type=\"submit\">提交</button>\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 88,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.44,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 38,
+      "prompt": {
+        "user": "设计一个在线翻译工具的双语对照界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>双语翻译</title>\n</head>\n<body>\n<h1>双语翻译</h1>\n<p>请输入文本：</p>\n<textarea rows=\"4\" cols=\"50\"></textarea>\n<p>翻译结果：</p>\n<textarea rows=\"4\" cols=\"50\" readonly></textarea>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 86,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.32,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 39,
+      "prompt": {
+        "user": "设计一个计算器App的高级科学计算模式界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Scientific Calculator</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; padding: 20px; }\n.btn { padding: 10px 20px; font-size: 16px; }\n</style>\n</head>\n<body>\n<div>\n  <h1>Scientific Calculator</h1>\n  <button class=\"btn\" onclick=\"calculate(0)\">0</button>\n  <button class=\"btn\" onclick=\"calculate(1)\">1</button>\n  <button class=\"btn\" onclick=\"calculate(2)\">2</button>\n  <button class=\"btn\" onclick=\"calculate(3)\">3</button>\n  <button class=\"btn\" onclick=\"calculate(4)\">4</button>\n  <button class=\"btn\" onclick=\"calculate(5)\">5</button>\n  <button class=\"btn\" onclick=\"calculate(6)\">6</button>\n  <button class=\"btn\" onclick=\"calculate(7)\">7</button>\n  <button class=\"btn\" onclick=\"calculate(8)\">8</button>\n  <button class=\"btn\" onclick=\"calculate(",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 40,
+      "prompt": {
+        "user": "设计一个日历日程管理应用周视图界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>周视图日程</title>\n<style>\nbody { font-family: Arial, sans-serif; padding: 20px; }\n.calendar { margin: 0 auto; max-width: 400px; }\n.week { display: flex; border: 1px solid #ccc; padding: 10px; border-radius: 5px; }\n.day { flex: 1; padding: 10px; text-align: center; }\n.day:hover { background-color: #f0f0f0; }\n</style>\n</head>\n<body>\n<div class=\"calendar\">\n  <div class=\"week\">\n    <div class=\"day\">周一</div>\n    <div class=\"day\">周二</div>\n    <div class=\"day\">周三</div>\n    <div class=\"day\">周四</div>\n    <div class=\"day\">周五</div>\n    <div class=\"day\">周六</div>\n    <div class=\"day\">周日</div>\n  </div>\n</div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 241,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 14.9,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 41,
+      "prompt": {
+        "user": "设计一个食谱大全App的烹饪步骤详情页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>食谱详情</title>\n</head>\n<body>\n<h1>番茄炒蛋</h1>\n<p>材料：鸡蛋3个，番茄2个，盐1小勺，油</p>\n<p>步骤：</p>\n<ul>\n<li>将番茄切块，鸡蛋打散</li>\n<li>热锅加油，放入鸡蛋炒至半熟</li>\n<li>加入番茄块，翻炒均匀</li>\n<li>加盐，翻炒至番茄出汁</li>\n<li>出锅，美味!</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 141,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.71,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 42,
+      "prompt": {
+        "user": "设计一个时尚电商的虚拟试衣间界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>时尚虚拟试衣间</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; }\nh1 { color: #333; }\n.button { padding: 10px 20px; font-size: 16px; margin: 20px; }\n</style>\n</head>\n<body>\n<h1>虚拟试衣间</h1>\n<button onclick=\"alert('欢迎体验虚拟试衣！')\">点击开始试衣</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 139,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.59,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 43,
+      "prompt": {
+        "user": "设计一个美妆品牌的AR试妆功能界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>AR试妆</title>\n  <style>\n    body { margin: 0; font-family: Arial; text-align: center; background: #f5f5f5; }\n    .container { width: 100%; max-width: 600px; margin: 0 auto; }\n    .ar-container { perspective: 600px; }\n    .ar-card { width: 300px; height: 300px; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 20px auto; }\n    .ar-card img { width: 100%; height: 100%; object-fit: cover; }\n    .controls { margin-top: 20px; }\n    .controls button { padding: 10px 20px; font-size: 16px; margin: 0 5px; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 44,
+      "prompt": {
+        "user": "设计一个游戏直播平台的直播间界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>直播间</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; background: #1e1e1e; color: #fff; }\nh1 { margin: 20px 0; }\nbutton { padding: 10px 20px; font-size: 16px; }\n</style>\n</head>\n<body>\n<h1>欢迎来到直播间</h1>\n<button onclick=\"startLive()\">开始直播</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 126,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 7.79,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 45,
+      "prompt": {
+        "user": "设计一个电竞战队官网的成员介绍页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>电竞战队</title>\n</head>\n<body>\n<h1>电竞战队成员</h1>\n<ul>\n<li>张三 - 队长</li>\n<li>李四 - 前锋</li>\n<li>王五 - 中场</li>\n<li>赵六 - 后卫</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 95,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.87,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 46,
+      "prompt": {
+        "user": "设计一个物流快递员专用的扫码揽件界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>快递员扫码界面</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; }\n.container { max-width: 400px; margin: 0 auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 6px #ccc; }\n.btn { padding: 10px 20px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; }\n</style>\n</head>\n<body>\n<div class=\"container\">\n<h2>扫码揽件</h2>\n<button class=\"btn\">扫码</button>\n</div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 183,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 11.31,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 47,
+      "prompt": {
+        "user": "设计一个在线问卷调查工具的编辑页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>问卷编辑</title>\n</head>\n<body>\n<h1>问卷编辑</h1>\n<form>\n  <label>问题1:<br><input type=\"text\"></label><br>\n  <label>问题2:<br><input type=\"text\"></label><br>\n  <button type=\"submit\">保存</button>\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 96,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.93,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 48,
+      "prompt": {
+        "user": "设计一个知识付费平台的课程购买落地页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>课程购买</title>\n</head>\n<body>\n<h1>购买课程</h1>\n<p>立即购买，开启你的学习之旅！</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 57,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.52,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 49,
+      "prompt": {
+        "user": "设计一个个人博客网站的文章归档页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>文章归档</title>\n</head>\n<body>\n<h1>文章归档</h1>\n<ul>\n<li><a href=\"#\">2023</a></li>\n<li><a href=\"#\">2022</a></li>\n<li><a href=\"#\">2021</a></li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 93,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.75,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 50,
+      "prompt": {
+        "user": "设计一个设计师作品集网站的项目展示页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Designer Portfolio</title>\n<style>\nbody { font-family: Arial, sans-serif; margin: 0; padding: 0; }\n.container { max-width: 960px; margin: 20px auto; }\nh1 { text-align: center; }\n.card { background: #f9f9f9; padding: 15px; margin: 10px 0; border: 1px solid #ddd; }\n.card h2 { margin-top: 0; }\n.card p { margin: 5px 0; }\n</style>\n</head>\n<body>\n<div class=\"container\">\n<h1>My Portfolio</h1>\n<div class=\"card\">\n<h2>Project 1</h2>\n<p>Responsive design for a local business.</p>\n</div>\n<div class=\"card\">\n<h2>Project 2</h2>\n<p>Minimalist website for a creative agency.</p>\n</div>\n<div class=\"card\">\n<h2>Project 3</h2>\n<p>Interactive landing page for a new product launch.</p>\n</div>\n</div>\n</body>\n</html>\n",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 51,
+      "prompt": {
+        "user": "设计一个移动应用的启动引导页（Onboarding）",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>App Onboarding</title>\n</head>\n<body>\n<h1>Get Started</h1>\n<p>Tap the button to continue.</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 55,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.4,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 52,
+      "prompt": {
+        "user": "设计一个通用的用户登录与注册页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Auth</title>\n</head>\n<body>\n<h2>Login</h2>\n<form>\n  <label for=\"username\">Username:</label><br>\n  <input type=\"text\" id=\"username\"><br>\n  <label for=\"password\">Password:</label><br>\n  <input type=\"password\" id=\"password\"><br>\n  <button type=\"submit\">Login</button>\n</form>\n<h2>Register</h2>\n<form>\n  <label for=\"email\">Email:</label><br>\n  <input type=\"text\" id=\"email\"><br>\n  <label for=\"password\">Password:</label><br>\n  <input type=\"password\" id=\"password2\"><br>\n  <button type=\"submit\">Register</button>\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 186,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 11.5,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 53,
+      "prompt": {
+        "user": "设计一个电商平台的购物车结算流程页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>购物车结算</title>\n</head>\n<body>\n<h1>结算</h1>\n<form>\n  <label>姓名：<input type=\"text\"></label><br>\n  <label>电话：<input type=\"text\"></label><br>\n  <label>地址：<input type=\"text\"></label><br>\n  <button type=\"submit\">提交</button>\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 105,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 6.49,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 54,
+      "prompt": {
+        "user": "设计一个App的侧边导航栏（Sidebar）菜单",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Sidebar</title>\n</head>\n<body>\n<ul>\n<li>Home</li>\n<li>Profile</li>\n<li>Settings</li>\n<li>Logout</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 63,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.89,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 55,
+      "prompt": {
+        "user": "设计一个网站的404错误提示页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>404</title>\n<style>\nbody { background: #f9f9f9; color: #666; font-family: Arial; text-align: center; padding: 50px; }\nh1 { font-size: 3em; margin: 0; }\np { font-size: 1.2em; }\n</style>\n</head>\n<body>\n<h1>404</h1>\n<p>Oops! The page you're looking for doesn't exist.</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 132,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.16,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 56,
+      "prompt": {
+        "user": "设计一个系统的全局搜索结果下拉框",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Search</title>\n</head>\n<body>\n<select id=\"searchBox\">\n<option value=\"\">All</option>\n<option value=\"1\">Item 1</option>\n<option value=\"2\">Item 2</option>\n<option value=\"3\">Item 3</option>\n</select>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 83,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.13,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 57,
+      "prompt": {
+        "user": "设计一个应用的个人账号设置页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>账号设置</title>\n</head>\n<body>\n<h1>个人账号设置</h1>\n<form>\n  <label for=\"name\">姓名</label>\n  <input type=\"text\" id=\"name\" required><br><br>\n  <label for=\"email\">邮箱</label>\n  <input type=\"email\" id=\"email\" required><br><br>\n  <label for=\"password\">密码</label>\n  <input type=\"password\" id=\"password\" required><br><br>\n  <button type=\"submit\">保存</button>\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 145,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.96,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 58,
+      "prompt": {
+        "user": "设计一个消息通知中心的列表界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>通知中心</title>\n</head>\n<body>\n<ul>\n<li>通知1</li>\n<li>通知2</li>\n<li>通知3</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 61,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.77,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 59,
+      "prompt": {
+        "user": "设计一个带有筛选功能的商品分类列表页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>商品分类</title>\n</head>\n<body>\n<h1>商品分类</h1>\n<ul>\n<li>电子产品</li>\n<li>家居用品</li>\n<li>服装鞋帽</li>\n<li>图书音像</li>\n<li>美妆个护</li>\n<li>食品饮料</li>\n<li>日用百货</li>\n<li>数码家电</li>\n<li>美妆个护</li>\n<li>食品饮料</li>\n<li>日用百货</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 131,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.1,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 60,
+      "prompt": {
+        "user": "设计一个用户反馈与评价的输入表单",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Feedback</title>\n</head>\n<body>\n<form>\n  <h2>Feedback</h2>\n  <label>What did you like most?</label><br>\n  <input type=\"text\" required><br>\n  <label>What did you dislike?</label><br>\n  <input type=\"text\" required><br>\n  <label>How would you rate the service?</label>\n  <select>\n    <option>1</option>\n    <option>2</option>\n    <option>3</option>\n    <option>4</option>\n    <option>5</option>\n  </select><br>\n  <button type=\"submit\">Submit</button>\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 172,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 10.63,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 61,
+      "prompt": {
+        "user": "设计一个AI聊天机器人（Chatbot）的对话窗口",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>AI Chat</title>\n<style>\nbody { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; max-width: 600px; margin: 0 auto; }\n.chat { background: #fff; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-top: 10px; }\n.message { padding: 10px; border-radius: 5px; margin: 5px 0; }\n</style>\n</head>\n<body>\n<div class=\"chat\">\n  <div class=\"message\" id=\"chatbot\">AI: Hello! How can I assist you today?</div>\n  <div class=\"message\" id=\"user\"></div>\n</div>\n<script>\nconst chatbot = document.getElementById('chatbot');\nconst user = document.getElementById('user');\n\nfunction sendMessage(text) {\n  const msg = document.createElement('div');\n  msg.className = 'message';\n  msg.textContent = text;\n  chatbot.appendChild(msg);\n  chatbot.scrollTop",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 62,
+      "prompt": {
+        "user": "设计一个生成式AI工具的Prompt输入与结果展示页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>AI Prompt Generator</title>\n</head>\n<body>\n  <h1>Generate AI Prompt</h1>\n  <textarea id=\"prompt\" rows=\"10\" placeholder=\"Enter your prompt here...\"></textarea><br><br>\n  <button onclick=\"generate()\">Generate</button>\n  <pre id=\"result\"></pre>\n\n  <script>\n    function generate() {\n      const prompt = document.getElementById('prompt').value;\n      const result = document.getElementById('result');\n      result.textContent = prompt;\n    }\n  </script>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 137,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.47,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 63,
+      "prompt": {
+        "user": "设计一个VR虚拟现实设备的主菜单界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>VR Menu</title>\n</head>\n<body>\n<h1>VR Universe</h1>\n<ul>\n<li>Start</li>\n<li>Options</li>\n<li>Exit</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 67,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 4.14,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 64,
+      "prompt": {
+        "user": "设计一个车载中控系统的导航与娱乐分屏界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>车载中控</title>\n<style>\nbody { font-family: Arial, sans-serif; margin: 0; padding: 0; }\n.container { width: 100%; }\n.left { width: 30%; float: left; padding: 10px; }\n.right { width: 70%; float: right; padding: 10px; }\n.nav { background: #333; color: white; padding: 10px; text-align: center; }\n.nav a { margin: 0 5px; }\n.content { padding: 10px; }\n</style>\n</head>\n<body>\n<div class=\"container\">\n  <div class=\"nav\">导航</div>\n  <div class=\"left\">\n    <div class=\"content\">地图</div>\n    <div class=\"content\">语音</div>\n  </div>\n  <div class=\"right\">\n    <div class=\"content\">音乐</div>\n    <div class=\"content\">电话</div>\n  </div>\n</div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 245,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.14,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 65,
+      "prompt": {
+        "user": "设计一个智能手表的健康监测主界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>SmartWatch</title>\n</head>\n<body>\n<h1>SmartWatch</h1>\n<p>Monitor your health with our smart watch.</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 56,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.46,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 66,
+      "prompt": {
+        "user": "设计一个无人机操控App的飞行参数仪表盘",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>无人机仪表盘</title>\n<style>\nbody { font-family: Arial, sans-serif; background: #000; color: #fff; text-align: center; padding: 20px; }\n.h1 { font-size: 24px; margin-bottom: 10px; }\n.stats { margin: 20px 0; }\n.stat { font-size: 18px; margin: 5px; }\n</style>\n</head>\n<body>\n<h1>无人机仪表盘</h1>\n<div class=\"h1\">飞行状态</div>\n<div class=\"stats\">\n <div class=\"stat\">高度: <span>10m</span></div>\n <div class=\"stat\">速度: <span>20km/h</span></div>\n <div class=\"stat\">电量: <span>75%</span></div>\n <div class=\"stat\">GPS: <span>在线</span></div>\n</div>\n<div class=\"h1\">控制面板</div>\n<div class=\"stats\">\n <div class=\"stat\">方向: <span>右</span></div>\n <div class",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 67,
+      "prompt": {
+        "user": "设计一个3D打印机的控制软件界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>3D Printer Control</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; }\nbutton { margin: 10px; }\n</style>\n</head>\n<body>\n<h1>3D Printer Control</h1>\n<button onclick=\"startPrint()\">Start Print</button>\n<button onclick=\"stopPrint()\">Stop Print</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 101,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 6.24,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 68,
+      "prompt": {
+        "user": "设计一个物联网（IoT）设备的连接配对界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>IoT Connect</title>\n</head>\n<body>\n<h1>Connect IoT Device</h<span> </span></h1>\n<p>Scan for devices...</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 60,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.71,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 69,
+      "prompt": {
+        "user": "设计一个自助银行柜员机（ATM）的操作界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>ATM</title>\n</head>\n<body>\n<h1>ATM</h1>\n<p>Insert card</p>\n<button>Withdraw</button>\n<button>Deposit</button>\n<button>Balance</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 69,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 4.26,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 70,
+      "prompt": {
+        "user": "设计一个超市自助结账机（Kiosk）的触摸屏界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>超市结账机</title>\n</head>\n<body>\n<h1>结账</h1>\n<p>请扫描商品</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 54,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.34,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 71,
+      "prompt": {
+        "user": "设计一个慈善众筹平台的项目捐款页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Donate for Charity</title>\n</head>\n<body>\n<h1>Donate to Our Cause</h1>\n<p>Help us reach our goal and support important causes!</p>\n<button>Donate $10</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 70,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 4.33,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 72,
+      "prompt": {
+        "user": "设计一个图书馆管理系统的图书检索页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>图书检索</title>\n</head>\n<body>\n<h1>图书检索</h1>\n<form>\n  <label for=\"title\">书名:</label><br>\n  <input type=\"text\" id=\"title\"><br>\n  <label for=\"author\">作者:</label><br>\n  <input type=\"text\" id=\"author\"><br>\n  <input type=\"submit\" value=\"搜索\">\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 113,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 6.98,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 73,
+      "prompt": {
+        "user": "设计一个博物馆导览App的展品解说页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>博物馆导览</title>\n</head>\n<body>\n<h1>展品解说</h1>\n<p>欢迎来到博物馆。点击展品以获取详细信息。</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 60,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.71,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 74,
+      "prompt": {
+        "user": "设计一个艺术画廊的线上虚拟展厅入口",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>艺术画廊</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; background: #f0f0f0; }\nh1 { color: #333; }\nbutton { padding: 10px 20px; font-size: 16px; }\n</style>\n</head>\n<body>\n<h1>欢迎来到艺术画廊</h1>\n<button onclick=\"window.location.href='https://artgallery.com'\">进入展厅</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 131,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.1,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 75,
+      "prompt": {
+        "user": "设计一个心理健康冥想App的播放背景页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Mindful</title>\n<style>\nbody { margin: 0; padding: 0; font-family: sans-serif; background: #f0f0f0; color: #333; }\n.container { max-width: 400px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }\n.button { padding: 10px 20px; margin-top: 10px; }\n</style>\n</head>\n<body>\n<div class=\"container\">\n  <h1>Relax</h1>\n  <p>Find peace in the silence.</p>\n  <button class=\"button\">Start</button>\n</div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 202,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 12.48,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 76,
+      "prompt": {
+        "user": "设计一个睡眠监测App的睡眠质量分析报告页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Sleep Analysis</title>\n</head>\n<body>\n<h1>Sleep Quality Report</h1>\n<p>Good sleep, healthy rest.</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 55,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.4,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 77,
+      "prompt": {
+        "user": "设计一个喝水提醒App的打卡界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>喝水打卡</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; }\nh1 { color: #333; }\nbutton { padding: 10px 20px; margin: 20px; }\n</style>\n</head>\n<body>\n<h1>喝水打卡</h1>\n<button onclick=\"logDrink()\">打卡</button>\n<script>\nfunction logDrink() {\n  alert(\"打卡成功！喝水提醒已记录。\");\n}\n</script>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 140,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.65,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 78,
+      "prompt": {
+        "user": "设计一个女性生理期记录App的日历界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>生理期记录</title>\n<style>\nbody { font-family: Arial, sans-serif; padding: 20px; }\n.calendar { border: 1px solid #ccc; padding: 10px; border-radius: 5px; }\n.month { font-size: 18px; font-weight: bold; }\n.days { list-style: none; padding: 0; }\n.days li { padding: 5px 0; }\n.days span { color: red; }\n</style>\n</head>\n<body>\n<div class=\"calendar\">\n  <div class=\"month\">2025年4月</div>\n  <ul class=\"days\">\n    <li><span>1</span></li>\n    <li><span>2</span></li>\n    <li><span>3</span></li>\n    <li><span>4</span></li>\n    <li><span>5</span></li>\n    <li><span>6</span></li>\n    <li><span>7</span></li>\n    <li><span>8</span></li>\n    <li><span",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 79,
+      "prompt": {
+        "user": "设计一个育儿疫苗接种提醒的时间轴界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>疫苗提醒</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; padding: 20px; }\n.container { max-width: 400px; margin: auto; }\n.time-axis { margin-top: 20px; }\n.time { font-size: 1.2em; margin: 5px 0; }\n</style>\n</head>\n<body>\n<div class=\"container\">\n  <h2>疫苗提醒</h2>\n  <div class=\"time-axis\">\n    <div class=\"time\">1月1日</div>\n    <div class=\"time\">3月1日</div>\n    <div class=\"time\">6月1日</div>\n    <div class=\"time\">9月1日</div>\n    <div class=\"time\">12月1日</div>\n  </div>\n</div>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 213,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 13.16,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 80,
+      "prompt": {
+        "user": "设计一个老年人专用的大字体通讯录界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>老人通讯录</title>\n<style>\nbody { font-size: 24px; font-family: Arial, sans-serif; text-align: center; }\nh1 { margin-top: 0; }\n</style>\n</head>\n<body>\n<h1>老人通讯录</h1>\n<p>大字体，适合老年人阅读。</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 96,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.93,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 81,
+      "prompt": {
+        "user": "设计一个企业内部OA办公系统的审批流程页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>OA审批</title>\n</head>\n<body>\n<h1>审批流程</h1>\n<p>请填写审批信息：</p>\n<form>\n  <label for=\"name\">申请人：</label><br>\n  <input type=\"text\" id=\"name\"><br><br>\n  <label for=\"title\">标题：</label><br>\n  <input type=\"text\" id=\"title\"><br><br>\n  <label for=\"content\">内容：</label><br>\n  <textarea id=\"content\"></textarea><br><br>\n  <button type=\"submit\">提交</button>\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 151,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 9.33,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 82,
+      "prompt": {
+        "user": "设计一个进销存管理系统的报表分析页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>报表分析</title>\n</head>\n<body>\n<h1>报表分析</h1>\n<p>当前日期：2023-10-05</p>\n<table border=\"1\">\n<tr><th>商品</th><th>销售额</th><th>库存</th></tr>\n<tr><td>苹果</td><td>500</td><td>20</td></tr>\n<tr><td>香蕉</td><td>300</td><td>15</td></tr>\n</table>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 142,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.78,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 83,
+      "prompt": {
+        "user": "设计一个客服工单系统的待处理工单列表",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>客服工单</title>\n</head>\n<body>\n<h1>待处理工单</h1>\n<ul>\n<li>工单12345 - 用户反馈系统崩溃</li>\n<li>工单67890 - 无法登录账户</li>\n<li>工单11223 - 常见问题咨询</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 105,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 6.49,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 84,
+      "prompt": {
+        "user": "设计一个开发者API文档的导航与阅读界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>API Docs</title>\n</head>\n<body>\n<h1>API Docs</h1>\n<ul>\n<li><a href=\"#introduction\">Introduction</a></li>\n<li><a href=\"#usage\">Usage</a></li>\n<li><a href=\"#examples\">Examples</a></li>\n<li><a href=\"#contributing\">Contributing</a></li>\n</ul>\n<p>Content goes here...</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 112,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 6.92,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 85,
+      "prompt": {
+        "user": "设计一个服务器运维面板的资源监控页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>资源监控</title>\n</head>\n<body>\n    <h1>资源监控</h1>\n    <ul>\n        <li>CPU: 40%</li>\n        <li>内存: 75%</li>\n        <li>磁盘: 60%</li>\n        <li>网络: 15%</li>\n    </ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 106,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 6.55,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 86,
+      "prompt": {
+        "user": "设计一个数据可视化BI工具的拖拽编辑画板",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>BI画板</title>\n<style>\nbody { font-family: Arial, sans-serif; background: #f4f4f4; }\ncanvas { border: 1px solid #ccc; background: #fff; }\n</style>\n</head>\n<body>\n<canvas id=\"biCanvas\" width=\"800\" height=\"600\"></canvas>\n<script>\n// 基本画布初始化\nconst canvas = document.getElementById('biCanvas');\nconst ctx = canvas.getContext('2d');\n\n// 示例数据\nconst data = {\n  charts: [\n    { id: 'chart1', type: 'line', x: [1,2,3,4], y: [10,20,15,30] },\n    { id: 'chart2', type: 'bar', x: [1,2,3,4], y: [20,15,30,25] }\n  ]\n};\n\n// 绘制图表\nfunction drawChart(ctx, chart) {\n  const width = canvas.width;\n  const height = canvas.height;\n  const chartWidth = width * 0.6;\n",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 87,
+      "prompt": {
+        "user": "设计一个视频剪辑软件的时间轴轨道界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Video Timeline</title>\n<style>\nbody { font-family: Arial, sans-serif; background: #f4f4f4; }\n#timeline { height: 100px; background: #000; color: #fff; }\n#controls { margin-top: 10px; }\nbutton { padding: 5px 10px; }\n</style>\n</head>\n<body>\n<div id=\"timeline\"></div>\n<div id=\"controls\">\n<button onclick=\"play()\">Play</button>\n<button onclick=\"pause()\">Pause</button>\n</div>\n<script>\nfunction play() { alert(\"Play clicked\"); }\nfunction pause() { alert(\"Pause clicked\"); }\n</script>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 168,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 10.38,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 88,
+      "prompt": {
+        "user": "设计一个图片修图App的滤镜调节面板",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>滤镜面板</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; }\n.panel { margin: 20px; }\n.input-group { margin: 10px 0; }\n.label { display: block; margin-bottom: 5px; }\n.input { padding: 6px; width: 80px; }\n</style>\n</head>\n<body>\n\n<div class=\"panel\">\n  <h2>滤镜调节</h2>\n  <div class=\"input-group\">\n    <label for=\"brightness\">亮度</label>\n    <input type=\"range\" id=\"brightness\" min=\"0\" max=\"10\" value=\"5\" step=\"1\">\n    <span id=\"brightnessVal\">5</span>\n  </div>\n  <div class=\"input-group\">\n    <label for=\"contrast\">对比度</label>\n    <input type=\"range\" id=\"contrast\" min=\"0\" max=\"10\" value=\"5\" step=\"1\">\n    <span id=\"contrastVal\">5</span>\n  </div>\n  <div class=\"input-group\">\n    <",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 89,
+      "prompt": {
+        "user": "设计一个矢量绘图工具的图层管理面板",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>图层管理面板</title>\n</head>\n<body>\n  <h1>图层管理</h1>\n  <ul>\n    <li>图层1</li>\n    <li>图层2</li>\n    <li>图层3</li>\n  </ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 89,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.5,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 90,
+      "prompt": {
+        "user": "设计一个音乐制作软件（DAW）的混音台界面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Mixing Station</title>\n<style>\nbody { font-family: Arial, sans-serif; background: #111; color: #fff; }\n.button { padding: 10px 20px; margin: 5px; }\n</style>\n</head>\n<body>\n<h1>Mixing Station</h1>\n<button class=\"button\" onclick=\"toggleMute(0)\">Mute Track 1</button>\n<button class=\"button\" onclick=\"toggleMute(1)\">Mute Track 2</button>\n<button class=\"button\" onclick=\"toggleMute(2)\">Mute Track 3</button>\n<button class=\"button\" onclick=\"toggleMute(3)\">Mute Track 4</button>\n<script>\nfunction toggleMute(index) {\n  alert(`Muting track ${index}`);\n}\n</script>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 200,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 12.36,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 91,
+      "prompt": {
+        "user": "设计一个星座运势App的每日运程页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>星座运势</title>\n  <meta name=\"viewport\" content=\"width=device-adjust, initial-scale=1.0\">\n  <style>\n    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 10px; }\n    .container { max-width: 400px; margin: 0 auto; }\n    .header { text-align: center; padding: 10px 0; }\n    .content { padding: 10px; }\n    .card { background: #fff; border-radius: 8px; padding: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin: 10px 0; }\n    .card h3 { margin: 0; }\n    .card p { margin: 5px 0; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">今日星座运势</div>\n    <div class=\"content\">\n      <div class=\"card\">\n        <h",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 92,
+      "prompt": {
+        "user": "设计一个彩票购买App的开奖结果页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>彩票结果</title>\n</head>\n<body>\n<h1>您的彩票号码</h1>\n<p>中奖号码：123456</p>\n<p>您匹配了2个号码</p>\n<p>恭喜您，中奖了！</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 83,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 5.13,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 93,
+      "prompt": {
+        "user": "设计一个婚礼策划助手的待办事项清单",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>婚礼策划清单</title>\n</head>\n<body>\n<ul>\n<li>确定婚礼日期</li>\n<li>预订婚礼场地</li>\n<li>联系供应商</li>\n<li>准备婚礼请柬</li>\n<li>安排婚礼流程</li>\n<li>预订餐饮</li>\n<li>联系摄影师</li>\n<li>安排婚礼当天流程</li>\n<li>发送婚礼邀请函</li>\n<li>准备婚礼装饰</li>\n<li>安排婚礼当天细节</li>\n</ul>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 130,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.03,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 94,
+      "prompt": {
+        "user": "设计一个装修设计App的3D样板间漫游页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    body { margin: 0; font-family: Arial; }\n    #app { width: 100%; height: 100vh; }\n    .container { width: 80%; margin: 0 auto; }\n    .controls { text-align: center; padding: 20px; }\n    .controls button { margin: 0 5px; }\n    .scene { width: 100%; height: 100vh; perspective: 1000px; }\n    .scene div { width: 100%; height: 100%; }\n    .scene div img { width: 100%; height: 100%; object-fit: cover; }\n  </style>\n</head>\n<body>\n  <div id=\"app\">\n    <div class=\"container\">\n      <div class=\"controls\">\n        <button onclick=\"prev()\">←</button>\n        <button onclick=\"next()\">→</button>\n      </div>\n      <div class",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 15.82,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 95,
+      "prompt": {
+        "user": "设计一个花店小程序的鲜花定制页面",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>鲜花定制</title>\n<style>\nbody { font-family: Arial, sans-serif; text-align: center; padding: 20px; }\nh1 { color: #ff6f6f; }\nbutton { margin-top: 20px; padding: 10px 20px; }\n</style>\n</head>\n<body>\n<h1>鲜花定制</h1>\n<p>选择你的定制鲜花</p>\n<button onclick=\"customFlowers()\">开始定制</button>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 128,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 7.91,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 96,
+      "prompt": {
+        "user": "设计一个酒庄官网的红酒品鉴介绍页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>红酒品鉴</title>\n</head>\n<body>\n<h1>红酒品鉴</h1>\n<p>在阳光洒满葡萄园的清晨，我们采摘最成熟的葡萄，经过精心酿造，每一瓶红酒都承载着自然与时间的馈赠。</p>\n<p>我们的红酒以优雅的口感、浓郁的果香和细腻的回味而闻名。从赤霞珠的活力到梅洛的深邃，每一种风格都展现着不同地区的风土特色。</p>\n<p>让我们一起品味红酒的美妙，感受每一滴酒背后的故事。</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 147,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 9.09,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 97,
+      "prompt": {
+        "user": "设计一个极限运动俱乐部的活动报名页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>极限运动俱乐部</title>\n</head>\n<body>\n<h1>加入极限运动俱乐部</h1>\n<p>欢迎参加我们的极限运动活动！</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 59,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 3.65,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 98,
+      "prompt": {
+        "user": "设计一个环保回收App的垃圾分类指南页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>环保回收指南</title>\n</head>\n<body>\n<h1>垃圾分类指南</h1>\n<p>请将以下物品分类：</p>\n<ul>\n<li>可回收物：纸张、塑料、玻璃、金属</li>\n<li>有害垃圾：电池、灯管、药品</li>\n<li>厨余垃圾：果皮、蔬菜屑</li>\n<li>其他：大件垃圾、污染塑料</li>\n</ul>\n<p>请按类别投放，助力环保！</p>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 131,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 8.1,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    },
+    {
+      "id": 99,
+      "prompt": {
+        "user": "设计一个寻人/寻物启事平台的信息发布页",
+        "system": "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
+      },
+      "output": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>寻人/寻物</title>\n</head>\n<body>\n<h1>寻人/寻物</h1>\n<form>\n  <label for=\"name\">姓名：</label><br>\n  <input type=\"text\" id=\"name\"><br>\n  \n  <label for=\"phone\">电话：</label><br>\n  <input type=\"text\" id=\"phone\"><br>\n  \n  <label for=\"location\">地点：</label><br>\n  <input type=\"text\" id=\"location\"><br>\n  \n  <label for=\"details\">详情：</label><br>\n  <textarea id=\"details\"></textarea><br>\n  \n  <button type=\"submit\">发布</button>\n</form>\n</body>\n</html>\n```",
+      "metrics": {
+        "input_tokens": 63,
+        "output_tokens": 172,
+        "latency": 0.1634,
+        "batch_latency": 16.1795,
+        "tps": 10.63,
+        "memory_stats": {
+          "ram_usage_mb": 2879.3515625,
+          "gpu_vram_mb": 1295.92529296875,
+          "gpu_vram_max_mb": 5634.54833984375
+        },
+        "batch_size": 99
+      }
+    }
+  ]
+}
