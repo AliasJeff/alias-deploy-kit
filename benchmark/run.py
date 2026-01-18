@@ -100,17 +100,37 @@ class BenchmarkRunner:
                 self.tokenizer.pad_token = self.tokenizer.eos_token
                 self.logger.info("🔧 Tokenizer 缺少 pad_token，已自动设置为 eos_token")
 
-            # 注意: 使用 load_in_4bit 时，建议 device_map="auto" 或者由 accelerate 自动处理
-            self.model = AutoModelForCausalLM.from_pretrained(
-                self.cfg.MODEL_PATH,
-                device_map="auto"
-                if self.cfg.LOAD_IN_4BIT else self.cfg.DEVICE,
-                quantization_config=bnb_config,
-                torch_dtype=self.cfg.TORCH_DTYPE,
-                trust_remote_code=True)
+            is_awq = "awq" in self.cfg.MODEL_PATH.lower(
+            ) or "marlin" in self.cfg.MODEL_PATH.lower()
+
+            if is_awq:
+                self.logger.info(
+                    "🔧 检测到 AWQ/Marlin 模型，使用 AutoAWQForCausalLM 加载...")
+                from awq import AutoAWQForCausalLM
+
+                self.model = AutoAWQForCausalLM.from_pretrained(
+                    self.cfg.MODEL_PATH,
+                    low_cpu_mem_usage=True,
+                    device_map="cuda",  # 强制使用 GPU
+                    torch_dtype=self.cfg.TORCH_DTYPE,
+                    trust_remote_code=True)
+                self.device = self.model.model.device
+            else:
+                if self.cfg.LOAD_IN_4BIT:
+                    self.model = AutoModelForCausalLM.from_pretrained(
+                        self.cfg.MODEL_PATH,
+                        device_map="auto",
+                        quantization_config=bnb_config,
+                        torch_dtype=self.cfg.TORCH_DTYPE,
+                        trust_remote_code=True)
+                else:
+                    self.model = AutoModelForCausalLM.from_pretrained(
+                        self.cfg.MODEL_PATH,
+                        device_map=self.cfg.DEVICE,
+                        torch_dtype=self.cfg.TORCH_DTYPE,
+                        trust_remote_code=True)
         except Exception as e:
             self.logger.error(f"❌ 模型加载失败: {e}")
-            self.logger.error(f"请检查路径或 bitsandbytes 是否安装正确")
             exit(1)
 
         load_time = time.time() - start_time
@@ -134,58 +154,125 @@ class BenchmarkRunner:
     def run(self):
         self.load_model()
         data = self.load_data()
+        device = self.device if getattr(
+            self, "device", None) is not None else self.model.device
 
-        # 预热
-        if self.cfg.WARMUP_ROUNDS > 0:
-            self.logger.info(f"🔥 开始预热 ({self.cfg.WARMUP_ROUNDS} 轮)...")
+        target_gb = 8
+        target_bytes = target_gb * 1024**3
+
+        if device.type == "cuda":
+            total_vram = torch.cuda.get_device_properties(device).total_memory
+
+            fraction = target_bytes / total_vram
+
+            if fraction > 0.95:
+                self.logger.warning(
+                    f"⚠️ 目标 {target_gb}GB 接近或超过物理上限 ({total_vram/1024**3:.2f}GB)，已自动调整为 95%"
+                )
+                fraction = 0.95
+
             try:
-                # 构造简单的输入
-                dummy_input = self.tokenizer("Hello", return_tensors="pt").to(
-                    self.model.device)
-                for _ in range(self.cfg.WARMUP_ROUNDS):
-                    self.model.generate(**dummy_input, max_new_tokens=10)
+                torch.cuda.set_per_process_memory_fraction(fraction, device)
+                self.logger.info(
+                    f"🔒 显存硬限制已设置为: {target_gb}GB (占比: {fraction:.2%})")
             except Exception as e:
-                self.logger.warning(f"⚠️ 预热过程中出现小问题 (可忽略): {e}")
+                self.logger.warning(f"⚠️ 无法设置显存硬限制: {e}")
 
-        self.logger.info(f"⚡ 开始推理，共 {len(data)} 条测试数据...")
+        batch_size = self.cfg.BATCH_SIZE
+
+        if self.cfg.WARMUP_ROUNDS > 0:
+            self.logger.info(
+                f"🔥 开始预热 ({self.cfg.WARMUP_ROUNDS} 轮) 并测算极限 Batch Size...")
+            try:
+                dummy_text = "设计一个企业级SaaS后台管理系统仪表盘"
+                dummy_input = self.tokenizer(dummy_text,
+                                             return_tensors="pt",
+                                             truncation=True,
+                                             max_length=2048).to(device)
+
+                static_memory = 0
+                if device.type == "cuda":
+                    torch.cuda.empty_cache()
+                    torch.cuda.reset_peak_memory_stats()
+                    static_memory = torch.cuda.memory_allocated()
+
+                for _ in range(self.cfg.WARMUP_ROUNDS):
+                    self.model.generate(**dummy_input,
+                                        max_new_tokens=self.cfg.MAX_NEW_TOKENS)
+
+                if self.cfg.AUTO_BATCH_SIZE and device.type == "cuda":
+                    peak_memory = torch.cuda.max_memory_allocated()
+                    total_vram = torch.cuda.get_device_properties(
+                        device).total_memory
+
+                    self.logger.info(
+                        f"🔍 显存使用情况: 总显存={total_vram/1024**3:.2f}GB | 峰值显存={peak_memory/1024**3:.2f}GB | 静态显存={static_memory/1024**3:.2f}GB"
+                    )
+                    mem_per_sample = peak_memory - static_memory
+
+                    calculation_base = min(total_vram, target_bytes)
+                    available_mem = (calculation_base * 0.9) - static_memory
+
+                    if mem_per_sample > 0:
+                        calculated_bs = int(available_mem / mem_per_sample)
+                        optimal_batch_size = max(1, calculated_bs)
+
+                        self.logger.info(
+                            f"💾 显存测算: 单条极限占用={mem_per_sample/1024**3:.2f}GB | "
+                            f"可用显存={available_mem/1024**3:.2f}GB")
+                        self.logger.info(
+                            f"🚀 自动调整 BATCH_SIZE: {batch_size} -> {optimal_batch_size}"
+                        )
+                        batch_size = optimal_batch_size
+                    else:
+                        self.logger.warning("⚠️ 显存占用过小无法准确测算，保持默认值")
+
+            except Exception as e:
+                self.logger.warning(f"⚠️ 预热或显存计算出错 (已忽略): {e}")
+                import traceback
+                traceback.print_exc()
+
+        if len(data) > batch_size:
+            self.logger.info(f"✂️ 截取前 {batch_size} 条数据进行单轮极限测试...")
+            data = data[:batch_size]
+
+        actual_run_size = len(data)
+
+        self.logger.info(f"⚡ 开始极限压力测试，本轮并发数量: {actual_run_size}...")
 
         total_start_time = time.time()
         total_output_tokens = 0
         latencies = []
 
-        batch_size = self.cfg.BATCH_SIZE
-
+        # 这里的 range 步长是 batch_size，且 len(data) <= batch_size，所以循环只会跑一次
         for i in range(0, len(data), batch_size):
-            # 获取当前批次的数据 (切片)
             batch_items = data[i:i + batch_size]
+            current_batch_count = len(batch_items)
             batch_prompts = [item['prompt'] for item in batch_items]
 
             try:
-                # 1. 批量编码
-                # 注意：apply_chat_template 默认处理单条，我们需要手动对列表中的每条应用 template
                 formatted_prompts = []
                 for p in batch_prompts:
+                    messages = []
+                    if hasattr(self.cfg, "SYSTEM_INSTRUCTIONS"):
+                        messages.append({
+                            "role": "system",
+                            "content": self.cfg.SYSTEM_INSTRUCTIONS
+                        })
+                    messages.append({"role": "user", "content": p})
+
                     formatted = self.tokenizer.apply_chat_template(
-                        [{
-                            "role": "user",
-                            "content": p
-                        }],
-                        tokenize=False,
-                        add_generation_prompt=True)
+                        messages, tokenize=False, add_generation_prompt=True)
                     formatted_prompts.append(formatted)
 
-                # 使用 padding=True 确保 tensor 维度对齐
-                inputs = self.tokenizer(
-                    formatted_prompts,
-                    return_tensors="pt",
-                    padding=True,
-                    truncation=True,  # 建议加上防止显存爆
-                    max_length=2048  # 根据需要调整
-                ).to(self.model.device)
+                inputs = self.tokenizer(formatted_prompts,
+                                        return_tensors="pt",
+                                        padding=True,
+                                        truncation=True,
+                                        max_length=2048).to(device)
 
                 input_token_len = inputs.input_ids.shape[1]
 
-                # 2. 批量推理
                 if self.cfg.DEVICE == "cuda":
                     torch.cuda.reset_peak_memory_stats()
 
@@ -197,74 +284,71 @@ class BenchmarkRunner:
                         temperature=self.cfg.TEMPERATURE,
                         top_p=self.cfg.TOP_P,
                         do_sample=True,
-                        pad_token_id=self.tokenizer.
-                        pad_token_id,  # 显式指定 pad token
+                        pad_token_id=self.tokenizer.pad_token_id,
                     )
                 t1 = time.perf_counter()
 
                 batch_latency = t1 - t0
-                # 记录该批次的每个样本的平均延迟（用于统计）
-                # 注意：实际生产中更关注吞吐量，这里为了兼容 report 格式，我们记录平均值
                 avg_item_latency = batch_latency / len(batch_items)
 
                 for _ in batch_items:
                     latencies.append(avg_item_latency)
 
-                # 3. 批量解码
-                # 只解码新生成的 tokens (outputs 包含 input + new_tokens)
                 generated_tokens = outputs[:, input_token_len:]
                 decoded_outputs = self.tokenizer.batch_decode(
                     generated_tokens, skip_special_tokens=True)
 
-                # 4. 结果回填
                 for idx, (item, out_text, out_tokens) in enumerate(
                         zip(batch_items, decoded_outputs, generated_tokens)):
-                    # 计算当前样本的 token 数量 (去除 padding)
-                    # 因为 batch 生成时会有 padding，需要计算实际有效 token
                     valid_out_tokens = len([
                         t for t in out_tokens
                         if t != self.tokenizer.pad_token_id
                     ])
                     total_output_tokens += valid_out_tokens
 
-                    # 估算 TPS (基于该样本有效 token 和 批次总时间)
-                    # 注意：Batch 场景下 TPS 算法有多种，这里使用 (单个样本Token / 批次时间) 会偏小，
-                    # 也可以用 (批次总Token / 批次时间)。这里为了兼容单条记录，仅记录单个 TPS。
                     item_tps = valid_out_tokens / batch_latency
 
                     result_entry = {
                         "id": item['id'],
-                        "prompt": item['prompt'],
+                        "prompt": {
+                            "user":
+                            item['prompt'],
+                            "system":
+                            self.cfg.SYSTEM_INSTRUCTIONS if hasattr(
+                                self.cfg, "SYSTEM_INSTRUCTIONS") else None,
+                        },
                         "output": out_text,
                         "metrics": {
-                            "input_tokens": input_token_len,  # 批次内取最大长度
+                            "input_tokens": input_token_len,
                             "output_tokens": valid_out_tokens,
-                            "latency": round(avg_item_latency, 4),  # 记录平均延迟
-                            "batch_latency": round(batch_latency,
-                                                   4),  # [新增] 记录该批次实际物理耗时
+                            "latency": round(avg_item_latency, 4),
+                            "batch_latency": round(batch_latency, 4),
                             "tps": round(item_tps, 2),
-                            "memory_stats": self.get_memory_usage()
+                            "memory_stats": self.get_memory_usage(),
+                            "batch_size": current_batch_count
                         }
                     }
                     self.results.append(result_entry)
 
                 self.logger.info(
-                    f"[Batch {i//batch_size + 1}] size={len(batch_items)} | "
+                    f"[Batch Limit Test] size={len(batch_items)} | "
                     f"Batch耗时: {batch_latency:.2f}s | "
-                    f"Prompt预览: {batch_prompts[0][:10]}...")
+                    f"显存占用: {self.get_memory_usage()}")
 
             except Exception as e:
                 self.logger.error(f"❌ 处理 Batch {i} 出错: {e}")
                 import traceback
                 traceback.print_exc()
 
-        # 计算总耗时（覆盖所有 Batch）
         total_duration = time.time() - total_start_time
 
-        self.logger.info(f"🏁 所有测试完成，总耗时: {total_duration:.2f}s")
-        self.save_report(total_duration, total_output_tokens, latencies)
+        self.logger.info(f"🏁 极限测试完成，总耗时: {total_duration:.2f}s")
 
-    def save_report(self, total_duration, total_output_tokens, latencies):
+        self.save_report(total_duration, total_output_tokens, latencies,
+                         actual_run_size)
+
+    def save_report(self, total_duration, total_output_tokens, latencies,
+                    run_batch_size):
         if not latencies:
             self.logger.error("❌ 没有成功的推理记录，无法生成报告")
             return
@@ -277,10 +361,13 @@ class BenchmarkRunner:
             "meta": {
                 "timestamp": datetime.now().isoformat(),
                 "model": self.model_info,
+                "total_requests": run_batch_size,
                 "config": {
-                    k: v
-                    for k, v in vars(self.cfg).items()
-                    if not k.startswith("__")
+                    "torch_dtype": str(self.cfg.TORCH_DTYPE),
+                    "load_in_4bit": self.cfg.LOAD_IN_4BIT,
+                    "max_new_tokens": self.cfg.MAX_NEW_TOKENS,
+                    "temperature": self.cfg.TEMPERATURE,
+                    "top_p": self.cfg.TOP_P,
                 }
             },
             "summary": {
@@ -301,12 +388,11 @@ class BenchmarkRunner:
 
         self.logger.info("=" * 30)
         self.logger.info("📊 测试报告摘要")
-        self.logger.info("=" * 30)
-        self.logger.info(
-            f"模型量化: {self.model_info.get('quantization', 'None')}")
+        self.logger.info(f"最大并发 (Batch Size): {run_batch_size}")
         self.logger.info(f"平均延迟: {avg_latency:.4f} s/req")
         self.logger.info(f"推理吞吐: {global_tps:.2f} tokens/s")
         self.logger.info(f"详细结果: {output_file}")
+        self.logger.info("=" * 30)
         self.logger.info(
             f"日志文件: {os.path.join(self.cfg.LOG_DIR, datetime.now().strftime('%Y-%m-%d') + '.log')}"
         )

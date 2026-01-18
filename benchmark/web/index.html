@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM 推理评测可视化看板 v1.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              slate: {
+                50: "#f8fafc",
+                100: "#f1f5f9",
+                200: "#e2e8f0",
+                300: "#cbd5e1",
+                400: "#94a3b8",
+                500: "#64748b",
+                600: "#475569",
+                700: "#334155",
+                800: "#1e293b",
+                900: "#0f172a",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      .preview-pattern {
+        background-color: #ffffff;
+        background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      .fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .stat-badge {
+        @apply flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium border transition-colors cursor-help select-none;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800 min-h-screen font-sans">
+    <header
+      class="bg-white/90 backdrop-blur sticky top-0 z-50 border-b border-slate-200 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center py-3 gap-4"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="bg-indigo-600 text-white p-2 rounded-lg shadow-indigo-200 shadow-md"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-slate-800 tracking-tight">
+                评测可视化看板
+                <span class="text-xs font-normal text-slate-500 ml-1"
+                  >v1.0</span
+                >
+              </h1>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <span id="file-status" class="text-xs text-slate-400 hidden"></span>
+            <label
+              class="cursor-pointer group relative overflow-hidden bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-xl active:scale-95 flex items-center gap-2"
+            >
+              <svg
+                class="w-5 h-5 group-hover:scale-110 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+              <span>加载 JSON 文件夹</span>
+              <input
+                type="file"
+                id="dir-input"
+                webkitdirectory
+                directory
+                multiple
+                class="absolute inset-0 opacity-0 cursor-pointer"
+              />
+            </label>
+          </div>
+        </div>
+
+        <div
+          id="file-list"
+          class="flex flex-wrap gap-2 py-3 hidden border-t border-slate-100"
+        ></div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-[80vh]">
+      <div
+        id="empty-state"
+        class="flex flex-col items-center justify-center py-20 fade-in text-center"
+      >
+        <div
+          class="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center mb-6 border border-slate-200"
+        >
+          <svg
+            class="w-10 h-10 text-slate-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+            ></path>
+          </svg>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-700 mb-2">准备就绪</h2>
+        <p class="text-slate-500 max-w-md">
+          请点击右上角按钮选择评测结果文件夹。<br />页面将自动解析所有 JSON
+          文件。
+        </p>
+      </div>
+
+      <div id="dashboard" class="hidden space-y-8 fade-in">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div
+            class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between"
+          >
+            <div>
+              <h2
+                class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 border-l-4 border-indigo-500 pl-2"
+              >
+                Meta Information
+              </h2>
+              <div class="space-y-3">
+                <div
+                  class="flex justify-between items-center border-b border-slate-50 pb-2"
+                >
+                  <span class="text-sm text-slate-500">Model</span>
+                  <span class="font-bold text-slate-800 text-lg" id="meta-model"
+                    >-</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center border-b border-slate-50 pb-2"
+                >
+                  <span class="text-sm text-slate-500">Size / Params</span>
+                  <span class="text-sm font-mono text-slate-700" id="meta-size"
+                    >-</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center border-b border-slate-50 pb-2"
+                >
+                  <span class="text-sm text-slate-500">Quantization</span>
+                  <span
+                    class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600"
+                    id="meta-quant"
+                    >-</span
+                  >
+                </div>
+                <div class="flex justify-between items-center pt-1">
+                  <span class="text-sm text-slate-500">Time</span>
+                  <span class="text-xs font-mono text-slate-400" id="meta-time"
+                    >-</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-100">
+              <p class="text-xs text-slate-400 mb-2">Inference Config</p>
+              <div id="meta-config" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+
+          <div
+            class="lg:col-span-2 bg-white rounded-2xl p-6 shadow-sm border border-slate-200"
+          >
+            <div class="flex justify-between items-center mb-6">
+              <h2
+                class="text-xs font-bold text-slate-400 uppercase tracking-wider border-l-4 border-emerald-500 pl-2"
+              >
+                Performance Summary
+              </h2>
+              <div
+                class="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-100"
+              >
+                <span class="text-xs text-slate-500 font-medium"
+                  >Valid Render Rate</span
+                >
+                <span
+                  class="text-lg font-bold transition-colors"
+                  id="success-rate"
+                  >0%</span
+                >
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+              <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                <div class="text-2xl font-bold text-slate-800" id="sum-req">
+                  0
+                </div>
+                <div class="text-xs text-slate-500 mt-1">Total Requests</div>
+              </div>
+              <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                <div
+                  class="text-2xl font-bold text-indigo-600"
+                  id="sum-latency"
+                >
+                  0s
+                </div>
+                <div class="text-xs text-slate-500 mt-1">Avg Latency</div>
+              </div>
+              <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                <div class="text-2xl font-bold text-emerald-600" id="sum-tps">
+                  0
+                </div>
+                <div class="text-xs text-slate-500 mt-1">Global TPS</div>
+              </div>
+              <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                <div class="text-2xl font-bold text-purple-600" id="sum-mem">
+                  0
+                </div>
+                <div class="text-xs text-slate-500 mt-1">RAM (MB)</div>
+              </div>
+            </div>
+            <div class="flex justify-between mt-6 text-xs text-slate-400 px-2">
+              <span
+                >Total Duration:
+                <strong class="text-slate-600" id="sum-duration"
+                  >-</strong
+                ></span
+              >
+              <span
+                >RPS:
+                <strong class="text-slate-600" id="sum-rps">-</strong></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div
+            class="flex flex-col sm:flex-row justify-between items-center mb-5 gap-4 px-1"
+          >
+            <div class="flex items-center gap-3">
+              <h2 class="text-xl font-bold text-slate-800">详细评测卡片</h2>
+              <span
+                class="bg-slate-200 text-slate-600 text-xs font-bold px-2 py-0.5 rounded-full"
+                id="details-count"
+                >0</span
+              >
+            </div>
+
+            <div
+              id="pagination-controls"
+              class="flex items-center gap-2 hidden"
+            >
+              <button
+                id="btn-prev"
+                class="px-3 py-1 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                上一页
+              </button>
+              <span
+                class="text-sm text-slate-600 font-mono"
+                id="page-info"
+              ></span>
+              <button
+                id="btn-next"
+                class="px-3 py-1 rounded border border-slate-300 bg-white text-sm text-slate-600 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                下一页
+              </button>
+            </div>
+          </div>
+
+          <div id="details-container" class="space-y-8"></div>
+
+          <div class="flex justify-center mt-8">
+            <div
+              id="pagination-bottom"
+              class="flex flex-wrap justify-center gap-2 hidden"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // --- 全局变量 ---
+      let loadedFiles = {};
+      let currentDetailsData = [];
+      let currentPage = 1;
+      const pageSize = 10; // 每页显示数量
+
+      const dirInput = document.getElementById("dir-input");
+      const fileList = document.getElementById("file-list");
+      const emptyState = document.getElementById("empty-state");
+      const dashboard = document.getElementById("dashboard");
+      const detailsContainer = document.getElementById("details-container");
+      const pageInfo = document.getElementById("page-info");
+      const btnPrev = document.getElementById("btn-prev");
+      const btnNext = document.getElementById("btn-next");
+      const paginationControls = document.getElementById("pagination-controls");
+      const paginationBottom = document.getElementById("pagination-bottom");
+
+      // 绑定顶部翻页事件
+      btnPrev.onclick = () => goToPage(currentPage - 1);
+      btnNext.onclick = () => goToPage(currentPage + 1);
+
+      // --- 1. 文件读取逻辑 ---
+      dirInput.addEventListener("change", async (e) => {
+        const files = Array.from(e.target.files)
+          .filter((f) => f.name.toLowerCase().endsWith(".json"))
+          .sort((a, b) =>
+            a.name.localeCompare(b.name, undefined, {
+              numeric: true,
+              sensitivity: "base",
+            })
+          );
+        if (files.length === 0) {
+          alert("未找到 JSON 文件，请确认文件夹内容。");
+          return;
+        }
+
+        loadedFiles = {};
+        fileList.innerHTML = "";
+        fileList.classList.remove("hidden");
+        document.getElementById(
+          "file-status"
+        ).innerText = `已加载 ${files.length} 个文件`;
+        document.getElementById("file-status").classList.remove("hidden");
+
+        for (const file of files) {
+          try {
+            const text = await readFile(file);
+            const json = JSON.parse(text);
+            loadedFiles[file.name] = json;
+
+            const btn = document.createElement("button");
+            // 样式修改：允许换行时美观排列
+            btn.className = `whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 bg-white text-slate-600 border-slate-200 hover:border-indigo-400 hover:text-indigo-600`;
+            btn.textContent = file.name;
+            btn.onclick = () => switchFile(file.name, btn);
+            fileList.appendChild(btn);
+          } catch (err) {
+            console.error(`解析错误 ${file.name}:`, err);
+          }
+        }
+        if (fileList.firstChild) fileList.firstChild.click();
+      });
+
+      function readFile(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = (e) => resolve(e.target.result);
+          reader.onerror = reject;
+          reader.readAsText(file);
+        });
+      }
+
+      // --- 2. 页面切换逻辑 ---
+      function switchFile(filename, activeBtn) {
+        Array.from(fileList.children).forEach((btn) => {
+          btn.className = `whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 bg-white text-slate-600 border-slate-200 hover:border-indigo-400 hover:text-indigo-600 opacity-70`;
+        });
+        activeBtn.className = `whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 bg-slate-800 text-white border-slate-800 shadow-md transform scale-105`;
+
+        const data = loadedFiles[filename];
+        if (data) {
+          emptyState.classList.add("hidden");
+          dashboard.classList.remove("hidden");
+          renderDashboard(data);
+        }
+      }
+
+      // --- 3. 渲染核心逻辑 ---
+      function renderDashboard(data) {
+        currentDetailsData = data.details || [];
+
+        renderMeta(data.meta);
+        // 计算全局统计 (只计算数字，不渲染卡片)
+        const successRate = calculateGlobalStats(currentDetailsData);
+        renderSummary(data.summary, successRate);
+        // 初始化分页并渲染第一页
+        initPagination();
+      }
+
+      function renderMeta(meta) {
+        if (!meta) return;
+        const m = meta.model || {};
+        const c = meta.config || {};
+
+        document.getElementById("meta-model").textContent =
+          m.model_name || "Unknown";
+        document.getElementById("meta-size").textContent = `${(
+          m.model_size_gb || 0
+        ).toFixed(2)} GB / ${(m.param_count / 1e9).toFixed(2)}B`;
+        document.getElementById("meta-quant").textContent =
+          m.quantization || "None";
+        document.getElementById("meta-time").textContent = meta.timestamp
+          ? new Date(meta.timestamp).toLocaleString()
+          : "-";
+
+        const configBox = document.getElementById("meta-config");
+        configBox.innerHTML = "";
+        Object.entries(c).forEach(([k, v]) => {
+          configBox.innerHTML += `<span class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs border border-slate-200 font-mono">${k}: ${v}</span>`;
+        });
+      }
+
+      function renderSummary(summary, rate) {
+        if (!summary) return;
+        document.getElementById("sum-req").textContent = summary.total_requests;
+        document.getElementById("sum-latency").textContent =
+          summary.avg_latency?.toFixed(4) + "s";
+        document.getElementById("sum-tps").textContent =
+          summary.global_tps?.toFixed(2);
+        document.getElementById("sum-mem").textContent =
+          summary.final_memory?.ram_usage_mb?.toFixed(0) || "-";
+        document.getElementById("sum-duration").textContent =
+          summary.total_duration?.toFixed(2) + "s";
+        document.getElementById("sum-rps").textContent = summary.rps;
+
+        const rateEl = document.getElementById("success-rate");
+        rateEl.textContent = rate + "%";
+        rateEl.className = `text-lg font-bold transition-colors ${
+          rate >= 90
+            ? "text-emerald-600"
+            : rate >= 50
+            ? "text-amber-500"
+            : "text-red-500"
+        }`;
+      }
+
+      // 纯计算函数
+      function calculateGlobalStats(details) {
+        if (!details || details.length === 0) {
+          document.getElementById("details-count").textContent = "0";
+          return 0;
+        }
+        document.getElementById("details-count").textContent = details.length;
+
+        let successCount = 0;
+        details.forEach((item) => {
+          const { isValid } = extractAndValidateHtml(item.output);
+          if (isValid) successCount++;
+        });
+        return ((successCount / details.length) * 100).toFixed(1);
+      }
+
+      // --- 分页相关函数 ---
+      function initPagination() {
+        currentPage = 1;
+        const totalPages = Math.ceil(currentDetailsData.length / pageSize);
+
+        if (totalPages > 1) {
+          paginationControls.classList.remove("hidden");
+          paginationBottom.classList.remove("hidden");
+        } else {
+          paginationControls.classList.add("hidden");
+          paginationBottom.classList.add("hidden");
+        }
+
+        renderCurrentPage();
+      }
+
+      function goToPage(page) {
+        const totalPages = Math.ceil(currentDetailsData.length / pageSize);
+        if (page < 1 || page > totalPages) return;
+
+        currentPage = page;
+        renderCurrentPage();
+        document
+          .getElementById("dashboard")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function renderCurrentPage() {
+        detailsContainer.innerHTML = "";
+
+        const startIndex = (currentPage - 1) * pageSize;
+        const endIndex = Math.min(
+          startIndex + pageSize,
+          currentDetailsData.length
+        );
+        const pageItems = currentDetailsData.slice(startIndex, endIndex);
+        const totalPages = Math.ceil(currentDetailsData.length / pageSize);
+
+        // 更新顶部控件
+        pageInfo.textContent = `${currentPage} / ${totalPages}`;
+        btnPrev.disabled = currentPage === 1;
+        btnNext.disabled = currentPage === totalPages;
+
+        // 更新底部数字控件
+        updateBottomPagination(totalPages);
+
+        if (pageItems.length === 0) return;
+
+        // 渲染当前页卡片
+        pageItems.forEach((item) => {
+          createCard(item);
+        });
+      }
+
+      function updateBottomPagination(totalPages) {
+        paginationBottom.innerHTML = "";
+        if (totalPages <= 1) return;
+
+        const createBtn = (p) => {
+          const btn = document.createElement("button");
+          btn.textContent = p;
+          btn.className = `w-8 h-8 rounded text-xs font-medium border transition-colors ${
+            p === currentPage
+              ? "bg-indigo-600 text-white border-indigo-600"
+              : "bg-white text-slate-600 border-slate-200 hover:border-indigo-400 hover:text-indigo-600"
+          }`;
+          btn.onclick = () => goToPage(p);
+          paginationBottom.appendChild(btn);
+        };
+
+        const createDots = () => {
+          const span = document.createElement("span");
+          span.textContent = "...";
+          span.className = "text-slate-400 self-end px-1";
+          paginationBottom.appendChild(span);
+        };
+
+        createBtn(1);
+        if (currentPage > 3) createDots();
+
+        const start = Math.max(2, currentPage - 1);
+        const end = Math.min(totalPages - 1, currentPage + 1);
+
+        for (let i = start; i <= end; i++) {
+          createBtn(i);
+        }
+
+        if (currentPage < totalPages - 2) createDots();
+        if (totalPages > 1) createBtn(totalPages);
+      }
+
+      function createCard(item) {
+        const userTokens = calcTokens(item.prompt.user);
+        const sysTokens = calcTokens(item.prompt.system);
+        const outputTokens = calcTokens(item.output);
+        const { html, isValid, truncated } = extractAndValidateHtml(
+          item.output
+        );
+        const uiStats = html ? analyzeUiElements(html) : null;
+
+        const uiStatsHtml = uiStats
+          ? `
+                  <div class="flex flex-wrap gap-2 py-2 border-b border-slate-100 bg-slate-50/50 px-5 select-none">
+                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider self-center mr-1">UI Elements:</span>
+                      <span class="stat-badge bg-blue-50 text-blue-700 border-blue-200" title="Buttons & Submits">🖱️ Btn: ${uiStats.buttons}</span>
+                      <span class="stat-badge bg-indigo-50 text-indigo-700 border-indigo-200" title="Inputs / Textareas / Selects">⌨️ Inp: ${uiStats.inputs}</span>
+                      <span class="stat-badge bg-cyan-50 text-cyan-700 border-cyan-200" title="Hyperlinks">🔗 Link: ${uiStats.links}</span>
+                      <span class="stat-badge bg-purple-50 text-purple-700 border-purple-200" title="Images">🖼️ Img: ${uiStats.images}</span>
+                      <span class="stat-badge bg-slate-50 text-slate-600 border-slate-200" title="Div Containers">📦 Div: ${uiStats.divs}</span>
+                  </div>
+              `
+          : "";
+
+        const statusBadge = isValid
+          ? `<span class="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ✅ Render Success</span>`
+          : `<span class="flex items-center gap-1.5 bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-bold border border-red-200"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> ❌ ${
+              truncated ? "Truncated" : "Failed"
+            }</span>`;
+
+        const card = document.createElement("div");
+        card.className =
+          "bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow duration-300 fade-in";
+
+        card.innerHTML = `
+                    <div class="grid grid-cols-1 xl:grid-cols-2 divide-y xl:divide-y-0 xl:divide-x divide-slate-100">
+                        <div class="flex flex-col h-full min-h-[500px]">
+                            <div class="px-5 py-3 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+                                <span class="bg-white border border-slate-200 text-slate-500 font-mono text-xs px-2 py-1 rounded">ID: ${
+                                  item.id
+                                }</span>
+                                <div class="flex gap-3 text-xs text-slate-500 font-mono">
+                                    <span title="User Input Tokens (JS Est.)">User: <b class="text-slate-700">${userTokens}</b></span>
+                                    <span title="System Input Tokens (JS Est.)">Sys: <b class="text-slate-700">${sysTokens}</b></span>
+                                    <span title="Output Tokens (JS Est.)">Out: <b class="text-indigo-600">${outputTokens}</b></span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-5 space-y-4 flex-1 overflow-hidden flex flex-col">
+                                <div>
+                                    <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">User Prompt</h3>
+                                    <div class="bg-indigo-50/30 border border-indigo-100 rounded-lg p-3 text-sm text-slate-700 max-h-32 overflow-y-auto leading-relaxed">
+                                        ${escapeHtml(item.prompt.user)}
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">System Prompt</h3>
+                                    <div class="bg-slate-50 border border-slate-100 rounded-lg p-3 text-xs text-slate-500 font-mono max-h-24 overflow-y-auto">
+                                        ${escapeHtml(item.prompt.system)}
+                                    </div>
+                                </div>
+
+                                <div class="flex-1 flex flex-col min-h-0">
+                                    <details class="group flex flex-col h-full">
+                                        <summary class="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors select-none mb-2">
+                                            <svg class="w-4 h-4 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                            View Raw Output (Source Code)
+                                        </summary>
+                                        <div class="bg-slate-900 text-slate-300 p-3 rounded-lg text-xs font-mono overflow-auto whitespace-pre-wrap border border-slate-800 shadow-inner max-h-[200px] xl:max-h-full">
+${escapeHtml(item.output)}
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col min-h-[500px] bg-slate-50/30">
+                            <div class="px-5 py-3 border-b border-slate-100 flex justify-between items-center bg-white h-[53px]">
+                                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">HTML Preview</h3>
+                                ${statusBadge}
+                            </div>
+                            
+                            ${uiStatsHtml}
+
+                            <div class="flex-1 p-4 flex flex-col">
+                                <div class="w-full flex-1 bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden relative preview-pattern group">
+                                    ${
+                                      html
+                                        ? `<iframe class="w-full h-full border-0" sandbox="allow-scripts" srcdoc="${escapeAttribute(
+                                            html
+                                          )}"></iframe>`
+                                        : `<div class="absolute inset-0 flex flex-col items-center justify-center text-slate-400 p-8 text-center">
+                                            <svg class="w-10 h-10 mb-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span class="text-sm font-medium">无有效内容</span>
+                                            </div>`
+                                    }
+                                    
+                                    ${
+                                      !isValid && html
+                                        ? `
+                                        <div class="absolute top-0 inset-x-0 bg-amber-500/10 text-amber-600 text-[10px] font-bold text-center py-1 border-b border-amber-200 backdrop-blur-sm">
+                                            ⚠️ Warning: Code Truncated / Incomplete
+                                        </div>
+                                        `
+                                        : ""
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        detailsContainer.appendChild(card);
+      }
+
+      // --- 工具函数 ---
+
+      function calcTokens(text) {
+        if (!text) return 0;
+        const matches = text.match(/[\w]+|[^\s\w]/g);
+        return matches ? matches.length : 0;
+      }
+
+      function extractAndValidateHtml(rawText) {
+        if (!rawText) return { html: null, isValid: false, truncated: false };
+        const cleanText = rawText
+          .replace(/<think>[\s\S]*?<\/think>/gi, "")
+          .trim();
+
+        let code = "";
+        let isValid = false;
+        let truncated = false;
+
+        const mdRegex = /```html\s*([\s\S]*?)```/i;
+        const mdMatch = cleanText.match(mdRegex);
+
+        if (mdMatch && mdMatch[1]) {
+          code = mdMatch[1];
+          isValid = true;
+        } else {
+          const truncatedMdRegex = /```html\s*([\s\S]*)/i;
+          const trMatch = cleanText.match(truncatedMdRegex);
+
+          if (trMatch) {
+            code = trMatch[1];
+            truncated = true;
+            isValid = false;
+          } else {
+            const htmlTagRegex = /(<!DOCTYPE html>|<html)[\s\S]*/i;
+            const tagMatch = cleanText.match(htmlTagRegex);
+
+            if (tagMatch) {
+              code = tagMatch[0];
+              if (/<\/html>\s*$/i.test(code) || /<\/body>\s*$/i.test(code)) {
+                isValid = true;
+              } else {
+                truncated = true;
+                isValid = false;
+              }
+            }
+          }
+        }
+        return { html: code, isValid, truncated };
+      }
+
+      function analyzeUiElements(htmlCode) {
+        if (!htmlCode)
+          return { buttons: 0, inputs: 0, images: 0, links: 0, divs: 0 };
+        try {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlCode, "text/html");
+          return {
+            buttons: doc.querySelectorAll(
+              'button, input[type="button"], input[type="submit"]'
+            ).length,
+            inputs: doc.querySelectorAll(
+              'input:not([type="hidden"]):not([type="button"]):not([type="submit"]), textarea, select'
+            ).length,
+            images: doc.querySelectorAll("img").length,
+            links: doc.querySelectorAll("a").length,
+            divs: doc.querySelectorAll("div").length,
+          };
+        } catch (e) {
+          return { buttons: 0, inputs: 0, images: 0, links: 0, divs: 0 };
+        }
+      }
+
+      function escapeHtml(unsafe) {
+        if (typeof unsafe !== "string") return "";
+        return unsafe
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function escapeAttribute(unsafe) {
+        if (!unsafe) return "";
+        return unsafe
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+    </script>
+  </body>
+</html>

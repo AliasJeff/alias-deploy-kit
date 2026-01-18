@@ -8,7 +8,8 @@ class Config:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     LOG_DIR = os.path.join(BASE_DIR, "logs")
 
-    MODEL_PATH = os.path.join(BASE_DIR, "models", "qwen3-ui-1.7b")
+    MODEL_PATH = os.path.join(BASE_DIR, "models",
+                              "qwen3-1.7b-ours-awq-gemm-4bit")
 
     DATA_PATH = os.path.join(BASE_DIR, "data", "test_benchmark.json")
 
@@ -18,11 +19,14 @@ class Config:
     ) else "mps" if torch.backends.mps.is_available() else "cpu"
 
     TORCH_DTYPE = torch.float16
-    LOAD_IN_4BIT = True
+    LOAD_IN_4BIT = False
 
-    BATCH_SIZE = 300
+    AUTO_BATCH_SIZE = True
+    BATCH_SIZE = 100
     MAX_NEW_TOKENS = 64
     TEMPERATURE = 0.7
     TOP_P = 0.9
 
     WARMUP_ROUNDS = 1
+
+    # SYSTEM_INSTRUCTIONS = "只输出适配手机端的html代码，输出最小可行的html，限制 240 tokens，不要输出任何其他内容。 </no_think>"
