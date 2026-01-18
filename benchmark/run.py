@@ -157,10 +157,24 @@ class BenchmarkRunner:
         device = self.device if getattr(
             self, "device", None) is not None else self.model.device
 
+        target_gb = 8
+        target_bytes = target_gb * 1024**3
+
         if device.type == "cuda":
             total_vram = torch.cuda.get_device_properties(device).total_memory
+
+            fraction = target_bytes / total_vram
+
+            if fraction > 0.95:
+                self.logger.warning(
+                    f"⚠️ 目标 {target_gb}GB 接近或超过物理上限 ({total_vram/1024**3:.2f}GB)，已自动调整为 95%"
+                )
+                fraction = 0.95
+
             try:
-                torch.cuda.set_per_process_memory_fraction(0.95, device)
+                torch.cuda.set_per_process_memory_fraction(fraction, device)
+                self.logger.info(
+                    f"🔒 显存硬限制已设置为: {target_gb}GB (占比: {fraction:.2%})")
             except Exception as e:
                 self.logger.warning(f"⚠️ 无法设置显存硬限制: {e}")
 
@@ -196,7 +210,8 @@ class BenchmarkRunner:
                     )
                     mem_per_sample = peak_memory - static_memory
 
-                    available_mem = (total_vram * 0.9) - static_memory
+                    calculation_base = min(total_vram, target_bytes)
+                    available_mem = (calculation_base * 0.9) - static_memory
 
                     if mem_per_sample > 0:
                         calculated_bs = int(available_mem / mem_per_sample)
