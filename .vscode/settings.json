@@ -28,7 +28,9 @@
     }
   },
   "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": ["--style={based_on_style: pep8, column_limit: 100}"],
+  "python.formatting.yapfArgs": [
+    "--style={based_on_style: pep8, column_limit: 100}"
+  ],
   "python.linting.enabled": false,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": false,
@@ -61,5 +63,12 @@
     "**/.DS_Store": true
   },
 
-  "extensions.recommendations": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint", "eeyore.yapf"]
+  "extensions.recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "eeyore.yapf"
+  ],
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  }
 }

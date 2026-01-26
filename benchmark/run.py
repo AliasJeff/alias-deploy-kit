@@ -211,7 +211,7 @@ class BenchmarkRunner:
                     mem_per_sample = peak_memory - static_memory
 
                     calculation_base = min(total_vram, target_bytes)
-                    available_mem = (calculation_base * 0.9) - static_memory
+                    available_mem = (calculation_base * 0.8) - static_memory
 
                     if mem_per_sample > 0:
                         calculated_bs = int(available_mem / mem_per_sample)

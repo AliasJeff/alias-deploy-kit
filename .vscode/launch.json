@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: run_mnn.py",
+      "type": "debugpy",
+      "request": "launch",
+      "python": "${workspaceFolder}\\venv\\Scripts\\python.exe",
+      "program": "${workspaceFolder}\\benchmark\\run_mnn.py"
+    }
+  ]
+}

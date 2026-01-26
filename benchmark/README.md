@@ -33,6 +33,9 @@ cd libs/
 ./llm_demo ../models/qwen3-ui-1.7b-mnn-w4/llm.mnn
 ## 针对prompt中的每行进行回复
 ./llm_demo ../models/qwen3-ui-1.7b-mnn-w4/llm.mnn prompt.txt
+
+# 新版
+./llm_demo.exe ../models/Qwen3-1.7B-MNN/config.json prompt.txt 256 100
 ```
 
 llm_bench args:

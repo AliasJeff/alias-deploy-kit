@@ -26,6 +26,29 @@ cmake -DMNN_BUILD_LLM=ON -DMNN_BUILD_LLM_OMNI=ON -DMNN_BUILD_CONVERTER=ON ..
 make -j8
 ```
 
+#### 1.1 Compile on Windows
+
+Install Visual Studio, cmake, ninja
+Use command tool: x64 Native Tools Command Prompt for VS 2022
+
+```bash
+cd MNN
+rm -rf build
+mkdir build
+cd build
+
+# CPU
+# cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release -DMNN_BUILD_SHARED_LIBS=OFF -DMNN_WIN_RUNTIME_MT=ON -DMNN_BUILD_CONVERTER=ON -DMNN_BUILD_LLM=ON -DMNN_BUILD_LLM_OMNI=ON -DMNN_USE_SSE=ON -DMNN_AVX2=ON -DMNN_AVX512=ON -DMNN_VULKAN=ON
+cmake .. -G Ninja -DCMAKE_C_COMPILER=”C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\x64\bin\clang.exe” -DCMAKE_CXX_COMPILER=”C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\x64\bin\clang++.exe”  -DCMAKE_LINKER=”C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\x64\bin\lld.exe” -DCMAKE_BUILD_TYPE=Release -DMNN_BUILD_SHARED_LIBS=OFF -DMNN_WIN_RUNTIME_MT=ON -DMNN_BUILD_CONVERTER=ON -DMNN_BUILD_LLM=ON -DMNN_BUILD_LLM_OMNI=ON -DMNN_SUPPORT_TRANSFORMER_FUSE=ON -DMNN_USE_SSE=ON -DMNN_AVX2=ON -DMNN_AVX512=ON -DMNN_VULKAN=ON
+
+ninja -j16
+
+# CUDA
+cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release -DMNN_BUILD_SHARED_LIBS=OFF -DMNN_WIN_RUNTIME_MT=ON -DMNN_BUILD_CONVERTER=ON -DMNN_BUILD_LLM=ON -DMNN_BUILD_LLM_OMNI=ON -DMNN_USE_SSE=ON -DMNN_AVX2=ON -DMNN_AVX512=ON -DMNN_CUDA=ON -DMNN_CUDA_QUANT=ON -DMNN_CUDA_BF16=ON -DMNN_CUDA_TUNE_PARAM=ON -DMNN_VULKAN=ON
+
+ninja
+```
+
 ### 2. Export model
 
 ```bash
@@ -48,6 +71,10 @@ echo "请讲解一下 kvcache </no_think>" > prompt.txt
 
 # Multimodal input format:
 # <img>demo.jpg</img> 请介绍一下图片内容
+
+# Windows encoding:
+chcp 65001
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
 
 ### 4. Result
