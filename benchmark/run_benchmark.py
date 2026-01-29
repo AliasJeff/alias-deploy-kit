@@ -44,7 +44,7 @@ CONFIG = {
     "result_dir": "./benchmark_results",
     "log_dir": "./benchmark_logs",
     "device": "cuda",
-    "torch_dtype": torch.bfloat16,
+    "torch_dtype": torch.float16,
     "max_vram_gb": 7.5,
 
     # 单请求 Latency 测试参数
@@ -400,12 +400,17 @@ class BenchmarkRunner:
         return results
 
     def run(self):
+        serializable_config = CONFIG.copy()
+        if "torch_dtype" in serializable_config:
+            serializable_config["torch_dtype"] = str(
+                serializable_config["torch_dtype"])
+
         final_report = {
             "meta": {
                 "timestamp":
                 datetime.now().isoformat(),
                 "config":
-                CONFIG,
+                serializable_config,
                 "gpu":
                 torch.cuda.get_device_name(0)
                 if torch.cuda.is_available() else "CPU"
