@@ -13,16 +13,16 @@ from datetime import datetime
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 MODELS_TO_TEST = [
-    {
-        "name": "Qwen3-4B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen3-4B-awq-gemm-4bit",
-        "load_in_4bit": False
-    },
-    {
-        "name": "Qwen3-4B",
-        "path": "./models/Qwen3-4B",
-        "load_in_4bit": False
-    },
+    # {
+    #     "name": "Qwen3-4B-AWQ-GEMM-4bit",
+    #     "path": "./models/Qwen3-4B-awq-gemm-4bit",
+    #     "load_in_4bit": False
+    # },
+    # {
+    #     "name": "Qwen3-4B",
+    #     "path": "./models/Qwen3-4B",
+    #     "load_in_4bit": False
+    # },
     {
         "name": "Qwen3-1.7B-AWQ-GEMM-4bit",
         "path": "./models/Qwen3-1.7B-awq-gemm-4bit",
