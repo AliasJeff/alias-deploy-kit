@@ -1,4 +1,7 @@
 import os
+# 设置环境变量以减少显存碎片，必须在 import torch 之前设置才能生效
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
 import json
 import time
 import torch
@@ -11,18 +14,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 MODELS_TO_TEST = [
     {
-        "name": "Qwen2-1.5B",
-        "path": "./models/Qwen2-1.5B",
-        "load_in_4bit": False
-    },
-    {
-        "name": "Qwen3-1.7B",
-        "path": "./models/Qwen3-1.7B",
-        "load_in_4bit": False
-    },
-    {
-        "name": "Qwen3-1.7B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen3-1.7B-awq-gemm-4bit",
+        "name": "Qwen3-4B-AWQ-GEMM-4bit",
+        "path": "./models/Qwen3-4B-awq-gemm-4bit",
         "load_in_4bit": False
     },
     {
@@ -31,8 +24,18 @@ MODELS_TO_TEST = [
         "load_in_4bit": False
     },
     {
-        "name": "Qwen3-4B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen3-4B-awq-gemm-4bit",
+        "name": "Qwen3-1.7B-AWQ-GEMM-4bit",
+        "path": "./models/Qwen3-1.7B-awq-gemm-4bit",
+        "load_in_4bit": False
+    },
+    {
+        "name": "Qwen3-1.7B",
+        "path": "./models/Qwen3-1.7B",
+        "load_in_4bit": False
+    },
+    {
+        "name": "Qwen2-1.5B",
+        "path": "./models/Qwen2-1.5B",
         "load_in_4bit": False
     },
 ]
@@ -112,7 +115,7 @@ class BenchmarkRunner:
 
     def _apply_vram_limit_if_needed(self):
         """
-        ✅ 若 CONFIG["max_vram_gb"] 存在且为正数，则限制 PyTorch 进程可用显存比例。
+        若 CONFIG["max_vram_gb"] 存在且为正数，则限制 PyTorch 进程可用显存比例。
         不设置则保持默认（尽量用满）。
         """
         if not torch.cuda.is_available():
@@ -139,7 +142,6 @@ class BenchmarkRunner:
         frac = max(1e-6, min(1.0, frac))
 
         try:
-            # 注意：该限制对“当前进程”生效（不是系统级别），并会影响后续 CUDA 分配
             torch.cuda.set_per_process_memory_fraction(frac, device=device_idx)
             self.logger.info(
                 f"🧩 已启用显存上限: {max_gb:.2f}GB / {total_gb:.2f}GB (fraction={frac:.4f})"
@@ -152,7 +154,7 @@ class BenchmarkRunner:
             f"📥 正在加载模型: {model_conf['name']} ({model_conf['path']})...")
         self.clear_cache()
 
-        # ✅ 最小修改：在加载前应用显存上限（如配置了 max_vram_gb）
+        # 应用显存上限
         self._apply_vram_limit_if_needed()
 
         try:
@@ -229,7 +231,7 @@ class BenchmarkRunner:
                 _ = self.model.generate(
                     **inputs,
                     max_new_tokens=gen_len,
-                    min_new_tokens=gen_len,  # 强制生成固定长度
+                    min_new_tokens=gen_len,
                     do_sample=False,
                     pad_token_id=self.tokenizer.pad_token_id)
             torch.cuda.synchronize()
@@ -256,7 +258,7 @@ class BenchmarkRunner:
     def find_max_batch_size(self, input_len, output_len):
         """
         核心逻辑：使用二分查找法寻找不 OOM 的最大 Batch Size。
-        这比线性估算更安全，能真正测出“占满显存”的极限。
+        注意：此处为了速度使用 do_sample=False (Greedy)，这会导致显存占用比实际测试略小。
         """
         low = 1
         high = CONFIG["throughput_test"]["max_bs_cap"]
@@ -271,7 +273,7 @@ class BenchmarkRunner:
                 self.clear_cache()
                 inputs = self.generate_dummy_input(mid, input_len)
 
-                # 尝试完整生成
+                # 探测时使用 do_sample=False
                 with torch.no_grad():
                     self.model.generate(
                         **inputs,
@@ -304,6 +306,7 @@ class BenchmarkRunner:
 
         for p_len in prompt_lens:
             for n_tokens in new_tokens_list:
+                # 1. 初始探测
                 bs = self.find_max_batch_size(p_len, n_tokens)
 
                 if bs == 0:
@@ -311,39 +314,75 @@ class BenchmarkRunner:
                         f"   In={p_len}, Out={n_tokens} | 无法运行 (OOM at BS=1)")
                     continue
 
-                self.clear_cache()
-                inputs = self.generate_dummy_input(bs, p_len)
+                # OOM 自动降级重试循环
+                actual_bs = bs
+                success = False
+                latency = 0
+                mem_info = {}
+                retry_count = 0
 
-                torch.cuda.synchronize()
-                t0 = time.perf_counter()
+                # 只要 BS > 0 且未成功，就持续重试
+                while actual_bs > 0 and not success:
+                    try:
+                        self.clear_cache()
+                        # 注意：必须使用新的 Batch Size 重新生成 Input
+                        inputs = self.generate_dummy_input(actual_bs, p_len)
 
-                with torch.no_grad():
-                    self.model.generate(
-                        **inputs,
-                        max_new_tokens=n_tokens,
-                        min_new_tokens=n_tokens,
-                        do_sample=True,
-                        temperature=0.7,
-                        pad_token_id=self.tokenizer.pad_token_id)
+                        torch.cuda.synchronize()
+                        t0 = time.perf_counter()
 
-                torch.cuda.synchronize()
-                latency = time.perf_counter() - t0
+                        with torch.no_grad():
+                            self.model.generate(
+                                **inputs,
+                                max_new_tokens=n_tokens,
+                                min_new_tokens=n_tokens,
+                                do_sample=True,  # 采样模式比探测模式更吃显存
+                                temperature=0.7,
+                                pad_token_id=self.tokenizer.pad_token_id)
+
+                        torch.cuda.synchronize()
+                        latency = time.perf_counter() - t0
+                        mem_info = self.get_memory_usage()
+                        success = True  # 标记成功，跳出循环
+
+                    except (RuntimeError, torch.OutOfMemoryError) as e:
+                        # 捕获 OOM 异常
+                        if "out of memory" in str(e).lower() or isinstance(
+                                e, torch.OutOfMemoryError):
+                            old_bs = actual_bs
+                            # 策略：如果 OOM，打 8 折重试
+                            actual_bs = int(actual_bs * 0.8)
+                            # 避免 BS 过小时陷入死循环 (如 2->2)
+                            if actual_bs == old_bs:
+                                actual_bs -= 1
+
+                            self.logger.warning(
+                                f"      ⚠️ 实际运行 OOM (BS={old_bs}) -> 自动降级至 {actual_bs} 重试..."
+                            )
+                            retry_count += 1
+                        else:
+                            # 其他错误直接抛出
+                            self.logger.error(f"      ❌ 运行时发生非 OOM 错误: {e}")
+                            break
+                # =======================================================
+
+                if not success:
+                    self.logger.error(f"   In={p_len}, Out={n_tokens} | 最终失败")
+                    continue
 
                 # 计算指标
-                rps = bs / latency
-                # 记录每秒处理请求数
-
-                mem_info = self.get_memory_usage()
+                rps = actual_bs / latency
 
                 self.logger.info(
-                    f"   In={p_len}, Out={n_tokens} | MaxBS={bs} | "
+                    f"   In={p_len}, Out={n_tokens} | MaxBS={actual_bs} (Init={bs}) | "
                     f"RPS={rps:.2f} | Time={latency:.2f}s | Mem={mem_info.get('max_allocated_gb', 0)}GB"
                 )
 
                 results.append({
                     "input_len": p_len,
                     "output_len": n_tokens,
-                    "max_batch_size": bs,
+                    "max_batch_size": actual_bs,
+                    "init_batch_size": bs,
                     "rps": round(rps, 2),
                     "latency_sec": round(latency, 4),
                     "memory_stats": mem_info
