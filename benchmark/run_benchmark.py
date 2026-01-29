@@ -7,20 +7,18 @@ import time
 import torch
 import logging
 import gc
-import math
-import psutil
 from datetime import datetime
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODELS_TO_TEST = [
     {
-        "name": "Qwen3-4B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen3-4B-awq-gemm-4bit",
+        "name": "Qwen3-4B",
+        "path": "./models/Qwen3-4B",
         "load_in_4bit": False
     },
     {
-        "name": "Qwen3-4B",
-        "path": "./models/Qwen3-4B",
+        "name": "Qwen3-4B-AWQ-GEMM-4bit",
+        "path": "./models/Qwen3-4B-awq-gemm-4bit",
         "load_in_4bit": False
     },
     {
@@ -45,7 +43,7 @@ CONFIG = {
     "log_dir": "./benchmark_logs",
     "device": "cuda",
     "torch_dtype": torch.float16,
-    "max_vram_gb": 7.5,
+    "max_vram_gb": 7.3,
 
     # 单请求 Latency 测试参数
     "latency_test": {
