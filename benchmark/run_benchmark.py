@@ -42,6 +42,7 @@ CONFIG = {
     "log_dir": "./benchmark_logs",
     "device": "cuda",
     "torch_dtype": torch.bfloat16,
+    "max_vram_gb": 7.5,
 
     # 单请求 Latency 测试参数
     "latency_test": {
@@ -73,7 +74,8 @@ class BenchmarkRunner:
 
         logger = logging.getLogger("Benchmark")
         logger.setLevel(logging.INFO)
-        if logger.hasHandlers(): logger.handlers.clear()
+        if logger.hasHandlers():
+            logger.handlers.clear()
 
         formatter = logging.Formatter(
             '%(asctime)s - %(levelname)s - %(message)s', datefmt='%H:%M:%S')
@@ -108,10 +110,50 @@ class BenchmarkRunner:
             torch.cuda.empty_cache()
             torch.cuda.reset_peak_memory_stats()
 
+    def _apply_vram_limit_if_needed(self):
+        """
+        ✅ 若 CONFIG["max_vram_gb"] 存在且为正数，则限制 PyTorch 进程可用显存比例。
+        不设置则保持默认（尽量用满）。
+        """
+        if not torch.cuda.is_available():
+            return
+
+        max_gb = CONFIG.get("max_vram_gb", None)
+        if max_gb is None:
+            return
+
+        try:
+            max_gb = float(max_gb)
+        except Exception:
+            return
+
+        if max_gb <= 0:
+            return
+
+        device_idx = torch.cuda.current_device()
+        total_bytes = torch.cuda.get_device_properties(device_idx).total_memory
+        total_gb = total_bytes / (1024**3)
+
+        frac = max_gb / total_gb
+        # clamp 到 (0, 1]
+        frac = max(1e-6, min(1.0, frac))
+
+        try:
+            # 注意：该限制对“当前进程”生效（不是系统级别），并会影响后续 CUDA 分配
+            torch.cuda.set_per_process_memory_fraction(frac, device=device_idx)
+            self.logger.info(
+                f"🧩 已启用显存上限: {max_gb:.2f}GB / {total_gb:.2f}GB (fraction={frac:.4f})"
+            )
+        except Exception as e:
+            self.logger.warning(f"⚠️ 设置显存上限失败（忽略继续）: {e}")
+
     def load_model(self, model_conf):
         self.logger.info(
             f"📥 正在加载模型: {model_conf['name']} ({model_conf['path']})...")
         self.clear_cache()
+
+        # ✅ 最小修改：在加载前应用显存上限（如配置了 max_vram_gb）
+        self._apply_vram_limit_if_needed()
 
         try:
             self.tokenizer = AutoTokenizer.from_pretrained(
@@ -168,7 +210,6 @@ class BenchmarkRunner:
                 self.model.generate(**dummy, max_new_tokens=1)
 
             # 2. 测试 Prefill (Forward Pass)
-            # 使用纯 forward pass 测量 prefill 时间，比 generate(max_new_tokens=1) 更纯粹
             inputs = self.generate_dummy_input(1, p_len)
 
             torch.cuda.synchronize()
@@ -182,8 +223,6 @@ class BenchmarkRunner:
             prefill_speed = p_len / prefill_time
 
             # 3. 测试 Decode
-            # 运行 generate 生成 N 个 token，总时间 T_total
-            # Decode 时间 ≈ T_total - Prefill 时间
             torch.cuda.synchronize()
             t_gen_start = time.perf_counter()
             with torch.no_grad():
@@ -196,7 +235,6 @@ class BenchmarkRunner:
             torch.cuda.synchronize()
             total_time = time.perf_counter() - t_gen_start
 
-            # 计算纯 Decode 时间
             decode_time = max(1e-6, total_time - prefill_time)
             decode_speed = gen_len / decode_time
 
@@ -242,11 +280,9 @@ class BenchmarkRunner:
                         do_sample=False,
                         pad_token_id=self.tokenizer.pad_token_id)
 
-                # 如果成功，尝试更大的 BS
                 max_bs = mid
                 low = mid + 1
             except RuntimeError as e:
-                # 如果 OOM，尝试更小的 BS
                 if "out of memory" in str(e).lower():
                     high = mid - 1
                 else:
@@ -255,6 +291,8 @@ class BenchmarkRunner:
             except Exception:
                 high = mid - 1
 
+        max_bs = int(max_bs * 0.9)
+        self.logger.info(f"      ✅ 最大 Batch Size = {max_bs} (预留10%显存)")
         return max_bs
 
     def run_throughput_test(self, model_name):
@@ -266,7 +304,6 @@ class BenchmarkRunner:
 
         for p_len in prompt_lens:
             for n_tokens in new_tokens_list:
-                # 1. 自动探测最大 Batch Size
                 bs = self.find_max_batch_size(p_len, n_tokens)
 
                 if bs == 0:
@@ -274,7 +311,6 @@ class BenchmarkRunner:
                         f"   In={p_len}, Out={n_tokens} | 无法运行 (OOM at BS=1)")
                     continue
 
-                # 2. 使用最大 BS 进行正式测速
                 self.clear_cache()
                 inputs = self.generate_dummy_input(bs, p_len)
 
@@ -286,7 +322,7 @@ class BenchmarkRunner:
                         **inputs,
                         max_new_tokens=n_tokens,
                         min_new_tokens=n_tokens,
-                        do_sample=True,  # 模拟真实业务（开启采样）
+                        do_sample=True,
                         temperature=0.7,
                         pad_token_id=self.tokenizer.pad_token_id)
 
@@ -295,7 +331,6 @@ class BenchmarkRunner:
 
                 # 计算指标
                 rps = bs / latency
-                total_gen_tokens = bs * n_tokens
                 # 记录每秒处理请求数
 
                 mem_info = self.get_memory_usage()
@@ -340,7 +375,6 @@ class BenchmarkRunner:
             if not self.load_model(model_conf):
                 continue
 
-            # 执行测试
             latency_res = self.run_latency_test(model_name)
             throughput_res = self.run_throughput_test(model_name)
 
@@ -355,12 +389,10 @@ class BenchmarkRunner:
                 throughput_res
             })
 
-            # 清理显存，准备下一个模型
             del self.model
             del self.tokenizer
             self.clear_cache()
 
-        # 保存报告
         timestamp = int(time.time())
         output_file = os.path.join(CONFIG["result_dir"],
                                    f"benchmark_report_{timestamp}.json")
