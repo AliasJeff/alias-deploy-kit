@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "timestamp": "2026-01-29T11:05:10.787576",
+    "config": {
+      "result_dir": "./benchmark_results",
+      "log_dir": "./benchmark_logs",
+      "device": "cuda",
+      "torch_dtype": 

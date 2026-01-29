@@ -164,24 +164,33 @@ class BenchmarkRunner:
             self.tokenizer.padding_side = 'left'
             if self.tokenizer.pad_token is None:
                 self.tokenizer.pad_token = self.tokenizer.eos_token
+                self.logger.info("🔧 Tokenizer 缺少 pad_token，已自动设置为 eos_token")
 
-            bnb_config = None
-            if model_conf.get("load_in_4bit", False):
-                self.logger.info("🔧 启用 4-bit 量化加载")
-                bnb_config = BitsAndBytesConfig(
-                    load_in_4bit=True,
-                    bnb_4bit_quant_type="nf4",
-                    bnb_4bit_compute_dtype=CONFIG["torch_dtype"])
+            is_awq = "awq" in model_conf['path'].lower(
+            ) or "marlin" in model_conf['path'].lower()
 
-            self.model = AutoModelForCausalLM.from_pretrained(
-                model_conf['path'],
-                device_map="auto"
-                if model_conf.get("load_in_4bit") else CONFIG["device"],
-                quantization_config=bnb_config,
-                torch_dtype=CONFIG["torch_dtype"],
-                trust_remote_code=True)
+            if is_awq:
+                self.logger.info(
+                    "🔧 检测到 AWQ/Marlin 模型，使用 AutoAWQForCausalLM 加载...")
+                from awq import AutoAWQForCausalLM
+
+                self.model = AutoAWQForCausalLM.from_pretrained(
+                    model_conf['path'],
+                    low_cpu_mem_usage=True,
+                    device_map="cuda",  # 强制使用 GPU
+                    torch_dtype=CONFIG["torch_dtype"],
+                    trust_remote_code=True)
+                self.device = self.model.model.device
+            else:
+                self.model = AutoModelForCausalLM.from_pretrained(
+                    model_conf['path'],
+                    device_map="cuda",
+                    torch_dtype=CONFIG["torch_dtype"],
+                    trust_remote_code=True)
+
             self.model.eval()
             self.logger.info(f"✅ 模型加载成功 | 显存: {self.get_memory_usage()}")
+
             return True
         except Exception as e:
             self.logger.error(f"❌ 模型加载失败: {e}")
