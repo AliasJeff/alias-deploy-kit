@@ -1,0 +1,4130 @@
+[
+    {
+        "timestamp": "2026-01-30T00:16:44.998702",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 447.57,
+            "speed_std": 22.85
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:16:44.998747",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 45.36,
+            "speed_std": 1.36
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:16:49.551858",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 308.55,
+            "speed_std": 17.52
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:16:49.551899",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 59.26,
+            "speed_std": 1.11
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:16:58.229897",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 436.14,
+            "speed_std": 17.01
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:16:58.229934",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 44.64,
+            "speed_std": 0.72
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:17:05.393947",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 307.31,
+            "speed_std": 12.09
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:17:05.393981",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 59.61,
+            "speed_std": 0.59
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:17:31.622152",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 430.7,
+            "speed_std": 20.48
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:17:31.622191",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 44.16,
+            "speed_std": 0.48
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:17:51.933800",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 307.18,
+            "speed_std": 10.5
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:17:51.933835",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 58.88,
+            "speed_std": 0.26
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:18:41.789873",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 436.27,
+            "speed_std": 8.51
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:18:41.789911",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 43.87,
+            "speed_std": 0.38
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:20.407248",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 310.64,
+            "speed_std": 2.33
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:20.407284",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 57.64,
+            "speed_std": 0.62
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:25.318185",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 463.49,
+            "speed_std": 7.25
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:25.318222",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 43.96,
+            "speed_std": 1.32
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:29.792233",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 377.21,
+            "speed_std": 16.2
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:29.792270",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 60.37,
+            "speed_std": 0.78
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:38.896843",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 473.15,
+            "speed_std": 7.36
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:38.896878",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 45.36,
+            "speed_std": 0.33
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:46.659380",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 376.8,
+            "speed_std": 3.32
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:19:46.659416",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 59.16,
+            "speed_std": 2.06
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:20:13.382659",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 456.36,
+            "speed_std": 10.19
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:20:13.382695",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 44.19,
+            "speed_std": 0.16
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:20:34.461389",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 371.76,
+            "speed_std": 9.02
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:20:34.461432",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 58.04,
+            "speed_std": 0.52
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:21:24.851268",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 461.83,
+            "speed_std": 6.97
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:21:24.851313",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 43.79,
+            "speed_std": 0.2
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:05.894889",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 378.58,
+            "speed_std": 21.71
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:05.894928",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 53.88,
+            "speed_std": 1.81
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:11.896784",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 473.28,
+            "speed_std": 6.71
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:11.896822",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 45.25,
+            "speed_std": 0.59
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:17.415867",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 426.81,
+            "speed_std": 4.69
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:17.415905",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 60.37,
+            "speed_std": 0.71
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:27.682065",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 485.69,
+            "speed_std": 7.33
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:27.682105",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 44.36,
+            "speed_std": 0.66
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:36.482838",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 415.88,
+            "speed_std": 10.81
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:22:36.482876",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 60.17,
+            "speed_std": 0.28
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:23:04.586318",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 483.98,
+            "speed_std": 12.98
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:23:04.586360",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 44.32,
+            "speed_std": 0.53
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:23:26.729210",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 423.5,
+            "speed_std": 11.04
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:23:26.729248",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 58.01,
+            "speed_std": 0.54
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:24:18.909176",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 481.98,
+            "speed_std": 5.73
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:24:18.909213",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 43.58,
+            "speed_std": 0.61
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:24:59.137128",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 427.52,
+            "speed_std": 1.91
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:24:59.137167",
+        "inputs": {
+            "threads": 8,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 57.64,
+            "speed_std": 0.24
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:03.426744",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 450.1,
+            "speed_std": 8.8
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:03.426783",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 47.09,
+            "speed_std": 0.24
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:07.353643",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 309.71,
+            "speed_std": 13.12
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:07.353678",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 68.07,
+            "speed_std": 1.1
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:15.658599",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 471.91,
+            "speed_std": 11.64
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:15.658636",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 47.31,
+            "speed_std": 0.38
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:22.471282",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 304.61,
+            "speed_std": 2.45
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:22.471317",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 67.85,
+            "speed_std": 0.19
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:47.621529",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 474.48,
+            "speed_std": 11.96
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:25:47.621568",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 46.11,
+            "speed_std": 0.32
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:26:06.659101",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 309.34,
+            "speed_std": 5.65
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:26:06.659141",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 64.01,
+            "speed_std": 0.51
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:26:55.726592",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 434.32,
+            "speed_std": 55.17
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:26:55.726631",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 44.75,
+            "speed_std": 0.6
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:31.395457",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 315.34,
+            "speed_std": 16.65
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:31.395494",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 62.96,
+            "speed_std": 1.11
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:36.136185",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 511.06,
+            "speed_std": 10.46
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:36.136223",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 47.31,
+            "speed_std": 0.17
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:40.616221",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 371.94,
+            "speed_std": 7.9
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:40.616259",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 67.87,
+            "speed_std": 0.24
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:49.393023",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 501.12,
+            "speed_std": 16.68
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:49.393060",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 47.24,
+            "speed_std": 0.08
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:56.850804",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 367.64,
+            "speed_std": 9.65
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:27:56.850842",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 65.26,
+            "speed_std": 0.77
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:28:22.555533",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 510.43,
+            "speed_std": 8.14
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:28:22.555568",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 46.04,
+            "speed_std": 0.6
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:28:42.003532",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 342.65,
+            "speed_std": 19.54
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:28:42.003569",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 65.07,
+            "speed_std": 1.49
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:29:30.820131",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 496.47,
+            "speed_std": 20.45
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:29:30.820178",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 45.3,
+            "speed_std": 0.1
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:06.710915",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 376.68,
+            "speed_std": 5.04
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:06.710953",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 63.5,
+            "speed_std": 0.06
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:12.474636",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 495.66,
+            "speed_std": 2.56
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:12.474678",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 47.33,
+            "speed_std": 0.07
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:17.988120",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 425.41,
+            "speed_std": 15.04
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:17.988158",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 67.83,
+            "speed_std": 0.62
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:27.922103",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 494.74,
+            "speed_std": 8.19
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:27.922144",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 46.09,
+            "speed_std": 1.17
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:36.311048",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 422.78,
+            "speed_std": 15.41
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:30:36.311087",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 67.55,
+            "speed_std": 0.42
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:31:03.089688",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 493.64,
+            "speed_std": 3.33
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:31:03.089727",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 45.74,
+            "speed_std": 0.5
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:31:23.479015",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 428.26,
+            "speed_std": 7.7
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:31:23.479056",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 64.85,
+            "speed_std": 1.3
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:32:13.438250",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 499.29,
+            "speed_std": 1.62
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:32:13.438291",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 45.18,
+            "speed_std": 0.22
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:32:50.364861",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 434.91,
+            "speed_std": 6.93
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:32:50.364900",
+        "inputs": {
+            "threads": 6,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 64.15,
+            "speed_std": 0.26
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:32:54.426231",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 520.16,
+            "speed_std": 1.15
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:32:54.426270",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 50.23,
+            "speed_std": 0.26
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:32:58.497052",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 364.26,
+            "speed_std": 20.96
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:32:58.497090",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 53.41,
+            "speed_std": 0.4
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:33:06.422069",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 520.78,
+            "speed_std": 1.87
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:33:06.422113",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 50.39,
+            "speed_std": 0.04
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:33:14.102776",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 373.0,
+            "speed_std": 5.57
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:33:14.102813",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 53.19,
+            "speed_std": 0.02
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:33:38.555204",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 518.32,
+            "speed_std": 0.37
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:33:38.555273",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 47.17,
+            "speed_std": 3.71
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:34:01.120699",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 371.82,
+            "speed_std": 4.72
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:34:01.120740",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 52.27,
+            "speed_std": 0.75
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:34:46.500562",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 511.78,
+            "speed_std": 6.54
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:34:46.500606",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 48.33,
+            "speed_std": 0.63
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:29.813951",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 376.2,
+            "speed_std": 3.34
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:29.813991",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 50.77,
+            "speed_std": 1.05
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:34.435909",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 549.32,
+            "speed_std": 4.92
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:34.435954",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 50.09,
+            "speed_std": 0.34
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:38.970316",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 451.12,
+            "speed_std": 5.3
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:38.970354",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 53.15,
+            "speed_std": 0.67
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:47.351483",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 547.87,
+            "speed_std": 2.5
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:47.351525",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 50.03,
+            "speed_std": 0.22
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:55.447003",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 451.28,
+            "speed_std": 3.35
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:35:55.447043",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 54.18,
+            "speed_std": 1.98
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:36:19.639077",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 542.92,
+            "speed_std": 20.48
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:36:19.639122",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 49.32,
+            "speed_std": 0.05
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:36:42.640757",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 454.04,
+            "speed_std": 4.2
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:36:42.640795",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 52.21,
+            "speed_std": 0.03
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:37:30.407116",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 553.1,
+            "speed_std": 3.3
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:37:30.407503",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 45.87,
+            "speed_std": 4.95
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:14.146366",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 448.53,
+            "speed_std": 6.06
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:14.146403",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 51.0,
+            "speed_std": 0.43
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:19.641110",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 535.07,
+            "speed_std": 9.32
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:19.641149",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 50.54,
+            "speed_std": 0.16
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:24.985363",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 501.48,
+            "speed_std": 3.36
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:24.985401",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 57.64,
+            "speed_std": 4.27
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:34.387789",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 540.81,
+            "speed_std": 1.1
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:34.387829",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 49.59,
+            "speed_std": 1.05
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:43.426355",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 502.57,
+            "speed_std": 1.06
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:38:43.426391",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 53.37,
+            "speed_std": 0.06
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:39:08.612270",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 541.32,
+            "speed_std": 1.74
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:39:08.612310",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 48.86,
+            "speed_std": 0.22
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:39:32.429575",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 504.91,
+            "speed_std": 3.31
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:39:32.429616",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 52.64,
+            "speed_std": 0.26
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:40:18.829651",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 539.96,
+            "speed_std": 2.87
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:40:18.829697",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 48.81,
+            "speed_std": 0.12
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:02.838281",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 503.43,
+            "speed_std": 2.73
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:02.838318",
+        "inputs": {
+            "threads": 4,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 51.62,
+            "speed_std": 0.29
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:06.911933",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 513.46,
+            "speed_std": 9.86
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:06.911966",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 50.73,
+            "speed_std": 0.32
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:10.955116",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 512.12,
+            "speed_std": 7.62
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:10.955154",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 50.76,
+            "speed_std": 0.35
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:18.790794",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 515.8,
+            "speed_std": 5.49
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:18.790838",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 50.74,
+            "speed_std": 0.2
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:26.658060",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 512.37,
+            "speed_std": 14.26
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:26.658095",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 50.29,
+            "speed_std": 0.55
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:50.134497",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 509.63,
+            "speed_std": 16.84
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:41:50.134534",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 49.77,
+            "speed_std": 0.06
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:42:13.727404",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 502.72,
+            "speed_std": 29.51
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:42:13.727449",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 49.53,
+            "speed_std": 0.32
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:42:59.455011",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 520.01,
+            "speed_std": 2.52
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:42:59.455054",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 47.75,
+            "speed_std": 0.75
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:43:45.104367",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp64",
+            "stage": "prefill",
+            "seq_len": 64,
+            "speed_tps": 520.52,
+            "speed_std": 1.96
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:43:45.104409",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 64,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 48.08,
+            "speed_std": 0.26
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:43:49.671486",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 517.68,
+            "speed_std": 1.64
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:43:49.671527",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 50.71,
+            "speed_std": 0.14
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:43:54.259199",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 516.49,
+            "speed_std": 0.47
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:43:54.259238",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 49.57,
+            "speed_std": 0.53
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:44:02.747275",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 513.46,
+            "speed_std": 2.02
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:44:02.747315",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 50.54,
+            "speed_std": 0.01
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:44:11.095412",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 512.96,
+            "speed_std": 0.74
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:44:11.095449",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 50.76,
+            "speed_std": 0.07
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:44:35.091865",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 517.87,
+            "speed_std": 0.63
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:44:35.091905",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 49.74,
+            "speed_std": 0.07
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:44:59.197475",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 514.22,
+            "speed_std": 7.57
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:44:59.197512",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 49.53,
+            "speed_std": 0.43
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:45:44.879134",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 517.13,
+            "speed_std": 1.94
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:45:44.879176",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 48.57,
+            "speed_std": 0.11
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:46:30.626869",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp128",
+            "stage": "prefill",
+            "seq_len": 128,
+            "speed_tps": 518.13,
+            "speed_std": 0.86
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:46:30.626905",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 128,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 48.48,
+            "speed_std": 0.07
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:46:36.223044",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 501.69,
+            "speed_std": 0.96
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:46:36.223084",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 50.89,
+            "speed_std": 0.22
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:46:41.822403",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 501.33,
+            "speed_std": 1.71
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:46:41.822442",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 16,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg16",
+            "stage": "decode",
+            "seq_len": 16,
+            "speed_tps": 50.86,
+            "speed_std": 0.09
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:46:51.228907",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 503.22,
+            "speed_std": 0.57
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:46:51.228945",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 50.7,
+            "speed_std": 0.1
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:47:00.639997",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 502.67,
+            "speed_std": 0.11
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:47:00.640030",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 64,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg64",
+            "stage": "decode",
+            "seq_len": 64,
+            "speed_tps": 50.77,
+            "speed_std": 0.11
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:47:25.648751",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 502.57,
+            "speed_std": 0.66
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:47:25.648785",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 49.76,
+            "speed_std": 0.05
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:47:50.733069",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 502.92,
+            "speed_std": 0.64
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:47:50.733112",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 256,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg256",
+            "stage": "decode",
+            "seq_len": 256,
+            "speed_tps": 49.57,
+            "speed_std": 0.32
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:48:37.611806",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 502.74,
+            "speed_std": 0.43
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:48:37.611848",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 0,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 48.34,
+            "speed_std": 0.26
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:49:24.667762",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "pp256",
+            "stage": "prefill",
+            "seq_len": 256,
+            "speed_tps": 502.19,
+            "speed_std": 0.95
+        }
+    },
+    {
+        "timestamp": "2026-01-30T00:49:24.667801",
+        "inputs": {
+            "threads": 2,
+            "precision": 2,
+            "n_prompt": 256,
+            "n_gen": 512,
+            "quant_attention": 1,
+            "backend": "cpu"
+        },
+        "metrics": {
+            "model_name": "Qwen3-1.7B-MNN",
+            "model_size_str": "1.15 GiB",
+            "quant_attn_str": "Int8 Q,K",
+            "backend_str": "CPU",
+            "test_label": "tg512",
+            "stage": "decode",
+            "seq_len": 512,
+            "speed_tps": 48.27,
+            "speed_std": 0.2
+        }
+    }
+]
