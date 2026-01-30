@@ -46,7 +46,7 @@ CONFIG = {
     # "max_vram_gb": 7.5,
     "n_batch_size": [50, 100, 150, 200, 250, 300],
     "new_tokens": [16, 64, 80, 128, 256, 512, 1024],
-    "system_prompt": "直接生成html代码，不要输出其他任何内容"
+    "system_prompt": "直接生成html代码，不要输出其他任何内容 </no_think>"
 }
 
 
@@ -337,6 +337,104 @@ class BenchmarkRunner:
             self.logger.error(f"❌ 测试出错: {e}")
             return None
 
+    # def run_benchmark_step(self, model_name, batch_size, new_tokens):
+    #     """使用 model.generate 模拟真实生成场景的性能测试"""
+
+    #     inputs, _ = self.prepare_batch_inputs(batch_size)
+    #     if inputs is None: return None
+
+    #     pad_token_id = self.tokenizer.pad_token_id if self.tokenizer.pad_token_id is not None else self.tokenizer.eos_token_id
+
+    #     # 计算实际输入的 token 数量 (排除 padding)
+    #     if 'attention_mask' in inputs:
+    #         input_token_count = inputs.attention_mask.sum().item()
+    #     else:
+    #         input_token_count = inputs.input_ids.numel()
+
+    #     input_seq_len = inputs.input_ids.shape[1]
+
+    #     self.logger.info(
+    #         f"🚀 开始测试 (Generate): BS={batch_size}, MaxTokens={new_tokens}")
+
+    #     self.clear_cache()
+    #     torch.cuda.reset_peak_memory_stats()
+
+    #     try:
+    #         torch.cuda.synchronize()
+    #         t0 = time.time()
+
+    #         with torch.inference_mode():
+    #             # model.generate 默认返回 [input_ids + generated_ids]
+    #             outputs = self.model.generate(
+    #                 **inputs,
+    #                 max_new_tokens=new_tokens,
+    #                 pad_token_id=pad_token_id,
+    #                 eos_token_id=self.tokenizer.eos_token_id,
+    #                 do_sample=False,
+    #                 use_cache=True,
+    #                 return_dict_in_generate=False)
+
+    #         torch.cuda.synchronize()
+    #         t1 = time.time()
+
+    #         total_latency = t1 - t0
+    #         mem_peak = torch.cuda.max_memory_allocated() / (1024**3)
+
+    #         generated_ids = outputs[:, input_seq_len:]
+
+    #         valid_generated_mask = (generated_ids != pad_token_id)
+    #         total_output_tokens = valid_generated_mask.sum().item()
+
+    #         tps_output_only = 0
+
+    #         if total_latency > 0:
+    #             tps_output_only = total_output_tokens / total_latency
+
+    #         metrics = {
+    #             "model": model_name,
+    #             "config": {
+    #                 "batch_size": batch_size,
+    #                 "max_new_tokens": new_tokens
+    #             },
+    #             "metrics": {
+    #                 "total_time_s":
+    #                 round(total_latency, 4),
+    #                 "total_input_tokens":
+    #                 input_token_count,
+    #                 "total_output_tokens":
+    #                 total_output_tokens,
+    #                 "tokens_per_second_gen":
+    #                 round(tps_output_only, 2),
+    #                 "request_per_second":
+    #                 round(batch_size /
+    #                       total_latency, 2) if total_latency > 0 else 0,
+    #                 "gpu_mem_peak_gb":
+    #                 round(mem_peak, 2)
+    #             },
+    #             "timestamp": datetime.now().isoformat()
+    #         }
+
+    #         self.logger.info(
+    #             f"📊 结果: Time={metrics['metrics']['total_time_s']}s | "
+    #             f"Gen TPS={metrics['metrics']['tokens_per_second_gen']} | "
+    #             f"Tokens={total_output_tokens}")
+    #         return metrics
+
+    #     except torch.cuda.OutOfMemoryError:
+    #         self.logger.error(f"💥 OOM at BS={batch_size}")
+    #         self.clear_cache()
+    #         return {
+    #             "model": model_name,
+    #             "error": "OOM",
+    #             "config": {
+    #                 "batch_size": batch_size,
+    #                 "new_tokens": new_tokens
+    #             }
+    #         }
+    #     except Exception as e:
+    #         self.logger.error(f"❌ 测试出错: {e}", exc_info=True)
+    #         return None
+
     def run_examples(self, batch_size, num_examples=2):
         """运行少量样例用于人工检查"""
         self.logger.info("🧪 生成样例中...")
@@ -352,7 +450,6 @@ class BenchmarkRunner:
                     max_new_tokens=256,  # 样例固定长度
                     do_sample=True,  # 样例开启采样，看生成质量
                     temperature=0.7,
-                    enable_thinking=False,
                     pad_token_id=self.tokenizer.pad_token_id)
 
             # 解码 (跳过 input 部分)
