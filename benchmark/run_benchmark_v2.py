@@ -9,7 +9,6 @@ import logging
 import gc
 from datetime import datetime
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from transformers.generation.streamers import BaseStreamer
 
 MODELS_TO_TEST = [
     {
@@ -49,28 +48,6 @@ CONFIG = {
     "new_tokens": [16, 64, 80, 128, 256, 512, 1024],
     "system_prompt": "直接生成html代码，不要输出其他任何内容"
 }
-
-
-class TimeStreamer(BaseStreamer):
-    """
-    自定义 Streamer，用于捕获生成第一个 Token 的时间点，
-    精确计算 Prefill (TTFT) 时间。
-    """
-
-    def __init__(self):
-        self.first_token_time = None
-
-    def put(self, value):
-        # 当生成器输出 token 时调用，如果是第一次输出，记录时间。
-        if self.first_token_time is None:
-            torch.cuda.synchronize()
-            self.first_token_time = time.time()
-
-    def end(self):
-        pass
-
-    def reset(self):
-        self.first_token_time = None
 
 
 class BenchmarkRunner:
@@ -260,41 +237,41 @@ class BenchmarkRunner:
 
         input_token_count = inputs.input_ids.numel()
 
-        # 1. 准备计时器
-        time_streamer = TimeStreamer()
         self.logger.info(f"🚀 开始测试: BS={batch_size}, NewTokens={new_tokens}")
 
         self.clear_cache()
+
         torch.cuda.synchronize()
-        start_time = time.time()
-        time_streamer.reset()
+        t0 = time.time()
+
+        with torch.inference_mode():
+            outputs = self.model(**inputs, use_cache=True, return_dict=True)
+
+        torch.cuda.synchronize()
+        t1 = time.time()
+        prefill_latency = t1 - t0
 
         try:
-            # 2. 执行生成
-            with torch.no_grad():
-                outputs = self.model.generate(
-                    **inputs,
-                    max_new_tokens=new_tokens,
-                    do_sample=False,
-                    pad_token_id=self.tokenizer.pad_token_id,
-                    streamer=time_streamer,  # 捕获首个 token 时间
-                    use_cache=True)
+            past_key_values = outputs.past_key_values
+            input_ids = inputs.input_ids[:, -1:]
 
             torch.cuda.synchronize()
-            end_time = time.time()
+            t2 = time.time()
 
-            # 3. 计算指标
-            total_latency = end_time - start_time
+            with torch.inference_mode():
+                for _ in range(new_tokens):
+                    out = self.model(input_ids=input_ids,
+                                     past_key_values=past_key_values,
+                                     use_cache=True,
+                                     return_dict=True)
+                    past_key_values = out.past_key_values
+                    input_ids = out.logits.argmax(-1)
 
-            # TTFT (Time To First Token) ≈ Prefill Time
-            if time_streamer.first_token_time:
-                prefill_latency = time_streamer.first_token_time - start_time
-            else:
-                # TODO:
-                prefill_latency = 0
+            torch.cuda.synchronize()
+            t3 = time.time()
 
-            # Decode Time = 总时间 - Prefill 时间
-            decode_latency = max(0, total_latency - prefill_latency)
+            decode_latency = t3 - t2
+            total_latency = t3 - t0
 
             # 计算总输出 Token (Batch输出总和 - Batch输入总和)
             total_output_tokens = outputs.numel() - input_token_count
@@ -376,6 +353,7 @@ class BenchmarkRunner:
                     max_new_tokens=256,  # 样例固定长度
                     do_sample=True,  # 样例开启采样，看生成质量
                     temperature=0.7,
+                    enable_thinking=False,
                     pad_token_id=self.tokenizer.pad_token_id)
 
             # 解码 (跳过 input 部分)
