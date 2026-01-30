@@ -273,8 +273,7 @@ class BenchmarkRunner:
             decode_latency = t3 - t2
             total_latency = t3 - t0
 
-            # 计算总输出 Token (Batch输出总和 - Batch输入总和)
-            total_output_tokens = outputs.numel() - input_token_count
+            total_output_tokens = batch_size * new_tokens
 
             # Overall TPS 计算加入 Input Token
             tps_overall = 0
@@ -364,12 +363,7 @@ class BenchmarkRunner:
 
             examples = []
             for i, text in enumerate(decoded_texts):
-                examples.append({
-                    "prompt":
-                    raw_prompts[i][:50] + "...",
-                    "response":
-                    text[:200] + "..." if len(text) > 200 else text
-                })
+                examples.append({"prompt": raw_prompts[i], "response": text})
             return examples
         except Exception as e:
             self.logger.error(f"❌ 样例生成失败: {e}")
