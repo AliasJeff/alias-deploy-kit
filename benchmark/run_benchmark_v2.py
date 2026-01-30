@@ -169,6 +169,7 @@ class BenchmarkRunner:
                         model_conf['path'],
                         low_cpu_mem_usage=True,
                         device_map="cuda",
+                        torch_dtype=CONFIG["torch_dtype"],
                         trust_remote_code=True)
                 except ImportError:
                     self.logger.error("❌ 未安装 autoawq，请执行 pip install autoawq")
@@ -230,7 +231,7 @@ class BenchmarkRunner:
             self.logger.error(f"❌ Tokenize 失败: {e}")
             return None, []
 
-    def run_benchmark_step(self, model_name, batch_size, new_tokens):
+    def run_benchmark_step_bak(self, model_name, batch_size, new_tokens):
         """执行单次配置的性能测试"""
         inputs, _ = self.prepare_batch_inputs(batch_size)
         if inputs is None: return None
@@ -337,103 +338,101 @@ class BenchmarkRunner:
             self.logger.error(f"❌ 测试出错: {e}")
             return None
 
-    # def run_benchmark_step(self, model_name, batch_size, new_tokens):
-    #     """使用 model.generate 模拟真实生成场景的性能测试"""
+    def run_benchmark_step(self, model_name, batch_size, new_tokens):
+        inputs, _ = self.prepare_batch_inputs(batch_size)
+        if inputs is None: return None
 
-    #     inputs, _ = self.prepare_batch_inputs(batch_size)
-    #     if inputs is None: return None
+        pad_token_id = self.tokenizer.pad_token_id if self.tokenizer.pad_token_id is not None else self.tokenizer.eos_token_id
 
-    #     pad_token_id = self.tokenizer.pad_token_id if self.tokenizer.pad_token_id is not None else self.tokenizer.eos_token_id
+        # 计算实际输入的 token 数量 (排除 padding)
+        if 'attention_mask' in inputs:
+            input_token_count = inputs.attention_mask.sum().item()
+        else:
+            input_token_count = inputs.input_ids.numel()
 
-    #     # 计算实际输入的 token 数量 (排除 padding)
-    #     if 'attention_mask' in inputs:
-    #         input_token_count = inputs.attention_mask.sum().item()
-    #     else:
-    #         input_token_count = inputs.input_ids.numel()
+        input_seq_len = inputs.input_ids.shape[1]
 
-    #     input_seq_len = inputs.input_ids.shape[1]
+        self.logger.info(
+            f"🚀 开始测试 (Generate): BS={batch_size}, MaxTokens={new_tokens}")
 
-    #     self.logger.info(
-    #         f"🚀 开始测试 (Generate): BS={batch_size}, MaxTokens={new_tokens}")
+        self.clear_cache()
+        torch.cuda.reset_peak_memory_stats()
 
-    #     self.clear_cache()
-    #     torch.cuda.reset_peak_memory_stats()
+        try:
+            torch.cuda.synchronize()
+            t0 = time.time()
 
-    #     try:
-    #         torch.cuda.synchronize()
-    #         t0 = time.time()
+            with torch.inference_mode():
+                # model.generate 默认返回 [input_ids + generated_ids]
+                outputs = self.model.generate(
+                    **inputs,
+                    max_new_tokens=new_tokens,
+                    pad_token_id=pad_token_id,
+                    eos_token_id=self.tokenizer.eos_token_id,
+                    do_sample=False,
+                    use_cache=True,
+                    return_dict_in_generate=False)
 
-    #         with torch.inference_mode():
-    #             # model.generate 默认返回 [input_ids + generated_ids]
-    #             outputs = self.model.generate(
-    #                 **inputs,
-    #                 max_new_tokens=new_tokens,
-    #                 pad_token_id=pad_token_id,
-    #                 eos_token_id=self.tokenizer.eos_token_id,
-    #                 do_sample=False,
-    #                 use_cache=True,
-    #                 return_dict_in_generate=False)
+            torch.cuda.synchronize()
+            t1 = time.time()
 
-    #         torch.cuda.synchronize()
-    #         t1 = time.time()
+            total_latency = t1 - t0
+            mem_peak = torch.cuda.max_memory_allocated() / (1024**3)
 
-    #         total_latency = t1 - t0
-    #         mem_peak = torch.cuda.max_memory_allocated() / (1024**3)
+            generated_ids = outputs[:, input_seq_len:]
 
-    #         generated_ids = outputs[:, input_seq_len:]
+            valid_generated_mask = (generated_ids != pad_token_id)
+            total_output_tokens = valid_generated_mask.sum().item()
 
-    #         valid_generated_mask = (generated_ids != pad_token_id)
-    #         total_output_tokens = valid_generated_mask.sum().item()
+            tps_output_only = 0
 
-    #         tps_output_only = 0
+            if total_latency > 0:
+                tps_output_only = total_output_tokens / total_latency
 
-    #         if total_latency > 0:
-    #             tps_output_only = total_output_tokens / total_latency
+            metrics = {
+                "model": model_name,
+                "config": {
+                    "batch_size": batch_size,
+                    "max_new_tokens": new_tokens
+                },
+                "metrics": {
+                    "total_time_s":
+                    round(total_latency, 4),
+                    "total_input_tokens":
+                    input_token_count,
+                    "total_output_tokens":
+                    total_output_tokens,
+                    "tokens_per_second_gen":
+                    round(tps_output_only, 2),
+                    "request_per_second":
+                    round(batch_size /
+                          total_latency, 2) if total_latency > 0 else 0,
+                    "gpu_mem_peak_gb":
+                    round(mem_peak, 2)
+                },
+                "timestamp": datetime.now().isoformat()
+            }
 
-    #         metrics = {
-    #             "model": model_name,
-    #             "config": {
-    #                 "batch_size": batch_size,
-    #                 "max_new_tokens": new_tokens
-    #             },
-    #             "metrics": {
-    #                 "total_time_s":
-    #                 round(total_latency, 4),
-    #                 "total_input_tokens":
-    #                 input_token_count,
-    #                 "total_output_tokens":
-    #                 total_output_tokens,
-    #                 "tokens_per_second_gen":
-    #                 round(tps_output_only, 2),
-    #                 "request_per_second":
-    #                 round(batch_size /
-    #                       total_latency, 2) if total_latency > 0 else 0,
-    #                 "gpu_mem_peak_gb":
-    #                 round(mem_peak, 2)
-    #             },
-    #             "timestamp": datetime.now().isoformat()
-    #         }
+            self.logger.info(
+                f"📊 结果: Time={metrics['metrics']['total_time_s']}s | "
+                f"Gen TPS={metrics['metrics']['tokens_per_second_gen']} | "
+                f"Tokens={total_output_tokens}")
+            return metrics
 
-    #         self.logger.info(
-    #             f"📊 结果: Time={metrics['metrics']['total_time_s']}s | "
-    #             f"Gen TPS={metrics['metrics']['tokens_per_second_gen']} | "
-    #             f"Tokens={total_output_tokens}")
-    #         return metrics
-
-    #     except torch.cuda.OutOfMemoryError:
-    #         self.logger.error(f"💥 OOM at BS={batch_size}")
-    #         self.clear_cache()
-    #         return {
-    #             "model": model_name,
-    #             "error": "OOM",
-    #             "config": {
-    #                 "batch_size": batch_size,
-    #                 "new_tokens": new_tokens
-    #             }
-    #         }
-    #     except Exception as e:
-    #         self.logger.error(f"❌ 测试出错: {e}", exc_info=True)
-    #         return None
+        except torch.cuda.OutOfMemoryError:
+            self.logger.error(f"💥 OOM at BS={batch_size}")
+            self.clear_cache()
+            return {
+                "model": model_name,
+                "error": "OOM",
+                "config": {
+                    "batch_size": batch_size,
+                    "new_tokens": new_tokens
+                }
+            }
+        except Exception as e:
+            self.logger.error(f"❌ 测试出错: {e}", exc_info=True)
+            return None
 
     def run_examples(self, batch_size, num_examples=2):
         """运行少量样例用于人工检查"""
@@ -447,8 +446,8 @@ class BenchmarkRunner:
             with torch.no_grad():
                 outputs = self.model.generate(
                     **inputs,
-                    max_new_tokens=256,  # 样例固定长度
-                    do_sample=True,  # 样例开启采样，看生成质量
+                    max_new_tokens=256,
+                    do_sample=True,
                     temperature=0.7,
                     pad_token_id=self.tokenizer.pad_token_id)
 
@@ -485,6 +484,17 @@ class BenchmarkRunner:
             model_name = model_conf['name']
             if not self.load_model(model_conf):
                 continue
+
+            self.logger.info("⚡ 开始预热")
+            dummy_prompt = "Hello"
+            inputs = self.tokenizer(dummy_prompt,
+                                    return_tensors="pt").to(self.model.device)
+
+            with torch.no_grad():
+                _ = self.model.generate(**inputs,
+                                        max_new_tokens=1,
+                                        do_sample=False,
+                                        use_cache=True)
 
             for bs in CONFIG["n_batch_size"]:
                 for nt in CONFIG["new_tokens"]:
