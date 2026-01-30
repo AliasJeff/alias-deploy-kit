@@ -6,6 +6,7 @@ import torch
 import psutil
 import logging
 import numpy as np
+import math
 from datetime import datetime
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from config import Config
@@ -231,6 +232,13 @@ class BenchmarkRunner:
                 self.logger.warning(f"⚠️ 预热或显存计算出错 (已忽略): {e}")
                 import traceback
                 traceback.print_exc()
+
+        if len(data) < batch_size:
+            self.logger.info(
+                f"🔄 数据量 ({len(data)}) 小于 Batch Size ({batch_size})，自动循环复制数据以填满..."
+            )
+            repeat_factor = math.ceil(batch_size / len(data))
+            data = (data * repeat_factor)[:batch_size]
 
         if len(data) > batch_size:
             self.logger.info(f"✂️ 截取前 {batch_size} 条数据进行单轮极限测试...")
