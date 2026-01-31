@@ -12,6 +12,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODELS_TO_TEST = [
     {
+        "name": "Qwen3-4B-GPTQ-4bit",
+        "path": "./models/Qwen3-4B-gptq-4bit",
+    },
+    {
         "name": "Qwen3-4B",
         "path": "./models/Qwen3-4B"
     },
@@ -20,20 +24,16 @@ MODELS_TO_TEST = [
         "path": "./models/Qwen3-4B-awq-gemm-4bit"
     },
     {
-        "name": "Qwen3-1.7B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen3-1.7B-awq-gemm-4bit"
+        "name": "Qwen3-1.7B-GPTQ-4bit",
+        "path": "./models/Qwen3-1.7B-gptq-4bit",
     },
     {
         "name": "Qwen3-1.7B",
         "path": "./models/Qwen3-1.7B"
     },
     {
-        "name": "Qwen2-1.5B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen2-1.5B-awq-gemm-4bit"
-    },
-    {
-        "name": "Qwen2-1.5B",
-        "path": "./models/Qwen2-1.5B"
+        "name": "Qwen3-1.7B-AWQ-GEMM-4bit",
+        "path": "./models/Qwen3-1.7B-awq-gemm-4bit"
     },
 ]
 
@@ -157,29 +157,11 @@ class BenchmarkRunner:
                 self.tokenizer.pad_token = self.tokenizer.eos_token
                 self.logger.info("🔧 Tokenizer 缺少 pad_token，已自动设置为 eos_token")
 
-            is_awq = "awq" in model_conf['path'].lower(
-            ) or "marlin" in model_conf['path'].lower()
-
-            if is_awq:
-                self.logger.info(
-                    "🔧 检测到 AWQ/Marlin 模型，使用 AutoAWQForCausalLM 加载...")
-                try:
-                    from awq import AutoAWQForCausalLM
-                    self.model = AutoAWQForCausalLM.from_pretrained(
-                        model_conf['path'],
-                        low_cpu_mem_usage=True,
-                        device_map="cuda",
-                        torch_dtype=CONFIG["torch_dtype"],
-                        trust_remote_code=True)
-                except ImportError:
-                    self.logger.error("❌ 未安装 autoawq，请执行 pip install autoawq")
-                    return False
-            else:
-                self.model = AutoModelForCausalLM.from_pretrained(
-                    model_conf['path'],
-                    device_map="cuda",
-                    torch_dtype=CONFIG["torch_dtype"],
-                    trust_remote_code=True)
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model_conf['path'],
+                device_map="cuda",
+                torch_dtype=CONFIG["torch_dtype"],
+                trust_remote_code=True)
 
             self.model.eval()
             self.logger.info(f"✅ 模型加载成功 | 显存: {self.get_memory_usage()}")
@@ -231,113 +213,6 @@ class BenchmarkRunner:
             self.logger.error(f"❌ Tokenize 失败: {e}")
             return None, []
 
-    def run_benchmark_step_bak(self, model_name, batch_size, new_tokens):
-        """执行单次配置的性能测试"""
-        inputs, _ = self.prepare_batch_inputs(batch_size)
-        if inputs is None: return None
-
-        input_token_count = inputs.input_ids.numel()
-
-        self.logger.info(f"🚀 开始测试: BS={batch_size}, NewTokens={new_tokens}")
-
-        self.clear_cache()
-
-        torch.cuda.synchronize()
-        t0 = time.time()
-
-        with torch.inference_mode():
-            outputs = self.model(**inputs, use_cache=True, return_dict=True)
-
-        torch.cuda.synchronize()
-        t1 = time.time()
-        prefill_latency = t1 - t0
-
-        try:
-            past_key_values = outputs.past_key_values
-            input_ids = inputs.input_ids[:, -1:]
-
-            torch.cuda.synchronize()
-            t2 = time.time()
-
-            with torch.inference_mode():
-                for _ in range(new_tokens):
-                    out = self.model(input_ids=input_ids,
-                                     past_key_values=past_key_values,
-                                     use_cache=True,
-                                     return_dict=True)
-                    past_key_values = out.past_key_values
-                    input_ids = out.logits.argmax(-1)
-
-            torch.cuda.synchronize()
-            t3 = time.time()
-
-            decode_latency = t3 - t2
-            total_latency = t3 - t0
-
-            total_output_tokens = batch_size * new_tokens
-
-            # Overall TPS 计算加入 Input Token
-            tps_overall = 0
-            if total_latency > 0:
-                tps_overall = (input_token_count +
-                               total_output_tokens) / total_latency
-
-            metrics = {
-                "model": model_name,
-                "config": {
-                    "batch_size": batch_size,
-                    "new_tokens": new_tokens
-                },
-                "metrics": {
-                    "prefill_time_s":
-                    round(prefill_latency, 4),
-                    "decode_time_s":
-                    round(decode_latency, 4),
-                    "total_time_s":
-                    round(total_latency, 4),
-                    "total_input_tokens":
-                    input_token_count,
-                    "total_output_tokens":
-                    total_output_tokens,
-                    "tokens_per_second_prefill":
-                    round(input_token_count /
-                          prefill_latency, 2) if prefill_latency > 0 else 0,
-                    "tokens_per_second_decode":
-                    round(total_output_tokens /
-                          decode_latency, 2) if decode_latency > 0 else 0,
-                    "tokens_per_second_overall":
-                    round(tps_overall, 2),
-                    "request_per_second":
-                    round(batch_size /
-                          total_latency, 2) if total_latency > 0 else 0,
-                    "gpu_mem_gb":
-                    self.get_memory_usage()
-                },
-                "timestamp": datetime.now().isoformat()
-            }
-
-            self.logger.info(
-                f"📊 结果: Prefill={metrics['metrics']['prefill_time_s']}s | "
-                f"Decode={metrics['metrics']['decode_time_s']}s | "
-                f"Overall TPS={metrics['metrics']['tokens_per_second_overall']}"
-            )
-            return metrics
-
-        except torch.cuda.OutOfMemoryError:
-            self.logger.error(f"💥 OOM at BS={batch_size}, Tokens={new_tokens}")
-            self.clear_cache()
-            return {
-                "model": model_name,
-                "error": "OOM",
-                "config": {
-                    "batch_size": batch_size,
-                    "new_tokens": new_tokens
-                }
-            }
-        except Exception as e:
-            self.logger.error(f"❌ 测试出错: {e}")
-            return None
-
     def run_benchmark_step(self, model_name, batch_size, new_tokens):
         inputs, _ = self.prepare_batch_inputs(batch_size)
         if inputs is None: return None
@@ -353,17 +228,33 @@ class BenchmarkRunner:
         input_seq_len = inputs.input_ids.shape[1]
 
         self.logger.info(
-            f"🚀 开始测试 (Generate): BS={batch_size}, MaxTokens={new_tokens}")
+            f"🚀 开始测试 (Split Metrics): BS={batch_size}, Input={input_seq_len}, MaxTokens={new_tokens}"
+        )
 
         self.clear_cache()
         torch.cuda.reset_peak_memory_stats()
 
         try:
+            # 测量 Prefill 时间
             torch.cuda.synchronize()
-            t0 = time.time()
+            t_prefill_start = time.perf_counter()
 
             with torch.inference_mode():
-                # model.generate 默认返回 [input_ids + generated_ids]
+                # 纯 Forward Pass，模拟处理 Prompt 的过程
+                _ = self.model(input_ids=inputs.input_ids,
+                               attention_mask=inputs.attention_mask)
+
+            torch.cuda.synchronize()
+            prefill_latency = time.perf_counter() - t_prefill_start
+
+            del _
+            self.clear_cache()
+
+            # 测量 Total (Prefill + Decode) 时间
+            torch.cuda.synchronize()
+            t_total_start = time.perf_counter()
+
+            with torch.inference_mode():
                 outputs = self.model.generate(
                     **inputs,
                     max_new_tokens=new_tokens,
@@ -374,20 +265,20 @@ class BenchmarkRunner:
                     return_dict_in_generate=False)
 
             torch.cuda.synchronize()
-            t1 = time.time()
-
-            total_latency = t1 - t0
+            total_latency = time.perf_counter() - t_total_start
             mem_peak = torch.cuda.max_memory_allocated() / (1024**3)
 
             generated_ids = outputs[:, input_seq_len:]
-
             valid_generated_mask = (generated_ids != pad_token_id)
             total_output_tokens = valid_generated_mask.sum().item()
 
-            tps_output_only = 0
+            # 计算 Decode 延迟：总时间 - Prefill 时间
+            # NOTE: 这是一种近似计算，假设 generate 内部的 prefill 耗时与我们手动测的一致
+            decode_latency = max(0.0001, total_latency - prefill_latency)
 
-            if total_latency > 0:
-                tps_output_only = total_output_tokens / total_latency
+            prefill_tps = input_token_count / prefill_latency if prefill_latency > 0 else 0
+            decode_tps = total_output_tokens / decode_latency if decode_latency > 0 else 0
+            rps = batch_size / total_latency if total_latency > 0 else 0
 
             metrics = {
                 "model": model_name,
@@ -396,27 +287,26 @@ class BenchmarkRunner:
                     "max_new_tokens": new_tokens
                 },
                 "metrics": {
-                    "total_time_s":
-                    round(total_latency, 4),
-                    "total_input_tokens":
-                    input_token_count,
-                    "total_output_tokens":
-                    total_output_tokens,
-                    "tokens_per_second_gen":
-                    round(tps_output_only, 2),
-                    "request_per_second":
-                    round(batch_size /
-                          total_latency, 2) if total_latency > 0 else 0,
-                    "gpu_mem_peak_gb":
-                    round(mem_peak, 2)
+                    "total_time_s": round(total_latency, 4),
+                    "prefill_time_s": round(prefill_latency, 4),
+                    "decode_time_s": round(decode_latency, 4),
+                    "total_input_tokens": input_token_count,
+                    "total_output_tokens": total_output_tokens,
+                    "tokens_per_second_prefill": round(prefill_tps, 2),
+                    "tokens_per_second_gen": round(decode_tps, 2),
+                    "request_per_second": round(rps, 2),
+                    "gpu_mem_peak_gb": round(mem_peak, 2)
                 },
                 "timestamp": datetime.now().isoformat()
             }
 
             self.logger.info(
-                f"📊 结果: Time={metrics['metrics']['total_time_s']}s | "
-                f"Gen TPS={metrics['metrics']['tokens_per_second_gen']} | "
-                f"Tokens={total_output_tokens}")
+                f"📊 结果: Total={metrics['metrics']['total_time_s']}s | "
+                f"Prefill TPS={metrics['metrics']['tokens_per_second_prefill']} | "
+                f"Decode TPS={metrics['metrics']['tokens_per_second_gen']} | "
+                f"RPS={metrics['metrics']['request_per_second']} | "
+                f"Mem={metrics['metrics']['gpu_mem_peak_gb']}GB")
+
             return metrics
 
         except torch.cuda.OutOfMemoryError:

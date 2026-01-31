@@ -12,28 +12,23 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODELS_TO_TEST = [
     {
+        "name": "Qwen3-4B-GPTQ-4bit",
+        "path": "./models/Qwen3-4B-gptq-4bit",
+        "load_in_4bit": False
+    },
+    {
         "name": "Qwen3-4B",
         "path": "./models/Qwen3-4B",
         "load_in_4bit": False
     },
     {
-        "name": "Qwen3-4B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen3-4B-awq-gemm-4bit",
-        "load_in_4bit": False
-    },
-    {
-        "name": "Qwen3-1.7B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen3-1.7B-awq-gemm-4bit",
+        "name": "Qwen3-1.7B-GPTQ-4bit",
+        "path": "./models/Qwen3-1.7B-gptq-4bit",
         "load_in_4bit": False
     },
     {
         "name": "Qwen3-1.7B",
         "path": "./models/Qwen3-1.7B",
-        "load_in_4bit": False
-    },
-    {
-        "name": "Qwen2-1.5B",
-        "path": "./models/Qwen2-1.5B",
         "load_in_4bit": False
     },
 ]
@@ -47,14 +42,14 @@ CONFIG = {
 
     # 单请求 Latency 测试参数
     "latency_test": {
-        "prompt_lens": [64, 256, 1024],
+        "prompt_lens": [16, 64, 256],
         "gen_len": 128,  # 用于测试 Decode 速度的固定生成长度
     },
 
     # 满显存 Throughput 测试参数
     "throughput_test": {
-        "prompt_lens": [64, 256, 1024],
-        "new_tokens": [16, 64, 512],
+        "prompt_lens": [16, 64, 256],
+        "new_tokens": [16, 64, 80, 128, 512],
         "max_bs_cap": 2048  # 搜索最大 Batch Size 时的安全上限
     }
 }
@@ -263,46 +258,58 @@ class BenchmarkRunner:
 
     # ================= 满显存吞吐测试 =================
     def find_max_batch_size(self, input_len, output_len):
-        """
-        核心逻辑：使用二分查找法寻找不 OOM 的最大 Batch Size。
-        注意：此处为了速度使用 do_sample=False (Greedy)，这会导致显存占用比实际测试略小。
-        """
         low = 1
         high = CONFIG["throughput_test"]["max_bs_cap"]
         max_bs = 1
 
-        self.logger.info(
-            f"   🔍 探测最大 Batch Size (In={input_len}, Out={output_len})...")
+        threshold = 20
+        alignment = 8
 
-        while low <= high:
+        self.logger.info(
+            f" 🔍 极速探测 BS (In={input_len}, Out={output_len}, 步长={alignment}, 阈值={threshold})..."
+        )
+
+        while (high - low) > threshold:
             mid = (low + high) // 2
+
+            if mid > alignment:
+                mid = (mid // alignment) * alignment
+
+            if mid <= low:
+                mid = low + alignment
+
             try:
                 self.clear_cache()
-                inputs = self.generate_dummy_input(mid, input_len)
 
-                # 探测时使用 do_sample=False
+                total_len = input_len + output_len
+                dummy_input_ids = torch.randint(0,
+                                                self.tokenizer.vocab_size,
+                                                (mid, total_len),
+                                                device="cuda")
+
                 with torch.no_grad():
-                    self.model.generate(
-                        **inputs,
-                        max_new_tokens=output_len,
-                        min_new_tokens=output_len,
-                        do_sample=False,
-                        pad_token_id=self.tokenizer.pad_token_id)
+                    self.model(dummy_input_ids, use_cache=True)
 
                 max_bs = mid
-                low = mid + 1
+                low = mid
+
             except RuntimeError as e:
                 if "out of memory" in str(e).lower():
-                    high = mid - 1
+                    high = mid
                 else:
-                    self.logger.warning(f"      BS={mid} 发生非显存错误: {e}")
-                    high = mid - 1
+                    self.logger.warning(f"    ⚠️ BS={mid} 非显存错误: {e}")
+                    high = mid
             except Exception:
-                high = mid - 1
+                high = mid
 
-        max_bs = int(max_bs * 0.9)
-        self.logger.info(f"      ✅ 最大 Batch Size = {max_bs} (预留10%显存)")
-        return max_bs
+        safe_bs = int(max_bs * 0.95)
+
+        safe_bs = (safe_bs // alignment) * alignment
+        safe_bs = max(1, safe_bs)
+
+        self.logger.info(
+            f"    ✅ 探测结束，最大 Batch Size ≈ {safe_bs} (范围锁定在 {low}-{high})")
+        return safe_bs
 
     def run_throughput_test(self, model_name):
         self.logger.info(f"🚀 [{model_name}] 开始极限吞吐测试 (Target: Max Memory)...")
@@ -321,69 +328,92 @@ class BenchmarkRunner:
                         f"   In={p_len}, Out={n_tokens} | 无法运行 (OOM at BS=1)")
                     continue
 
-                # OOM 自动降级重试循环
                 actual_bs = bs
                 success = False
-                latency = 0
+
+                prefill_latency = 0.0
+                decode_latency = 0.0
+                total_latency = 0.0
                 mem_info = {}
                 retry_count = 0
 
-                # 只要 BS > 0 且未成功，就持续重试
                 while actual_bs > 0 and not success:
                     try:
                         self.clear_cache()
-                        # 注意：必须使用新的 Batch Size 重新生成 Input
                         inputs = self.generate_dummy_input(actual_bs, p_len)
 
+                        # 1: 测量 Prefill 时间 (纯 Forward Pass)
                         torch.cuda.synchronize()
-                        t0 = time.perf_counter()
+                        t_prefill_start = time.perf_counter()
+
+                        with torch.no_grad():
+                            # 只做一次前向传播
+                            _ = self.model(
+                                input_ids=inputs['input_ids'],
+                                attention_mask=inputs['attention_mask'])
+
+                        torch.cuda.synchronize()
+                        prefill_latency = time.perf_counter() - t_prefill_start
+
+                        # 释放 Prefill 产生的临时显存
+                        del _
+                        self.clear_cache()
+
+                        # 2: 测量 Total 时间 (Prefill + Decode)
+                        torch.cuda.synchronize()
+                        t_total_start = time.perf_counter()
 
                         with torch.no_grad():
                             self.model.generate(
                                 **inputs,
                                 max_new_tokens=n_tokens,
                                 min_new_tokens=n_tokens,
-                                do_sample=True,  # 采样模式比探测模式更吃显存
+                                do_sample=True,
                                 temperature=0.7,
                                 pad_token_id=self.tokenizer.pad_token_id)
 
                         torch.cuda.synchronize()
-                        latency = time.perf_counter() - t0
+                        total_latency = time.perf_counter() - t_total_start
+
                         mem_info = self.get_memory_usage()
-                        success = True  # 标记成功，跳出循环
+                        success = True
 
                     except (RuntimeError, torch.OutOfMemoryError) as e:
-                        # 捕获 OOM 异常
                         if "out of memory" in str(e).lower() or isinstance(
                                 e, torch.OutOfMemoryError):
                             old_bs = actual_bs
-                            # 策略：如果 OOM，打 8 折重试
                             actual_bs = int(actual_bs * 0.8)
-                            # 避免 BS 过小时陷入死循环 (如 2->2)
                             if actual_bs == old_bs:
                                 actual_bs -= 1
-
                             self.logger.warning(
                                 f"      ⚠️ 实际运行 OOM (BS={old_bs}) -> 自动降级至 {actual_bs} 重试..."
                             )
                             retry_count += 1
                         else:
-                            # 其他错误直接抛出
                             self.logger.error(f"      ❌ 运行时发生非 OOM 错误: {e}")
                             break
-                # =======================================================
 
                 if not success:
                     self.logger.error(f"   In={p_len}, Out={n_tokens} | 最终失败")
                     continue
 
-                # 计算指标
-                rps = actual_bs / latency
+                decode_latency = max(0, total_latency - prefill_latency)
+
+                rps = actual_bs / total_latency
+
+                decode_tps = (actual_bs * n_tokens
+                              ) / decode_latency if decode_latency > 0 else 0
+
+                prefill_tps = (
+                    actual_bs *
+                    p_len) / prefill_latency if prefill_latency > 0 else 0
 
                 self.logger.info(
-                    f"   In={p_len}, Out={n_tokens} | MaxBS={actual_bs} (Init={bs}) | "
-                    f"RPS={rps:.2f} | Time={latency:.2f}s | Mem={mem_info.get('max_allocated_gb', 0)}GB"
-                )
+                    f"   In={p_len}, Out={n_tokens} | BS={actual_bs} | "
+                    f"RPS={rps:.2f} | "
+                    f"Prefill={(prefill_latency*1000):.1f}ms | "
+                    f"Decode={(decode_latency*1000):.1f}ms | "
+                    f"GenSpeed={decode_tps:.0f} tok/s")
 
                 results.append({
                     "input_len": p_len,
@@ -391,7 +421,11 @@ class BenchmarkRunner:
                     "max_batch_size": actual_bs,
                     "init_batch_size": bs,
                     "rps": round(rps, 2),
-                    "latency_sec": round(latency, 4),
+                    "total_latency": round(total_latency, 4),
+                    "prefill_latency": round(prefill_latency, 4),
+                    "decode_latency": round(decode_latency, 4),
+                    "prefill_tps": round(prefill_tps, 2),
+                    "decode_tps": round(decode_tps, 2),
                     "memory_stats": mem_info
                 })
 
