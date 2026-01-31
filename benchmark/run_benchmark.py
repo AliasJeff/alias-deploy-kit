@@ -8,7 +8,7 @@ import torch
 import logging
 import gc
 from datetime import datetime
-from transformers import AutoModelForCausalLM, AutoTokenizer, GPTQConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODELS_TO_TEST = [
     {
@@ -172,8 +172,6 @@ class BenchmarkRunner:
             is_awq = "awq" in model_conf['path'].lower(
             ) or "marlin" in model_conf['path'].lower()
 
-            is_gptq = "gptq" in model_conf['path'].lower()
-
             if is_awq:
                 self.logger.info(
                     "🔧 检测到 AWQ/Marlin 模型，使用 AutoAWQForCausalLM 加载...")
@@ -183,21 +181,6 @@ class BenchmarkRunner:
                     model_conf['path'],
                     low_cpu_mem_usage=True,
                     device_map="cuda",  # 强制使用 GPU
-                    torch_dtype=CONFIG["torch_dtype"],
-                    trust_remote_code=True)
-                self.device = self.model.model.device
-            elif is_gptq:
-                self.logger.info("🔧 检测到 GPTQ 模型，使用 GPTQModel 加载...")
-                gptq_config = GPTQConfig(
-                    bits=4,
-                    desc_act=True,
-                    act_group_aware=False,
-                )
-
-                self.model = AutoModelForCausalLM.from_pretrained(
-                    model_conf['path'],
-                    quantization_config=gptq_config,
-                    device_map="cuda",
                     torch_dtype=CONFIG["torch_dtype"],
                     trust_remote_code=True)
             else:
