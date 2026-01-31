@@ -503,10 +503,6 @@ class BenchmarkRunner:
                     metrics = self.run_benchmark_step(model_name, bs, nt)
 
                     if metrics:
-                        if "error" not in metrics:
-                            examples = self.run_examples(bs)
-                            metrics["examples"] = examples
-
                         self.all_results.append(metrics)
 
             # 卸载模型
@@ -515,6 +511,12 @@ class BenchmarkRunner:
             self.clear_cache()
             self.logger.info(f"🏁 模型 {model_name} 测试完成。\n")
 
+        try:
+            self.load_model(MODELS_TO_TEST[0])
+            examples = self.run_examples(2)
+            self.all_results["examples"] = examples
+        except:
+            pass
         self.save_final_results()
 
 
