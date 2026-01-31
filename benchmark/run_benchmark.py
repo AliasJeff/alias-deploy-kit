@@ -291,7 +291,8 @@ class BenchmarkRunner:
                         **inputs,
                         max_new_tokens=output_len,
                         min_new_tokens=output_len,
-                        do_sample=False,
+                        do_sample=True,
+                        temperature=0.7,
                         pad_token_id=self.tokenizer.pad_token_id)
 
                 max_bs = mid
