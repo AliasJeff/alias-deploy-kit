@@ -16,6 +16,10 @@ MODELS_TO_TEST = [
         "path": "./models/Qwen3-4B-gptq-4bit",
     },
     {
+        "name": "Qwen3-4B-AWQ-GEMM-4bit",
+        "path": "./models/Qwen3-4B-awq-gemm-4bit",
+    },
+    {
         "name": "Qwen3-4B",
         "path": "./models/Qwen3-4B"
     },
@@ -24,12 +28,20 @@ MODELS_TO_TEST = [
         "path": "./models/Qwen3-1.7B-gptq-4bit",
     },
     {
+        "name": "Qwen3-1.7B-AWQ-GEMM-4bit",
+        "path": "./models/Qwen3-1.7B-awq-gemm-4bit",
+    },
+    {
         "name": "Qwen3-1.7B",
         "path": "./models/Qwen3-1.7B"
     },
     {
         "name": "Qwen2-1.5B-GPTQ-4bit",
         "path": "./models/Qwen2-1.5B-gptq-4bit",
+    },
+    {
+        "name": "Qwen2-1.5B-AWQ-GEMM-4bit",
+        "path": "./models/Qwen2-1.5B-awq-gemm-4bit",
     },
     {
         "name": "Qwen2-1.5B",
