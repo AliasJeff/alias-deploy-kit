@@ -21,7 +21,7 @@ class QuantizationExporter:
         self.logger = self.setup_logger()
 
     def setup_logger(self):
-        logger = logging.getLogger("LLM_Export")
+        logger = logging.getLogger("LLM_Export_AWQ")
         logger.setLevel(logging.INFO)
         if logger.hasHandlers(): logger.handlers.clear()
         formatter = logging.Formatter('%(asctime)s - %(message)s',
