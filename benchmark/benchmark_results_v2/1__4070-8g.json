@@ -523,6 +523,617 @@
     }
   },
   {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 50,
+      "max_new_tokens": 16
+    },
+    "metrics": {
+      "total_time_s": 0.8552,
+      "prefill_time_s": 0.2916,
+      "decode_time_s": 0.5636,
+      "total_input_tokens": 1878,
+      "total_output_tokens": 800,
+      "tokens_per_second_prefill": 6440.53,
+      "tokens_per_second_gen": 1419.42,
+      "request_per_second": 58.47,
+      "gpu_mem_peak_gb": 1.65
+    },
+    "timestamp": "2026-01-31T23:15:55.210048"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 50,
+      "max_new_tokens": 64
+    },
+    "metrics": {
+      "total_time_s": 2.9749,
+      "prefill_time_s": 0.2655,
+      "decode_time_s": 2.7094,
+      "total_input_tokens": 1878,
+      "total_output_tokens": 3200,
+      "tokens_per_second_prefill": 7072.41,
+      "tokens_per_second_gen": 1181.07,
+      "request_per_second": 16.81,
+      "gpu_mem_peak_gb": 1.91
+    },
+    "timestamp": "2026-01-31T23:15:58.740437"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 50,
+      "max_new_tokens": 80
+    },
+    "metrics": {
+      "total_time_s": 3.6963,
+      "prefill_time_s": 0.2673,
+      "decode_time_s": 3.429,
+      "total_input_tokens": 1878,
+      "total_output_tokens": 4000,
+      "tokens_per_second_prefill": 7024.6,
+      "tokens_per_second_gen": 1166.52,
+      "request_per_second": 13.53,
+      "gpu_mem_peak_gb": 2.0
+    },
+    "timestamp": "2026-01-31T23:16:03.001768"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 50,
+      "max_new_tokens": 128
+    },
+    "metrics": {
+      "total_time_s": 6.2713,
+      "prefill_time_s": 0.2993,
+      "decode_time_s": 5.9721,
+      "total_input_tokens": 1878,
+      "total_output_tokens": 6331,
+      "tokens_per_second_prefill": 6274.98,
+      "tokens_per_second_gen": 1060.1,
+      "request_per_second": 7.97,
+      "gpu_mem_peak_gb": 2.27
+    },
+    "timestamp": "2026-01-31T23:16:09.868916"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 50,
+      "max_new_tokens": 256
+    },
+    "metrics": {
+      "total_time_s": 15.3038,
+      "prefill_time_s": 0.2664,
+      "decode_time_s": 15.0374,
+      "total_input_tokens": 1878,
+      "total_output_tokens": 11632,
+      "tokens_per_second_prefill": 7049.99,
+      "tokens_per_second_gen": 773.54,
+      "request_per_second": 3.27,
+      "gpu_mem_peak_gb": 3.0
+    },
+    "timestamp": "2026-01-31T23:16:25.748182"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 50,
+      "max_new_tokens": 512
+    },
+    "metrics": {
+      "total_time_s": 63.6567,
+      "prefill_time_s": 0.268,
+      "decode_time_s": 63.3887,
+      "total_input_tokens": 1878,
+      "total_output_tokens": 20848,
+      "tokens_per_second_prefill": 7007.21,
+      "tokens_per_second_gen": 328.89,
+      "request_per_second": 0.79,
+      "gpu_mem_peak_gb": 4.47
+    },
+    "timestamp": "2026-01-31T23:17:30.025084"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 50,
+      "new_tokens": 1024
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 100,
+      "max_new_tokens": 16
+    },
+    "metrics": {
+      "total_time_s": 1.3228,
+      "prefill_time_s": 0.7173,
+      "decode_time_s": 0.6055,
+      "total_input_tokens": 3733,
+      "total_output_tokens": 1600,
+      "tokens_per_second_prefill": 5204.52,
+      "tokens_per_second_gen": 2642.26,
+      "request_per_second": 75.6,
+      "gpu_mem_peak_gb": 2.02
+    },
+    "timestamp": "2026-01-31T23:19:07.319718"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 100,
+      "max_new_tokens": 64
+    },
+    "metrics": {
+      "total_time_s": 4.4399,
+      "prefill_time_s": 0.5743,
+      "decode_time_s": 3.8657,
+      "total_input_tokens": 3733,
+      "total_output_tokens": 6400,
+      "tokens_per_second_prefill": 6500.62,
+      "tokens_per_second_gen": 1655.6,
+      "request_per_second": 22.52,
+      "gpu_mem_peak_gb": 2.53
+    },
+    "timestamp": "2026-01-31T23:19:12.629791"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 100,
+      "max_new_tokens": 80
+    },
+    "metrics": {
+      "total_time_s": 5.6428,
+      "prefill_time_s": 0.575,
+      "decode_time_s": 5.0678,
+      "total_input_tokens": 3733,
+      "total_output_tokens": 8000,
+      "tokens_per_second_prefill": 6492.04,
+      "tokens_per_second_gen": 1578.59,
+      "request_per_second": 17.72,
+      "gpu_mem_peak_gb": 2.71
+    },
+    "timestamp": "2026-01-31T23:19:19.157860"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 100,
+      "max_new_tokens": 128
+    },
+    "metrics": {
+      "total_time_s": 9.8264,
+      "prefill_time_s": 0.5778,
+      "decode_time_s": 9.2486,
+      "total_input_tokens": 3733,
+      "total_output_tokens": 12610,
+      "tokens_per_second_prefill": 6460.33,
+      "tokens_per_second_gen": 1363.45,
+      "request_per_second": 10.18,
+      "gpu_mem_peak_gb": 3.26
+    },
+    "timestamp": "2026-01-31T23:19:29.866586"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 100,
+      "max_new_tokens": 256
+    },
+    "metrics": {
+      "total_time_s": 26.2673,
+      "prefill_time_s": 0.5883,
+      "decode_time_s": 25.6791,
+      "total_input_tokens": 3733,
+      "total_output_tokens": 22745,
+      "tokens_per_second_prefill": 6345.7,
+      "tokens_per_second_gen": 885.74,
+      "request_per_second": 3.81,
+      "gpu_mem_peak_gb": 4.73
+    },
+    "timestamp": "2026-01-31T23:19:57.045974"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 100,
+      "new_tokens": 512
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 100,
+      "new_tokens": 1024
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 150,
+      "max_new_tokens": 16
+    },
+    "metrics": {
+      "total_time_s": 4.4128,
+      "prefill_time_s": 4.7899,
+      "decode_time_s": 0.0001,
+      "total_input_tokens": 5600,
+      "total_output_tokens": 2400,
+      "tokens_per_second_prefill": 1169.13,
+      "tokens_per_second_gen": 24000000.0,
+      "request_per_second": 33.99,
+      "gpu_mem_peak_gb": 2.39
+    },
+    "timestamp": "2026-01-31T23:21:53.390224"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 150,
+      "max_new_tokens": 64
+    },
+    "metrics": {
+      "total_time_s": 6.0137,
+      "prefill_time_s": 0.8821,
+      "decode_time_s": 5.1316,
+      "total_input_tokens": 5600,
+      "total_output_tokens": 9594,
+      "tokens_per_second_prefill": 6348.14,
+      "tokens_per_second_gen": 1869.59,
+      "request_per_second": 24.94,
+      "gpu_mem_peak_gb": 3.16
+    },
+    "timestamp": "2026-01-31T23:22:00.605813"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 150,
+      "max_new_tokens": 80
+    },
+    "metrics": {
+      "total_time_s": 7.6902,
+      "prefill_time_s": 0.904,
+      "decode_time_s": 6.7862,
+      "total_input_tokens": 5600,
+      "total_output_tokens": 11978,
+      "tokens_per_second_prefill": 6194.87,
+      "tokens_per_second_gen": 1765.04,
+      "request_per_second": 19.51,
+      "gpu_mem_peak_gb": 3.43
+    },
+    "timestamp": "2026-01-31T23:22:09.516573"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 150,
+      "max_new_tokens": 128
+    },
+    "metrics": {
+      "total_time_s": 13.6437,
+      "prefill_time_s": 0.9127,
+      "decode_time_s": 12.731,
+      "total_input_tokens": 5600,
+      "total_output_tokens": 18957,
+      "tokens_per_second_prefill": 6135.65,
+      "tokens_per_second_gen": 1489.04,
+      "request_per_second": 10.99,
+      "gpu_mem_peak_gb": 4.26
+    },
+    "timestamp": "2026-01-31T23:22:24.403738"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 150,
+      "new_tokens": 256
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 150,
+      "new_tokens": 512
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 150,
+      "new_tokens": 1024
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 200,
+      "max_new_tokens": 16
+    },
+    "metrics": {
+      "total_time_s": 2.4243,
+      "prefill_time_s": 1.3035,
+      "decode_time_s": 1.1208,
+      "total_input_tokens": 7466,
+      "total_output_tokens": 3200,
+      "tokens_per_second_prefill": 5727.66,
+      "tokens_per_second_gen": 2855.18,
+      "request_per_second": 82.5,
+      "gpu_mem_peak_gb": 2.76
+    },
+    "timestamp": "2026-01-31T23:24:30.142621"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 200,
+      "max_new_tokens": 64
+    },
+    "metrics": {
+      "total_time_s": 7.6836,
+      "prefill_time_s": 1.2137,
+      "decode_time_s": 6.4699,
+      "total_input_tokens": 7466,
+      "total_output_tokens": 12794,
+      "tokens_per_second_prefill": 6151.27,
+      "tokens_per_second_gen": 1977.47,
+      "request_per_second": 26.03,
+      "gpu_mem_peak_gb": 3.79
+    },
+    "timestamp": "2026-01-31T23:24:39.361389"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 200,
+      "max_new_tokens": 80
+    },
+    "metrics": {
+      "total_time_s": 9.8195,
+      "prefill_time_s": 1.2251,
+      "decode_time_s": 8.5944,
+      "total_input_tokens": 7466,
+      "total_output_tokens": 15963,
+      "tokens_per_second_prefill": 6094.25,
+      "tokens_per_second_gen": 1857.37,
+      "request_per_second": 20.37,
+      "gpu_mem_peak_gb": 4.14
+    },
+    "timestamp": "2026-01-31T23:24:50.763069"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 200,
+      "max_new_tokens": 128
+    },
+    "metrics": {
+      "total_time_s": 18.8912,
+      "prefill_time_s": 1.2312,
+      "decode_time_s": 17.66,
+      "total_input_tokens": 7466,
+      "total_output_tokens": 25186,
+      "tokens_per_second_prefill": 6064.1,
+      "tokens_per_second_gen": 1426.16,
+      "request_per_second": 10.59,
+      "gpu_mem_peak_gb": 5.25
+    },
+    "timestamp": "2026-01-31T23:25:11.248305"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 200,
+      "new_tokens": 256
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 200,
+      "new_tokens": 512
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 200,
+      "new_tokens": 1024
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 250,
+      "max_new_tokens": 16
+    },
+    "metrics": {
+      "total_time_s": 2.9847,
+      "prefill_time_s": 1.6639,
+      "decode_time_s": 1.3209,
+      "total_input_tokens": 9344,
+      "total_output_tokens": 4000,
+      "tokens_per_second_prefill": 5615.89,
+      "tokens_per_second_gen": 3028.26,
+      "request_per_second": 83.76,
+      "gpu_mem_peak_gb": 3.13
+    },
+    "timestamp": "2026-01-31T23:26:39.563687"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 250,
+      "max_new_tokens": 64
+    },
+    "metrics": {
+      "total_time_s": 9.0721,
+      "prefill_time_s": 1.5234,
+      "decode_time_s": 7.5487,
+      "total_input_tokens": 9344,
+      "total_output_tokens": 15988,
+      "tokens_per_second_prefill": 6133.59,
+      "tokens_per_second_gen": 2117.99,
+      "request_per_second": 27.56,
+      "gpu_mem_peak_gb": 4.41
+    },
+    "timestamp": "2026-01-31T23:26:50.494090"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 250,
+      "max_new_tokens": 80
+    },
+    "metrics": {
+      "total_time_s": 11.5205,
+      "prefill_time_s": 1.5308,
+      "decode_time_s": 9.9897,
+      "total_input_tokens": 9344,
+      "total_output_tokens": 19941,
+      "tokens_per_second_prefill": 6103.88,
+      "tokens_per_second_gen": 1996.17,
+      "request_per_second": 21.7,
+      "gpu_mem_peak_gb": 4.86
+    },
+    "timestamp": "2026-01-31T23:27:03.900186"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 250,
+      "new_tokens": 128
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 250,
+      "new_tokens": 256
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 250,
+      "new_tokens": 512
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 250,
+      "new_tokens": 1024
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 300,
+      "max_new_tokens": 16
+    },
+    "metrics": {
+      "total_time_s": 3.5613,
+      "prefill_time_s": 8.7842,
+      "decode_time_s": 0.0001,
+      "total_input_tokens": 11226,
+      "total_output_tokens": 4800,
+      "tokens_per_second_prefill": 1277.97,
+      "tokens_per_second_gen": 48000000.0,
+      "request_per_second": 84.24,
+      "gpu_mem_peak_gb": 3.5
+    },
+    "timestamp": "2026-01-31T23:29:13.891386"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 300,
+      "max_new_tokens": 64
+    },
+    "metrics": {
+      "total_time_s": 10.7424,
+      "prefill_time_s": 1.8066,
+      "decode_time_s": 8.9359,
+      "total_input_tokens": 11226,
+      "total_output_tokens": 19188,
+      "tokens_per_second_prefill": 6213.95,
+      "tokens_per_second_gen": 2147.3,
+      "request_per_second": 27.93,
+      "gpu_mem_peak_gb": 5.04
+    },
+    "timestamp": "2026-01-31T23:29:26.807247"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "config": {
+      "batch_size": 300,
+      "max_new_tokens": 80
+    },
+    "metrics": {
+      "total_time_s": 13.7633,
+      "prefill_time_s": 1.8267,
+      "decode_time_s": 11.9366,
+      "total_input_tokens": 11226,
+      "total_output_tokens": 23941,
+      "tokens_per_second_prefill": 6145.64,
+      "tokens_per_second_gen": 2005.68,
+      "request_per_second": 21.8,
+      "gpu_mem_peak_gb": 5.58
+    },
+    "timestamp": "2026-01-31T23:29:42.770376"
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 300,
+      "new_tokens": 128
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 300,
+      "new_tokens": 256
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 300,
+      "new_tokens": 512
+    }
+  },
+  {
+    "model": "Qwen3-1.7B-GPTQ-4bit",
+    "error": "OOM",
+    "config": {
+      "batch_size": 300,
+      "new_tokens": 1024
+    }
+  },
+  {
     "model": "Qwen3-1.7B",
     "config": {
       "batch_size": 50,
