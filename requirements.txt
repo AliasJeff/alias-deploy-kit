@@ -9,4 +9,4 @@ MNN
 psutil
 autoawq
 optimum
-# pip install -v gptqmodel==4.0.0 --no-build-isolation  --no-deps
+# pip install -v gptqmodel --no-build-isolation --no-deps

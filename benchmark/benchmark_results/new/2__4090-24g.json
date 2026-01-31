@@ -1,0 +1,1741 @@
+{
+  "meta": {
+    "timestamp": "2026-01-31T15:57:57.921114",
+    "config": {
+      "result_dir": "./benchmark_results",
+      "log_dir": "./benchmark_logs",
+      "device": "cuda",
+      "torch_dtype": "torch.float16",
+      "latency_test": {
+        "prompt_lens": [
+          16,
+          64,
+          256
+        ],
+        "gen_len": 128
+      },
+      "throughput_test": {
+        "prompt_lens": [
+          16,
+          64,
+          256
+        ],
+        "new_tokens": [
+          16,
+          64,
+          80,
+          128,
+          512
+        ],
+        "max_bs_cap": 2048
+      }
+    },
+    "gpu": "NVIDIA GeForce RTX 4090 D"
+  },
+  "results": [
+    {
+      "model_name": "Qwen3-4B-GPTQ-4bit",
+      "model_path": "./models/Qwen3-4B-gptq-4bit",
+      "single_latency_metrics": [
+        {
+          "prompt_len": 16,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 492.11,
+          "decode_tokens_per_s": 36.32,
+          "latency_ms": 3556.49
+        },
+        {
+          "prompt_len": 64,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 2100.98,
+          "decode_tokens_per_s": 36.63,
+          "latency_ms": 3524.82
+        },
+        {
+          "prompt_len": 256,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 8695.31,
+          "decode_tokens_per_s": 36.23,
+          "latency_ms": 3562.36
+        }
+      ],
+      "max_throughput_metrics": [
+        {
+          "input_len": 16,
+          "output_len": 16,
+          "max_batch_size": 1566,
+          "init_batch_size": 1566,
+          "rps": 285.28,
+          "total_latency": 5.4894,
+          "prefill_latency": 2.0318,
+          "decode_latency": 3.4575,
+          "prefill_tps": 12331.83,
+          "decode_tps": 7246.78,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 21.83,
+            "max_allocated_gb": 20.23
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 64,
+          "max_batch_size": 980,
+          "init_batch_size": 980,
+          "rps": 86.94,
+          "total_latency": 11.2728,
+          "prefill_latency": 1.2661,
+          "decode_latency": 10.0067,
+          "prefill_tps": 12384.65,
+          "decode_tps": 6267.81,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 22.79,
+            "max_allocated_gb": 20.05
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 80,
+          "max_batch_size": 862,
+          "init_batch_size": 862,
+          "rps": 68.7,
+          "total_latency": 12.5476,
+          "prefill_latency": 1.1135,
+          "decode_latency": 11.4341,
+          "prefill_tps": 12386.07,
+          "decode_tps": 6031.07,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 21.68,
+            "max_allocated_gb": 19.83
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 128,
+          "max_batch_size": 627,
+          "init_batch_size": 627,
+          "rps": 39.5,
+          "total_latency": 15.8721,
+          "prefill_latency": 0.8086,
+          "decode_latency": 15.0635,
+          "prefill_tps": 12406.24,
+          "decode_tps": 5327.84,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 21.66,
+            "max_allocated_gb": 19.24
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 512,
+          "max_batch_size": 216,
+          "init_batch_size": 216,
+          "rps": 6.04,
+          "total_latency": 35.7734,
+          "prefill_latency": 0.2504,
+          "decode_latency": 35.523,
+          "prefill_tps": 13799.5,
+          "decode_tps": 3113.25,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 21.62,
+            "max_allocated_gb": 19.65
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 16,
+          "max_batch_size": 627,
+          "init_batch_size": 980,
+          "rps": 130.01,
+          "total_latency": 4.8227,
+          "prefill_latency": 3.2408,
+          "decode_latency": 1.5819,
+          "prefill_tps": 12382.05,
+          "decode_tps": 6341.8,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 15.29,
+            "max_allocated_gb": 13.73
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 64,
+          "max_batch_size": 686,
+          "init_batch_size": 686,
+          "rps": 58.27,
+          "total_latency": 11.7735,
+          "prefill_latency": 3.547,
+          "decode_latency": 8.2265,
+          "prefill_tps": 12377.76,
+          "decode_tps": 5336.89,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 21.42,
+            "max_allocated_gb": 19.31
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 80,
+          "max_batch_size": 627,
+          "init_batch_size": 627,
+          "rps": 48.09,
+          "total_latency": 13.0371,
+          "prefill_latency": 3.2403,
+          "decode_latency": 9.7968,
+          "prefill_tps": 12384.11,
+          "decode_tps": 5120.03,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 21.29,
+            "max_allocated_gb": 19.24
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 128,
+          "max_batch_size": 510,
+          "init_batch_size": 510,
+          "rps": 30.71,
+          "total_latency": 16.6077,
+          "prefill_latency": 2.6385,
+          "decode_latency": 13.9693,
+          "prefill_tps": 12370.75,
+          "decode_tps": 4673.12,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 21.91,
+            "max_allocated_gb": 19.47
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 512,
+          "max_batch_size": 158,
+          "init_batch_size": 158,
+          "rps": 5.12,
+          "total_latency": 30.8756,
+          "prefill_latency": 0.8035,
+          "decode_latency": 30.072,
+          "prefill_tps": 12584.27,
+          "decode_tps": 2690.07,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 17.64,
+            "max_allocated_gb": 16.08
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 16,
+          "max_batch_size": 169,
+          "init_batch_size": 333,
+          "rps": 40.58,
+          "total_latency": 4.1649,
+          "prefill_latency": 3.4977,
+          "decode_latency": 0.6673,
+          "prefill_tps": 12369.37,
+          "decode_tps": 4052.43,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 12.65,
+            "max_allocated_gb": 11.63
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 64,
+          "max_batch_size": 169,
+          "init_batch_size": 333,
+          "rps": 23.76,
+          "total_latency": 7.1136,
+          "prefill_latency": 3.4981,
+          "decode_latency": 3.6155,
+          "prefill_tps": 12367.87,
+          "decode_tps": 2991.58,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 12.66,
+            "max_allocated_gb": 11.63
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 80,
+          "max_batch_size": 169,
+          "init_batch_size": 333,
+          "rps": 20.77,
+          "total_latency": 8.137,
+          "prefill_latency": 3.4964,
+          "decode_latency": 4.6406,
+          "prefill_tps": 12373.88,
+          "decode_tps": 2913.4,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 12.75,
+            "max_allocated_gb": 11.63
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 128,
+          "max_batch_size": 176,
+          "init_batch_size": 275,
+          "rps": 15.03,
+          "total_latency": 11.7095,
+          "prefill_latency": 3.6415,
+          "decode_latency": 8.068,
+          "prefill_tps": 12373.02,
+          "decode_tps": 2792.27,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 13.85,
+            "max_allocated_gb": 12.99
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 512,
+          "max_batch_size": 158,
+          "init_batch_size": 158,
+          "rps": 3.84,
+          "total_latency": 41.0994,
+          "prefill_latency": 3.2606,
+          "decode_latency": 37.8387,
+          "prefill_tps": 12404.98,
+          "decode_tps": 2137.91,
+          "memory_stats": {
+            "allocated_gb": 2.49,
+            "reserved_gb": 21.25,
+            "max_allocated_gb": 20.25
+          }
+        }
+      ]
+    },
+    {
+      "model_name": "Qwen3-4B",
+      "model_path": "./models/Qwen3-4B",
+      "single_latency_metrics": [
+        {
+          "prompt_len": 16,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 552.92,
+          "decode_tokens_per_s": 36.87,
+          "latency_ms": 3500.52
+        },
+        {
+          "prompt_len": 64,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 2120.75,
+          "decode_tokens_per_s": 36.96,
+          "latency_ms": 3493.2
+        },
+        {
+          "prompt_len": 256,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 8366.05,
+          "decode_tokens_per_s": 36.7,
+          "latency_ms": 3518.2
+        }
+      ],
+      "max_throughput_metrics": [
+        {
+          "input_len": 16,
+          "output_len": 16,
+          "max_batch_size": 1156,
+          "init_batch_size": 1156,
+          "rps": 288.37,
+          "total_latency": 4.0088,
+          "prefill_latency": 1.4534,
+          "decode_latency": 2.5554,
+          "prefill_tps": 12725.87,
+          "decode_tps": 7238.14,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 22.64,
+            "max_allocated_gb": 20.61
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 64,
+          "max_batch_size": 745,
+          "init_batch_size": 745,
+          "rps": 86.58,
+          "total_latency": 8.605,
+          "prefill_latency": 0.9312,
+          "decode_latency": 7.6738,
+          "prefill_tps": 12800.76,
+          "decode_tps": 6213.32,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 21.25,
+            "max_allocated_gb": 20.86
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 80,
+          "max_batch_size": 627,
+          "init_batch_size": 627,
+          "rps": 69.02,
+          "total_latency": 9.0841,
+          "prefill_latency": 0.785,
+          "decode_latency": 8.2992,
+          "prefill_tps": 12780.04,
+          "decode_tps": 6043.98,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 21.84,
+            "max_allocated_gb": 20.13
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 128,
+          "max_batch_size": 510,
+          "init_batch_size": 510,
+          "rps": 40.59,
+          "total_latency": 12.5647,
+          "prefill_latency": 0.6327,
+          "decode_latency": 11.932,
+          "prefill_tps": 12897.96,
+          "decode_tps": 5470.99,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 22.37,
+            "max_allocated_gb": 21.13
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 512,
+          "max_batch_size": 158,
+          "init_batch_size": 158,
+          "rps": 5.95,
+          "total_latency": 26.5762,
+          "prefill_latency": 0.1829,
+          "decode_latency": 26.3932,
+          "prefill_tps": 13819.5,
+          "decode_tps": 3065.03,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 21.77,
+            "max_allocated_gb": 20.06
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 16,
+          "max_batch_size": 476,
+          "init_batch_size": 745,
+          "rps": 133.4,
+          "total_latency": 3.5682,
+          "prefill_latency": 2.3787,
+          "decode_latency": 1.1894,
+          "prefill_tps": 12806.76,
+          "decode_tps": 6403.07,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 17.12,
+            "max_allocated_gb": 16.04
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 64,
+          "max_batch_size": 510,
+          "init_batch_size": 510,
+          "rps": 59.81,
+          "total_latency": 8.5275,
+          "prefill_latency": 2.5488,
+          "decode_latency": 5.9787,
+          "prefill_tps": 12806.09,
+          "decode_tps": 5459.34,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 22.08,
+            "max_allocated_gb": 20.01
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 80,
+          "max_batch_size": 510,
+          "init_batch_size": 510,
+          "rps": 49.49,
+          "total_latency": 10.3051,
+          "prefill_latency": 2.5485,
+          "decode_latency": 7.7566,
+          "prefill_tps": 12807.45,
+          "decode_tps": 5260.04,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 22.88,
+            "max_allocated_gb": 21.13
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 128,
+          "max_batch_size": 392,
+          "init_batch_size": 392,
+          "rps": 31.02,
+          "total_latency": 12.6382,
+          "prefill_latency": 1.9525,
+          "decode_latency": 10.6857,
+          "prefill_tps": 12849.17,
+          "decode_tps": 4695.61,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 22.18,
+            "max_allocated_gb": 20.57
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 512,
+          "max_batch_size": 99,
+          "init_batch_size": 99,
+          "rps": 4.75,
+          "total_latency": 20.8424,
+          "prefill_latency": 0.4768,
+          "decode_latency": 20.3656,
+          "prefill_tps": 13289.52,
+          "decode_tps": 2488.9,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 17.26,
+            "max_allocated_gb": 16.2
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 16,
+          "max_batch_size": 137,
+          "init_batch_size": 216,
+          "rps": 42.3,
+          "total_latency": 3.2384,
+          "prefill_latency": 2.8416,
+          "decode_latency": 0.3968,
+          "prefill_tps": 12342.16,
+          "decode_tps": 5524.53,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 15.67,
+            "max_allocated_gb": 14.92
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 64,
+          "max_batch_size": 137,
+          "init_batch_size": 216,
+          "rps": 24.91,
+          "total_latency": 5.4991,
+          "prefill_latency": 2.85,
+          "decode_latency": 2.6491,
+          "prefill_tps": 12306.08,
+          "decode_tps": 3309.78,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 15.71,
+            "max_allocated_gb": 14.92
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 80,
+          "max_batch_size": 137,
+          "init_batch_size": 216,
+          "rps": 21.77,
+          "total_latency": 6.2937,
+          "prefill_latency": 2.8423,
+          "decode_latency": 3.4514,
+          "prefill_tps": 12339.3,
+          "decode_tps": 3175.48,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 15.71,
+            "max_allocated_gb": 14.92
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 128,
+          "max_batch_size": 137,
+          "init_batch_size": 216,
+          "rps": 15.63,
+          "total_latency": 8.7675,
+          "prefill_latency": 2.8426,
+          "decode_latency": 5.9249,
+          "prefill_tps": 12338.0,
+          "decode_tps": 2959.71,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 16.45,
+            "max_allocated_gb": 15.69
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 512,
+          "max_batch_size": 99,
+          "init_batch_size": 99,
+          "rps": 3.76,
+          "total_latency": 26.3051,
+          "prefill_latency": 1.9884,
+          "decode_latency": 24.3167,
+          "prefill_tps": 12745.86,
+          "decode_tps": 2084.49,
+          "memory_stats": {
+            "allocated_gb": 7.51,
+            "reserved_gb": 20.19,
+            "max_allocated_gb": 18.81
+          }
+        }
+      ]
+    },
+    {
+      "model_name": "Qwen3-1.7B-GPTQ-4bit",
+      "model_path": "./models/Qwen3-1.7B-gptq-4bit",
+      "single_latency_metrics": [
+        {
+          "prompt_len": 16,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 709.65,
+          "decode_tokens_per_s": 47.07,
+          "latency_ms": 2742.03
+        },
+        {
+          "prompt_len": 64,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 2800.08,
+          "decode_tokens_per_s": 47.03,
+          "latency_ms": 2744.78
+        },
+        {
+          "prompt_len": 256,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 10768.21,
+          "decode_tokens_per_s": 46.51,
+          "latency_ms": 2775.77
+        }
+      ],
+      "max_throughput_metrics": [
+        {
+          "input_len": 16,
+          "output_len": 16,
+          "max_batch_size": 1801,
+          "init_batch_size": 1801,
+          "rps": 459.17,
+          "total_latency": 3.9223,
+          "prefill_latency": 1.0914,
+          "decode_latency": 2.8309,
+          "prefill_tps": 26403.05,
+          "decode_tps": 10179.21,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 22.63,
+            "max_allocated_gb": 19.98
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 64,
+          "max_batch_size": 1215,
+          "init_batch_size": 1215,
+          "rps": 123.35,
+          "total_latency": 9.8504,
+          "prefill_latency": 0.7337,
+          "decode_latency": 9.1167,
+          "prefill_tps": 26496.36,
+          "decode_tps": 8529.42,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 22.76,
+            "max_allocated_gb": 20.12
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 80,
+          "max_batch_size": 1097,
+          "init_batch_size": 1097,
+          "rps": 98.9,
+          "total_latency": 11.0917,
+          "prefill_latency": 0.6612,
+          "decode_latency": 10.4305,
+          "prefill_tps": 26546.1,
+          "decode_tps": 8413.76,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 22.39,
+            "max_allocated_gb": 20.17
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 128,
+          "max_batch_size": 803,
+          "init_batch_size": 803,
+          "rps": 56.1,
+          "total_latency": 14.3125,
+          "prefill_latency": 0.4791,
+          "decode_latency": 13.8334,
+          "prefill_tps": 26819.71,
+          "decode_tps": 7430.12,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 21.77,
+            "max_allocated_gb": 19.22
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 512,
+          "max_batch_size": 275,
+          "init_batch_size": 275,
+          "rps": 8.3,
+          "total_latency": 33.1183,
+          "prefill_latency": 0.1462,
+          "decode_latency": 32.9721,
+          "prefill_tps": 30101.19,
+          "decode_tps": 4270.28,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 20.25,
+            "max_allocated_gb": 18.7
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 16,
+          "max_batch_size": 777,
+          "init_batch_size": 1215,
+          "rps": 239.79,
+          "total_latency": 3.2403,
+          "prefill_latency": 1.8726,
+          "decode_latency": 1.3678,
+          "prefill_tps": 26556.26,
+          "decode_tps": 9089.1,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 14.31,
+            "max_allocated_gb": 13.33
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 64,
+          "max_batch_size": 736,
+          "init_batch_size": 921,
+          "rps": 89.99,
+          "total_latency": 8.1789,
+          "prefill_latency": 1.7703,
+          "decode_latency": 6.4087,
+          "prefill_tps": 26608.53,
+          "decode_tps": 7350.05,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 18.66,
+            "max_allocated_gb": 16.47
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 80,
+          "max_batch_size": 689,
+          "init_batch_size": 862,
+          "rps": 71.73,
+          "total_latency": 9.605,
+          "prefill_latency": 1.6591,
+          "decode_latency": 7.9459,
+          "prefill_tps": 26578.85,
+          "decode_tps": 6936.89,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 19.07,
+            "max_allocated_gb": 16.67
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 128,
+          "max_batch_size": 686,
+          "init_batch_size": 686,
+          "rps": 45.14,
+          "total_latency": 15.196,
+          "prefill_latency": 1.6493,
+          "decode_latency": 13.5467,
+          "prefill_tps": 26620.01,
+          "decode_tps": 6481.86,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 20.54,
+            "max_allocated_gb": 20.12
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 512,
+          "max_batch_size": 275,
+          "init_batch_size": 275,
+          "rps": 7.61,
+          "total_latency": 36.1246,
+          "prefill_latency": 0.6569,
+          "decode_latency": 35.4677,
+          "prefill_tps": 26794.19,
+          "decode_tps": 3969.81,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 22.87,
+            "max_allocated_gb": 20.11
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 16,
+          "max_batch_size": 184,
+          "init_batch_size": 451,
+          "rps": 79.74,
+          "total_latency": 2.3074,
+          "prefill_latency": 1.7686,
+          "decode_latency": 0.5388,
+          "prefill_tps": 26633.51,
+          "decode_tps": 5464.35,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 9.11,
+            "max_allocated_gb": 8.66
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 64,
+          "max_batch_size": 184,
+          "init_batch_size": 451,
+          "rps": 39.05,
+          "total_latency": 4.7115,
+          "prefill_latency": 1.7691,
+          "decode_latency": 2.9424,
+          "prefill_tps": 26626.38,
+          "decode_tps": 4002.13,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 10.15,
+            "max_allocated_gb": 8.85
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 80,
+          "max_batch_size": 200,
+          "init_batch_size": 392,
+          "rps": 35.43,
+          "total_latency": 5.6445,
+          "prefill_latency": 1.9241,
+          "decode_latency": 3.7204,
+          "prefill_tps": 26609.56,
+          "decode_tps": 4300.58,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 11.38,
+            "max_allocated_gb": 9.85
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 128,
+          "max_batch_size": 200,
+          "init_batch_size": 392,
+          "rps": 24.18,
+          "total_latency": 8.2704,
+          "prefill_latency": 1.9223,
+          "decode_latency": 6.3481,
+          "prefill_tps": 26634.8,
+          "decode_tps": 4032.73,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 11.87,
+            "max_allocated_gb": 10.87
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 512,
+          "max_batch_size": 158,
+          "init_batch_size": 158,
+          "rps": 5.24,
+          "total_latency": 30.1698,
+          "prefill_latency": 1.5171,
+          "decode_latency": 28.6527,
+          "prefill_tps": 26660.55,
+          "decode_tps": 2823.33,
+          "memory_stats": {
+            "allocated_gb": 1.27,
+            "reserved_gb": 16.5,
+            "max_allocated_gb": 15.34
+          }
+        }
+      ]
+    },
+    {
+      "model_name": "Qwen3-1.7B",
+      "model_path": "./models/Qwen3-1.7B",
+      "single_latency_metrics": [
+        {
+          "prompt_len": 16,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 695.69,
+          "decode_tokens_per_s": 47.46,
+          "latency_ms": 2719.73
+        },
+        {
+          "prompt_len": 64,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 2780.14,
+          "decode_tokens_per_s": 47.13,
+          "latency_ms": 2739.16
+        },
+        {
+          "prompt_len": 256,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 10267.71,
+          "decode_tokens_per_s": 46.72,
+          "latency_ms": 2764.47
+        }
+      ],
+      "max_throughput_metrics": [
+        {
+          "input_len": 16,
+          "output_len": 16,
+          "max_batch_size": 1684,
+          "init_batch_size": 1684,
+          "rps": 450.29,
+          "total_latency": 3.7398,
+          "prefill_latency": 0.9712,
+          "decode_latency": 2.7686,
+          "prefill_tps": 27742.44,
+          "decode_tps": 9732.06,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 22.64,
+            "max_allocated_gb": 20.71
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 64,
+          "max_batch_size": 1097,
+          "init_batch_size": 1097,
+          "rps": 124.58,
+          "total_latency": 8.8058,
+          "prefill_latency": 0.6358,
+          "decode_latency": 8.17,
+          "prefill_tps": 27604.64,
+          "decode_tps": 8593.4,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 22.37,
+            "max_allocated_gb": 20.24
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 80,
+          "max_batch_size": 980,
+          "init_batch_size": 980,
+          "rps": 99.51,
+          "total_latency": 9.8479,
+          "prefill_latency": 0.5683,
+          "decode_latency": 9.2797,
+          "prefill_tps": 27592.74,
+          "decode_tps": 8448.59,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 22.68,
+            "max_allocated_gb": 20.1
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 128,
+          "max_batch_size": 745,
+          "init_batch_size": 745,
+          "rps": 57.9,
+          "total_latency": 12.8676,
+          "prefill_latency": 0.4264,
+          "decode_latency": 12.4412,
+          "prefill_tps": 27955.32,
+          "decode_tps": 7664.84,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 22.76,
+            "max_allocated_gb": 19.87
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 512,
+          "max_batch_size": 275,
+          "init_batch_size": 275,
+          "rps": 8.7,
+          "total_latency": 31.5992,
+          "prefill_latency": 0.1378,
+          "decode_latency": 31.4614,
+          "prefill_tps": 31929.18,
+          "decode_tps": 4475.33,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 22.76,
+            "max_allocated_gb": 20.65
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 16,
+          "max_batch_size": 701,
+          "init_batch_size": 1097,
+          "rps": 246.59,
+          "total_latency": 2.8428,
+          "prefill_latency": 1.6188,
+          "decode_latency": 1.224,
+          "prefill_tps": 27714.5,
+          "decode_tps": 9163.59,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 15.22,
+            "max_allocated_gb": 14.1
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 64,
+          "max_batch_size": 642,
+          "init_batch_size": 803,
+          "rps": 91.54,
+          "total_latency": 7.0135,
+          "prefill_latency": 1.4803,
+          "decode_latency": 5.5331,
+          "prefill_tps": 27755.93,
+          "decode_tps": 7425.83,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 18.68,
+            "max_allocated_gb": 16.47
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 80,
+          "max_batch_size": 745,
+          "init_batch_size": 745,
+          "rps": 75.61,
+          "total_latency": 9.8529,
+          "prefill_latency": 1.733,
+          "decode_latency": 8.1199,
+          "prefill_tps": 27512.26,
+          "decode_tps": 7340.0,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 22.53,
+            "max_allocated_gb": 19.87
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 128,
+          "max_batch_size": 627,
+          "init_batch_size": 627,
+          "rps": 47.05,
+          "total_latency": 13.3268,
+          "prefill_latency": 1.4437,
+          "decode_latency": 11.8831,
+          "prefill_tps": 27794.73,
+          "decode_tps": 6753.8,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 22.67,
+            "max_allocated_gb": 20.45
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 512,
+          "max_batch_size": 216,
+          "init_batch_size": 216,
+          "rps": 7.84,
+          "total_latency": 27.5374,
+          "prefill_latency": 0.492,
+          "decode_latency": 27.0454,
+          "prefill_tps": 28095.32,
+          "decode_tps": 4089.13,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 20.03,
+            "max_allocated_gb": 18.02
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 16,
+          "max_batch_size": 160,
+          "init_batch_size": 392,
+          "rps": 85.48,
+          "total_latency": 1.8717,
+          "prefill_latency": 1.472,
+          "decode_latency": 0.3998,
+          "prefill_tps": 27826.77,
+          "decode_tps": 6403.51,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 10.11,
+            "max_allocated_gb": 9.65
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 64,
+          "max_batch_size": 160,
+          "init_batch_size": 392,
+          "rps": 42.91,
+          "total_latency": 3.7287,
+          "prefill_latency": 1.4723,
+          "decode_latency": 2.2564,
+          "prefill_tps": 27820.59,
+          "decode_tps": 4538.19,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 11.22,
+            "max_allocated_gb": 9.81
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 80,
+          "max_batch_size": 160,
+          "init_batch_size": 392,
+          "rps": 36.49,
+          "total_latency": 4.3842,
+          "prefill_latency": 1.4705,
+          "decode_latency": 2.9137,
+          "prefill_tps": 27855.01,
+          "decode_tps": 4393.04,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 11.22,
+            "max_allocated_gb": 10.08
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 128,
+          "max_batch_size": 169,
+          "init_batch_size": 333,
+          "rps": 25.22,
+          "total_latency": 6.7003,
+          "prefill_latency": 1.5557,
+          "decode_latency": 5.1446,
+          "prefill_tps": 27809.14,
+          "decode_tps": 4204.83,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 12.14,
+            "max_allocated_gb": 11.33
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 512,
+          "max_batch_size": 158,
+          "init_batch_size": 158,
+          "rps": 5.68,
+          "total_latency": 27.8084,
+          "prefill_latency": 1.456,
+          "decode_latency": 26.3524,
+          "prefill_tps": 27780.51,
+          "decode_tps": 3069.77,
+          "memory_stats": {
+            "allocated_gb": 3.22,
+            "reserved_gb": 18.39,
+            "max_allocated_gb": 17.29
+          }
+        }
+      ]
+    },
+    {
+      "model_name": "Qwen2-1.5B-GPTQ-4bit",
+      "model_path": "./models/Qwen2-1.5B-gptq-4bit",
+      "single_latency_metrics": [
+        {
+          "prompt_len": 16,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 679.23,
+          "decode_tokens_per_s": 57.75,
+          "latency_ms": 2240.1
+        },
+        {
+          "prompt_len": 64,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 3327.38,
+          "decode_tokens_per_s": 58.39,
+          "latency_ms": 2211.38
+        },
+        {
+          "prompt_len": 256,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 13494.91,
+          "decode_tokens_per_s": 58.2,
+          "latency_ms": 2218.45
+        }
+      ],
+      "max_throughput_metrics": [
+        {
+          "input_len": 16,
+          "output_len": 16,
+          "max_batch_size": 1801,
+          "init_batch_size": 1801,
+          "rps": 794.83,
+          "total_latency": 2.2659,
+          "prefill_latency": 0.8702,
+          "decode_latency": 1.3957,
+          "prefill_tps": 33115.82,
+          "decode_tps": 20645.82,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 10.63,
+            "max_allocated_gb": 9.2
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 64,
+          "max_batch_size": 1801,
+          "init_batch_size": 1801,
+          "rps": 251.58,
+          "total_latency": 7.1588,
+          "prefill_latency": 0.8738,
+          "decode_latency": 6.285,
+          "prefill_tps": 32977.55,
+          "decode_tps": 18339.63,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 13.13,
+            "max_allocated_gb": 11.51
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 80,
+          "max_batch_size": 1801,
+          "init_batch_size": 1801,
+          "rps": 202.78,
+          "total_latency": 8.8817,
+          "prefill_latency": 0.8729,
+          "decode_latency": 8.0088,
+          "prefill_tps": 33012.96,
+          "decode_tps": 17990.25,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 14.05,
+            "max_allocated_gb": 12.28
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 128,
+          "max_batch_size": 1801,
+          "init_batch_size": 1801,
+          "rps": 125.79,
+          "total_latency": 14.3172,
+          "prefill_latency": 0.8751,
+          "decode_latency": 13.4421,
+          "prefill_tps": 32927.25,
+          "decode_tps": 17149.71,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 16.82,
+            "max_allocated_gb": 14.59
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 512,
+          "max_batch_size": 1038,
+          "init_batch_size": 1038,
+          "rps": 24.23,
+          "total_latency": 42.8434,
+          "prefill_latency": 0.5051,
+          "decode_latency": 42.3383,
+          "prefill_tps": 32878.51,
+          "decode_tps": 12552.61,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 23.03,
+            "max_allocated_gb": 19.52
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 16,
+          "max_batch_size": 921,
+          "init_batch_size": 1801,
+          "rps": 370.63,
+          "total_latency": 2.485,
+          "prefill_latency": 1.7778,
+          "decode_latency": 0.7072,
+          "prefill_tps": 33155.71,
+          "decode_tps": 20837.63,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 6.97,
+            "max_allocated_gb": 6.42
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 64,
+          "max_batch_size": 921,
+          "init_batch_size": 1801,
+          "rps": 170.84,
+          "total_latency": 5.3911,
+          "prefill_latency": 1.7789,
+          "decode_latency": 3.6122,
+          "prefill_tps": 33135.54,
+          "decode_tps": 16318.01,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 8.68,
+            "max_allocated_gb": 7.6
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 80,
+          "max_batch_size": 921,
+          "init_batch_size": 1801,
+          "rps": 143.78,
+          "total_latency": 6.4056,
+          "prefill_latency": 1.7776,
+          "decode_latency": 4.6281,
+          "prefill_tps": 33160.1,
+          "decode_tps": 15920.2,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 9.34,
+            "max_allocated_gb": 7.99
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 128,
+          "max_batch_size": 921,
+          "init_batch_size": 1801,
+          "rps": 95.91,
+          "total_latency": 9.6028,
+          "prefill_latency": 1.7784,
+          "decode_latency": 7.8245,
+          "prefill_tps": 33145.17,
+          "decode_tps": 15066.59,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 10.46,
+            "max_allocated_gb": 9.17
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 512,
+          "max_batch_size": 980,
+          "init_batch_size": 980,
+          "rps": 21.6,
+          "total_latency": 45.3757,
+          "prefill_latency": 1.9061,
+          "decode_latency": 43.4696,
+          "prefill_tps": 32904.74,
+          "decode_tps": 11542.79,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 22.38,
+            "max_allocated_gb": 19.75
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 16,
+          "max_batch_size": 262,
+          "init_batch_size": 803,
+          "rps": 118.41,
+          "total_latency": 2.2126,
+          "prefill_latency": 2.0392,
+          "decode_latency": 0.1734,
+          "prefill_tps": 32891.65,
+          "decode_tps": 24174.27,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 7.37,
+            "max_allocated_gb": 7.03
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 64,
+          "max_batch_size": 262,
+          "init_batch_size": 803,
+          "rps": 74.72,
+          "total_latency": 3.5066,
+          "prefill_latency": 2.0377,
+          "decode_latency": 1.4689,
+          "prefill_tps": 32915.51,
+          "decode_tps": 11415.37,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 7.37,
+            "max_allocated_gb": 7.03
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 80,
+          "max_batch_size": 262,
+          "init_batch_size": 803,
+          "rps": 66.69,
+          "total_latency": 3.9284,
+          "prefill_latency": 2.0353,
+          "decode_latency": 1.8931,
+          "prefill_tps": 32954.52,
+          "decode_tps": 11071.66,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 7.37,
+            "max_allocated_gb": 7.03
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 128,
+          "max_batch_size": 262,
+          "init_batch_size": 803,
+          "rps": 49.48,
+          "total_latency": 5.2953,
+          "prefill_latency": 2.039,
+          "decode_latency": 3.2564,
+          "prefill_tps": 32895.28,
+          "decode_tps": 10298.64,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 7.37,
+            "max_allocated_gb": 7.03
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 512,
+          "max_batch_size": 243,
+          "init_batch_size": 745,
+          "rps": 12.33,
+          "total_latency": 19.7121,
+          "prefill_latency": 1.874,
+          "decode_latency": 17.8381,
+          "prefill_tps": 33195.54,
+          "decode_tps": 6974.75,
+          "memory_stats": {
+            "allocated_gb": 1.08,
+            "reserved_gb": 7.7,
+            "max_allocated_gb": 6.96
+          }
+        }
+      ]
+    },
+    {
+      "model_name": "Qwen2-1.5B",
+      "model_path": "./models/Qwen2-1.5B",
+      "single_latency_metrics": [
+        {
+          "prompt_len": 16,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 858.77,
+          "decode_tokens_per_s": 57.53,
+          "latency_ms": 2243.56
+        },
+        {
+          "prompt_len": 64,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 3051.38,
+          "decode_tokens_per_s": 57.48,
+          "latency_ms": 2247.95
+        },
+        {
+          "prompt_len": 256,
+          "gen_len": 128,
+          "prefill_tokens_per_s": 13124.94,
+          "decode_tokens_per_s": 56.7,
+          "latency_ms": 2276.89
+        }
+      ],
+      "max_throughput_metrics": [
+        {
+          "input_len": 16,
+          "output_len": 16,
+          "max_batch_size": 1801,
+          "init_batch_size": 1801,
+          "rps": 809.92,
+          "total_latency": 2.2237,
+          "prefill_latency": 0.8294,
+          "decode_latency": 1.3943,
+          "prefill_tps": 34745.11,
+          "decode_tps": 20666.69,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 12.47,
+            "max_allocated_gb": 11.01
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 64,
+          "max_batch_size": 1801,
+          "init_batch_size": 1801,
+          "rps": 253.64,
+          "total_latency": 7.1005,
+          "prefill_latency": 0.8287,
+          "decode_latency": 6.2717,
+          "prefill_tps": 34770.81,
+          "decode_tps": 18378.31,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 15.09,
+            "max_allocated_gb": 13.32
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 80,
+          "max_batch_size": 1801,
+          "init_batch_size": 1801,
+          "rps": 204.23,
+          "total_latency": 8.8184,
+          "prefill_latency": 0.8311,
+          "decode_latency": 7.9873,
+          "prefill_tps": 34671.8,
+          "decode_tps": 18038.57,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 15.91,
+            "max_allocated_gb": 14.09
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 128,
+          "max_batch_size": 1801,
+          "init_batch_size": 1801,
+          "rps": 126.48,
+          "total_latency": 14.2394,
+          "prefill_latency": 0.8294,
+          "decode_latency": 13.4099,
+          "prefill_tps": 34741.63,
+          "decode_tps": 17190.85,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 19.05,
+            "max_allocated_gb": 16.4
+          }
+        },
+        {
+          "input_len": 16,
+          "output_len": 512,
+          "max_batch_size": 980,
+          "init_batch_size": 980,
+          "rps": 24.24,
+          "total_latency": 40.4246,
+          "prefill_latency": 0.4495,
+          "decode_latency": 39.9751,
+          "prefill_tps": 34882.23,
+          "decode_tps": 12551.82,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 22.41,
+            "max_allocated_gb": 20.3
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 16,
+          "max_batch_size": 921,
+          "init_batch_size": 1801,
+          "rps": 391.15,
+          "total_latency": 2.3546,
+          "prefill_latency": 1.6911,
+          "decode_latency": 0.6635,
+          "prefill_tps": 34855.27,
+          "decode_tps": 22209.33,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 9.34,
+            "max_allocated_gb": 8.23
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 64,
+          "max_batch_size": 921,
+          "init_batch_size": 1801,
+          "rps": 179.58,
+          "total_latency": 5.1286,
+          "prefill_latency": 1.6893,
+          "decode_latency": 3.4394,
+          "prefill_tps": 34893.26,
+          "decode_tps": 17137.99,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 10.42,
+            "max_allocated_gb": 9.41
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 80,
+          "max_batch_size": 921,
+          "init_batch_size": 1801,
+          "rps": 150.91,
+          "total_latency": 6.1028,
+          "prefill_latency": 1.6931,
+          "decode_latency": 4.4098,
+          "prefill_tps": 34814.68,
+          "decode_tps": 16708.38,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 11.12,
+            "max_allocated_gb": 9.8
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 128,
+          "max_batch_size": 921,
+          "init_batch_size": 1801,
+          "rps": 100.44,
+          "total_latency": 9.1698,
+          "prefill_latency": 1.6915,
+          "decode_latency": 7.4783,
+          "prefill_tps": 34847.58,
+          "decode_tps": 15764.05,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 12.45,
+            "max_allocated_gb": 10.98
+          }
+        },
+        {
+          "input_len": 64,
+          "output_len": 512,
+          "max_batch_size": 921,
+          "init_batch_size": 921,
+          "rps": 22.23,
+          "total_latency": 41.4233,
+          "prefill_latency": 1.6869,
+          "decode_latency": 39.7364,
+          "prefill_tps": 34941.37,
+          "decode_tps": 11867.02,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 22.92,
+            "max_allocated_gb": 20.43
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 16,
+          "max_batch_size": 243,
+          "init_batch_size": 745,
+          "rps": 123.71,
+          "total_latency": 1.9643,
+          "prefill_latency": 1.781,
+          "decode_latency": 0.1833,
+          "prefill_tps": 34927.98,
+          "decode_tps": 21213.3,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 8.76,
+            "max_allocated_gb": 8.41
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 64,
+          "max_batch_size": 243,
+          "init_batch_size": 745,
+          "rps": 78.2,
+          "total_latency": 3.1075,
+          "prefill_latency": 1.7804,
+          "decode_latency": 1.3271,
+          "prefill_tps": 34940.38,
+          "decode_tps": 11718.6,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 8.76,
+            "max_allocated_gb": 8.41
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 80,
+          "max_batch_size": 243,
+          "init_batch_size": 745,
+          "rps": 69.82,
+          "total_latency": 3.4802,
+          "prefill_latency": 1.7804,
+          "decode_latency": 1.6997,
+          "prefill_tps": 34939.64,
+          "decode_tps": 11437.17,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 8.76,
+            "max_allocated_gb": 8.41
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 128,
+          "max_batch_size": 243,
+          "init_batch_size": 745,
+          "rps": 52.2,
+          "total_latency": 4.6553,
+          "prefill_latency": 1.7802,
+          "decode_latency": 2.8751,
+          "prefill_tps": 34944.57,
+          "decode_tps": 10818.33,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 8.76,
+            "max_allocated_gb": 8.41
+          }
+        },
+        {
+          "input_len": 256,
+          "output_len": 512,
+          "max_batch_size": 224,
+          "init_batch_size": 686,
+          "rps": 15.0,
+          "total_latency": 14.9306,
+          "prefill_latency": 1.6542,
+          "decode_latency": 13.2764,
+          "prefill_tps": 34665.22,
+          "decode_tps": 8638.47,
+          "memory_stats": {
+            "allocated_gb": 2.89,
+            "reserved_gb": 9.05,
+            "max_allocated_gb": 8.31
+          }
+        }
+      ]
+    }
+  ]
+}
