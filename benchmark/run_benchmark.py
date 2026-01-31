@@ -31,6 +31,16 @@ MODELS_TO_TEST = [
         "path": "./models/Qwen3-1.7B",
         "load_in_4bit": False
     },
+    {
+        "name": "Qwen2-1.5B-GPTQ-4bit",
+        "path": "./models/Qwen2-1.5B-gptq-4bit",
+        "load_in_4bit": False
+    },
+    {
+        "name": "Qwen2-1.5B",
+        "path": "./models/Qwen2-1.5B",
+        "load_in_4bit": False
+    },
 ]
 
 CONFIG = {
@@ -262,36 +272,38 @@ class BenchmarkRunner:
         high = CONFIG["throughput_test"]["max_bs_cap"]
         max_bs = 1
 
-        threshold = 20
+        threshold = 40
         alignment = 8
 
+        test_output_len = output_len
+
         self.logger.info(
-            f" 🔍 极速探测 BS (In={input_len}, Out={output_len}, 步长={alignment}, 阈值={threshold})..."
-        )
+            f" 🔍 探测最大 BS (精准模式: In={input_len}, Out={test_output_len})...")
 
         while (high - low) > threshold:
             mid = (low + high) // 2
 
             if mid > alignment:
                 mid = (mid // alignment) * alignment
-
             if mid <= low:
                 mid = low + alignment
 
             try:
                 self.clear_cache()
-
-                total_len = input_len + output_len
-                dummy_input_ids = torch.randint(0,
-                                                self.tokenizer.vocab_size,
-                                                (mid, total_len),
-                                                device="cuda")
+                inputs = self.generate_dummy_input(mid, input_len)
 
                 with torch.no_grad():
-                    self.model(dummy_input_ids, use_cache=True)
+                    self.model.generate(
+                        **inputs,
+                        max_new_tokens=test_output_len,
+                        min_new_tokens=test_output_len,
+                        do_sample=False,
+                        use_cache=True,
+                        pad_token_id=self.tokenizer.pad_token_id)
 
                 max_bs = mid
                 low = mid
+                # self.logger.debug(f"    ✅ BS={mid} Pass")
 
             except RuntimeError as e:
                 if "out of memory" in str(e).lower():
@@ -303,12 +315,11 @@ class BenchmarkRunner:
                 high = mid
 
         safe_bs = int(max_bs * 0.95)
-
         safe_bs = (safe_bs // alignment) * alignment
         safe_bs = max(1, safe_bs)
 
         self.logger.info(
-            f"    ✅ 探测结束，最大 Batch Size ≈ {safe_bs} (范围锁定在 {low}-{high})")
+            f"    ✅ 探测结束，最大 Batch Size ≈ {safe_bs} (范围 {low}-{high})")
         return safe_bs
 
     def run_throughput_test(self, model_name):
