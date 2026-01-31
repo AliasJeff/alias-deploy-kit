@@ -401,12 +401,22 @@ class BenchmarkRunner:
             self.clear_cache()
             self.logger.info(f"🏁 模型 {model_name} 测试完成。\n")
 
-        try:
-            self.load_model(MODELS_TO_TEST[0])
-            examples = self.run_examples(2)
-            self.all_results["examples"] = examples
-        except:
-            pass
+        self.logger.info("🧪 准备运行样例生成测试...")
+        if self.load_model(MODELS_TO_TEST[0]):
+            try:
+                examples = self.run_examples(2)
+
+                if examples:
+                    self.all_results.append({
+                        "model": MODELS_TO_TEST[0]['name'],
+                        "type": "example_outputs",
+                        "data": examples
+                    })
+            except Exception as e:
+                self.logger.error(f"❌ 运行样例阶段发生错误: {e}")
+        else:
+            self.logger.warning("⚠️ 模型重新加载失败，跳过样例生成阶段（请检查上方日志是否为OOM显存不足）。")
+
         self.save_final_results()
 
 
