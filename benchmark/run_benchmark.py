@@ -267,26 +267,21 @@ class BenchmarkRunner:
 
     # ================= 满显存吞吐测试 =================
     def find_max_batch_size(self, input_len, output_len):
+        """
+        核心逻辑：使用二分查找法寻找不 OOM 的最大 Batch Size。
+        注意：此处为了速度使用 do_sample=False (Greedy)，这会导致显存占用比实际测试略小。
+        """
         low = 1
         high = CONFIG["throughput_test"]["max_bs_cap"]
         max_bs = 1
 
         threshold = 40
-        alignment = 8
-
-        test_output_len = output_len
 
         self.logger.info(
-            f" 🔍 探测最大 BS (精准模式: In={input_len}, Out={test_output_len})...")
+            f"   🔍 探测最大 Batch Size (In={input_len}, Out={output_len})...")
 
         while (high - low) > threshold:
             mid = (low + high) // 2
-
-            if mid > alignment:
-                mid = (mid // alignment) * alignment
-            if mid <= low:
-                mid = low + alignment
-
             try:
                 self.clear_cache()
                 inputs = self.generate_dummy_input(mid, input_len)
@@ -294,32 +289,25 @@ class BenchmarkRunner:
                 with torch.no_grad():
                     self.model.generate(
                         **inputs,
-                        max_new_tokens=test_output_len,
-                        min_new_tokens=test_output_len,
+                        max_new_tokens=output_len,
+                        min_new_tokens=output_len,
                         do_sample=False,
-                        use_cache=True,
                         pad_token_id=self.tokenizer.pad_token_id)
 
                 max_bs = mid
-                low = mid
-                # self.logger.debug(f"    ✅ BS={mid} Pass")
-
+                low = mid + 20
             except RuntimeError as e:
                 if "out of memory" in str(e).lower():
-                    high = mid
+                    high = mid - 20
                 else:
-                    self.logger.warning(f"    ⚠️ BS={mid} 非显存错误: {e}")
-                    high = mid
+                    self.logger.warning(f"      BS={mid} 发生非显存错误: {e}")
+                    high = mid - 20
             except Exception:
-                high = mid
+                high = mid - 20
 
-        safe_bs = int(max_bs * 0.95)
-        safe_bs = (safe_bs // alignment) * alignment
-        safe_bs = max(1, safe_bs)
-
-        self.logger.info(
-            f"    ✅ 探测结束，最大 Batch Size ≈ {safe_bs} (范围 {low}-{high})")
-        return safe_bs
+        max_bs = int(max_bs * 0.9)
+        self.logger.info(f"      ✅ 最大 Batch Size = {max_bs} (预留10%显存)")
+        return max_bs
 
     def run_throughput_test(self, model_name):
         self.logger.info(f"🚀 [{model_name}] 开始极限吞吐测试 (Target: Max Memory)...")
