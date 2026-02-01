@@ -3,10 +3,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import os
+import colorsys  # 引入颜色处理库
 from matplotlib.lines import Line2D
 
-JSON_FILENAME = 'benchmark_results_v2/1__4070-8g.json'
-OUTPUT_FILENAME_BASE = 'benchmark_results_v2.png'
+JSON_FILENAME = 'benchmark_results_v2/2__4090-24g.json'
+OUTPUT_FILENAME_BASE = '2__4090-24g_.png'
 
 
 def load_data(filename):
@@ -50,8 +51,9 @@ def load_data(filename):
 
 def plot_charts_by_batch_size(df):
     """
-    逻辑修改：按 Batch Size 循环绘制图表。
-    每个 Batch Size 生成一张独立图片。
+    按 Batch Size 循环绘制图表。
+    颜色：按模型家族区分色相(Hue)，同家族内亮度(Lightness)不同。
+    线型：awq -> ':', gptq -> '--', 其他 -> '-'。
     """
     try:
         plt.style.use('seaborn-v0_8-whitegrid')
@@ -62,21 +64,66 @@ def plot_charts_by_batch_size(df):
     all_models = sorted(df['model'].unique())
     batch_sizes = sorted(df['batch_size'].unique())
 
-    # === 视觉映射 ===
-    # 策略：一张图是一个固定的 BS，图里的线条对比不同的 Model
-    # 所以我们用【颜色】来区分【Model】
-    colors = plt.cm.tab10(np.linspace(0, 1, len(all_models)))
-    model_color_map = {m: color for m, color in zip(all_models, colors)}
+    # === 1. 颜色与属性生成逻辑 ===
 
-    # 辅助：不同模型也可以用不同线型
-    line_styles = ['-']
-    model_style_map = {
-        m: line_styles[i % len(line_styles)]
-        for i, m in enumerate(all_models)
-    }
+    # 辅助函数：提取家族前缀 (取前两段，例如 "Qwen3-4B")
+    def get_prefix(name):
+        parts = name.split('-')
+        if len(parts) >= 2:
+            return f"{parts[0]}-{parts[1]}"
+        return parts[0]
 
-    # 定义4个图表的配置
-    # (数据列名, 标题, Y轴标签, OOM显示位置模式)
+    # 找出所有唯一的家族
+    unique_families = sorted(list(set(get_prefix(m) for m in all_models)))
+    family_count = len(unique_families)
+
+    model_props = {}
+
+    # 遍历每个家族，分配属性
+    for fam_idx, family in enumerate(unique_families):
+        # 找出属于该家族的所有模型，并排序
+        models_in_fam = sorted(
+            [m for m in all_models if get_prefix(m) == family])
+        count = len(models_in_fam)
+
+        # A. 确定基础色相 (Hue)
+        # 在 0.0 ~ 1.0 之间均匀分布
+        hue = fam_idx / max(family_count, 1)
+        # 稍微偏移一点，避免首尾颜色过于接近
+        if family_count > 1:
+            hue = (fam_idx * (1.0 / family_count)) % 1.0
+
+        for m_idx, model_name in enumerate(models_in_fam):
+            # B. 确定亮度 (Lightness) -> 实现同色系深浅变化
+            # 如果家族里只有一个模型，亮度居中(0.5)
+            # 如果有多个，亮度从深(0.3)到浅(0.7)渐变
+            if count > 1:
+                lightness = 0.35 + (0.4 * (m_idx / (count - 1)))
+            else:
+                lightness = 0.5
+
+            # 饱和度固定，保持色彩鲜艳
+            saturation = 0.75
+
+            # 生成 RGB 颜色
+            rgb_color = colorsys.hls_to_rgb(hue, lightness, saturation)
+
+            # C. 确定线型 (Line Style)
+            name_lower = model_name.lower()
+            if 'awq' in name_lower:
+                linestyle = ':'
+            elif 'gptq' in name_lower:
+                linestyle = '--'  # 点划线
+            else:
+                linestyle = '-'  # 实线
+
+            model_props[model_name] = {
+                'color': rgb_color,
+                'linestyle': linestyle,
+                'marker': 'o'
+            }
+
+    # === 图表配置 ===
     chart_configs = [
         ('gen_speed', 'Generation Speed (Decode)', 'Tokens / sec', 'zero'),
         ('gpu_mem', 'Peak GPU Memory Usage', 'Memory (GB)', 'top'),
@@ -87,36 +134,31 @@ def plot_charts_by_batch_size(df):
     for bs in batch_sizes:
         print(f"正在绘制 Batch Size = {bs} 的图表...")
 
-        # 1. 筛选当前 Batch Size 的数据
         df_bs = df[df['batch_size'] == bs]
         if df_bs.empty:
             continue
 
-        # 2. 创建 2x2 画布
         fig, axes = plt.subplots(2, 2, figsize=(18, 12))
         axes = axes.flatten()
 
-        # 3. 设置整张大图的标题 (包含 Batch Size)
         fig.suptitle(f'Benchmark Analysis - Batch Size: {bs}',
                      fontsize=20,
                      fontweight='bold',
                      y=0.98)
 
-        # 4. 遍历4个指标绘制子图
         for ax, (col, title, ylabel, mode) in zip(axes, chart_configs):
 
-            # --- 特殊处理第4张图：稳定性概览 (Model vs Length) ---
+            # --- 特殊处理：稳定性概览图 ---
             if mode == 'categorical':
-                # Y轴是模型名称，X轴是序列长度
                 yticks = range(len(all_models))
                 ax.set_yticks(yticks)
-                ax.set_yticklabels(all_models)
+                ax.set_yticklabels(all_models, fontsize=10)
 
                 for i, model in enumerate(all_models):
                     subset = df_bs[df_bs['model'] == model]
                     if subset.empty: continue
 
-                    # 画成功的点 (绿色圆点)
+                    # 成功点 (绿色)
                     ok = subset[subset['is_oom'] == False]
                     if not ok.empty:
                         ax.scatter(ok['seq_len'], [i] * len(ok),
@@ -124,7 +166,7 @@ def plot_charts_by_batch_size(df):
                                    s=80,
                                    alpha=0.6)
 
-                    # 画 OOM 的点 (红色叉号)
+                    # OOM 点 (红色叉号)
                     oom = subset[subset['is_oom'] == True]
                     if not oom.empty:
                         ax.scatter(oom['seq_len'], [i] * len(oom),
@@ -136,8 +178,8 @@ def plot_charts_by_batch_size(df):
                 ax.set_title(title, fontsize=14, fontweight='bold')
                 ax.set_xlabel('Sequence Length')
 
-                # 手动创建图例
-                custom_lines = [
+                # OOM 图例
+                status_lines = [
                     Line2D([0], [0],
                            marker='o',
                            color='w',
@@ -151,11 +193,11 @@ def plot_charts_by_batch_size(df):
                            linewidth=2,
                            label='OOM')
                 ]
-                ax.legend(handles=custom_lines, loc='upper right')
+                ax.legend(handles=status_lines, loc='upper right')
                 ax.grid(True, linestyle='--', alpha=0.5)
                 continue
 
-            # 计算当前子图数据的最大值 (用于确定 OOM 标记画在多高)
+            # --- 常规折线图 ---
             valid_vals = df_bs[df_bs['is_oom'] == False][col]
             valid_max = valid_vals.max() if not valid_vals.empty else 10
 
@@ -163,26 +205,26 @@ def plot_charts_by_batch_size(df):
                 subset = df_bs[df_bs['model'] == model]
                 if subset.empty: continue
 
-                # A. 绘制正常数据的连线
+                props = model_props[model]
+
+                # 1. 绘制正常数据
                 valid_data = subset[subset['is_oom'] == False]
                 if not valid_data.empty:
                     ax.plot(valid_data['seq_len'],
                             valid_data[col],
-                            color=model_color_map[model],
-                            linestyle=model_style_map[model],
-                            marker='o',
+                            color=props['color'],
+                            linestyle=props['linestyle'],
+                            marker=props['marker'],
                             markersize=6,
                             linewidth=2,
-                            label=model)  # 图例显示模型名
+                            label=model)
 
-                # B. 绘制 OOM 数据
+                # 2. 绘制 OOM 标记
                 oom_data = subset[subset['is_oom'] == True]
                 if not oom_data.empty:
-                    # 确定 OOM 标记的 Y 轴位置
                     if mode == 'zero':
                         y_vals = [0] * len(oom_data)
                     else:
-                        # 显存/延迟图中，把叉画在最大值的上方 10% 处
                         y_vals = [valid_max * 1.1] * len(oom_data)
 
                     ax.scatter(oom_data['seq_len'],
@@ -193,7 +235,6 @@ def plot_charts_by_batch_size(df):
                                zorder=10,
                                linewidth=2.5)
 
-                    # 标注 OOM 文字
                     for x, y in zip(oom_data['seq_len'], y_vals):
                         ax.text(x,
                                 y,
@@ -208,21 +249,24 @@ def plot_charts_by_batch_size(df):
             ax.set_ylabel(ylabel, fontsize=12)
             ax.grid(True, linestyle='--', alpha=0.7)
 
+            # --- 图例 ---
             if col == 'gen_speed':
+                # 在第一张图绘制详细图例
+                # 提示：由于使用了渐变色，图例会自动展示出深浅不同的颜色
                 ax.legend(loc='best',
                           fontsize='small',
                           frameon=True,
-                          title="Models")
+                          title="Models",
+                          ncol=1)
 
         plt.tight_layout(rect=[0, 0, 1, 0.96])
 
         base, ext = os.path.splitext(OUTPUT_FILENAME_BASE)
-        save_path = os.path.join(os.getcwd(), f"{base}_bs_{bs}{ext}")
+        save_path = os.path.join(os.getcwd(), f"{base}_bs-{bs}{ext}")
 
         plt.savefig(save_path, dpi=300)
         print(f"✅ 图表已保存: {save_path}")
-
-        plt.close(fig)  # 关闭当前画布，释放内存
+        plt.close(fig)
 
 
 if __name__ == "__main__":
