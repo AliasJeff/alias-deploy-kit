@@ -1,15 +1,15 @@
 [
   {
-    "model": "Qwen3-4B-GPTQ-4bit",
+    "model": "Qwen3-1.7B",
     "type": "example_outputs",
     "data": [
       {
         "prompt": "设计商品首页，意图：浏览商品",
-        "response": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html lang=\"zh\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>商品首页</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 0;\n            background-color: #f9f9f9;\n        }\n        header {\n            background-color: #333;\n            color: #fff;\n            padding: 10px 0;\n            text-align: center;\n        }\n        .container {\n            max-width: 1000px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        .product {\n            background-color: #fff;\n            border: 1px solid #ddd;\n            padding: 15px;\n            margin-bottom: 20px;\n            border-radius: 5px;\n        }\n        .product img {\n            width: 100%;\n            max-width: 200px;\n            height: auto;\n            border-radius: 3px;\n        }\n        .product h2 {\n            margin: 10px 0 5px;\n        }\n        .product"
+        "response": "<think>\n\n</think>\n\n```html\n<body>\n  <header>\n    <h1>商品首页</h1>\n    <nav>\n      <ul>\n        <li><a href=\"#\">首页</a></li>\n        <li><a href=\"#\">分类</a></li>\n        <li><a href=\"#\">购物车</a></li>\n        <li><a href=\"#\">我的账户</a></li>\n      </ul>\n    </nav>\n  </header>\n  <main>\n    <section class=\"product-grid\">\n      <div class=\"product-card\">\n        <img src=\"product1.jpg\" alt=\"商品1\">\n        <h2>商品名称1</h2>\n        <p>价格: ¥29.99</p>\n        <button>Add to Cart</button>\n      </div>\n      <div class=\"product-card\">\n        <img src=\"product2.jpg\" alt=\"商品2\">\n        <h2>商品名称2</h2>\n        <p>价格: ¥49.99</p>\n        <button>Add to Cart</button>\n      </div>\n      <div class=\"product-card\">\n        <img src=\"product3.jpg\" alt=\"商品3\">\n"
       },
       {
-        "prompt": "设计商品详情页面，意图：加入购物车",
-        "response": "<think>\n\n</think>\n\n```html\n<!DOCTYPE html>\n<html lang=\"zh\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>商品详情</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 0;\n            background: #f4f4f4;\n        }\n        .container {\n            max-width: 800px;\n            margin: 0 auto;\n            padding: 20px;\n            background: #fff;\n            border-radius: 8px;\n            box-shadow: 0 0 10px rgba(0,0,0,0.1);\n        }\n        .product-image {\n            width: 100%;\n            max-width: 300px;\n            height: auto;\n            border-radius: 8px;\n            box-shadow: 0 0 6px rgba(0,0,0,0.1);\n        }\n        .product-info {\n            margin-top: 20px;\n        }\n        .product-name {\n            font-size: 24px;\n            font-weight: bold;\n        }\n        .product-price {\n            font-size: 1"
+        "prompt": "设计基金页面，意图：查看基金详情",
+        "response": "<think>\n\n</think>\n\n```html\n<body>\n  <div class=\"fund-details\">\n    <h2>基金详情</h2>\n    <p><strong>基金名称:</strong> 例：稳健成长基金</p>\n    <p><strong>基金代码:</strong> 001234</p>\n    <p><strong>管理人:</strong> 例：XX基金管理公司</p>\n    <p><strong>基金规模:</strong> 1.2亿元</p>\n    <p><strong>成立时间:</strong> 2018-05-20</p>\n    <p><strong>最新净值:</strong> 1.05</p>\n    <p><strong>年化收益率:</strong> 8.2%</p>\n    <p><strong>风险等级:</strong> 低风险</p>\n    <p><strong>基金经理:</strong> 例：李明</p>\n    <p><strong>投资策略:</strong> 例：平衡型混合策略</p>\n    <p><strong>基金经理简介:</strong> 例：李明，拥有10年证券从业经验，专注于价值投资"
       }
     ]
   }

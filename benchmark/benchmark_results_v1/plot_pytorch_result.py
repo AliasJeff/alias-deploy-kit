@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import colorsys
 
-TARGET_JSON_FILE = "benchmark_results_v1/new/2__4090-24g.json"  # 请确保路径正确
-IMG_LATENCY = "benchmark_latency_qwen.png"
-IMG_THROUGHPUT_SPLIT = "benchmark_throughput_qwen.png"
+TARGET_JSON_FILE = "benchmark_results_v1/new/1__4070-8g.json"
+IMG_LATENCY = "1__4070-8g__latency_summary.png"
+IMG_THROUGHPUT_SPLIT = "1__4070-8g__throughput_summary.png"
 
 # 设置中文字体，防止乱码
 plt.rcParams['font.sans-serif'] = [
