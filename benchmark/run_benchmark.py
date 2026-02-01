@@ -11,51 +11,51 @@ from datetime import datetime
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODELS_TO_TEST = [
-    {
-        "name": "Qwen3-4B-GPTQ-4bit",
-        "path": "./models/Qwen3-4B-gptq-4bit",
-        "load_in_4bit": False
-    },
+    # {
+    #     "name": "Qwen3-4B-GPTQ-4bit",
+    #     "path": "./models/Qwen3-4B-gptq-4bit",
+    #     "load_in_4bit": False
+    # },
     {
         "name": "Qwen3-4B-AWQ-GEMM-4bit",
         "path": "./models/Qwen3-4B-awq-gemm-4bit",
         "load_in_4bit": False
     },
-    {
-        "name": "Qwen3-4B",
-        "path": "./models/Qwen3-4B",
-        "load_in_4bit": False
-    },
-    {
-        "name": "Qwen3-1.7B-GPTQ-4bit",
-        "path": "./models/Qwen3-1.7B-gptq-4bit",
-        "load_in_4bit": False
-    },
+    # {
+    #     "name": "Qwen3-4B",
+    #     "path": "./models/Qwen3-4B",
+    #     "load_in_4bit": False
+    # },
+    # {
+    #     "name": "Qwen3-1.7B-GPTQ-4bit",
+    #     "path": "./models/Qwen3-1.7B-gptq-4bit",
+    #     "load_in_4bit": False
+    # },
     {
         "name": "Qwen3-1.7B-AWQ-GEMM-4bit",
         "path": "./models/Qwen3-1.7B-awq-gemm-4bit",
         "load_in_4bit": False
     },
-    {
-        "name": "Qwen3-1.7B",
-        "path": "./models/Qwen3-1.7B",
-        "load_in_4bit": False
-    },
-    {
-        "name": "Qwen2-1.5B-GPTQ-4bit",
-        "path": "./models/Qwen2-1.5B-gptq-4bit",
-        "load_in_4bit": False
-    },
+    # {
+    #     "name": "Qwen3-1.7B",
+    #     "path": "./models/Qwen3-1.7B",
+    #     "load_in_4bit": False
+    # },
+    # {
+    #     "name": "Qwen2-1.5B-GPTQ-4bit",
+    #     "path": "./models/Qwen2-1.5B-gptq-4bit",
+    #     "load_in_4bit": False
+    # },
     {
         "name": "Qwen2-1.5B-AWQ-GEMM-4bit",
         "path": "./models/Qwen2-1.5B-awq-gemm-4bit",
         "load_in_4bit": False
     },
-    {
-        "name": "Qwen2-1.5B",
-        "path": "./models/Qwen2-1.5B",
-        "load_in_4bit": False
-    },
+    # {
+    #     "name": "Qwen2-1.5B",
+    #     "path": "./models/Qwen2-1.5B",
+    #     "load_in_4bit": False
+    # },
 ]
 
 CONFIG = {
