@@ -59,7 +59,7 @@ MODELS_TO_TEST = [
 ]
 
 CONFIG = {
-    "result_dir": "./benchmark_results",
+    "result_dir": "./benchmark_results_v1",
     "log_dir": "./benchmark_logs",
     "device": "cuda",
     "torch_dtype": torch.float16,
