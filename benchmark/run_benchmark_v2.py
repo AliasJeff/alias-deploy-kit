@@ -59,8 +59,8 @@ CONFIG = {
     "log_dir": "./benchmark_logs",
     "max_vram_gb": 7.5,
     "max_model_len": 4096,
-    "n_batch_size": [50, 100, 150, 200, 250, 300],
-    "new_tokens": [16, 64, 80, 128, 256, 512, 1024],
+    "n_batch_size": [50, 100, 150, 200, 250, 300, 350, 400, 450, 500],
+    "new_tokens": [16, 64, 128, 256, 512, 1024],
     "system_prompt": "直接生成html代码，不要输出其他任何内容 </no_think>"
 }
 
