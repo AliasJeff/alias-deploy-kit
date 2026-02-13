@@ -1,22 +1,10 @@
-**运行环境**
-
-```
-Name: torch
-Version: 2.5.1+cu121
-Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
-Home-page: https://pytorch.org/
-Author: PyTorch Team
-Author-email: packages@pytorch.org
-License: BSD-3-Clause
-Location: D:\projects\alias-deploy-kit\venv\Lib\site-packages
-Requires: filelock, fsspec, jinja2, networkx, setuptools, sympy, typing-extensions
-Required-by: accelerate, autoawq, autoawq_kernels, bitsandbytes, llmexport, optimum
-```
-
 ```bash
 cd libs/
 ./llm_demo ../models/qwen3-ui-1.7b-mnn-w4-b256/config.json prompt.txt
 ./llm_bench -m ../models/qwen3-ui-1.7b-mnn-w4-b256/config.json -a cpu -t 4 -p 32 -n 32 -rep 3 -kv false
+
+cd benchmark/
+nohup python run_benchmark.py -v > logs/run_benchmark_202601311402.log 2>&1 &
 ```
 
 `llm_demo`的用法如下：

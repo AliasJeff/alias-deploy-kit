@@ -8,8 +8,7 @@ class Config:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     LOG_DIR = os.path.join(BASE_DIR, "logs")
 
-    MODEL_PATH = os.path.join(BASE_DIR, "models",
-                              "qwen3-1.7b-ours-awq-gemm-4bit")
+    MODEL_PATH = os.path.join(BASE_DIR, "models", "Qwen3-1.7B")
 
     DATA_PATH = os.path.join(BASE_DIR, "data", "test_benchmark.json")
 
@@ -17,6 +16,9 @@ class Config:
 
     DEVICE = "cuda" if torch.cuda.is_available(
     ) else "mps" if torch.backends.mps.is_available() else "cpu"
+
+    QUANTIZATION_BITS = 4
+    GROUP_SIZE = 128
 
     TORCH_DTYPE = torch.float16
     LOAD_IN_4BIT = False
