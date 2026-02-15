@@ -19,7 +19,7 @@ def get_prefix(model_name):
 
 def main():
     # 1. 读取 JSON 数据
-    input_file = '1__4070-8g-vllm.json'
+    input_file = 'benchmark_vllm_results.json'
     try:
         with open(input_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
