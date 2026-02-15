@@ -54,14 +54,23 @@ MODELS_TO_TEST = [
 ]
 
 CONFIG = {
-    "data_path": "./data/test_benchmark.json",
-    "result_dir": "./benchmark_results_vllm",
-    "log_dir": "./benchmark_logs",
-    "max_vram_gb": 7.5,
-    "max_model_len": 4096,
-    "n_batch_size": [50, 100, 150, 200, 250, 300, 350, 400, 450, 500],
-    "new_tokens": [16, 64, 128, 256, 512, 1024],
-    "system_prompt": "直接生成html代码，不要输出其他任何内容 </no_think>"
+    "data_path":
+    "./data/test_benchmark.json",
+    "result_dir":
+    "./benchmark_results_vllm",
+    "log_dir":
+    "./benchmark_logs",
+    "max_vram_gb":
+    7.4,
+    "max_model_len":
+    4096,
+    "n_batch_size": [
+        50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375,
+        400, 425, 450, 475, 500
+    ],
+    "new_tokens": [48, 64, 80, 96, 128, 144, 160, 256, 512],
+    "system_prompt":
+    "直接生成html代码，不要输出其他任何内容 </no_think>"
 }
 
 
@@ -130,24 +139,32 @@ class BenchmarkRunner:
             torch.cuda.synchronize()
 
     def _calculate_gpu_utilization(self):
-        """将设定的 GB 转换为 vLLM 的 gpu_memory_utilization 比例"""
+        """动态计算 vLLM 的 gpu_memory_utilization 比例，避免超过真实可用显存"""
         if not torch.cuda.is_available():
-            return 0.9  # 默认值
-
-        max_gb = CONFIG.get("max_vram_gb", None)
-        if max_gb is None or max_gb <= 0:
             return 0.9
 
         device_idx = torch.cuda.current_device()
-        total_bytes = torch.cuda.get_device_properties(device_idx).total_memory
+
+        # 获取真实空闲显存和物理总显存
+        free_bytes, total_bytes = torch.cuda.mem_get_info(device_idx)
+        free_gb = free_bytes / (1024**3)
         total_gb = total_bytes / (1024**3)
 
-        # vLLM 需要留一部分给 PyTorch 运行时的开销
-        utilization = max(0.1, min(0.99, max_gb / total_gb))
+        max_gb = CONFIG.get("max_vram_gb", 7.5)
+
+        # 核心修改：实际分配绝对不能超过当前空闲显存，并预留 0.3GB 防爆显存
+        safe_alloc_gb = min(max_gb, free_gb - 0.3)
+        if safe_alloc_gb <= 0:
+            safe_alloc_gb = 0.5  # 兜底防止报错
+
+        # vLLM 需要的参数是基于“物理总显存”的比例
+        utilization = max(0.1, min(0.99, safe_alloc_gb / total_gb))
+
         self.logger.info(
-            f"🧩 vLLM 显存分配比例 (gpu_memory_utilization): {utilization:.4f} (约 {max_gb}GB / {total_gb:.2f}GB)"
+            f"🧩 vLLM 显存分配比例: {utilization:.4f} "
+            f"(计划分配约 {safe_alloc_gb:.2f}GB / 真实空闲 {free_gb:.2f}GB / 总计 {total_gb:.2f}GB)"
         )
-        return utilization
+        return float(utilization)
 
     def load_model(self, model_conf):
         self.logger.info(
