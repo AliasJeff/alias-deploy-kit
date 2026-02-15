@@ -33,7 +33,7 @@ def main():
     models_set = set()
 
     for item in data:
-        # --- 修改点 1: 如果存在 error 字段且不为空，直接跳过不显示 ---
+        # 如果存在 error 字段且不为空，直接跳过不显示
         if item.get('error'):
             continue
 
@@ -66,6 +66,8 @@ def main():
     ]
     model_colors = {}
 
+    # 这里 i 是组的索引，prefix 是组名，group_models 是该组下的模型列表
+    # enumerate 需要在 items() 上进行
     for i, (prefix, group_models) in enumerate(prefix_groups.items()):
         cmap_name = cmaps[i % len(cmaps)]
         cmap = plt.get_cmap(cmap_name)
@@ -94,13 +96,27 @@ def main():
     for idx, tokens in enumerate(sorted_tokens):
         ax = axes_flat[idx]
 
-        # 在 y=50 处画红色的目标虚线
-        ax.axhline(y=50,
-                   color='red',
-                   linestyle='--',
-                   linewidth=2,
-                   label='Target (50 req/s)',
-                   zorder=1)
+        # 获取当前子图中所有模型的所有 RPS 数据点
+        all_rps_in_plot = []
+        for model in sorted_models:
+            if model in data_map[tokens]:
+                points = data_map[tokens][model]
+                for p in points:
+                    all_rps_in_plot.append(p[1])  # p[1] 是 rps
+
+        # 只有当数据存在，且最小值小于等于 50 时，才画红线
+        # 换句话说：如果最小值 > 50 (所有曲线都在 50 之上)，则不画
+        should_draw_line = True
+        if all_rps_in_plot and min(all_rps_in_plot) > 50:
+            should_draw_line = False
+
+        if should_draw_line:
+            ax.axhline(y=50,
+                       color='red',
+                       linestyle='--',
+                       linewidth=2,
+                       label='Target (50 req/s)',
+                       zorder=1)
 
         # 遍历所有模型并绘制折线
         for model in sorted_models:
@@ -128,18 +144,25 @@ def main():
         ax.set_ylabel('Req / s', fontsize=11)
         ax.grid(True, linestyle=':', alpha=0.7)
 
-        # --- 修改点 2: 仅在第一张图（idx == 0）显示图例 ---
+        # 仅在第一张图（idx == 0）显示图例
         if idx == 0:
-            # 提取图例并去重（确保 Target 线始终排在第一个）
+            # 提取图例并去重
             handles, labels = ax.get_legend_handles_labels()
             by_label = dict(zip(labels, handles))
 
             # 构建排序后的图例列表
-            sorted_labels = ['Target (50 req/s)'
-                             ] + [m for m in sorted_models if m in by_label]
-            sorted_handles = [
-                by_label[lbl] for lbl in sorted_labels if lbl in by_label
-            ]
+            # 如果 'Target (50 req/s)' 因为所有点都 >50 而没画，它就不会出现在 by_label 中，下面的代码会自动忽略它
+            target_label = 'Target (50 req/s)'
+            sorted_labels = []
+
+            # 如果 Target 存在于当前图例中，先加进去
+            if target_label in by_label:
+                sorted_labels.append(target_label)
+
+            # 再加入其他模型
+            sorted_labels.extend([m for m in sorted_models if m in by_label])
+
+            sorted_handles = [by_label[lbl] for lbl in sorted_labels]
 
             ax.legend(sorted_handles, sorted_labels, fontsize=9)
 
