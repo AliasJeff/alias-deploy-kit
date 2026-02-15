@@ -10,3 +10,4 @@ psutil
 autoawq
 optimum
 # pip install -v gptqmodel --no-build-isolation --no-deps
+vllm
