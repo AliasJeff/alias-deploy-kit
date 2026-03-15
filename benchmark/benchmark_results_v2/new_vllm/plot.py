@@ -19,7 +19,7 @@ def get_prefix(model_name):
 
 def main():
     # 1. 读取 JSON 数据
-    input_file = 'benchmark_vllm_results.json'
+    input_file = '2__4090-24g-vllm.json'
     try:
         with open(input_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -40,7 +40,8 @@ def main():
         model = item['model']
         batch_size = item['config']['batch_size']
         max_new_tokens = item['config']['max_new_tokens']
-        rps = item['metrics']['request_per_second']
+        # 只计算 decode 时间
+        rps = round(batch_size / item['metrics']['decode_time_s'], 1)
 
         data_map[max_new_tokens][model].append((batch_size, rps))
         models_set.add(model)
@@ -82,7 +83,7 @@ def main():
 
     # 4. 计算子图布局 (一行最多 3 个)
     n_plots = len(sorted_tokens)
-    cols = min(3, n_plots)
+    cols = min(4, n_plots)
     rows = math.ceil(n_plots / cols)
 
     # 创建画布，squeeze=False 确保 axes 始终是二维矩阵，方便索引和平铺
@@ -140,8 +141,8 @@ def main():
         ax.set_title(f'max_new_tokens = {tokens}',
                      fontsize=13,
                      fontweight='bold')
-        ax.set_xlabel('Batch Size', fontsize=11)
-        ax.set_ylabel('Req / s', fontsize=11)
+        ax.set_xlabel('用户并发请求', fontsize=11)
+        ax.set_ylabel('每秒处理请求数', fontsize=11)
         ax.grid(True, linestyle=':', alpha=0.7)
 
         # 仅在第一张图（idx == 0）显示图例

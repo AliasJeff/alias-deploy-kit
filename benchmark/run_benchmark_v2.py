@@ -39,18 +39,6 @@ MODELS_TO_TEST = [
         "name": "Qwen3-1.7B",
         "path": "./models/Qwen3-1.7B"
     },
-    {
-        "name": "Qwen2-1.5B-GPTQ-4bit",
-        "path": "./models/Qwen2-1.5B-gptq-4bit",
-    },
-    {
-        "name": "Qwen2-1.5B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen2-1.5B-awq-gemm-4bit",
-    },
-    {
-        "name": "Qwen2-1.5B",
-        "path": "./models/Qwen2-1.5B",
-    },
 ]
 
 CONFIG = {
