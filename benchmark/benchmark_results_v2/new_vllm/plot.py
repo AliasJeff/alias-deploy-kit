@@ -4,6 +4,9 @@ from collections import defaultdict
 import matplotlib.pyplot as plt
 import numpy as np
 
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
 
 def get_prefix(model_name):
     """
@@ -142,7 +145,7 @@ def main():
                      fontsize=13,
                      fontweight='bold')
         ax.set_xlabel('用户并发请求', fontsize=11)
-        ax.set_ylabel('每秒处理请求数', fontsize=11)
+        ax.set_ylabel('每秒处理用户请求数', fontsize=11)
         ax.grid(True, linestyle=':', alpha=0.7)
 
         # 仅在第一张图（idx == 0）显示图例

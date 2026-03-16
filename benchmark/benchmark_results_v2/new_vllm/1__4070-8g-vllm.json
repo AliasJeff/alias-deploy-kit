@@ -1444,7 +1444,7 @@
     "timestamp": "2026-03-15T13:20:30.804371"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 50,
       "max_new_tokens": 80
@@ -1463,7 +1463,7 @@
     "timestamp": "2026-03-15T13:22:33.297418"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 50,
       "max_new_tokens": 100
@@ -1482,7 +1482,7 @@
     "timestamp": "2026-03-15T13:22:35.355914"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 50,
       "max_new_tokens": 128
@@ -1501,7 +1501,7 @@
     "timestamp": "2026-03-15T13:22:38.028156"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 50,
       "max_new_tokens": 140
@@ -1520,7 +1520,7 @@
     "timestamp": "2026-03-15T13:22:40.978179"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 75,
       "max_new_tokens": 80
@@ -1539,7 +1539,7 @@
     "timestamp": "2026-03-15T13:23:39.280396"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 75,
       "max_new_tokens": 100
@@ -1558,7 +1558,7 @@
     "timestamp": "2026-03-15T13:23:41.981239"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 75,
       "max_new_tokens": 128
@@ -1577,7 +1577,7 @@
     "timestamp": "2026-03-15T13:23:45.493101"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 75,
       "max_new_tokens": 140
@@ -1596,7 +1596,7 @@
     "timestamp": "2026-03-15T13:23:49.349182"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 100,
       "max_new_tokens": 80
@@ -1615,7 +1615,7 @@
     "timestamp": "2026-03-15T13:25:06.427902"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 100,
       "max_new_tokens": 100
@@ -1634,7 +1634,7 @@
     "timestamp": "2026-03-15T13:25:09.926408"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 100,
       "max_new_tokens": 128
@@ -1653,7 +1653,7 @@
     "timestamp": "2026-03-15T13:25:14.469651"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 100,
       "max_new_tokens": 140
@@ -1672,7 +1672,7 @@
     "timestamp": "2026-03-15T13:25:22.400666"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 125,
       "max_new_tokens": 80
@@ -1691,7 +1691,7 @@
     "timestamp": "2026-03-15T13:26:52.204833"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 125,
       "max_new_tokens": 100
@@ -1710,7 +1710,7 @@
     "timestamp": "2026-03-15T13:26:55.971591"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 125,
       "max_new_tokens": 128
@@ -1729,7 +1729,7 @@
     "timestamp": "2026-03-15T13:27:01.072919"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 125,
       "max_new_tokens": 140
@@ -1748,7 +1748,7 @@
     "timestamp": "2026-03-15T13:27:09.783369"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 150,
       "max_new_tokens": 80
@@ -1767,7 +1767,7 @@
     "timestamp": "2026-03-15T13:29:01.227329"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 150,
       "max_new_tokens": 100
@@ -1786,7 +1786,7 @@
     "timestamp": "2026-03-15T13:29:06.020391"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 150,
       "max_new_tokens": 128
@@ -1805,7 +1805,7 @@
     "timestamp": "2026-03-15T13:29:13.224533"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 150,
       "max_new_tokens": 140
@@ -1824,7 +1824,7 @@
     "timestamp": "2026-03-15T13:29:21.238016"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 175,
       "max_new_tokens": 80
@@ -1843,7 +1843,7 @@
     "timestamp": "2026-03-15T13:31:31.770229"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 175,
       "max_new_tokens": 100
@@ -1862,7 +1862,7 @@
     "timestamp": "2026-03-15T13:31:37.880185"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 175,
       "max_new_tokens": 128
@@ -1881,7 +1881,7 @@
     "timestamp": "2026-03-15T13:31:49.558989"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 175,
       "max_new_tokens": 140
@@ -1900,7 +1900,7 @@
     "timestamp": "2026-03-15T13:31:59.190468"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 200,
       "max_new_tokens": 80
@@ -1919,7 +1919,7 @@
     "timestamp": "2026-03-15T13:34:32.479151"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 200,
       "max_new_tokens": 100
@@ -1938,7 +1938,7 @@
     "timestamp": "2026-03-15T13:34:42.747811"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 200,
       "max_new_tokens": 128
@@ -1957,7 +1957,7 @@
     "timestamp": "2026-03-15T13:34:53.079457"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 200,
       "max_new_tokens": 140
@@ -1976,7 +1976,7 @@
     "timestamp": "2026-03-15T13:35:04.387987"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 225,
       "max_new_tokens": 80
@@ -1995,7 +1995,7 @@
     "timestamp": "2026-03-15T13:37:53.394563"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 225,
       "max_new_tokens": 100
@@ -2014,7 +2014,7 @@
     "timestamp": "2026-03-15T13:38:02.129645"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 225,
       "max_new_tokens": 128
@@ -2033,7 +2033,7 @@
     "timestamp": "2026-03-15T13:38:16.941164"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 225,
       "max_new_tokens": 140
@@ -2052,7 +2052,7 @@
     "timestamp": "2026-03-15T13:38:29.909918"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 250,
       "max_new_tokens": 80
@@ -2071,7 +2071,7 @@
     "timestamp": "2026-03-15T13:41:38.868121"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 250,
       "max_new_tokens": 100
@@ -2090,7 +2090,7 @@
     "timestamp": "2026-03-15T13:41:48.751165"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 250,
       "max_new_tokens": 128
@@ -2109,7 +2109,7 @@
     "timestamp": "2026-03-15T13:42:02.022660"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 250,
       "max_new_tokens": 140
@@ -2128,7 +2128,7 @@
     "timestamp": "2026-03-15T13:42:16.470747"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 275,
       "max_new_tokens": 80
@@ -2147,7 +2147,7 @@
     "timestamp": "2026-03-15T13:45:47.866474"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 275,
       "max_new_tokens": 100
@@ -2166,7 +2166,7 @@
     "timestamp": "2026-03-15T13:45:58.954927"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 275,
       "max_new_tokens": 128
@@ -2185,7 +2185,7 @@
     "timestamp": "2026-03-15T13:46:16.423412"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 275,
       "max_new_tokens": 140
@@ -2204,7 +2204,7 @@
     "timestamp": "2026-03-15T13:46:32.243692"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 300,
       "max_new_tokens": 80
@@ -2223,7 +2223,7 @@
     "timestamp": "2026-03-15T13:50:24.423359"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 300,
       "max_new_tokens": 100
@@ -2242,7 +2242,7 @@
     "timestamp": "2026-03-15T13:50:36.124630"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 300,
       "max_new_tokens": 128
@@ -2261,7 +2261,7 @@
     "timestamp": "2026-03-15T13:50:54.526432"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 300,
       "max_new_tokens": 140
@@ -2280,7 +2280,7 @@
     "timestamp": "2026-03-15T13:51:11.353102"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 325,
       "max_new_tokens": 80
@@ -2299,7 +2299,7 @@
     "timestamp": "2026-03-15T13:55:25.199061"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 325,
       "max_new_tokens": 100
@@ -2318,7 +2318,7 @@
     "timestamp": "2026-03-15T13:55:40.820924"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 325,
       "max_new_tokens": 128
@@ -2337,7 +2337,7 @@
     "timestamp": "2026-03-15T13:55:57.359010"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 325,
       "max_new_tokens": 140
@@ -2356,7 +2356,7 @@
     "timestamp": "2026-03-15T13:56:18.636046"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 350,
       "max_new_tokens": 80
@@ -2375,7 +2375,7 @@
     "timestamp": "2026-03-15T14:00:52.064009"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 350,
       "max_new_tokens": 100
@@ -2394,7 +2394,7 @@
     "timestamp": "2026-03-15T14:01:08.483168"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 350,
       "max_new_tokens": 128
@@ -2413,7 +2413,7 @@
     "timestamp": "2026-03-15T14:01:26.715522"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 350,
       "max_new_tokens": 140
@@ -2432,7 +2432,7 @@
     "timestamp": "2026-03-15T14:01:50.357137"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 375,
       "max_new_tokens": 80
@@ -2451,7 +2451,7 @@
     "timestamp": "2026-03-15T14:06:44.692212"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 375,
       "max_new_tokens": 100
@@ -2470,7 +2470,7 @@
     "timestamp": "2026-03-15T14:06:58.995744"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 375,
       "max_new_tokens": 128
@@ -2489,7 +2489,7 @@
     "timestamp": "2026-03-15T14:07:21.992700"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 375,
       "max_new_tokens": 140
@@ -2508,7 +2508,7 @@
     "timestamp": "2026-03-15T14:07:46.908065"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 400,
       "max_new_tokens": 80
@@ -2527,7 +2527,7 @@
     "timestamp": "2026-03-15T14:13:04.026598"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 400,
       "max_new_tokens": 100
@@ -2546,7 +2546,7 @@
     "timestamp": "2026-03-15T14:13:19.022821"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 400,
       "max_new_tokens": 128
@@ -2565,7 +2565,7 @@
     "timestamp": "2026-03-15T14:13:44.463838"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 400,
       "max_new_tokens": 140
@@ -2584,7 +2584,7 @@
     "timestamp": "2026-03-15T14:14:10.560564"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 425,
       "max_new_tokens": 80
@@ -2603,7 +2603,7 @@
     "timestamp": "2026-03-15T14:19:45.496715"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 425,
       "max_new_tokens": 100
@@ -2622,7 +2622,7 @@
     "timestamp": "2026-03-15T14:20:04.881514"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 425,
       "max_new_tokens": 128
@@ -2641,7 +2641,7 @@
     "timestamp": "2026-03-15T14:20:29.003489"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 425,
       "max_new_tokens": 140
@@ -2660,7 +2660,7 @@
     "timestamp": "2026-03-15T14:20:58.467104"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 450,
       "max_new_tokens": 80
@@ -2679,7 +2679,7 @@
     "timestamp": "2026-03-15T14:26:56.125591"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 450,
       "max_new_tokens": 100
@@ -2698,7 +2698,7 @@
     "timestamp": "2026-03-15T14:27:13.971206"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 450,
       "max_new_tokens": 128
@@ -2717,7 +2717,7 @@
     "timestamp": "2026-03-15T14:27:42.397328"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 450,
       "max_new_tokens": 140
@@ -2736,7 +2736,7 @@
     "timestamp": "2026-03-15T14:28:11.926975"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 475,
       "max_new_tokens": 80
@@ -2755,7 +2755,7 @@
     "timestamp": "2026-03-15T14:34:32.342798"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 475,
       "max_new_tokens": 100
@@ -2774,7 +2774,7 @@
     "timestamp": "2026-03-15T14:34:51.395115"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 475,
       "max_new_tokens": 128
@@ -2793,7 +2793,7 @@
     "timestamp": "2026-03-15T14:35:21.388265"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 475,
       "max_new_tokens": 140
@@ -2812,7 +2812,7 @@
     "timestamp": "2026-03-15T14:35:54.008032"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 500,
       "max_new_tokens": 80
@@ -2831,7 +2831,7 @@
     "timestamp": "2026-03-15T14:42:34.593636"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 500,
       "max_new_tokens": 100
@@ -2850,7 +2850,7 @@
     "timestamp": "2026-03-15T14:42:54.996695"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 500,
       "max_new_tokens": 128
@@ -2869,7 +2869,7 @@
     "timestamp": "2026-03-15T14:43:26.301654"
   },
   {
-    "model": "Qwen3-4B-AWQ-GEMM-4bit",
+    "model": "Qwen3-4B-AWQ-4bit",
     "config": {
       "batch_size": 500,
       "max_new_tokens": 140
@@ -4332,7 +4332,7 @@
     "timestamp": "2026-03-15T15:26:34.755378"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 50,
       "max_new_tokens": 80
@@ -4351,7 +4351,7 @@
     "timestamp": "2026-03-15T15:27:41.885584"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 50,
       "max_new_tokens": 100
@@ -4370,7 +4370,7 @@
     "timestamp": "2026-03-15T15:27:43.021303"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 50,
       "max_new_tokens": 128
@@ -4389,7 +4389,7 @@
     "timestamp": "2026-03-15T15:27:44.504599"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 50,
       "max_new_tokens": 140
@@ -4408,7 +4408,7 @@
     "timestamp": "2026-03-15T15:27:46.142728"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 75,
       "max_new_tokens": 80
@@ -4427,7 +4427,7 @@
     "timestamp": "2026-03-15T15:28:20.477768"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 75,
       "max_new_tokens": 100
@@ -4446,7 +4446,7 @@
     "timestamp": "2026-03-15T15:28:21.974508"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 75,
       "max_new_tokens": 128
@@ -4465,7 +4465,7 @@
     "timestamp": "2026-03-15T15:28:23.931463"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 75,
       "max_new_tokens": 140
@@ -4484,7 +4484,7 @@
     "timestamp": "2026-03-15T15:28:26.093437"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 100,
       "max_new_tokens": 80
@@ -4503,7 +4503,7 @@
     "timestamp": "2026-03-15T15:29:08.695124"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 100,
       "max_new_tokens": 100
@@ -4522,7 +4522,7 @@
     "timestamp": "2026-03-15T15:29:10.576943"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 100,
       "max_new_tokens": 128
@@ -4541,7 +4541,7 @@
     "timestamp": "2026-03-15T15:29:13.037434"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 100,
       "max_new_tokens": 140
@@ -4560,7 +4560,7 @@
     "timestamp": "2026-03-15T15:29:15.749569"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 125,
       "max_new_tokens": 80
@@ -4579,7 +4579,7 @@
     "timestamp": "2026-03-15T15:30:08.036574"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 125,
       "max_new_tokens": 100
@@ -4598,7 +4598,7 @@
     "timestamp": "2026-03-15T15:30:10.074669"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 125,
       "max_new_tokens": 128
@@ -4617,7 +4617,7 @@
     "timestamp": "2026-03-15T15:30:12.752062"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 125,
       "max_new_tokens": 140
@@ -4636,7 +4636,7 @@
     "timestamp": "2026-03-15T15:30:15.727810"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 150,
       "max_new_tokens": 80
@@ -4655,7 +4655,7 @@
     "timestamp": "2026-03-15T15:31:15.683127"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 150,
       "max_new_tokens": 100
@@ -4674,7 +4674,7 @@
     "timestamp": "2026-03-15T15:31:18.226273"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 150,
       "max_new_tokens": 128
@@ -4693,7 +4693,7 @@
     "timestamp": "2026-03-15T15:31:21.559277"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 150,
       "max_new_tokens": 140
@@ -4712,7 +4712,7 @@
     "timestamp": "2026-03-15T15:31:25.227357"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 175,
       "max_new_tokens": 80
@@ -4731,7 +4731,7 @@
     "timestamp": "2026-03-15T15:32:33.929481"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 175,
       "max_new_tokens": 100
@@ -4750,7 +4750,7 @@
     "timestamp": "2026-03-15T15:32:36.730930"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 175,
       "max_new_tokens": 128
@@ -4769,7 +4769,7 @@
     "timestamp": "2026-03-15T15:32:40.406842"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 175,
       "max_new_tokens": 140
@@ -4788,7 +4788,7 @@
     "timestamp": "2026-03-15T15:32:44.474718"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 200,
       "max_new_tokens": 80
@@ -4807,7 +4807,7 @@
     "timestamp": "2026-03-15T15:34:00.588999"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 200,
       "max_new_tokens": 100
@@ -4826,7 +4826,7 @@
     "timestamp": "2026-03-15T15:34:06.623858"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 200,
       "max_new_tokens": 128
@@ -4845,7 +4845,7 @@
     "timestamp": "2026-03-15T15:34:10.694078"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 200,
       "max_new_tokens": 140
@@ -4864,7 +4864,7 @@
     "timestamp": "2026-03-15T15:34:15.196587"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 225,
       "max_new_tokens": 80
@@ -4883,7 +4883,7 @@
     "timestamp": "2026-03-15T15:35:38.751563"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 225,
       "max_new_tokens": 100
@@ -4902,7 +4902,7 @@
     "timestamp": "2026-03-15T15:35:42.297197"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 225,
       "max_new_tokens": 128
@@ -4921,7 +4921,7 @@
     "timestamp": "2026-03-15T15:35:46.943324"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 225,
       "max_new_tokens": 140
@@ -4940,7 +4940,7 @@
     "timestamp": "2026-03-15T15:35:55.035182"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 250,
       "max_new_tokens": 80
@@ -4959,7 +4959,7 @@
     "timestamp": "2026-03-15T15:37:27.902961"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 250,
       "max_new_tokens": 100
@@ -4978,7 +4978,7 @@
     "timestamp": "2026-03-15T15:37:31.613207"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 250,
       "max_new_tokens": 128
@@ -4997,7 +4997,7 @@
     "timestamp": "2026-03-15T15:37:39.688533"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 250,
       "max_new_tokens": 140
@@ -5016,7 +5016,7 @@
     "timestamp": "2026-03-15T15:37:45.487321"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 275,
       "max_new_tokens": 80
@@ -5035,7 +5035,7 @@
     "timestamp": "2026-03-15T15:39:32.337272"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 275,
       "max_new_tokens": 100
@@ -5054,7 +5054,7 @@
     "timestamp": "2026-03-15T15:39:36.823372"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 275,
       "max_new_tokens": 128
@@ -5073,7 +5073,7 @@
     "timestamp": "2026-03-15T15:39:43.035670"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 275,
       "max_new_tokens": 140
@@ -5092,7 +5092,7 @@
     "timestamp": "2026-03-15T15:39:50.041051"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 300,
       "max_new_tokens": 80
@@ -5111,7 +5111,7 @@
     "timestamp": "2026-03-15T15:41:45.055897"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 300,
       "max_new_tokens": 100
@@ -5130,7 +5130,7 @@
     "timestamp": "2026-03-15T15:41:49.788189"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 300,
       "max_new_tokens": 128
@@ -5149,7 +5149,7 @@
     "timestamp": "2026-03-15T15:42:00.749855"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 300,
       "max_new_tokens": 140
@@ -5168,7 +5168,7 @@
     "timestamp": "2026-03-15T15:42:08.156539"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 325,
       "max_new_tokens": 80
@@ -5187,7 +5187,7 @@
     "timestamp": "2026-03-15T15:44:12.745170"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 325,
       "max_new_tokens": 100
@@ -5206,7 +5206,7 @@
     "timestamp": "2026-03-15T15:44:17.939261"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 325,
       "max_new_tokens": 128
@@ -5225,7 +5225,7 @@
     "timestamp": "2026-03-15T15:44:25.192231"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 325,
       "max_new_tokens": 140
@@ -5244,7 +5244,7 @@
     "timestamp": "2026-03-15T15:44:33.291728"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 350,
       "max_new_tokens": 80
@@ -5263,7 +5263,7 @@
     "timestamp": "2026-03-15T15:46:49.163248"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 350,
       "max_new_tokens": 100
@@ -5282,7 +5282,7 @@
     "timestamp": "2026-03-15T15:46:54.755023"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 350,
       "max_new_tokens": 128
@@ -5301,7 +5301,7 @@
     "timestamp": "2026-03-15T15:47:05.439877"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 350,
       "max_new_tokens": 140
@@ -5320,7 +5320,7 @@
     "timestamp": "2026-03-15T15:47:14.041874"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 375,
       "max_new_tokens": 80
@@ -5339,7 +5339,7 @@
     "timestamp": "2026-03-15T15:49:41.266562"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 375,
       "max_new_tokens": 100
@@ -5358,7 +5358,7 @@
     "timestamp": "2026-03-15T15:49:47.350828"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 375,
       "max_new_tokens": 128
@@ -5377,7 +5377,7 @@
     "timestamp": "2026-03-15T15:49:55.683831"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 375,
       "max_new_tokens": 140
@@ -5396,7 +5396,7 @@
     "timestamp": "2026-03-15T15:50:04.946946"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 400,
       "max_new_tokens": 80
@@ -5415,7 +5415,7 @@
     "timestamp": "2026-03-15T15:52:41.380370"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 400,
       "max_new_tokens": 100
@@ -5434,7 +5434,7 @@
     "timestamp": "2026-03-15T15:52:47.765566"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 400,
       "max_new_tokens": 128
@@ -5453,7 +5453,7 @@
     "timestamp": "2026-03-15T15:52:56.546613"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 400,
       "max_new_tokens": 140
@@ -5472,7 +5472,7 @@
     "timestamp": "2026-03-15T15:53:09.257319"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 425,
       "max_new_tokens": 80
@@ -5491,7 +5491,7 @@
     "timestamp": "2026-03-15T15:55:52.473281"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 425,
       "max_new_tokens": 100
@@ -5510,7 +5510,7 @@
     "timestamp": "2026-03-15T15:55:59.358620"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 425,
       "max_new_tokens": 128
@@ -5529,7 +5529,7 @@
     "timestamp": "2026-03-15T15:56:08.706641"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 425,
       "max_new_tokens": 140
@@ -5548,7 +5548,7 @@
     "timestamp": "2026-03-15T15:56:21.983596"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 450,
       "max_new_tokens": 80
@@ -5567,7 +5567,7 @@
     "timestamp": "2026-03-15T15:59:18.009988"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 450,
       "max_new_tokens": 100
@@ -5586,7 +5586,7 @@
     "timestamp": "2026-03-15T15:59:25.262606"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 450,
       "max_new_tokens": 128
@@ -5605,7 +5605,7 @@
     "timestamp": "2026-03-15T15:59:35.005846"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 450,
       "max_new_tokens": 140
@@ -5624,7 +5624,7 @@
     "timestamp": "2026-03-15T15:59:45.852558"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 475,
       "max_new_tokens": 80
@@ -5643,7 +5643,7 @@
     "timestamp": "2026-03-15T16:02:51.047611"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 475,
       "max_new_tokens": 100
@@ -5662,7 +5662,7 @@
     "timestamp": "2026-03-15T16:03:03.008865"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 475,
       "max_new_tokens": 128
@@ -5681,7 +5681,7 @@
     "timestamp": "2026-03-15T16:03:13.318072"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 475,
       "max_new_tokens": 140
@@ -5700,7 +5700,7 @@
     "timestamp": "2026-03-15T16:03:24.646707"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 500,
       "max_new_tokens": 80
@@ -5719,7 +5719,7 @@
     "timestamp": "2026-03-15T16:06:42.679098"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 500,
       "max_new_tokens": 100
@@ -5738,7 +5738,7 @@
     "timestamp": "2026-03-15T16:06:50.783827"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 500,
       "max_new_tokens": 128
@@ -5757,7 +5757,7 @@
     "timestamp": "2026-03-15T16:07:01.907880"
   },
   {
-    "model": "Qwen3-1.7B-AWQ-GEMM-4bit",
+    "model": "Qwen3-1.7B-AWQ-4bit",
     "config": {
       "batch_size": 500,
       "max_new_tokens": 140
