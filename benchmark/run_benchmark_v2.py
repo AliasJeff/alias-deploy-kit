@@ -39,18 +39,6 @@ MODELS_TO_TEST = [
         "name": "Qwen3-1.7B",
         "path": "./models/Qwen3-1.7B"
     },
-    {
-        "name": "Qwen2-1.5B-GPTQ-4bit",
-        "path": "./models/Qwen2-1.5B-gptq-4bit",
-    },
-    {
-        "name": "Qwen2-1.5B-AWQ-GEMM-4bit",
-        "path": "./models/Qwen2-1.5B-awq-gemm-4bit",
-    },
-    {
-        "name": "Qwen2-1.5B",
-        "path": "./models/Qwen2-1.5B",
-    },
 ]
 
 CONFIG = {
@@ -68,7 +56,7 @@ CONFIG = {
         50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375,
         400, 425, 450, 475, 500
     ],
-    "new_tokens": [48, 64, 80, 96, 128, 144, 160, 256, 512],
+    "new_tokens": [80, 100, 128, 140, 160],
     "system_prompt":
     "直接生成html代码，不要输出其他任何内容 </no_think>"
 }
@@ -195,12 +183,88 @@ class BenchmarkRunner:
             self.logger.error(f"❌ 模型加载失败: {e}")
             return False
 
+    def calibrate_time_ratio(self, batch_size):
+        """
+        通过探针请求获取模型的 prefill 和 decode 时间的基准比例，代替默认的 0.15 假设。
+        算法：
+        1. measure latency for input_len=1000, output_len=1 -> 得到 prefill latency (1000 tokens)
+        2. measure latency for input_len=1, output_len=1 -> 得到 average latency A
+        3. measure latency for input_len=1, output_len=1000 -> 得到 average latency B
+        4. (B - A) / 999 得到 decode latency per token
+        """
+        self.logger.info(
+            f"⚖️ 开始耗时探针校准，计算真实 Prefill/Decode 比例 (BS={batch_size})...")
+        try:
+            # 尝试获取一个合法的 token_id，避免 OOV 或者特殊的 EOS token 导致提前结束
+            try:
+                token_id = self.tokenizer.encode("Hello")[-1]
+            except Exception:
+                token_id = 10
+
+            def _measure(in_len, out_len):
+                token_ids = [[token_id] * in_len for _ in range(batch_size)]
+                sp = SamplingParams(temperature=0.0,
+                                    max_tokens=out_len,
+                                    ignore_eos=True)
+
+                t0 = time.perf_counter()
+                try:
+                    # 较新版本 vLLM 支持传入 Dict 形式
+                    prompts_dict = [{
+                        "prompt_token_ids": ids
+                    } for ids in token_ids]
+                    self.model.generate(prompts=prompts_dict,
+                                        sampling_params=sp,
+                                        use_tqdm=False)
+                except Exception:
+                    # 兼容旧版本 vLLM 直接传 prompt_token_ids 的方式
+                    self.model.generate(prompts=None,
+                                        prompt_token_ids=token_ids,
+                                        sampling_params=sp,
+                                        use_tqdm=False)
+                return time.perf_counter() - t0
+
+            # 预热一下，避免首次推理包含 CUDA 初始化的额外开销
+            _measure(1, 1)
+
+            # 1. measure latency for input_len=1000, output_len=1
+            latency_1000_1 = _measure(1000, 1)
+
+            # 2. measure latency for input_len=1, output_len=1 (A)
+            latency_A = _measure(1, 1)
+
+            # 3. measure latency for input_len=1, output_len=1000 (B)
+            latency_B = _measure(1, 1000)
+
+            # 计算单 token 的 Decode 耗时
+            self.calib_decode_per_token = max((latency_B - latency_A) / 999.0,
+                                              1e-6)
+
+            # latency_1000_1 包含 1000 个 token 的 prefill 和 1 个 token 的 decode
+            # 我们按照你的算法思路，将其除以 1000 得到单个 input_token 的 prefill 平均耗时估算
+            self.calib_prefill_per_token = max(latency_1000_1 / 1000.0, 1e-6)
+
+            self.logger.info(
+                f"✅ 校准完成: 单Token Prefill耗时 ≈ {self.calib_prefill_per_token*1000:.3f}ms, "
+                f"单Token Decode耗时 ≈ {self.calib_decode_per_token*1000:.3f}ms")
+
+        except Exception as e:
+            if "out of memory" in str(e).lower() or "oom" in str(e).lower():
+                self.logger.warning(
+                    f"⚠️ 探针校准时 OOM (BS={batch_size})，退回 0.15 假设。")
+            else:
+                self.logger.warning(f"⚠️ 探针校准失败: {e}，退回 0.15 假设。")
+            self.calib_prefill_per_token = None
+            self.calib_decode_per_token = None
+
     def prepare_batch_inputs(self, batch_size):
         """
         为 vLLM 准备 Batch 输入数据。
         与 HF 不同，vLLM 直接接受字符串列表，不需要我们手动 tokenization 和 padding。
         """
-        raw_prompts = [item['prompt'] for item in self.test_data]
+        sorted_data = sorted(self.test_data, key=lambda x: len(x['prompt']))
+
+        raw_prompts = [item['prompt'] for item in sorted_data]
         if not raw_prompts:
             return None, []
 
@@ -285,9 +349,26 @@ class BenchmarkRunner:
                 total_decode_latency = max(0.0001, total_latency - avg_prefill)
                 total_prefill_latency = avg_prefill
             else:
-                # 兼容旧版本 vLLM fallback
-                total_prefill_latency = total_latency * 0.15  # 粗略假设
-                total_decode_latency = total_latency * 0.85
+                # ====== 用探针得出的系数动态推算耗时分布 ======
+                calib_prefill = getattr(self, 'calib_prefill_per_token', None)
+                calib_decode = getattr(self, 'calib_decode_per_token', None)
+
+                if calib_prefill is not None and calib_decode is not None:
+                    # 根据实际批次生成的 tokens 总数估算相对耗时。
+                    # （注：这里用 total_tokens 相当于分子分母都多乘了一个 batch_size，
+                    #  但在求 prefill_ratio 的百分比时会被完美抵消，结果完全等价且精确）
+                    est_prefill = total_input_tokens * calib_prefill
+                    est_decode = total_output_tokens * calib_decode
+                    total_est = est_prefill + est_decode
+
+                    prefill_ratio = est_prefill / total_est if total_est > 0 else 0.15
+                else:
+                    # 兼容旧版本 vLLM fallback（极端报错时的兜底）
+                    prefill_ratio = 0.15
+
+                total_prefill_latency = total_latency * prefill_ratio
+                total_decode_latency = total_latency * (1.0 - prefill_ratio)
+                # =========================================================
 
             prefill_tps = total_input_tokens / total_prefill_latency if total_prefill_latency > 0 else 0
             decode_tps = total_output_tokens / total_decode_latency if total_decode_latency > 0 else 0
@@ -391,6 +472,9 @@ class BenchmarkRunner:
             self.model.generate(dummy_prompt, dummy_sp, use_tqdm=False)
 
             for bs in CONFIG["n_batch_size"]:
+
+                self.calibrate_time_ratio(bs)
+
                 for nt in CONFIG["new_tokens"]:
                     metrics = self.run_benchmark_step(model_name, bs, nt)
                     if metrics:
