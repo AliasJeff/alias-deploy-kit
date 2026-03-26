@@ -1,17 +1,14 @@
 import os
-
-os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
-os.environ["VLLM_NO_USAGE_STATS"] = "1"
-
 import json
 import time
 import torch
 import logging
 import gc
 from datetime import datetime
-from transformers import AutoTokenizer
-from vllm import LLM, SamplingParams
-from vllm.distributed.parallel_state import destroy_model_parallel
+from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
+
+# 优化显存分配
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 CONFIG = {
     "models": [
@@ -24,18 +21,10 @@ CONFIG = {
             "path": "./models/Qwen3-1.7B"
         },
     ],
-
-    # 输出与日志配置
     "output_json_path":
     "./qa_results.json",
     "log_dir":
     "./logs/chat_logs",
-
-    # 长度限制
-    "max_model_len":
-    4096,
-
-    # 采样参数
     "temperature":
     0.7,
     "top_p":
@@ -59,27 +48,25 @@ CONFIG = {
 }
 
 
-class VLLMAutoQA:
+class torchAutoQA:
 
     def __init__(self):
         os.makedirs(CONFIG["log_dir"], exist_ok=True)
         self.logger = self.setup_logger()
         self.tokenizer = None
         self.model = None
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.all_results = {}
 
     def setup_logger(self):
         today_str = datetime.now().strftime("%Y-%m-%d")
         log_file = os.path.join(CONFIG["log_dir"], f"auto_qa_{today_str}.log")
-
-        logger = logging.getLogger("VLLMAutoQA")
+        logger = logging.getLogger("TorchAutoQA")
         logger.setLevel(logging.INFO)
-        if logger.hasHandlers():
-            logger.handlers.clear()
+        if logger.hasHandlers(): logger.handlers.clear()
 
         formatter = logging.Formatter(
             '%(asctime)s - %(levelname)s - %(message)s', datefmt='%H:%M:%S')
-
         fh = logging.FileHandler(log_file, mode='a', encoding='utf-8')
         fh.setFormatter(formatter)
         logger.addHandler(fh)
@@ -87,38 +74,41 @@ class VLLMAutoQA:
         ch = logging.StreamHandler()
         ch.setFormatter(formatter)
         logger.addHandler(ch)
-
         return logger
 
     def clear_cache(self):
+        # 彻底释放显存
         if self.model is not None:
             del self.model
             self.model = None
-            destroy_model_parallel()
+        if self.tokenizer is not None:
+            del self.tokenizer
+            self.tokenizer = None
 
         gc.collect()
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
-            torch.cuda.reset_peak_memory_stats()
-            torch.cuda.synchronize()
+            torch.cuda.ipc_collect()
 
     def load_model(self, model_info):
         model_name = model_info["name"]
         model_path = model_info["path"]
 
-        self.logger.info(f"📥 正在加载模型: {model_name} (路径: {model_path}) ...")
+        self.logger.info(f"📥 正在加载模型: {model_name}...")
         self.clear_cache()
 
         try:
             self.tokenizer = AutoTokenizer.from_pretrained(
                 model_path, trust_remote_code=True)
 
-            self.model = LLM(model=model_path,
-                             trust_remote_code=True,
-                             max_model_len=CONFIG["max_model_len"],
-                             enforce_eager=False,
-                             disable_log_stats=True)
-            self.logger.info(f"✅ 模型 {model_name} 加载成功！")
+            # 自动识别设备映射，GPTQ 模型会自动识别并加载
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model_path,
+                device_map="auto",
+                torch_dtype="auto",
+                trust_remote_code=True).eval()  # 切换到推理模式
+
+            self.logger.info(f"✅ 模型 {model_name} 加载成功！设备: {self.model.device}")
             return True
         except Exception as e:
             self.logger.error(f"❌ 模型 {model_name} 加载失败: {e}")
@@ -127,19 +117,7 @@ class VLLMAutoQA:
     def process_questions(self, model_info):
         model_name = model_info["name"]
         questions = CONFIG.get("questions", [])
-        if not questions:
-            self.logger.warning("⚠️ 没有找到预填的问题。")
-            return
-
         self.all_results[model_name] = []
-
-        sampling_params = SamplingParams(temperature=CONFIG["temperature"],
-                                         top_p=CONFIG["top_p"],
-                                         max_tokens=CONFIG["max_new_tokens"],
-                                         ignore_eos=False)
-
-        self.logger.info(
-            f"🚀 开始让 {model_name} 进行批量回答，共 {len(questions)} 个问题...")
 
         for idx, q in enumerate(questions, 1):
             self.logger.info(f"[{idx}/{len(questions)}] 正在生成: {q[:20]}...")
@@ -155,27 +133,44 @@ class VLLMAutoQA:
                 },
             ]
 
-            prompt = self.tokenizer.apply_chat_template(
+            # 使用 chat_template 构造输入
+            text = self.tokenizer.apply_chat_template(
                 messages, tokenize=False, add_generation_prompt=True)
+            model_inputs = self.tokenizer([text],
+                                          return_tensors="pt").to(self.device)
 
             try:
                 t_start = time.perf_counter()
-                outputs = self.model.generate([prompt],
-                                              sampling_params,
-                                              use_tqdm=False)
+
+                # 开始推理
+                with torch.no_grad():
+                    generated_ids = self.model.generate(
+                        **model_inputs,
+                        max_new_tokens=CONFIG["max_new_tokens"],
+                        temperature=CONFIG["temperature"],
+                        top_p=CONFIG["top_p"],
+                        do_sample=True,
+                        pad_token_id=self.tokenizer.eos_token_id)
+
                 latency = time.perf_counter() - t_start
 
-                output = outputs[0]
-                response_text = output.outputs[0].text.strip()
-                input_tokens = len(output.prompt_token_ids)
-                output_tokens = len(output.outputs[0].token_ids)
+                # 提取生成的回复部分（去掉输入的 prompt 部分）
+                generated_ids = [
+                    output_ids[len(input_ids):] for input_ids, output_ids in
+                    zip(model_inputs.input_ids, generated_ids)
+                ]
 
+                response_text = self.tokenizer.batch_decode(
+                    generated_ids, skip_special_tokens=True)[0]
+
+                input_tokens = model_inputs.input_ids.shape[1]
+                output_tokens = len(generated_ids[0])
                 tps = output_tokens / latency if latency > 0 else 0
 
                 result_item = {
                     "id": idx,
                     "question": q,
-                    "response": response_text,
+                    "response": response_text.strip(),
                     "metrics": {
                         "total_latency_s": round(latency, 4),
                         "input_tokens": input_tokens,
@@ -185,49 +180,26 @@ class VLLMAutoQA:
                     "timestamp": datetime.now().isoformat()
                 }
                 self.all_results[model_name].append(result_item)
-
-                self.logger.info(
-                    f"✅ 完成 | 耗时: {latency:.2f}s | 输出Tokens: {output_tokens} | TPS: {tps:.2f}\n"
-                )
+                self.logger.info(f"✅ 完成 | 耗时: {latency:.2f}s | TPS: {tps:.2f}")
 
             except Exception as e:
                 self.logger.error(f"❌ 处理问题时出错: {e}")
-                self.all_results[model_name].append({
-                    "id": idx,
-                    "question": q,
-                    "error": str(e)
-                })
 
     def save_results(self):
         output_path = CONFIG["output_json_path"]
-        try:
-            with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump(self.all_results, f, ensure_ascii=False, indent=4)
-            self.logger.info(f"💾 所有模型测试完毕！汇总结果已保存至: {output_path}")
-        except Exception as e:
-            self.logger.error(f"❌ 保存 JSON 失败: {e}")
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(self.all_results, f, ensure_ascii=False, indent=4)
+        self.logger.info(f"💾 结果已保存至: {output_path}")
 
     def run(self):
-        models_to_test = CONFIG.get("models", [])
-        if not models_to_test:
-            self.logger.error("❌ 配置文件中未发现任何模型！")
-            return
-
-        for model_info in models_to_test:
-            self.logger.info(
-                f"\n{'='*40}\n开始评测模型: {model_info['name']}\n{'='*40}")
-
+        for model_info in CONFIG.get("models", []):
+            self.logger.info(f"\n{'='*40}\n评测: {model_info['name']}\n{'='*40}")
             if self.load_model(model_info):
                 self.process_questions(model_info)
-            else:
-                self.logger.warning(f"⚠️ 跳过模型 {model_info['name']} 的测试。")
-
             self.clear_cache()
-            self.logger.info(f"🧹 模型 {model_info['name']} 的显存已清理。")
-
         self.save_results()
 
 
 if __name__ == "__main__":
-    app = VLLMAutoQA()
+    app = torchAutoQA()
     app.run()

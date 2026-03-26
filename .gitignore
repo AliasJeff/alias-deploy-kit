@@ -50,6 +50,7 @@ cover/
 
 # Virtual environments
 venv/
+venv_vllm/
 ENV/
 env/
 .venv
@@ -118,3 +119,5 @@ tb_logs/
 # Cache
 .cache/
 *.cache
+
+gptqmodel_offload/
