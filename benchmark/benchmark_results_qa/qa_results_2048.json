@@ -1,0 +1,1504 @@
+[
+  {
+    "model": "Qwen3-1.7B-Ours",
+    "max_new_tokens": 2048,
+    "results": [
+      {
+        "question": "设计订单确认页面，意图：提交订单",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "h1",
+                  "className": "text-xl font-bold text-gray-900 text-center",
+                  "params": { "textContent": "订单确认" }
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-6 space-y-6",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "section",
+                  "className": "bg-white rounded-lg shadow-sm p-4",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "h2",
+                      "className": "text-lg font-semibold text-gray-800 mb-4",
+                      "params": { "textContent": "订单信息" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "space-y-3",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex justify-between items-center",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "text-gray-600",
+                              "params": { "textContent": "商品金额" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "font-medium",
+                              "params": { "textContent": "¥0.00" }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex justify-between items-center",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "text-gray-600",
+                              "params": { "textContent": "运费" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "font-medium",
+                              "params": { "textContent": "¥0.00" }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex justify-between items-center pt-2 border-t border-gray-100",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "text-base font-semibold text-gray-900",
+                              "params": { "textContent": "实付金额" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "text-lg font-bold text-red-500",
+                              "params": { "textContent": "¥0.00" }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Tag",
+                  "name": "section",
+                  "className": "bg-white rounded-lg shadow-sm p-4",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "h2",
+                      "className": "text-lg font-semibold text-gray-800 mb-4",
+                      "params": { "textContent": "支付方式" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "grid grid-cols-2 gap-3",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "button",
+                          "className": "inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg text-sm",
+                          "params": { "textContent": "微信支付" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "button",
+                          "className": "inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-green-500 hover:bg-green-600 text-white p-3 rounded-lg text-sm",
+                          "params": { "textContent": "支付宝" }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Tag",
+                  "name": "section",
+                  "className": "fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "button",
+                      "className": "w-full inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg text-base",
+                      "params": { "textContent": "立即提交订单" }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "footer",
+              "className": "bg-white border-t border-gray-200 px-4 py-3 mt-auto",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "p",
+                  "className": "text-xs text-gray-500 text-center",
+                  "params": { "textContent": "© 2023 订单系统" }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "设计订单列表页面，意图：查看所有订单",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "h1",
+                  "className": "text-xl font-bold text-gray-900",
+                  "params": { "textContent": "我的订单" }
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-4",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "space-y-4",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow p-4 border-l-4 border-blue-500",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex justify-between items-start mb-2",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "font-medium text-gray-900",
+                              "params": { "textContent": "订单号: #123456" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full",
+                              "params": { "textContent": "已完成" }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-600 text-sm mb-2",
+                          "params": { "textContent": "商品名称 × 1" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-600 text-sm",
+                          "params": { "textContent": "¥199.00" }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow p-4 border-l-4 border-yellow-500",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex justify-between items-start mb-2",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "font-medium text-gray-900",
+                              "params": { "textContent": "订单号: #123457" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full",
+                              "params": { "textContent": "配送中" }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-600 text-sm mb-2",
+                          "params": { "textContent": "商品名称 × 2" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-600 text-sm",
+                          "params": { "textContent": "¥398.00" }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "footer",
+              "className": "bg-white border-t px-4 py-3",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "button",
+                  "className": "w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none",
+                  "params": { "textContent": "刷新订单列表", "type": "button" }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "设计餐厅列表页，意图：查看餐厅详情",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "h1",
+                  "className": "text-xl font-bold text-gray-900",
+                  "params": { "textContent": "餐厅列表" }
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-6",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "grid grid-cols-1 gap-4 max-w-md mx-auto",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow-md overflow-hidden",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "img",
+                          "className": "w-full h-48 object-cover",
+                          "params": { "src": "" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "p-4",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "h2",
+                              "className": "text-lg font-semibold text-gray-900 mb-2",
+                              "params": { "textContent": "餐厅名称" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "p",
+                              "className": "text-gray-600 text-sm mb-3",
+                              "params": {
+                                "textContent": "餐厅描述信息将显示在这里"
+                              }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "button",
+                              "className": "inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors w-full",
+                              "params": {
+                                "textContent": "查看详情",
+                                "type": "button"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "footer",
+              "className": "bg-white border-t px-4 py-3",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "p",
+                  "className": "text-center text-gray-500 text-xs",
+                  "params": { "textContent": "© 2023 餐厅应用" }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "设计支付页面，意图：完成支付",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "h1",
+                  "className": "text-xl font-bold text-gray-900 text-center",
+                  "params": { "textContent": "支付" }
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-6",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "max-w-md mx-auto space-y-6",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow-sm p-6",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "h2",
+                          "className": "text-lg font-semibold text-gray-800 mb-4",
+                          "params": { "textContent": "选择支付方式" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "space-y-4",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "button",
+                              "className": "w-full inline-flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors",
+                              "params": {
+                                "type": "button",
+                                "textContent": "微信支付"
+                              }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "button",
+                              "className": "w-full inline-flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors",
+                              "params": {
+                                "type": "button",
+                                "textContent": "支付宝"
+                              }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "button",
+                              "className": "w-full inline-flex items-center justify-between p-4 border border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
+                              "params": {
+                                "type": "button",
+                                "textContent": "银行卡支付"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow-sm p-6",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "h2",
+                          "className": "text-lg font-semibold text-gray-800 mb-4",
+                          "params": { "textContent": "订单信息" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "space-y-3 text-sm text-gray-600",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "p",
+                              "params": { "textContent": "商品金额：¥ 0.00" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "p",
+                              "params": { "textContent": "运费：¥ 0.00" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "p",
+                              "className": "font-medium",
+                              "params": { "textContent": "实付金额：¥ 0.00" }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "button",
+                      "className": "w-full inline-flex items-center justify-center p-6 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none transition-colors",
+                      "params": { "type": "button", "textContent": "确认支付" }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "footer",
+              "className": "bg-white border-t border-gray-200 px-4 py-3",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "p",
+                  "className": "text-xs text-gray-500 text-center",
+                  "params": { "textContent": "© 2023 版权所有" }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "设计新闻详情页，意图：点赞新闻",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "flex items-center justify-between",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "button",
+                      "className": "p-2 rounded-lg hover:bg-gray-100 transition-colors",
+                      "params": { "onClick": "goBack" },
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "svg",
+                          "className": "w-6 h-6 text-gray-600",
+                          "params": {
+                            "viewBox": "0 0 24 24",
+                            "fill": "none",
+                            "stroke": "currentColor"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "h1",
+                      "className": "text-lg font-semibold text-gray-900",
+                      "params": { "textContent": "新闻详情" }
+                    },
+                    { "type": "Tag", "name": "div", "className": "w-10" }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-6",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "article",
+                  "className": "bg-white rounded-xl shadow-sm p-4 mb-4",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "h2",
+                      "className": "text-xl font-bold text-gray-900 mb-2",
+                      "params": { "textContent": "新闻标题" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "flex items-center text-sm text-gray-500 mb-3",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "span",
+                          "params": { "textContent": "发布时间：2023-11-01" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "span",
+                          "className": "mx-2",
+                          "params": { "textContent": "|" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "span",
+                          "params": { "textContent": "来源：新闻媒体" }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "prose prose-sm max-w-none text-gray-700",
+                      "params": {
+                        "textContent": "这里是新闻的详细内容。新闻内容可以包含多段文字描述，展示完整的新闻信息。用户可以通过点击按钮对新闻进行点赞操作。"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "Tag",
+                  "name": "footer",
+                  "className": "px-4 py-3 bg-white border-t border-gray-200",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "flex items-center space-x-4",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "button",
+                          "className": "inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-lg text-base",
+                          "params": {
+                            "onClick": "handleLike",
+                            "textContent": "👍 点赞"
+                          }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "span",
+                          "className": "text-sm text-gray-500",
+                          "params": { "textContent": "已获得 0 次点赞" }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "设计搜索页面，意图：查看搜索历史",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "flex items-center justify-between",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "h1",
+                      "className": "text-xl font-semibold text-gray-900",
+                      "params": { "textContent": "搜索历史" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "button",
+                      "className": "inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
+                      "params": { "type": "button", "textContent": "清除" }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-4",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "space-y-3",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow-sm p-4 border border-gray-200",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex items-center justify-between mb-2",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "font-medium text-gray-900",
+                              "params": { "textContent": "示例关键词1" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "button",
+                              "className": "text-red-500 text-sm font-medium hover:text-red-700 transition-colors",
+                              "params": {
+                                "type": "button",
+                                "textContent": "删除"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-sm text-gray-600",
+                          "params": {
+                            "textContent": "这是第一个搜索记录的描述信息..."
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow-sm p-4 border border-gray-200",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex items-center justify-between mb-2",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "font-medium text-gray-900",
+                              "params": { "textContent": "示例关键词2" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "button",
+                              "className": "text-red-500 text-sm font-medium hover:text-red-700 transition-colors",
+                              "params": {
+                                "type": "button",
+                                "textContent": "删除"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-sm text-gray-600",
+                          "params": {
+                            "textContent": "这是第二个搜索记录的详细描述..."
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "footer",
+              "className": "bg-white border-t border-gray-200 px-4 py-3",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "flex space-x-3",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "input",
+                      "className": "flex-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
+                      "params": {
+                        "type": "search",
+                        "placeholder": "输入关键词搜索..."
+                      }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "button",
+                      "className": "inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none",
+                      "params": { "type": "submit", "textContent": "搜索" }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "设计评价页面，意图：提交评价",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "h1",
+                  "className": "text-xl font-bold text-gray-900 text-center",
+                  "params": { "textContent": "提交评价" }
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-6",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "max-w-md mx-auto space-y-6",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "space-y-2",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "label",
+                          "className": "block text-sm font-medium text-gray-700",
+                          "params": { "textContent": "评分" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "select",
+                          "className": "w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent",
+                          "params": {
+                            "options": ["1星", "2星", "3星", "4星", "5星"]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "space-y-2",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "label",
+                          "className": "block text-sm font-medium text-gray-700",
+                          "params": { "textContent": "评价内容" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "textarea",
+                          "className": "w-full h-32 p-3 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
+                          "params": { "placeholder": "请输入您的评价..." }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "button",
+                      "className": "w-full inline-flex items-center justify-center p-4 bg-blue-600 text-white font-medium rounded-lg transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none",
+                      "params": { "type": "submit", "textContent": "提交评价" }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "footer",
+              "className": "bg-white border-t px-4 py-3 mt-auto",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "p",
+                  "className": "text-xs text-gray-500 text-center",
+                  "params": { "textContent": "感谢您的反馈" }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "设计商家入驻页，意图：提交资料",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "h1",
+                  "className": "text-xl font-bold text-gray-900 text-center",
+                  "params": { "textContent": "商家入驻" }
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-6 space-y-6",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "section",
+                  "className": "bg-white rounded-lg shadow-sm p-4 space-y-4",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "h2",
+                      "className": "text-lg font-semibold text-gray-800",
+                      "params": { "textContent": "基本信息" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "space-y-3",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "space-y-1",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "label",
+                              "className": "text-sm font-medium text-gray-700",
+                              "params": { "textContent": "企业名称" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "input",
+                              "className": "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
+                              "params": {
+                                "type": "text",
+                                "placeholder": "请输入企业名称"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "space-y-1",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "label",
+                              "className": "text-sm font-medium text-gray-700",
+                              "params": { "textContent": "联系方式" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "input",
+                              "className": "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
+                              "params": {
+                                "type": "tel",
+                                "placeholder": "请输入手机号码"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Tag",
+                  "name": "section",
+                  "className": "bg-white rounded-lg shadow-sm p-4 space-y-4",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "h2",
+                      "className": "text-lg font-semibold text-gray-800",
+                      "params": { "textContent": "经营信息" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "space-y-3",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "space-y-1",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "label",
+                              "className": "text-sm font-medium text-gray-700",
+                              "params": { "textContent": "经营地址" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "textarea",
+                              "className": "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-20",
+                              "params": { "placeholder": "请输入详细经营地址" }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "space-y-1",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "label",
+                              "className": "text-sm font-medium text-gray-700",
+                              "params": { "textContent": "经营范围" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "textarea",
+                              "className": "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-20",
+                              "params": { "placeholder": "请描述您的经营范围" }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Tag",
+                  "name": "button",
+                  "className": "w-full inline-flex items-center justify-center px-4 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-50 disabled:pointer-events-none",
+                  "params": { "type": "submit", "textContent": "提交资料" }
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "footer",
+              "className": "bg-white border-t px-4 py-3 text-center text-sm text-gray-500",
+              "params": { "textContent": "© 2023 商家入驻平台" }
+            }
+          ]
+        }
+      },
+      {
+        "question": "设计叫车等待页，意图：查看附近车辆",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "h1",
+                  "className": "text-xl font-bold text-gray-900 text-center",
+                  "params": { "textContent": "附近车辆" }
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-6",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "space-y-4",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow p-4",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex items-center space-x-3",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "div",
+                              "className": "w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center",
+                              "children": [
+                                {
+                                  "type": "Tag",
+                                  "name": "span",
+                                  "className": "text-blue-600 font-medium text-lg",
+                                  "params": { "textContent": "A" }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "div",
+                              "className": "flex-1",
+                              "children": [
+                                {
+                                  "type": "Tag",
+                                  "name": "h3",
+                                  "className": "font-medium text-gray-900",
+                                  "params": { "textContent": "待您召唤" }
+                                },
+                                {
+                                  "type": "Tag",
+                                  "name": "p",
+                                  "className": "text-sm text-gray-500",
+                                  "params": {
+                                    "textContent": "距离 5km · 等待中"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow p-4",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex items-center space-x-3",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "div",
+                              "className": "w-12 h-12 bg-green-100 rounded-full flex items-center justify-center",
+                              "children": [
+                                {
+                                  "type": "Tag",
+                                  "name": "span",
+                                  "className": "text-green-600 font-medium text-lg",
+                                  "params": { "textContent": "B" }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "div",
+                              "className": "flex-1",
+                              "children": [
+                                {
+                                  "type": "Tag",
+                                  "name": "h3",
+                                  "className": "font-medium text-gray-900",
+                                  "params": { "textContent": "已在线" }
+                                },
+                                {
+                                  "type": "Tag",
+                                  "name": "p",
+                                  "className": "text-sm text-gray-500",
+                                  "params": {
+                                    "textContent": "距离 8km · 可以出发"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "footer",
+              "className": "bg-white border-t px-4 py-3",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "button",
+                  "className": "w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none",
+                  "params": {
+                    "textContent": "召唤最近的车辆",
+                    "type": "button"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "question": "设计行程列表页，意图：查看行程详情",
+        "response": {
+          "type": "Tag",
+          "name": "div",
+          "className": "min-h-screen bg-gray-50 flex flex-col",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "header",
+              "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "flex items-center justify-between",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "h1",
+                      "className": "text-xl font-bold text-gray-900",
+                      "params": { "textContent": "行程列表" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "button",
+                      "className": "inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
+                      "params": { "type": "button" },
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "span",
+                          "className": "material-icons text-lg",
+                          "params": { "textContent": "search" }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "main",
+              "className": "flex-1 px-4 py-4",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "space-y-4",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow-sm border border-gray-200 p-4",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex justify-between items-start mb-3",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "h2",
+                              "className": "text-lg font-semibold text-gray-900",
+                              "params": { "textContent": "北京 - 上海 2天" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full",
+                              "params": { "textContent": "进行中" }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-600 text-sm mb-2",
+                          "params": {
+                            "textContent": "出发时间：2024-01-15 09:00"
+                          }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-700 text-base leading-relaxed",
+                          "params": {
+                            "textContent": "从北京飞往上海，参观外滩、豫园等地，体验上海的繁华夜景。"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow-sm border border-gray-200 p-4",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex justify-between items-start mb-3",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "h2",
+                              "className": "text-lg font-semibold text-gray-900",
+                              "params": { "textContent": "广州 - 深圳 3天" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full",
+                              "params": { "textContent": "已结束" }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-600 text-sm mb-2",
+                          "params": {
+                            "textContent": "出发时间：2024-01-10 14:30"
+                          }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-700 text-base leading-relaxed",
+                          "params": {
+                            "textContent": "游览珠江新城、深圳湾公园等景点，品尝地道美食。"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "div",
+                      "className": "bg-white rounded-lg shadow-sm border border-gray-200 p-4 opacity-60",
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "div",
+                          "className": "flex justify-between items-start mb-3",
+                          "children": [
+                            {
+                              "type": "Tag",
+                              "name": "h2",
+                              "className": "text-lg font-semibold text-gray-900",
+                              "params": { "textContent": "三亚 - 北京 1周" }
+                            },
+                            {
+                              "type": "Tag",
+                              "name": "span",
+                              "className": "px-2 py-1 bg-gray-100 text-gray-800 text-xs font-medium rounded-full",
+                              "params": { "textContent": "已取消" }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-600 text-sm mb-2",
+                          "params": {
+                            "textContent": "出发时间：2024-01-05 10:00"
+                          }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "p",
+                          "className": "text-gray-700 text-base leading-relaxed",
+                          "params": {
+                            "textContent": "海岛度假游，享受阳光沙滩和椰林美景。"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "footer",
+              "className": "bg-white border-t border-gray-200 px-4 py-3",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "flex justify-around",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "button",
+                      "className": "inline-flex items-center justify-center p-3 text-blue-600 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
+                      "params": { "type": "button" },
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "span",
+                          "className": "material-icons text-lg mr-1",
+                          "params": { "textContent": "home" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "span",
+                          "params": { "textContent": "首页" }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "button",
+                      "className": "inline-flex items-center justify-center p-3 text-gray-600 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
+                      "params": { "type": "button" },
+                      "children": [
+                        {
+                          "type": "Tag",
+                          "name": "span",
+                          "className": "material-icons text-lg mr-1",
+                          "params": { "textContent": "person" }
+                        },
+                        {
+                          "type": "Tag",
+                          "name": "span",
+                          "params": { "textContent": "我的" }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "model": "Qwen3-1.7B-Ours-4it",
+    "max_new_tokens": 2048,
+    "results": [
+      {
+        "question": "设计订单确认页面，意图：提交订单",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 border-b", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-gray-900", "params": {"textContent": "订单确认"}}]}, {"type": "Tag", "name": "main", "className": "flex-1 px-4 py-6", "children": [{"type": "Tag", "name": "div", "className": "max-w-md mx-auto space-y-4", "children": [{"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "h2", "className": "text-lg font-semibold text-gray-800 mb-3", "params": {"textContent": "订单信息"}}, {"type": "Tag", "name": "div", "className": "space-y-2", "children": [{"type": "Tag", "name": "label", "className": "block text-left text-sm font-medium text-gray-700", "params": {"textContent": "商品名称"}}, {"type": "Tag", "name": "span", "className": "text-base text-gray-600", "params": {"textContent": "未填写"}}, {"type": "Tag", "name": "label", "className": "block text-left text-sm font-medium text-gray-700", "params": {"textContent": "金额"}}, {"type": "Tag", "name": "span", "className": "text-base text-red-500", "params": {"textContent": "¥0.00"}}]}]}, {"type": "Tag", "name": "div", "className": "mt-6 space-y-3", "children": [{"type": "Tag", "name": "button", "className": "w-full inline-flex items-center justify-center px-4 py-3 bg-blue-500 text-white font-medium rounded-lg disabled:opacity-60 disabled:pointer-events-disabled hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2", "params": {"textContent": "确认订单", "disabled": true, "type": "submit"}}, {"type": "Tag", "name": "button", "className": "w-full inline-flex items-center justify-center px-4 py-3 bg-green-500 text-white font-medium rounded-lg mt-3 disabled:opacity-60 disabled:pointer-events-disabled hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2", "params": {"textContent": "取消订单", "type": "button"}}]}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3", "children": [{"type": "Tag", "name": "p", "className": "text-xs text-gray-500 text-center", "params": {"textContent": "© 2023 牛牛商城"}}]}]}
+      },
+      {
+        "question": "设计订单列表页面，意图：查看所有订单",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 border-b", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-gray-900", "params": {"textContent": "我的订单"}}]}, {"type": "Tag", "name": "main", "className": "px-4 py-6 flex-1", "children": [{"type": "Tag", "name": "div", "className": "space-y-4", "children": [{"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "flex justify-between items-start mb-2", "children": [{"type": "Tag", "name": "span", "className": "font-medium text-blue-600", "params": {"textContent": "订单号"}}, {"type": "Tag", "name": "span", "className": "text-red-600 font-semibold ml-2", "params": {"textContent": "待付款"}}]}, {"type": "Tag", "name": "div", "className": "text-2xl font-bold text-green-600 mb-2", "params": {"textContent": "¥ 0.00"}}, {"type": "Tag", "name": "div", "className": "text-xs text-gray-500", "params": {"textContent": "待付款 · 已创建 · 0天前"}}]}, {"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "flex justify-between items-start mb-2", "children": [{"type": "Tag", "name": "span", "className": "font-medium text-blue-600", "params": {"textContent": "订单号"}}, {"type": "Tag", "name": "span", "className": "text-red-600 font-semibold ml-2", "params": {"textContent": "待付款"}}]}, {"type": "Tag", "name": "div", "className": "text-2xl font-bold text-green-600 mb-2", "params": {"textContent": "¥ 0.00"}}, {"type": "Tag", "name": "div", "className": "text-xs text-gray-500", "params": {"textContent": "待付款 · 已创建 · 0天前"}}]}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3", "children": [{"type": "Tag", "name": "div", "className": "text-center text-sm text-gray-500", "params": {"textContent": "没有更多订单了"}}]}]}
+      },
+      {
+        "question": "设计餐厅列表页，意图：查看餐厅详情",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 sticky top-0 z-10", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-gray-900", "params": {"textContent": "餐厅列表"}}]}, {"type": "Tag", "name": "main", "className": "flex-1 px-4 py-6", "children": [{"type": "Tag", "name": "div", "className": "grid grid-cols-2 gap-4 mb-6", "children": [{"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "flex justify-between items-center mb-3", "children": [{"type": "Tag", "name": "h2", "className": "font-medium text-gray-900", "params": {"textContent": "餐厅名称"}}, {"type": "Tag", "name": "span", "className": "px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs", "params": {"textContent": "营业中"}}]}, {"type": "Tag", "name": "p", "className": "text-sm text-gray-600 mb-3", "params": {"textContent": "地址：详细地址信息"}}, {"type": "Tag", "name": "div", "className": "flex justify-between items-center", "children": [{"type": "Tag", "name": "span", "className": "text-red-500 text-sm", "params": {"textContent": "¥128/人"}}, {"type": "Tag", "name": "button", "className": "inline-flex items-center justify-center px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-30 disabled:pointer-events-none", "params": {"textContent": "查看详情", "type": "button"}}]}]}, {"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "flex justify-between items-start mb-3", "children": [{"type": "Tag", "name": "h2", "className": "font-medium text-gray-900", "params": {"textContent": "餐厅名称"}}, {"type": "Tag", "name": "span", "className": "px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs", "params": {"textContent": "暂停服务"}}]}, {"type": "Tag", "name": "p", "className": "text-sm text-gray-600 mb-3", "params": {"textContent": "地址：详细地址信息"}}, {"type": "Tag", "name": "div", "className": "flex justify-between items-center", "children": [{"type": "Tag", "name": "span", "className": "text-red-500 text-sm", "params": {"textContent": "¥158/人"}}, {"type": "Tag", "name": "button", "className": "inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-30 disabled:pointer-events-none", "params": {"textContent": "恢复营业", "type": "button"}}]}]}]}, {"type": "Tag", "name": "div", "className": "mt-6", "children": [{"type": "Tag", "name": "h2", "className": "font-medium text-gray-900 mb-3", "params": {"textContent": "搜索餐厅"}}, {"type": "Tag", "name": "div", "className": "relative mb-4", "children": [{"type": "Tag", "name": "input", "className": "w-full px-4 py-3 border rounded-lg text-base placeholder-gray-500", "params": {"placeholder": "输入餐厅名称...", "type": "search"}}]}, {"type": "Tag", "name": "button", "className": "inline-flex items-center justify-center w-full mt-4 bg-blue-500 text-white rounded-lg text-base font-medium px-4 py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-30 disabled:pointer-events-none", "params": {"textContent": "刷新列表", "type": "button"}}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3", "children": [{"type": "Tag", "name": "p", "className": "text-center text-sm text-gray-600", "params": {"textContent": "© 2024 餐厅预订系统"}}]}]}
+      },
+      {
+        "question": "设计支付页面，意图：完成支付",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col bg-cover bg-center bg-no-repeat", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 border-b", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-blue-600 text-center", "params": {"textContent": "支付"}}]}, {"type": "Tag", "name": "main", "className": "flex-1 px-4 py-6", "children": [{"type": "Tag", "name": "div", "className": "max-w-md mx-auto space-y-4", "children": [{"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "space-y-2 mb-4", "children": [{"type": "Tag", "name": "label", "className": "font-medium text-blue-600", "params": {"textContent": "金额"}}, {"type": "Tag", "name": "input", "className": "w-full h-8 border rounded text-blue-600 focus:outline-none focus:ring-2 focus:border-blue-600", "params": {"type": "number", "placeholder": "输入支付金额"}}]}, {"type": "Tag", "name": "div", "className": "grid grid-cols-2 gap-3", "children": [{"type": "Tag", "name": "button", "className": "inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-30 disabled:pointer-events-none rounded-lg text-white hover:text-red-600 focus:ring-red-600 p-3 bg-red-600 text-base", "params": {"type": "button", "textContent": "取消"}}, {"type": "Tag", "name": "button", "className": "inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-30 disabled:pointer-events-none rounded-lg text-white hover:text-red-600 focus:ring-red-600 p-3 bg-green-600 text-base", "params": {"type": "button", "textContent": "确认支付"}}]}]}, {"type": "Tag", "name": "div", "className": "mt-4 bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "space-y-2", "children": [{"type": "Tag", "name": "span", "className": "text-xs text-gray-500", "params": {"textContent": "支付成功后商品将立即发货"}}, {"type": "Tag", "name": "span", "className": "text-xs text-gray-500", "params": {"textContent": "交易安全可靠"}}]}]}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3 mt-8", "children": [{"type": "Tag", "name": "p", "className": "text-xs text-gray-500 text-center", "params": {"textContent": "© 2024 公司名称 版权所有"}}]}]}
+      },
+      {
+        "question": "设计新闻详情页，意图：点赞新闻",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 border-b", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-gray-900 mb-2", "params": {"textContent": "新闻标题"}}]}, {"type": "Tag", "name": "main", "className": "flex-1 px-4 py-4", "children": [{"type": "Tag", "name": "article", "className": "prose prose-sm max-w-none", "children": [{"type": "Tag", "name": "p", "className": "text-gray-700 leading-relaxed", "params": {"textContent": "这里是新闻的详细内容。这是一段示例文本，用于展示新闻详情页面的布局和样式。用户可以通过点击按钮来点赞新闻内容。"}}, {"type": "Tag", "name": "div", "className": "mt-4 flex items-center justify-between", "children": [{"type": "Tag", "name": "button", "className": "inline-flex items-center justify-center p-3 rounded-full text-red-600 hover:text-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-disabled disabled:pointer-events-disabled", "params": {"type": "button", "textContent": "👍 点赞"}}, {"type": "Tag", "name": "span", "className": "text-gray-500 text-sm", "params": {"textContent": "已获得 0 次点赞"}}]}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3", "children": [{"type": "Tag", "name": "p", "className": "text-xs text-gray-500", "params": {"textContent": "© 2023 新闻平台"}}]}]}
+      },
+      {
+        "question": "设计搜索页面，意图：查看搜索历史",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 border-b", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-gray-900", "params": {"textContent": "搜索历史"}}]}, {"type": "Tag", "name": "main", "className": "flex-1 px-4 py-6", "children": [{"type": "Tag", "name": "div", "className": "max-w-md mx-auto space-y-4", "children": [{"type": "Tag", "name": "div", "className": "border border-gray-200 rounded-lg p-4", "children": [{"type": "Tag", "name": "p", "className": "text-gray-700 text-base", "params": {"textContent": "暂无搜索记录。"}}, {"type": "Tag", "name": "button", "className": "mt-4 inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-blue-600 bg-blue-100 w-full mt-3", "params": {"textContent": "新建搜索", "disabled": true}}]}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3", "children": [{"type": "Tag", "name": "p", "className": "text-xs text-gray-500 text-center", "params": {"textContent": "搜索历史记录管理"}}]}]}
+      },
+      {
+        "question": "设计评价页面，意图：提交评价",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 border-b", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-gray-900", "params": {"textContent": "评价"}}]}, {"type": "Tag", "name": "main", "className": "flex-1 px-4 py-6", "children": [{"type": "Tag", "name": "div", "className": "max-w-md mx-auto space-y-4", "children": [{"type": "Tag", "name": "label", "className": "block text-left text-sm font-medium text-gray-700 mb-2", "params": {"textContent": "评分"}}, {"type": "Tag", "name": "input", "className": "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500", "params": {"type": "range", "min": "1", "max": "5"}}, {"type": "Tag", "name": "label", "className": "block text-left text-sm font-medium text-gray-700 mb-2", "params": {"textContent": "评价内容"}}, {"type": "Tag", "name": "textarea", "className": "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-24", "params": {"placeholder": "请分享您的体验...", "rows": 4}}, {"type": "Tag", "name": "label", "className": "block text-left text-sm font-medium text-gray-700 mb-2", "params": {"textContent": "上传图片"}}, {"type": "Tag", "name": "div", "className": "border-2 border-dashed border-gray-300 rounded-lg p-4 text-center", "params": {"textContent": "点击或拖拽文件到此处上传"}}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3", "children": [{"type": "Tag", "name": "button", "className": "w-full inline-flex items-center justify-center px-4 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-60 disabled:pointer-events-none transition-colors", "params": {"type": "submit", "textContent": "提交评价"}}]}]}
+      },
+      {
+        "question": "设计商家入驻页，意图：提交资料",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 border-b", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-gray-900", "params": {"textContent": "商家入驻"}}]}, {"type": "Tag", "name": "main", "className": "flex-1 px-4 py-6", "children": [{"type": "Tag", "name": "div", "className": "space-y-4 max-w-md mx-auto", "children": [{"type": "Tag", "name": "section", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "h2", "className": "text-lg font-semibold text-gray-800 mb-3", "params": {"textContent": "基本信息"}}, {"type": "Tag", "name": "div", "className": "grid grid-cols-2 gap-3", "children": [{"type": "Tag", "name": "input", "className": "border rounded p-3 text-base focus:outline-none", "params": {"type": "text", "placeholder": "公司名称"}}, {"type": "Tag", "name": "textarea", "className": "border rounded p-3 text-base min-h-24 resize resize-none focus:outline-none", "params": {"placeholder": "企业简介"}}]}]}, {"type": "Tag", "name": "section", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "h2", "className": "text-lg font-semibold text-gray-800 mb-3", "params": {"textContent": "资质材料"}}, {"type": "Tag", "name": "div", "className": "grid grid-cols-3 gap-3", "children": [{"type": "Tag", "name": "button", "className": "border rounded p-3 text-base text-blue-600 hover:bg-blue-50 focus:outline-none", "params": {"type": "button", "textContent": "营业执照"}}, {"type": "Tag", "name": "button", "className": "border rounded p-3 text-base text-green-600 hover:bg-green-50 focus:outline-none", "params": {"type": "button", "textContent": "税务登记证"}}, {"type": "Tag", "name": "button", "className": "border rounded p-3 text-base text-red-600 hover:bg-red-50 focus:outline-none", "params": {"type": "button", "textContent": "银行流水"}}]}]}, {"type": "Tag", "name": "section", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "h2", "className": "text-lg font-semibold text-gray-800 mb-3", "params": {"textContent": "上传证明材料"}}, {"type": "Tag", "name": "div", "className": "grid grid-cols-3 gap-3", "children": [{"type": "Tag", "name": "label", "className": "border rounded p-3 text-center text-blue-600 cursor-pointer hover:bg-blue-50 focus:outline-none", "params": {"type": "button"}, "children": [{"type": "Tag", "name": "span", "className": "text-base", "params": {"textContent": "身份证"}}]}, {"type": "Tag", "name": "label", "className": "border rounded p-3 text-center text-green-600 cursor-pointer hover:bg-green-50 focus:outline-none", "params": {"type": "button"}, "children": [{"type": "Tag", "name": "span", "className": "text-base", "params": {"textContent": "经营许可证"}}]}, {"type": "Tag", "name": "label", "className": "border rounded p-3 text-center text-red-600 cursor-pointer hover:bg-red-50 focus:outline-none", "params": {"type": "button"}, "children": [{"type": "Tag", "name": "span", "className": "text-base", "params": {"textContent": "相关证件"}}]}]}]}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3", "children": [{"type": "Tag", "name": "button", "className": "w-full bg-blue-600 text-white rounded-lg p-4 font-medium hover:bg-blue-700 focus:outline-none disabled:opacity-30 disabled:pointer-events-none", "params": {"type": "submit", "disabled": true, "textContent": "提交申请"}}]}]}
+      },
+      {
+        "question": "设计叫车等待页，意图：查看附近车辆",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 border-b", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-blue-600", "params": {"textContent": "附近车辆"}}]}, {"type": "Tag", "name": "main", "className": "flex-1 px-4 py-4", "children": [{"type": "Tag", "name": "div", "className": "grid grid-cols-2 gap-4 mb-4", "children": [{"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "text-center py-8", "children": [{"type": "Tag", "name": "div", "className": "w-16 h-16 bg-red-100 rounded mx-auto mb-4", "params": {"textContent": ""}}, {"type": "Tag", "name": "h3", "className": "text-base font-medium text-gray-700 mb-2", "params": {"textContent": "暂无可用车辆"}}, {"type": "Tag", "name": "p", "className": "text-xs text-gray-500", "params": {"textContent": "请稍后刷新或联系客服"}}]}]}, {"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "text-center py-8", "children": [{"type": "Tag", "name": "div", "className": "w-16 h-16 bg-green-100 rounded mx-auto mb-4", "params": {"textContent": ""}}, {"type": "Tag", "name": "h3", "className": "text-base font-medium text-gray-700 mb-2", "params": {"textContent": "附近有车辆"}}, {"type": "Tag", "name": "p", "className": "text-xs text-gray-500", "params": {"textContent": "正在连接..."}}, {"type": "Tag", "name": "button", "className": "mt-4 w-full inline-flex items-center justify-center px-4 py-3 bg-blue-600 text-white font-medium rounded-md text-base transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-60 disabled:pointer-events-self", "params": {"textContent": "呼叫附近的司机", "disabled": true}}]}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3", "children": [{"type": "Tag", "name": "div", "className": "text-center text-xs text-gray-500", "params": {"textContent": "距离您当前位置 1.2公里"}}]}]}]
+      },
+      {
+        "question": "设计行程列表页，意图：查看行程详情",
+        "response": {"type": "Tag", "name": "div", "className": "min-h-screen bg-gray-50 flex flex-col", "children": [{"type": "Tag", "name": "header", "className": "bg-white shadow-sm px-4 py-3 border-b", "children": [{"type": "Tag", "name": "h1", "className": "text-xl font-bold text-gray-900", "params": {"textContent": "我的行程"}}]}, {"type": "Tag", "name": "main", "className": "flex-1 px-4 py-6", "children": [{"type": "Tag", "name": "div", "className": "grid grid-cols-2 gap-4 mb-6", "children": [{"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "space-y-2 mb-4", "children": [{"type": "Tag", "name": "h2", "className": "text-lg font-semibold text-gray-900", "params": {"textContent": "行程概览"}}, {"type": "Tag", "name": "p", "className": "text-sm text-gray-600", "params": {"textContent": "暂无行程数据"}}]}]}, {"type": "Tag", "name": "div", "className": "bg-white rounded-lg shadow p-4", "children": [{"type": "Tag", "name": "div", "className": "space-y-2 mb-4", "children": [{"type": "Tag", "name": "h2", "className": "text-lg font-semibold text-gray-900", "params": {"textContent": "最近行程"}}, {"type": "Tag", "name": "p", "className": "text-sm text-gray-600", "params": {"textContent": "暂无行程记录"}}]}]}]}, {"type": "Tag", "name": "div", "className": "mt-8", "children": [{"type": "Tag", "name": "button", "className": "w-full inline-flex items-center justify-center px-4 py-3 bg-blue-600 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-60 disabled:pointer-events-none", "params": {"type": "button", "textContent": "新建行程"}}]}]}, {"type": "Tag", "name": "footer", "className": "bg-white border-t px-4 py-3 mt-auto", "children": [{"type": "Tag", "name": "div", "className": "text-xs text-gray-500", "params": {"textContent": "© 2023 我的行程应用"}}]}]}
+      }
+    ]
+  }
+]
