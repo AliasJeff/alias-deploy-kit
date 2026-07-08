@@ -1,0 +1,7 @@
+cd /root/autodl-tmp && nohup python3 train_lora.py > train.log 2>&1 & echo "Training PID: $!"
+
+
+python  vllm_server.py
+
+
+cd /root/autodl-tmp && python3 -m streamlit run app.py --server.port 6008 --server.headless true 2>&1 | tail -n 30

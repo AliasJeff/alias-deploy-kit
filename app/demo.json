@@ -1,0 +1,114 @@
+{
+  "type": "Tag",
+  "name": "div",
+  "className": "min-h-screen bg-gray-50 flex flex-col",
+  "children": [
+    {
+      "type": "Tag",
+      "name": "header",
+      "className": "bg-white shadow-sm px-4 py-3 border-b",
+      "children": [
+        {
+          "type": "Tag",
+          "name": "h1",
+          "className": "text-xl font-bold text-gray-900",
+          "params": { "textContent": "订单确认" }
+        }
+      ]
+    },
+    {
+      "type": "Tag",
+      "name": "main",
+      "className": "flex-1 px-4 py-6",
+      "children": [
+        {
+          "type": "Tag",
+          "name": "div",
+          "className": "max-w-md mx-auto space-y-4",
+          "children": [
+            {
+              "type": "Tag",
+              "name": "div",
+              "className": "bg-white rounded-lg shadow p-4",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "h2",
+                  "className": "text-lg font-semibold text-gray-800 mb-3",
+                  "params": { "textContent": "订单信息" }
+                },
+                {
+                  "type": "Tag",
+                  "name": "div",
+                  "className": "space-y-2",
+                  "children": [
+                    {
+                      "type": "Tag",
+                      "name": "label",
+                      "className": "block text-left text-sm font-medium text-gray-700",
+                      "params": { "textContent": "商品名称" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "span",
+                      "className": "text-base text-gray-600",
+                      "params": { "textContent": "未填写" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "label",
+                      "className": "block text-left text-sm font-medium text-gray-700",
+                      "params": { "textContent": "金额" }
+                    },
+                    {
+                      "type": "Tag",
+                      "name": "span",
+                      "className": "text-base text-red-500",
+                      "params": { "textContent": "¥0.00" }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Tag",
+              "name": "div",
+              "className": "mt-6 space-y-3",
+              "children": [
+                {
+                  "type": "Tag",
+                  "name": "button",
+                  "className": "w-full inline-flex items-center justify-center px-4 py-3 bg-blue-500 text-white font-medium rounded-lg disabled:opacity-60 disabled:pointer-events-disabled hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                  "params": {
+                    "textContent": "确认订单",
+                    "disabled": true,
+                    "type": "submit"
+                  }
+                },
+                {
+                  "type": "Tag",
+                  "name": "button",
+                  "className": "w-full inline-flex items-center justify-center px-4 py-3 bg-green-500 text-white font-medium rounded-lg mt-3 disabled:opacity-60 disabled:pointer-events-disabled hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2",
+                  "params": { "textContent": "取消订单", "type": "button" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Tag",
+      "name": "footer",
+      "className": "bg-white border-t px-4 py-3",
+      "children": [
+        {
+          "type": "Tag",
+          "name": "p",
+          "className": "text-xs text-gray-500 text-center",
+          "params": { "textContent": "© 2023 牛牛商城" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import json
+import re
+import base64
+import time
+from copy import deepcopy
+
+import requests
+import streamlit as st
+
+VLLM_API = "http://127.0.0.1:8000"
+PLACEHOLDER_IMG = "https://placehold.co/{w}x{h}/e2e8f0/94a3b8?text=Image"
+
+
+def check_server():
+    try:
+        r = requests.get(f"{VLLM_API}/health", timeout=3)
+        return r.status_code == 200
+    except Exception:
+        return False
+
+
+def generate_ui_json(instruction, max_new_tokens=4096,
+                     temperature=0.1, top_p=0.9, repetition_penalty=1.1):
+    payload = {
+        "instruction": instruction,
+        "max_new_tokens": max_new_tokens,
+        "temperature": temperature,
+        "top_p": top_p,
+        "repetition_penalty": repetition_penalty,
+    }
+    t0 = time.time()
+    resp = requests.post(f"{VLLM_API}/generate", json=payload, timeout=120)
+    resp.raise_for_status()
+    return resp.json()["output"], time.time() - t0
+
+
+def replace_invalid_images(html):
+    BAD = re.compile(
+        r"placeholder|via[.]placeholder|picsum|lorem"
+        r"|example[.]com|localhost|127[.]0[.]0[.]1"
+        r"|[.][.]/|^/images?/|^/img/|^/assets/",
+        re.IGNORECASE,
+    )
+
+    def _fix(m):
+        tag = m.group(0)
+        sm = re.search(r'src="([^"]*)"', tag)
+        if not sm:
+            return tag
+        src = sm.group(1)
+        if src and not BAD.search(src):
+            return tag
+        wm = re.search(r'width=.(\d+)', tag)
+        hm = re.search(r'height=.(\d+)', tag)
+        w = wm.group(1) if wm else "120"
+        h = hm.group(1) if hm else "120"
+        new_src = PLACEHOLDER_IMG.format(w=w, h=h)
+        return re.sub(r'src="[^"]*"', 'src="' + new_src + '"', tag)
+
+    return re.sub(r"<img[^>]*>", _fix, html)
+
+
+def merge_tokens(original, additions):
+    tokens = original.split()
+    seen = set(tokens)
+    s = list(tokens)
+    for a in additions:
+        if a not in seen:
+            s.append(a)
+            seen.add(a)
+    return " ".join(s)
+
+
+def compute_beautify_additions(tokens_set):
+    add = []
+    if "min-h-screen" in tokens_set and "flex" in tokens_set:
+        add += ["md:mx-auto", "md:max-w-4xl"]
+    if "grid-cols-2" in tokens_set:
+        add += ["md:grid-cols-3"]
+    if "rounded-lg" in tokens_set and "p-4" in tokens_set:
+        add += ["max-w-sm", "w-full", "mx-auto"]
+    if any(t.startswith("text-") for t in tokens_set):
+        add += ["leading-relaxed"]
+    return list(dict.fromkeys(add))
+
+
+def get_ratio_tag(w, h):
+    ratio = w / h
+    if 0.9 <= ratio <= 1.4:
+        return "ratio-4-3"
+    if ratio > 1.4:
+        return "ratio-16-9"
+    return "ratio-mobile"
+
+
+def transform_node(node, ratio_tag=None, apply_beautify=True):
+    if not isinstance(node, dict):
+        return node
+    node = deepcopy(node)
+    if "className" in node and isinstance(node["className"], str):
+        orig = node["className"]
+        ts = set(orig.split())
+        fc = orig
+        if apply_beautify:
+            fc = merge_tokens(fc, compute_beautify_additions(ts))
+        if ratio_tag:
+            fc = merge_tokens(fc, [ratio_tag])
+        node["className"] = fc
+    if "children" in node and isinstance(node["children"], list):
+        node["children"] = [
+            transform_node(c, ratio_tag, apply_beautify) for c in node["children"]
+        ]
+    return node
+
+
+def json_to_html(node):
+    if not isinstance(node, dict):
+        return ""
+    tag = node.get("name", "div")
+    cn = node.get("className", "")
+    params = node.get("params", {})
+    children = node.get("children", [])
+    parts = ['class="' + cn + '"'] if cn else []
+    inner = ""
+    for k, v in params.items():
+        if k == "textContent":
+            inner = str(v)
+        else:
+            parts.append(k + '="' + str(v) + '"')
+    attrs = " ".join(parts)
+    child_html = "".join(json_to_html(c) for c in children)
+    return "<" + tag + " " + attrs + ">" + inner + child_html + "</" + tag + ">"
+
+
+def wrap_in_template(body, width, height, show_frame):
+    fc = (
+        "box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);border-radius:20px;"
+        if show_frame else ""
+    )
+    css = (
+        "body{background:#f3f4f6;display:flex;justify-content:center;"
+        "padding:20px 0;margin:0;}"
+        ".phone-canvas{width:" + str(width) + "px;height:" + str(height) + "px;"
+        "background:white;overflow-y:auto;position:relative;" + fc + "}"
+    )
+    return (
+        "<!DOCTYPE html>\n"
+        '<html lang="zh-CN"><head>\n'
+        '  <meta charset="UTF-8">\n'
+        '  <script src="https://cdn.tailwindcss.com"></script>\n'
+        "  <style>" + css + "</style>\n"
+        "</head><body>\n"
+        '  <div class="phone-canvas">' + body + "</div>\n"
+        "</body></html>"
+    )
+
+
+def rebuild_html(raw_output, width, height, show_frame, apply_beautify):
+    raw_json = json.loads(raw_output.strip())
+    ratio_tag = get_ratio_tag(width, height)
+    adapted = transform_node(raw_json, ratio_tag=ratio_tag, apply_beautify=apply_beautify)
+    body_inner = json_to_html(adapted)
+    html = wrap_in_template(body_inner, width, height, show_frame)
+    html = replace_invalid_images(html)
+    return html, adapted, ratio_tag
+
+
+# Streamlit page
+st.set_page_config(page_title="AI UI Generator", page_icon="📱", layout="wide")
+
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+html, body, [class*='css'] { font-family: 'Noto Sans SC', sans-serif; }
+.main-title {
+    font-size:2rem; font-weight:700;
+    background:linear-gradient(135deg,#6366f1,#06b6d4);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.sub-title { color:#6b7280; font-size:0.95rem; margin-bottom:1.5rem; }
+.ok-box  { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px;
+           padding:0.75rem 1rem; color:#166534; font-size:0.9rem; }
+.warn-box{ background:#fffbeb; border:1px solid #fde68a; border-radius:10px;
+           padding:0.75rem 1rem; color:#92400e; font-size:0.9rem; }
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="main-title">📱 AI 界面生成器</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-title">输入页面需求，由 Qwen3-0.6B 微调模型（vLLM 加速）自动生成 UI 并实时渲染</div>', unsafe_allow_html=True)
+
+server_ok = check_server()
+if not server_ok:
+    st.markdown('<div class="warn-box">⚠️ vLLM 推理服务未启动，请先运行：<code>python3 /root/autodl-tmp/vllm_server.py</code></div>', unsafe_allow_html=True)
+
+with st.sidebar:
+    st.header("🖼️ 画布设置")
+    width  = st.number_input("目标宽度 (px)", value=375, min_value=320, max_value=1920)
+    height = st.number_input("目标高度 (px)", value=812, min_value=480, max_value=1920)
+    st.divider()
+    st.header("⚙️ 适配配置")
+    apply_beautify = st.checkbox("启用智能美化规则", value=True)
+    show_frame     = st.checkbox("显示模拟器边框",   value=True)
+    if st.session_state.get("raw_output"):
+        st.divider()
+        st.caption("修改画布尺寸或适配配置后，点击下方按钮重新渲染（无需重新生成）：")
+        apply_changes_btn = st.button(
+            "🔄 应用更改",
+            use_container_width=True,
+            help="使用当前画布/适配设置重新渲染已生成的 JSON，不重新调用模型",
+        )
+    else:
+        apply_changes_btn = False
+    st.divider()
+    st.header("🎛️ 生成参数")
+    max_new_tokens     = st.slider("最大 Token 数",  256, 4096, 2048, 64)
+    temperature        = st.slider("Temperature",   0.0,  1.0,  0.1, 0.05)
+    top_p              = st.slider("Top-p",         0.5,  1.0,  0.9, 0.05)
+    repetition_penalty = st.slider("重复惩罚",       1.0,  1.5,  1.1, 0.05)
+    st.divider()
+    st.caption(f"vLLM 服务状态：{'🟢 在线' if server_ok else '🔴 离线'}")
+    st.caption(f"API 地址：{VLLM_API}")
+
+col_left, col_right = st.columns([1, 1], gap="large")
+
+with col_left:
+    st.subheader("✏️ 输入需求")
+    st.caption("快捷示例：")
+    examples = [
+        "设计商品首页，意图：浏览商品",
+        "设计搜索页面，意图：输入关键词",
+        "设计购物车页面，意图：管理已选商品（增/删）",
+        "设计商品详情页面，意图：立即购买",
+        "设计订单确认页面，意图：选择收货地址",
+        "设计登录页面，意图：用户登录",
+    ]
+    btn_cols = st.columns(2)
+    for i, ex in enumerate(examples):
+        if btn_cols[i % 2].button(ex, key=f"ex_{i}", use_container_width=True):
+            st.session_state["instruction"] = ex
+    instruction = st.text_area(
+        "页面描述 / 指令",
+        value=st.session_state.get("instruction", ""),
+        height=120,
+        placeholder="例如：设计商品首页，意图：浏览商品",
+    )
+    generate_btn = st.button(
+        "🚀 生成 UI",
+        type="primary",
+        use_container_width=True,
+        disabled=(not instruction.strip() or not server_ok),
+    )
+    if st.session_state.get("raw_output"):
+        with st.expander("📄 模型原始输出（JSON）", expanded=False):
+            st.code(st.session_state["raw_output"], language="json")
+
+with col_right:
+    st.subheader("👁️ 实时预览")
+    status_slot  = st.empty()
+    action_slot  = st.empty()
+    divider_slot = st.empty()
+    preview_slot = st.empty()
+    if st.session_state.get("final_html"):
+        final_html = st.session_state["final_html"]
+        ratio_tag  = st.session_state.get("ratio_tag", "")
+        elapsed    = st.session_state.get("elapsed", 0)
+        status_slot.markdown(
+            f'<div class="ok-box">✅ 渲染成功 · 布局：<strong>{ratio_tag}</strong>'
+            f' · 耗时：<strong>{elapsed:.2f}s</strong> · 引擎：vLLM</div>',
+            unsafe_allow_html=True,
+        )
+        b64 = base64.b64encode(final_html.encode()).decode()
+        c1, c2 = action_slot.columns(2)
+        c1.markdown(
+            f'<a href="data:text/html;base64,{b64}" target="_blank" style="text-decoration:none;">'
+            f'<button style="width:100%;background:#6366f1;color:white;padding:10px 0;'
+            f'border:none;border-radius:8px;cursor:pointer;font-size:14px;">🔗 新标签页预览</button></a>',
+            unsafe_allow_html=True,
+        )
+        c2.download_button(
+            "📥 下载 HTML",
+            data=final_html,
+            file_name=f"ui_{width}x{height}.html",
+            mime="text/html",
+            use_container_width=True,
+        )
+        divider_slot.divider()
+        with preview_slot:
+            st.components.v1.html(final_html, height=height + 60, scrolling=True)
+        with st.expander("🗂️ 适配后 JSON 结构"):
+            st.json(st.session_state.get("adapted_json", {}))
+    else:
+        preview_slot.info("生成结果将在此处实时显示")
+
+# Apply changes trigger
+if apply_changes_btn and st.session_state.get("raw_output"):
+    try:
+        final_html, adapted, ratio_tag = rebuild_html(
+            st.session_state["raw_output"],
+            width, height, show_frame, apply_beautify,
+        )
+        st.session_state["final_html"]   = final_html
+        st.session_state["adapted_json"] = adapted
+        st.session_state["ratio_tag"]    = ratio_tag
+        st.rerun()
+    except json.JSONDecodeError as e:
+        st.error(f"JSON 解析失败，无法应用更改：{e}")
+    except Exception as e:
+        st.error(f"应用更改失败：{e}")
+
+# Generate trigger
+if generate_btn and instruction.strip() and server_ok:
+    st.session_state["instruction"] = instruction.strip()
+    with col_right:
+        with st.spinner("🤖 vLLM 推理中，请稍候..."):
+            try:
+                raw_output, elapsed = generate_ui_json(
+                    instruction=instruction.strip(),
+                    max_new_tokens=max_new_tokens,
+                    temperature=temperature,
+                    top_p=top_p,
+                    repetition_penalty=repetition_penalty,
+                )
+                final_html, adapted, ratio_tag = rebuild_html(
+                    raw_output, width, height, show_frame, apply_beautify
+                )
+                st.session_state["raw_output"]   = raw_output
+                st.session_state["final_html"]   = final_html
+                st.session_state["adapted_json"] = adapted
+                st.session_state["ratio_tag"]    = ratio_tag
+                st.session_state["elapsed"]      = elapsed
+                st.rerun()
+            except json.JSONDecodeError as e:
+                st.session_state["raw_output"] = raw_output
+                st.error(f"JSON 解析失败: {e}")
+            except Exception as e:
+                st.error(f"生成失败：{e}")
